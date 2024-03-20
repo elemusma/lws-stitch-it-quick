@@ -1,0 +1,11 @@
+.about-side-links {
+    text-decoration: none;
+}
+
+.about-side-links-bg {
+    transition: all .25s ease-in-out;
+}
+
+.about-side-links:hover .about-side-links-bg {
+    background: var(--accent-secondary) !important;
+}

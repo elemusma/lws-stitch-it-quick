@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Navigation tooltips - fullPage.js</title>
+    <meta name="author" content="Matthew Howell" />
+    <meta name="description" content="fullPage continuous scrolling demo." />
+    <meta name="keywords"  content="fullpage,jquery,demo,scroll,loop,continuous" />
+    <meta name="Resource-type" content="Document" />
+
+
+
+
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+</head>
+<body>
+
+    <link rel="stylesheet" type="text/css" href="fullpage.min.css" />
+    <link rel="stylesheet" type="text/css" href="examples.css" />
+    <link rel="stylesheet" type="text/css" href="custom.css" />
+<ul id="menu">
+    <li data-menuanchor="firstPage" class="active"><a href="#firstPage">First slide</a></li>
+    <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
+    <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
+</ul>
+
+
+
+
+<div id="fullpage">
+    <div class="section" id="section0">
+        <div class="intro">
+          <h1>Section 1</h1>
+          <p>
+            Use the `navigationTooltips` option to use a text for each of the bullets in the navigation element.
+          </p>
+        </div>
+    </div>
+    <div class="section" id="section1">
+        <h1>Section 2</h1>
+    </div>
+    <div class="section" id="section2">
+        <h1>Section 3</h1>
+    </div>
+</div>
+
+<script type="text/javascript" src="fullpage.min.js"></script>
+<script type="text/javascript" src="examples.js"></script>
+<script type="text/javascript">
+    var myFullpage = new fullpage('#fullpage', {
+        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+        anchors: ['firstPage', 'secondPage', '3rdPage'],
+        navigation:true,
+        // autoScrolling:false,
+        // fitToSection: false,
+        navigationTooltips: ['Page 1', 'Page 2', 'Any text!'],
+        showActiveTooltip: true,
+        menu: '#menu'
+    });
+</script>
+
+</body>
+</html>

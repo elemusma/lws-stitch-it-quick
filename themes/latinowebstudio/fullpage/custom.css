@@ -1,0 +1,84 @@
+/* content section */
+.bar {
+    background: #d2b572;
+    height: 10px;
+    min-width: 250px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bar.top{
+    margin-bottom:45px;
+}
+.bar.bottom{
+    margin-top:45px;
+}
+.content {
+    background: rgba(0, 0, 0, 0.25);
+}
+/* content font */
+.section h2{
+    font-size:6rem;
+    margin-bottom:18px;
+}
+/* navigation menu on the side */
+div#fp-nav {
+    z-index: 2;
+}
+#fp-nav ul li a span, #fp-nav ul li a.active span {
+background:transparent;
+width: 0;
+}
+#fp-nav ul li, .fp-slidesNav ul li {
+width: 110px;
+border-right: 2px solid #d2b572;
+margin-top: 9px !important;
+height: 25px;
+overflow: visible;
+}
+#fp-nav ul li a, .fp-slidesNav ul li a {
+    width: 200%;
+    transform: translate(-50%, 0);
+}
+/* for active nav tab */
+.active ~ .fp-tooltip.fp-right {
+    background: white;
+    padding: 0px 19px;
+    font-weight: 900;
+    color: black !important;
+    text-transform: uppercase;
+    right: 0 !important;
+    margin-right: 40px;
+    text-shadow: none !important;
+}
+/* for hover */
+#fp-nav ul li .fp-tooltip {
+    overflow: visible !important;
+    width: auto;
+    opacity: 1;
+    color: #d2b572;
+    font-weight: 700;
+    text-shadow: 1px 1px black;
+    transition: all .5s ease;
+}
+#fp-nav ul li:hover a span, .fp-slidesNav ul li:hover a span {
+    width: 2px !important;
+    margin-left: 0 !important;
+    height: 36px !important;
+}
+#fp-nav ul li, .fp-slidesNav ul li {
+    height: 36px;
+    margin: 0;
+}
+@media screen and (max-width:767px){
+    #fp-nav.fp-right {
+        display:none;
+    }
+    .content h2{
+        font-size:2.5rem;
+    }
+    .content p {
+        width: 80%;
+        font-size: 1rem;
+    }
+}

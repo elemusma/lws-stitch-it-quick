@@ -1,0 +1,19 @@
+{
+    "name": "acf/industries",
+    "title": "Industries",
+    "description": "A custom industries block.",
+    "style": [
+        "file:./industries.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "industries",
+        "quote"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "industries.php"
+    },
+    "align": "full"
+}

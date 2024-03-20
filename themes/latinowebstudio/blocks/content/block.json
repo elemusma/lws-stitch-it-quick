@@ -1,0 +1,19 @@
+{
+    "name": "acf/content",
+    "title": "Content",
+    "description": "A custom content block.",
+    "style": [
+        "file:./content.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "content",
+        "quote"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "content.php"
+    },
+    "align": "full"
+}

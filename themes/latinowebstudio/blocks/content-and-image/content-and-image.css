@@ -1,0 +1,72 @@
+.listing-carousel.owl-carousel .owl-stage {
+    display: flex;
+}
+
+/* ul.slick-dots {
+    display: inline-table;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.layout {
+    width: 600px;
+    margin: 10px auto;
+    position: relative;
+}
+
+.layout a {
+    color: #666;
+}
+
+.slide {
+    display: none;
+}
+
+.slide li {
+    list-style: none;
+}
+
+.slide.slick-initialized {
+    display: block;
+}
+
+.slick-dots {
+    margin-top: 5px;
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+    justify-content: center;
+}
+
+.slick-dots li {
+    list-style: none;
+    display: inline-block;
+    max-width: 112px;
+    max-height: 56px;
+    margin: 5px;
+}
+
+.slick-dots li img {
+    opacity: 0.5;
+    width: 80%;
+    height: auto;
+}
+
+.slick-dots li.slick-active img {
+    opacity: 1;
+}
+
+.slick-prev {
+    position: absolute;
+    z-index: 99;
+    top: 120px;
+    left: -50px;
+}
+
+.slick-next {
+    position: absolute;
+    z-index: 99;
+    top: 120px;
+    right: -50px;
+} */

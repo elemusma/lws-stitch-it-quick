@@ -1,0 +1,170 @@
+.text-white *,
+.text-white {
+  color: white;
+}
+
+.text-white a:hover {
+  color: white;
+}
+
+.text-accent,
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.text-accent-secondary {
+  color: var(--accent-secondary);
+}
+
+.text-accent-tertiary {
+  color: var(--accent-tertiary);
+}
+
+.text-gray {
+  color: #585556;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px 3px black;
+}
+
+.text-black {
+  color: black;
+}
+
+a.text-black:hover {
+  color: black;
+}
+
+.lh-1 {
+  line-height: 1;
+}
+
+.ls-1 {
+  letter-spacing: 1em;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.wp-block-quote {
+  border-left: 2px solid;
+  margin: 0 0 1.75em;
+  padding-left: 1em;
+  font-style: italic;
+  font-size: 18px;
+}
+
+html,
+body {
+  font-family: 'poppinsregular';
+}
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6{
+  font-family: 'poppinsbold';
+  line-height: 1;
+  margin:0;
+}
+
+h1, .h1 {
+  font-size: 3.5rem;
+}
+h2, .h2 {
+  font-size: 3rem;
+}
+h3, .h3 {
+  font-size: 2.5rem;
+}
+h4, .h4 {
+  font-size: 2rem;
+}
+h5,.h5{
+  font-size:1.5rem;
+}
+.lead,h6,.h6{
+  font-size:1.25rem;
+}
+
+.light {
+  font-family: 'poppinslight';
+}
+
+.extra-light {
+  font-family: 'poppinsextralight';
+}
+
+.medium {
+  font-family: 'poppinsmedium';
+}
+
+.semi-bold{
+  font-family: 'poppinssemibold';
+}
+
+.bold,
+strong,b {
+  font-family: 'poppinsbold';
+}
+
+.arrows li {
+  position: relative;
+  list-style: none;
+  color: #a4a3a3;
+  font-style: italic;
+  font-family: 'poppinsbold';
+}
+
+.arrows li:before {
+  content: "";
+  background: url('https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-Gold.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  left: -30px;
+}
+
+blockquote {
+  font-size: 90%;
+}
+
+.cormorant-garamond {
+  font-family: cormorant-garamond, serif;
+}
+
+.cormorant-garamond.bold {
+  font-family: cormorant-garamond, serif;
+}
+
+@media only screen and (max-width:767px) {
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+  h2, .h2 {
+    font-size: 2.25rem;
+  }
+  h3, .h3 {
+    font-size: 2rem;
+  }
+  h4, .h4 {
+    font-size: 1.75rem;
+  }
+  h5,.h5{
+    font-size:1.5rem;
+  }
+  .lead,h6,.h6{
+    font-size:1.25rem;
+  }
+}
+
+/* 
+font-family: cormorant-garamond, serif; 
+font-weight:300;
+font-weight:400;
+font-weight:500;
+font-weight:600;
+font-weight:700;
+*/

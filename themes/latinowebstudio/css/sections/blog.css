@@ -1,0 +1,82 @@
+/* queries */
+.blog-content {
+  bottom: 0;
+  z-index: 1;
+}
+
+.blog-content p a {
+  color: white;
+}
+
+/*  */
+.col-blog img.blog-img {
+  height: 150px;
+  object-fit: contain;
+}
+
+.blog-posts-meta a {
+  font-family: unset;
+}
+
+/* comments */
+.comment-form-comment label {
+  display: block;
+}
+
+textarea#comment {
+  width: 100%;
+}
+
+input#submit,
+input#searchsubmit {
+  background: var(--accent-primary);
+  border: none;
+  padding: 10px 30px;
+  color: white;
+  cursor: pointer;
+  cursor: pointer;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+input#searchsubmit:hover {
+  background: var(--accent-secondary);
+}
+
+input#s {
+  width: 100%;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+}
+
+/* pagination */
+span.page-numbers.current {
+  background: white !important;
+  border: 2px solid var(--accent-primary);
+  padding: 10px 20px !important;
+  color: var(--accent-primary) !important;
+  margin: 0 5px 10px !important;
+}
+
+.page-numbers {
+  background: var(--accent-primary) !important;
+  border: 2px solid var(--accent-primary);
+  padding: 10px 20px !important;
+  color: white !important;
+  margin: 0 5px 10px !important;
+  display: inline-block;
+  transition: all .25s ease-in-out;
+}
+
+.page-numbers:hover {
+  color: var(--accent-primary) !important;
+  background: white !important;
+}
+
+ul.page-numbers {
+  border: none !important;
+}
+
+.woocommerce nav.woocommerce-pagination ul li {
+  border: none;
+}

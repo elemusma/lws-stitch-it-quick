@@ -1,0 +1,17 @@
+/* start of tabs */
+.col-tabs {
+    transition: all .25s ease-in-out;
+}
+
+.col-tabs:hover {
+    background: var(--accent-tertiary) !important;
+    color: white !important;
+}
+
+@media only screen and (max-width:768px) {
+	.tabs-divider {
+		display:none;
+	}
+}
+
+/* end of tabs */

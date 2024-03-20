@@ -1,0 +1,68 @@
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background: transparent !important;
+}
+
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  color: #eaeaea !important;
+}
+
+button.owl-next,
+button.owl-prev {
+  outline: none !important;
+}
+
+@media only screen and (min-width: 1260px) {
+
+  .arrows-middle button.owl-next,
+  .arrows-middle button.owl-prev {
+    position: absolute;
+    top: 50%;
+  }
+
+  .arrows-middle button.owl-prev {
+    left: -5%;
+    transform: translate(0, -50%);
+  }
+
+  .arrows-middle button.owl-next {
+    right: -5%;
+    transform: translate(0, -50%);
+  }
+}
+
+@media only screen and (max-width:991px) {
+  .mobile-arrows button.owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+  }
+
+  .mobile-arrows button.owl-next {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+  }
+}
+
+.owl-prev span,
+.owl-next span {
+  font-size: 4rem;
+}
+
+/* for background galleries */
+.position-absolute .owl-stage-outer,
+.position-absolute .owl-stage,
+.position-absolute .owl-item {
+  height: 100%;
+}
+
+.lb-nav a.lb-next {
+  background: url('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/images/next.png') right 48% no-repeat !important;
+  opacity: 1 !important;
+}
+
+.lb-nav a.lb-prev {
+  background: url('https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/images/prev.png') right 48% no-repeat !important;
+  opacity: 1 !important;
+  width: 6% !important;
+}

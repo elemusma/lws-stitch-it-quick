@@ -1,0 +1,81 @@
+.about {
+  padding: 0 0 27px;
+}
+
+.about-middle {
+  /* background: rgba(95, 92, 104, .71); */
+  background: #f7f7f7;
+  padding: 1rem;
+  z-index: 1;
+  position: absolute;
+  height: 100% !important;
+  width: 100%;
+  content: "";
+}
+
+.about-details {
+  position: relative;
+  z-index: 2;
+}
+
+.about img {
+  margin-left: -30px;
+  margin-top: -30px;
+  max-width: 150px !important;
+}
+
+.about-before {
+  background: #396680;
+  top: -50px;
+  right: 20px;
+  position: absolute;
+  height: 65%;
+  width: 65%;
+  content: "";
+  opacity: 25%
+}
+
+.about-first-half {
+  background: white;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+.about-after {
+  content: "";
+  background: #C8BF9F;
+  width: 25%;
+  height: 90%;
+  position: absolute;
+  bottom: -20px;
+  right: -35px;
+  opacity: 85%;
+  z-index: 0 !important;
+}
+
+.about-details .bodoni {
+  margin-bottom: 0;
+  padding-top: 24px;
+  font-size: 3rem;
+  line-height: 0.75;
+}
+
+.about-details h5 {
+  color: #beb0a9;
+  /* transform: translate(105px, 0); */
+  font-size: 2rem;
+  width: 80%;
+  font-weight: 300 !important;
+  line-height: 1;
+}
+
+@media only screen and (max-width:991px) {
+  .about-after {
+    right: 0px;
+    bottom: unset;
+    top: -2%;
+    height: 105%;
+  }
+}

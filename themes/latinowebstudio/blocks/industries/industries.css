@@ -1,0 +1,21 @@
+/* body {
+    background: red;
+} */
+
+@media only screen and (min-width:992px) {
+    section.industries {
+        margin-top: -43px;
+    }
+}
+
+@media only screen and (max-width:991px) {
+    section.industries {
+        margin-top: -50px;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    section.industries {
+        margin-top: -38px;
+    }
+}

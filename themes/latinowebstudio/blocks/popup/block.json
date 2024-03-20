@@ -1,0 +1,20 @@
+{
+    "name": "acf/popup",
+    "title": "Popup",
+    "description": "A custom popup block.",
+    "style": [
+        "file:./popup.css",
+        "file:./popup.js"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "popup",
+        "quote"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "popup.php"
+    },
+    "align": "full"
+}

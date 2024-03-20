@@ -1,0 +1,77 @@
+input.gform_button.button {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    border-radius: 25px;
+    padding: 10px 35px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+    max-width: 250px;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+    color: white;
+    box-shadow: none !important;
+}
+
+input.gform_button.button:hover {
+    background-color: var(--accent-secondary);
+    border-color: var(--accent-secondary);
+}
+
+.gform_footer.top_label {
+    margin-bottom: -90px !important;
+}
+
+input,
+textarea {
+    box-shadow: inset 1px 1px 8px #eaeaea !important;
+    border: none;
+}
+
+input[type=file] {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/* custom form */
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #eaeaea;
+    box-shadow: inset 1px 1px 5px rgba(0, 0, 0, .5);
+    padding: 5px 15px;
+    outline-color: var(--accent-primary);
+}
+
+label {
+    font-weight: 700;
+    font-size: 90%;
+    margin-top: 15px;
+}
+
+button[type=submit] {
+    background: var(--accent-primary);
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    transition: all .25s ease-in-out;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button[type=submit]:hover {
+    background: var(--accent-secondary);
+}
+
+input:focus-visible,
+textarea:focus-visible {
+    outline-color: var(--accent-secondary);
+}
+
+input::placeholder,
+textarea::placeholder {
+    /* color: red; */
+    font-weight: 900;
+}

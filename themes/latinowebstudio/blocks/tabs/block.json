@@ -1,0 +1,18 @@
+{
+    "name": "acf/tabs",
+    "title": "Tabs",
+    "description": "A custom tabs block.",
+    "style": [
+        "file:./tabs.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "tabs"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "tabs.php"
+    },
+    "align": "full"
+}

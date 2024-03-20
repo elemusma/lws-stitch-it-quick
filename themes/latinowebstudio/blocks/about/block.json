@@ -1,0 +1,19 @@
+{
+    "name": "acf/about",
+    "title": "About",
+    "description": "A custom about block.",
+    "style": [
+        "file:./about.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "about",
+        "company"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "about.php"
+    },
+    "align": "full"
+}

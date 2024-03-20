@@ -1,0 +1,9 @@
+@media only screen and (max-width:991px) {
+    .img-gallery {
+        height: 215px !important;
+    }
+}
+
+.col-listings:hover .listings-overlay {
+    opacity: 0 !important;
+}

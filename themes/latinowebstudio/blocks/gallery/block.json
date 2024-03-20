@@ -1,0 +1,18 @@
+{
+    "name": "acf/gallery",
+    "title": "Gallery",
+    "description": "A custom gallery block.",
+    "style": [
+        "file:./gallery.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "gallery"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "gallery.php"
+    },
+    "align": "full"
+}

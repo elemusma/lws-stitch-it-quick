@@ -1,0 +1,19 @@
+{
+    "name": "acf/applications",
+    "title": "Applications",
+    "description": "A custom applications block.",
+    "style": [
+        "file:./applications.css"
+    ],
+    "category": "formatting",
+    "icon": "admin-customizer",
+    "keywords": [
+        "applications",
+        "quote"
+    ],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "applications.php"
+    },
+    "align": "full"
+}

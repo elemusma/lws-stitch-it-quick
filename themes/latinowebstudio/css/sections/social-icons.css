@@ -1,0 +1,24 @@
+.si svg {
+    height:15px;
+    width: auto;
+}
+.svg-icon {
+    border: 1px solid black;
+    height:40px;
+    width:40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.svg-icon,.svg-icon path {
+    transition:all .25s ease-in-out;
+}
+a:hover .svg-icon {
+    background:var(--accent-primary);
+    border-color:var(--accent-primary);
+}
+a:hover .svg-icon path {
+    fill: white;
+}

@@ -1,0 +1,215 @@
+.no-link a {
+    pointer-events: none;
+}
+
+ul.menu li {
+    padding: 9px 0;
+    position: relative;
+}
+
+ul.menu>li.menu-item-has-children {
+    margin-right: 18px;
+}
+
+.dropdown-arrow {
+    clip-path: polygon(100% 0, 0 0, 50% 100%);
+    -webkit-clip-path: polygon(100% 0, 0 0, 50% 100%);
+    -ms-clip-path: polygon(100% 0, 0 0, 50% 100%);
+    width: 9px;
+    height: 9px;
+    top: 51%;
+    right: 0;
+    transform: translate(9px, -50%);
+}
+
+@media screen and (max-width:1199px) {
+    .dropdown-arrow {
+        top: 12px;
+        transform: translate(-5px, 0%);
+        width: 18px;
+        height: 15px;
+    }
+}
+
+ul.menu>li>a {
+    padding: 0px 9px;
+    color: white;
+    text-decoration:none;
+    transition:all .25s ease-in-out;
+    /* font-weight: 200; */
+    /* text-transform: uppercase; */
+    /* font-size: 14px;
+    font-family: unset; */
+    cursor:pointer;
+}
+
+ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
+.current_page_parent>a,
+#menu-main-menu>.current_page_item>a,
+.current_page_parent>.current-menu-item>a,
+.current-page-ancestor>a,
+#menu-main-menu .current_page_ancestor .current_page_item>a {
+    text-decoration: none;
+    color:var(--accent-secondary);
+}
+
+.free-gift a {
+    font-weight: 400 !important;
+}
+
+.nav .shopping-cart.menu svg {
+    fill: white;
+    height: 15px;
+}
+
+@media screen and (min-width:1200px) {
+    ul.menu li:first-child a {
+        border: none;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width:1199px) {
+    .nav ul.menu {
+        display: block !important;
+        /* padding: 0 20px 20px; */
+    }
+
+    /* ul.menu > li > a {
+        color:white;
+        font-weight: 700;
+        text-decoration:none;
+    } */
+    ul.menu>li.current-menu-item>a {
+        text-decoration: underline;
+    }
+
+    .menu-main-menu-container {
+        pointer-events: none;
+    }
+
+    .activate .menu-main-menu-container {
+        pointer-events: all;
+    }
+
+    .nav ul.shopping-cart.menu {
+        background: transparent;
+        display: flex !important;
+    }
+
+    .sub-menu-parent .sub-menu-parent {
+        height: 100%;
+        position: relative;
+    }
+
+    a#navToggle {
+        cursor: pointer;
+    }
+
+    .nav-toggle div div {
+        height: 5px;
+        width: 55px;
+        margin: 4px auto;
+        transition: all .75s ease-in-out;
+    }
+
+    .activate .line-1 {
+        transform: rotate(45deg) translate(6px, 18px);
+        transform-origin: right;
+    }
+
+    .activate .line-3 {
+        transform: rotate(-45deg) translate(4px, 3px);
+        transform-origin: left;
+    }
+
+    .activate .line-2 {
+        opacity: 0;
+    }
+
+    /* hides nav items */
+    div#navItems {
+        height: 100vh;
+        overflow: scroll;
+        transition: all 1s ease-in-out;
+        position: fixed;
+        top: 100%;
+        left: 0;
+        z-index: 3;
+    }
+
+    div#navMenuOverlay {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: rgba(0, 0, 0, .5);
+        transition: all 1s ease-in-out;
+    }
+
+    #navMenuOverlay {
+        left: -100%;
+    }
+
+    #navMenuOverlay.activate {
+        left: 0;
+    }
+
+    div#navItems.activate {
+        top: 0;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    ul.sub-menu {
+        padding: 0 20px;
+        position: absolute;
+        background: var(--accent-primary);
+        z-index: 10;
+        height: 0;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+        min-width: 100%;
+    }
+}
+
+/* @media screen and (max-width:1199px) {
+    ul.sub-menu {
+        height:100%!important;
+    }
+} */
+
+ul.sub-menu {
+    list-style: none;
+    overflow: hidden;
+    transition: all .25s ease-in-out;
+}
+
+ul.sub-menu li {
+    white-space: nowrap;
+}
+
+ul.sub-menu li a {
+    color: black;
+}
+
+@media only screen and (max-width:1199px) {
+    ul.sub-menu {
+        height: unset !important;
+    }
+
+    ul.sub-menu li a {
+        color: black;
+    }
+}
+
+/* for blog and other pages */
+.page-template-blog header#header,
+.single header#header,
+.archive header#header,
+.category header#header,
+.tag header#header,
+.search header#header {
+    background: #f3be7c;
+}
+
+/* website specific css */

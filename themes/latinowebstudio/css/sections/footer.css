@@ -1,0 +1,9 @@
+@media only screen and (min-width: 1200px) {
+    footer ul.menu li a {
+        border: none;
+        padding-left: 0;
+    }
+    footer ul.menu li:first-child {
+    padding-top: 0;
+}
+}
