@@ -1,3 +1,17 @@
+@keyframes rotate-infinite {
+from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+
+.txt-logo {
+animation: rotate-infinite 35s linear infinite; /* Adjust the duration as needed */
+transform-origin:center;
+}
+  
 .no-link a {
     pointer-events: none;
 }
@@ -17,7 +31,7 @@ ul.menu>li.menu-item-has-children {
     -ms-clip-path: polygon(100% 0, 0 0, 50% 100%);
     width: 9px;
     height: 9px;
-    top: 51%;
+    top: 45%;
     right: 0;
     transform: translate(9px, -50%);
 }
@@ -178,10 +192,11 @@ ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
     }
 } */
 
-ul.sub-menu {
+ul.sub-menu, ul.sub-menu * {
     list-style: none;
     overflow: hidden;
     transition: all .25s ease-in-out;
+    text-align: left;
 }
 
 ul.sub-menu li {
@@ -189,7 +204,10 @@ ul.sub-menu li {
 }
 
 ul.sub-menu li a {
-    color: black;
+    color: white;
+}
+ul.sub-menu li a:hover {
+    color: var(--accent-secondary);
 }
 
 @media only screen and (max-width:1199px) {
@@ -198,7 +216,7 @@ ul.sub-menu li a {
     }
 
     ul.sub-menu li a {
-        color: black;
+        color: white;
     }
 }
 

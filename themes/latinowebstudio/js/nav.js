@@ -79,7 +79,7 @@ function mouseOver() {
         if (window.matchMedia('(max-width: 1199px').matches) {
 
         } else {
-            arrow.className = "dropdown-arrow position-absolute bg-gray inactive";
+            arrow.className = "dropdown-arrow position-absolute bg-light inactive";
             menuItemHasChildren[i].append(arrow);
             menuItemHasChildren[i].addEventListener('mouseover', activeDropdown);
             menuItemHasChildren[i].addEventListener('mouseout', inActiveDropdown);
@@ -93,7 +93,7 @@ mouseOver();
 function clickMobile() {
     for (i = 0; i < menuItemHasChildrenMobile.length; i++) {
         arrowMobile = document.createElement("div");
-        arrowMobile.className = "dropdown-arrow position-absolute bg-gray inactive arrow-mobile mobile-hidden";
+        arrowMobile.className = "dropdown-arrow position-absolute bg-light inactive arrow-mobile mobile-hidden";
         menuItemHasChildrenMobile[i].append(arrowMobile);
         console.log(arrowMobile);
         console.log(this.menuItemHasChildrenMobile[i]);

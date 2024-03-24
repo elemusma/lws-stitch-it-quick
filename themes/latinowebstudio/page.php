@@ -1,30 +1,20 @@
 <?php get_header();
-global $post; 
-if ( ! post_password_required( $post ) ) {
-
-if(get_the_content()){
 
 if ( have_posts() ) : while ( have_posts() ) : the_post();
+// Output product price
+// echo '<p>Price: ' . wc_price(get_post_meta(get_the_ID(), '_regular_price', true)) . '</p>';
+        
+// // Output product short description
+// echo '<div class="short-description">' . apply_filters('woocommerce_short_description', get_the_excerpt()) . '</div>';
+
+// // Output product image
+// echo '<div class="product-image">' . woocommerce_get_product_thumbnail() . '</div>';
+
+// Output main content
 the_content();
 endwhile; else:
 echo '<p>Sorry, no posts matched your criteria.</p>';
 endif;
 
-}
-
-} else {
-// we will show password form here
-
-echo '<section class="pt-5 pb-5">';
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-md-12">';
-echo get_the_password_form();
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</section>';
-   
-}
 get_footer(); 
 ?>

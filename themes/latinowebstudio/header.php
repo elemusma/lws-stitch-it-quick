@@ -7,35 +7,6 @@ echo '<head>';
 echo '<meta charset="UTF-8">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
 
-// if(get_field('header', 'options')) { the_field('header', 'options'); }
-// if(get_field('header_code')) { the_field('header_code'); }
-
-// $options = get_option( 'my_framework' );
-// echo esc_html($options['code-header']);
-// echo '<br>';
-// echo htmlspecialchars(codeHeader());
-// echo '<br>';
-// echo esc_html(codeHeader());
-// echo '<br>';
-// echo esc_html(codeHeaderFive());
-// echo '<br>';
-// echo codeHeader();
-// echo '<br>';
-// echo codeHeaderFive();
-// echo '<br>';
-// echo logoSVG();
-
-
-// if(get_field('custom_css')) { 
-
-// echo '<style>';
-
-// the_field('custom_css');
-
-// echo '</style>';
-
-// }
-
 echo codeHeader();
 
 wp_head(); 
@@ -45,11 +16,9 @@ echo '<body ';
 body_class(); 
 echo '>';
 echo codeBody();
-// if(get_field('body','options')) { the_field('body','options'); }
-// if(get_field('body_code')) { the_field('body_code'); }
 
 echo '<div class="blank-space"></div>';
-echo '<header class="position-relative pt-3 pb-3 z-3 box-shadow bg-accent w-100" style="top:0;left:0;">';
+echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;">';
 
 echo '<div class="nav">';
 echo '<div class="container">';
@@ -58,7 +27,9 @@ echo '<div class="row align-items-center">';
 echo '<div class="col-lg-4 col-md-6 col-8 text-center">';
 
 echo '<a href="' . home_url() . '">';
+echo '<div style="width:75px;">';
 echo logoSVG();
+echo '</div>';
 echo '</a>';
 echo '</div>';
 echo '<div class="col-lg-8 col-6 text-center mobile-hidden">';
