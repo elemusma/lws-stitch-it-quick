@@ -32,7 +32,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-	const { section_style, section_class, section_id, section_image, section_image_class, section_image_style, section_block, container_style, container_class, container_id, row_style, row_class, row_id, col_style, col_class, col_id } = attributes;
+	const { section_style, section_class, section_id, section_image, section_image_class, section_image_style, section_block, container_style, container_class, container_id, row_style, row_class, row_id, col_style, col_class, col_id, col_data_aos, col_data_aos_delay } = attributes;
 
 	const [value, setValue] = useState('');
 	return (
@@ -162,6 +162,16 @@ export default function Edit({ attributes, setAttributes }) {
 						label="Column ID"
 						value={col_id}
 						onChange={(nextValue) => setAttributes({ col_id: nextValue })}
+					/>
+					<InputControl
+						label="Column Data AOS"
+						value={col_data_aos}
+						onChange={(nextValue) => setAttributes({ col_data_aos: nextValue })}
+					/>
+					<InputControl
+						label="Column Data AOS Delay"
+						value={col_data_aos_delay}
+						onChange={(nextValue) => setAttributes({ col_data_aos_delay: nextValue })}
 					/>
 				</PanelBody>
 			</InspectorControls>

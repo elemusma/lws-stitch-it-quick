@@ -24,7 +24,7 @@ echo '<div class="nav">';
 echo '<div class="container">';
 echo '<div class="row align-items-center">';
 
-echo '<div class="col-lg-4 col-md-6 col-8 text-center">';
+echo '<div class="col-lg-4 col-md-4 col-3 text-center">';
 
 echo '<a href="' . home_url() . '">';
 echo '<div style="width:75px;">';
@@ -32,7 +32,10 @@ echo logoSVG();
 echo '</div>';
 echo '</a>';
 echo '</div>';
-echo '<div class="col-lg-8 col-6 text-center mobile-hidden">';
+
+echo '<div class="col-1 mobile-hidden"></div>';
+
+echo '<div class="col-lg-4 col-6 text-center mobile-hidden">';
 
 wp_nav_menu(array(
     'menu' => 'primary',
@@ -40,8 +43,13 @@ wp_nav_menu(array(
     )); 
 
 echo '</div>';
+echo '<div class="col-lg-3 col-6 text-center">';
 
-echo '<div class="col-4 desktop-hidden">';
+echo get_search_form();
+
+echo '</div>';
+
+echo '<div class="col-lg-3 col-md-2 col-3 desktop-hidden">';
 echo '<a id="navToggle" class="nav-toggle">';
 echo '<div>';
 echo '<div class="line-1 bg-accent-secondary"></div>';

@@ -42,7 +42,7 @@ export default function save({ attributes }) {
 
 			<div className={attributes.container_class} style={attributes.container_style} id={attributes.container_id}>
 				<div className={attributes.row_class} style={attributes.row_style} id={attributes.row_id}>
-					<div className={attributes.col_class} style={attributes.col_style} id={attributes.col_id} data-aos="fade-up">
+					<div className={attributes.col_class} style={attributes.col_style} id={attributes.col_id} data-aos={attributes.col_data_aos} data-aos-delay={attributes.col_data_aos_delay}>
 					<InnerBlocks.Content />
 					</div>
 				</div>

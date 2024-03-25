@@ -73,6 +73,14 @@
 		"col_id": {
 			"type": "string",
 			"default": ""
+		},
+		"col_data_aos": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"col_data_aos_delay": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"textdomain": "content-block",

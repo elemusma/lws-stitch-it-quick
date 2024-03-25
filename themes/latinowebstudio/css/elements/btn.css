@@ -1,32 +1,33 @@
 .btn-main {
-    background: var(--accent-primary);
+    background: var(--accent-secondary);
     padding: 15px 35px;
     transition: all .25s ease-in-out;
     display: inline-block;
     text-decoration: none;
-    color: white;
+    color: black!important;
+    text-shadow:none;
     border-radius: 25px;
     text-transform: uppercase;
-    border:1px solid var(--accent-primary);
+    border:1px solid var(--accent-secondary);
     font-family: 'poppinssemibold';
     margin: 10px 0;
 }
 
 .btn-main:hover {
-    background: var(--accent-secondary);
-    border-color:var(--accent-secondary);
+    background: var(--accent-secondary-hover);
+    border-color:var(--accent-secondary-hover);
     text-decoration: none;
 }
 
 .btn-main.outline {
     border: 1px solid var(--accent-secondary);
-    color:var(--accent-secondary);
+    color:var(--accent-secondary) !important;
     background:transparent;
 }
 
 .btn-main.outline:hover {
     background: var(--accent-secondary);
-    color:white;
+    color:black !important;
 }
 .btn-main.outline.accent {
     border-color: var(--accent-primary);
@@ -35,7 +36,7 @@
 }
 
 .btn-main.outline.accent:hover {
-    background: var(--accent-primary);
+    background: var(--accent-secondary);
     color:white;
 }
 .btn-main.outline.white {

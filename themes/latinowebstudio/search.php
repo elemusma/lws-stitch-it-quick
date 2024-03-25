@@ -1,5 +1,5 @@
 <?php get_header(); ?> 
-<section class="pt-5 pb-5 body">
+<section class="body" style="padding:100px 0px;">
     <div class="container">
         <div class="row">
         <div class="col-lg-9 pr-lg-5">

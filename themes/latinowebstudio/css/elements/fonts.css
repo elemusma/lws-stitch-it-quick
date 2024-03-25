@@ -26,7 +26,7 @@ a {
 }
 
 .text-shadow {
-  text-shadow: 1px 1px 3px black;
+  text-shadow: var(--text-shadow);
 }
 
 .text-black {
@@ -110,21 +110,33 @@ strong,b {
 .arrows li {
   position: relative;
   list-style: none;
-  color: #a4a3a3;
+  /* color: #a4a3a3; */
+  text-shadow:var(--text-shadow);
   font-style: italic;
   font-family: 'poppinsbold';
 }
 
 .arrows li:before {
   content: "";
-  background: url('https://insideoutcreative.io/wp-content/uploads/2023/02/Arrow-Right-Gold.png');
+  background: url('/wp-content/uploads/2024/03/icon-house.png');
   background-repeat: no-repeat;
   background-size: contain;
   width: 20px;
   height: 20px;
   position: absolute;
-  top: 5px;
+  top: 0px;
   left: -30px;
+}
+
+@media only screen and (max-width:991px) {
+  .text-right .arrows li {
+    padding-right: 30px;
+}
+
+.text-right .arrows li::before {
+    right: 0;
+    left: unset;
+}
 }
 
 blockquote {
