@@ -1,4 +1,4 @@
-.btn-main {
+.btn-main, .btn-main a {
     background: var(--accent-secondary);
     padding: 15px 35px;
     transition: all .25s ease-in-out;
