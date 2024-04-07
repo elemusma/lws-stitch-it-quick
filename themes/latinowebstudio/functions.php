@@ -681,3 +681,52 @@ add_filter('get_search_form', 'custom_search_form');
 // remove_action('woocommerce_sidebar','woocommerce_get_sidebar');
 
 // add_theme_support('woocommerce');
+
+// Step 1: Add Custom Field to Product General Tab
+function custom_product_field() {
+    // Print HTML for your custom field
+    ?>
+    <div class="options_group">
+        <?php
+        woocommerce_wp_text_input(
+            array(
+                'id' => 'product_url_origin',
+                'label' => __('Product Origin URL', 'woocommerce'),
+                'placeholder' => __('Enter product origin here', 'woocommerce'),
+				'type'=>'url',
+                'desc_tip' => 'true',
+                'description' => __('Enter your product origin description here.', 'woocommerce')
+            )
+        );
+        ?>
+    </div>
+    <?php
+}
+add_action('woocommerce_product_options_general_product_data', 'custom_product_field');
+
+// Step 2: Save Custom Field Data
+function save_custom_product_field($product_id) {
+    // Save custom field data
+    $custom_field = isset($_POST['product_url_origin']) ? sanitize_text_field($_POST['product_url_origin']) : '';
+    update_post_meta($product_id, 'product_url_origin', $custom_field);
+}
+add_action('woocommerce_process_product_meta', 'save_custom_product_field');
+
+// // Add Custom Tab
+// function custom_product_tab($tabs) {
+//     // Add a new tab with a custom title and content callback
+//     $tabs['custom_tab'] = array(
+//         'title'     => __('Custom Tab', 'woocommerce'),
+//         'priority'  => 50,
+//         'callback'  => 'custom_tab_content'
+//     );
+//     return $tabs;
+// }
+// add_filter('woocommerce_product_tabs', 'custom_product_tab');
+
+// // Content for Custom Tab
+// function custom_tab_content() {
+//     // Output content for your custom tab
+//     echo '<h2>Custom Tab Content</h2>';
+//     echo '<p>This is where you can display additional information about your product.</p>';
+// }
