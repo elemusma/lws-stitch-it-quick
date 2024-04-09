@@ -24,7 +24,7 @@ echo '<div class="nav">';
 echo '<div class="container">';
 echo '<div class="row align-items-center">';
 
-echo '<div class="col-lg-4 col-md-4 col-3 text-center">';
+echo '<div class="col-lg-3 col-md-4 col-3 text-center">';
 
 echo '<a href="' . home_url() . '">';
 echo '<div style="width:75px;">';
@@ -33,9 +33,7 @@ echo '</div>';
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-1 mobile-hidden"></div>';
-
-echo '<div class="col-lg-4 col-6 text-center mobile-hidden">';
+echo '<div class="col-lg-6 col-6 text-center mobile-hidden">';
 
 wp_nav_menu(array(
     'menu' => 'primary',

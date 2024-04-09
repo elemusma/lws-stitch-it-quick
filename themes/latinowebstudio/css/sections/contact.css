@@ -1,11 +1,11 @@
 input.gform_button.button {
-  background-color: var(--accent-primary);
-  border-color: var(--accent-primary);
+  background-color: var(--accent-secondary);
+  border-color: var(--accent-secondary);
   border-radius: 25px;
   padding: 10px 35px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
-  max-width: 250px;
+  /* max-width: 250px; */
   width: 100%;
   /* margin: auto; */
   cursor: pointer;
@@ -14,8 +14,19 @@ input.gform_button.button {
 }
 
 input.gform_button.button:hover {
-  background-color: var(--accent-secondary);
-  border-color: var(--accent-secondary);
+  background-color: var(--accent-secondary-hover);
+  border-color: var(--accent-secondary-hover);
+}
+
+input#input_2_8 {
+  box-shadow: none !important;
+}
+
+.ginput_container.ginput_container_fileupload {
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  margin: auto;
 }
 
 /* .gform_footer.top_label {
