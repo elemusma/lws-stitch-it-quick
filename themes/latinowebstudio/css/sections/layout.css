@@ -601,7 +601,7 @@ body {
 
 /* Order */
 /* Extra Small Screens (col-xx-*) */
-@media (max-width: 575.98px) {
+/* @media (max-width: 575.98px) { */
     .order-1 {
         order: 1;
     }
@@ -649,7 +649,7 @@ body {
     .order-12 {
         order: 12;
     }
-}
+/* } */
 
 /* Small Screens (col-sm-*) */
 @media (min-width: 576px) {

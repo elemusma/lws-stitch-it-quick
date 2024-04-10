@@ -9,6 +9,12 @@ let blankSpace = document.querySelector('.blank-space');
 let logoMain = document.querySelector('#logo-main')
 let logoSecondary = document.querySelector('#logo-secondary')
 
+let searchIcon = document.querySelector('.search-icon');
+
+searchIcon.addEventListener('click', function () {
+    document.querySelector('.search-icon #s').focus();
+});
+
 window.addEventListener("scroll", parallaxEffect);
 
 function parallaxEffect() {

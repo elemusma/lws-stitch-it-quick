@@ -22,28 +22,43 @@ echo '</a>';
 echo '<p class="">' . companyAbout() . '</p>';
 
 echo '</div>';
-echo '<div class="col-lg-3 col-md-6 text-white">';
+echo '<div class="col-lg-3 col-md-4 col-6 text-white">';
 echo '<strong>Shop</strong>';
 echo '<p>';
+
 wp_nav_menu(array(
     'menu' => 'Product Categories',
     'menu_class'=>'menu list-unstyled text-white text-uppercase mt-0'
-    ));
+));
 
 echo '</div>';
+
 // echo '<div class="col-lg-3 text-white">';
 // echo '<strong>About</strong>';
 // echo '<p class="">' . companyAbout() . '</p>';
 
 // echo '</div>';
-echo '<div class="col-lg-3 text-white">';
+
+echo '<div class="col-lg-3 col-md-4 col-6 text-white">';
 echo '<strong>Account</strong>';
 echo '<p>';
+
 wp_nav_menu(array(
     'menu' => 'footer',
     'menu_class'=>'menu list-unstyled text-white text-uppercase mt-0'
-    ));
+));
+echo '</p>';
 
+echo '</div>';
+
+echo '<div class="col-lg-2 col-md-4 col-6 text-white">';
+echo '<strong>Navigation</strong>';
+echo '<p>';
+wp_nav_menu(array(
+    'menu' => 'Navigation',
+    'menu_class'=>'menu list-unstyled text-white text-uppercase mt-0'
+));
+echo '</p>';
 echo '</div>';
 
 echo '</div>';
@@ -71,12 +86,24 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</section>';
-echo '<div class="text-center bg-light" style="padding:15px 0px;">';
+echo '<div class="text-center bg-light" style="padding:15px;">';
     echo '<div class="d-flex justify-content-center align-items-center">';
         echo '<small class=""><a href="https://latinowebstudio.com/" target="_blank" rel="noopener noreferrer" title="Web Design, Web Development & SEO done by Latino Web Studio in Denver, CO" style="" class="">Web Design, Web Development & SEO in Denver, CO</a> done by Latino Web Studio</small>';
     echo '</div>';
 echo '</div>';
 echo '</footer>';
+
+echo '<div class="modal-content search-icon position-fixed w-100 h-100" style="opacity:0;z-index:20;">';
+echo '<div class="bg-overlay" style="background: rgba(0, 0, 0, 0.8);"></div>';
+echo '<div class="bg-content text-md-center text-left" style="background:transparent;padding: 150px 25px 50px;">';
+echo '<div class="bg-content-inner">';
+echo '<div class="close text-white" id="" style="background:transparent;font-size:2rem;right:55px;">X</div>';
+                
+echo get_search_form();
+
+echo '</div>';
+echo '</div>';
+echo '</div>';
 
 echo codeFooter();
 // if(get_field('footer', 'options')) { the_field('footer', 'options'); }

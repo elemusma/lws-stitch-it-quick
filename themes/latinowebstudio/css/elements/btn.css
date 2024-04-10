@@ -10,7 +10,7 @@
     text-transform: uppercase;
     border:1px solid var(--accent-secondary);
     font-family: 'poppinssemibold';
-    margin: 10px 0;
+    margin: 10px;
 }
 
 .btn-main:hover {
