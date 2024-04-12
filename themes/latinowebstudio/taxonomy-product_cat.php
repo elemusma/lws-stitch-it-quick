@@ -2,7 +2,7 @@
 
 get_header();
 
-echo '<section id="" class="content-area" style="padding:50px 0px;margin-top: 2.992em ">';
+echo '<section id="" class="content-area" style="padding:50px 0px;">';
     echo '<div id="" class="container">';
     echo '<div id="" class="row">';
     echo '<div id="" class="col-12">';

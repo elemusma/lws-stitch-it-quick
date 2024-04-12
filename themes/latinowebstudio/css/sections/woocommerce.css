@@ -23,7 +23,10 @@ span.ppom-option-label-price {
 input[type="checkbox"] {
     box-shadow: none !important;
 }
-tr.ppom-option-price-list.ppom-option-total-price {
+h3.wapo-addon-title.toggle-closed {
+    font-size: 20px;
+}
+/* tr.ppom-option-price-list.ppom-option-total-price {
     display: none;
 }
 tr.ppom-option-price-list.ppom-total-without-fixed {
@@ -35,7 +38,7 @@ tr.ppom-option-price-list.ppom-total-without-fixed th.ppom-label-item:after {
     left: 0px;
     background: white;
     padding: 0 15px;
-}
+} */
 /* end of product page */
 
 /* woocommerce shortcodes */
