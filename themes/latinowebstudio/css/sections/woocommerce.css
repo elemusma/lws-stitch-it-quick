@@ -10,6 +10,32 @@ button.single_add_to_cart_button.button.alt {
     color: var(--accent-primary);
     font-weight: 900;
 }
+.ppom-wrapper .form-check {
+    display: inline-block;
+}
+input[type="radio"] {
+    box-shadow: none !important;
+    width: auto;
+}
+span.ppom-option-label-price {
+    display: none;
+}
+input[type="checkbox"] {
+    box-shadow: none !important;
+}
+tr.ppom-option-price-list.ppom-option-total-price {
+    display: none;
+}
+tr.ppom-option-price-list.ppom-total-without-fixed {
+    position: relative;
+}
+tr.ppom-option-price-list.ppom-total-without-fixed th.ppom-label-item:after {
+    content: "Subtotal";
+    position: absolute;
+    left: 0px;
+    background: white;
+    padding: 0 15px;
+}
 /* end of product page */
 
 /* woocommerce shortcodes */
@@ -47,6 +73,12 @@ button.wp-block-button__link.wp-element-button.add_to_cart_button
     border-radius: 8px;
 }
 /* end of shop page */
+
+.wc-block-cart__submit-container {
+    background: var(--accent-secondary);
+    color: black !important;
+    font-weight: 900;
+}
 
 /* start of checkout page */
 form.checkout.woocommerce-checkout {

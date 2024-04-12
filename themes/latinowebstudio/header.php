@@ -23,15 +23,15 @@ echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;
 echo '<div class="nav">';
 echo '<div class="container">';
 
-echo '<div class="row align-items-center mobile-hidden">';
-echo '<div class="col-12 order-4 text-md-right text-center">';
-echo '<a href="/customer-provided-apparel/" class="text-accent-secondary">Customer Provided Apparel</a>';
-echo '</div>';
-echo '</div>';
+// echo '<div class="row align-items-center mobile-hidden">';
+// echo '<div class="col-12 order-4 text-md-right text-center">';
+// echo '<a href="/customer-provided-apparel/" class="text-accent-secondary">Customer Provided Apparel</a>';
+// echo '</div>';
+// echo '</div>';
 
 echo '<div class="row align-items-center">';
 
-echo '<div class="col-lg-3 col-md-4 col-3 text-center">';
+echo '<div class="col-lg-1 col-md-4 col-3 text-center">';
 // echo '<div class="col-lg-3 col-md-4 col-3 text-center order-lg-1 order-md-1 order-2">';
 
 echo '<div class="d-md-none" style="height:10px;"></div>';
@@ -43,12 +43,14 @@ echo '</div>';
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-lg-8 col-6 text-center mobile-hidden">';
+echo '<div class="col-lg-10 col-6 text-center mobile-hidden d-flex align-items-center justify-content-end">';
 
 wp_nav_menu(array(
     'menu' => 'Product Categories',
     'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end'
-    )); 
+));
+
+echo '<a href="/customer-provided-apparel/" class="text-accent-secondary" style="padding-left:15px;">Customer Provided Apparel</a>';
 
 echo '</div>';
 echo '<div class="col-md-1 col-3 text-center mobile-hidden">';
