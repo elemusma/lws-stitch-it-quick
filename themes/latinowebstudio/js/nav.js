@@ -6,8 +6,8 @@ let navMenuClose = document.querySelector('#navMenuClose');
 let header = document.querySelector('header');
 let blankSpace = document.querySelector('.blank-space');
 
-let logoMain = document.querySelector('#logo-main')
-let logoSecondary = document.querySelector('#logo-secondary')
+let logoMain = document.querySelector('#logoMain');
+let logoSecondary = document.querySelector('#logo-secondary');
 
 let searchIcon = document.querySelector('.search-icon');
 
@@ -22,11 +22,11 @@ function parallaxEffect() {
     header.classList.add('position-fixed');
     header.classList.remove('position-relative');
 
-    // if (scrollY < 299) {
-    //     logoMain.style.width = "275px"
-    // } else if (scrollY > 300) {
-    //     logoMain.style.width = "205px"
-    // }
+    if (scrollY < 299) {
+        logoMain.style.width = "75px"
+    } else if (scrollY > 300) {
+        logoMain.style.width = "50px"
+    }
 }
 
 // closes menu on menu item clicked, for anchor links

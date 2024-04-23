@@ -50,10 +50,6 @@ ul.menu>li>a {
     color: white;
     text-decoration:none;
     transition:all .25s ease-in-out;
-    /* font-weight: 200; */
-    /* text-transform: uppercase; */
-    /* font-size: 14px;
-    font-family: unset; */
     cursor:pointer;
 }
 

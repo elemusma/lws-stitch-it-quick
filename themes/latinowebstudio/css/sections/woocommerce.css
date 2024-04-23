@@ -43,7 +43,8 @@ tr.ppom-option-price-list.ppom-total-without-fixed th.ppom-label-item:after {
 
 /* woocommerce shortcodes */
 a.wp-block-button__link.wp-element-button.add_to_cart_button,
-button.wp-block-button__link.wp-element-button.add_to_cart_button
+button.wp-block-button__link.wp-element-button.add_to_cart_button,
+a.wp-block-button__link.add_to_cart_button
 {
     font-size: 100%;
     margin: 0;
@@ -64,6 +65,31 @@ button.wp-block-button__link.wp-element-button.add_to_cart_button
     box-shadow: none;
     text-shadow: none;
     cursor:pointer;
+    transition:all .25s ease-in-out;
+}
+/* a.wp-block-button__link.add_to_cart_button {
+    font-size: 100%;
+    margin: 0;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: .618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #515151;
+    background-color: #e9e6ed;
+    border: 0;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    transition:all .25s ease-in-out;
+} */
+a.wp-block-button__link.add_to_cart_button:hover {
+    background-color: #dcd7e3;
 }
 
 /* start of shop page */

@@ -17,8 +17,15 @@ body_class();
 echo '>';
 echo codeBody();
 
+
+// $role_slug = 'client_gates_enterprises'; // Replace with the role slug you want to check
+
 echo '<div class="blank-space"></div>';
+if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;margin-top:32px;">';
+} else {
 echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;">';
+}
 
 echo '<div class="nav">';
 echo '<div class="container">';
@@ -37,7 +44,7 @@ echo '<div class="col-lg-1 col-md-4 col-3 text-center">';
 echo '<div class="d-md-none" style="height:10px;"></div>';
 
 echo '<a href="' . home_url() . '">';
-echo '<div style="width:75px;">';
+echo '<div style="width:75px;transition:all 2s ease-in-out;" id="logoMain">';
 echo logoSVG();
 echo '</div>';
 echo '</a>';
@@ -45,12 +52,22 @@ echo '</div>';
 
 echo '<div class="col-lg-10 col-6 text-center mobile-hidden d-flex align-items-center justify-content-end">';
 
-wp_nav_menu(array(
-    'menu' => 'Product Categories',
-    'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end'
-));
+if ( currentUser() && in_array( currentUserGates(), currentUser()->roles ) ) {
+    // The current user has the specified role
+    wp_nav_menu(array(
+        'menu' => 'Gates Menu',
+        'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end'
+    ));
+} else {
+    // The current user does not have the specified role
+    wp_nav_menu(array(
+        'menu' => 'primary',
+        'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end'
+    ));
+}
 
-echo '<a href="/customer-provided-apparel/" class="text-accent-secondary" style="padding-left:15px;">Customer Provided Apparel</a>';
+
+// echo '<a href="/customer-provided-apparel/" class="text-accent-secondary" style="padding-left:15px;">Customer Provided Apparel</a>';
 
 echo '</div>';
 echo '<div class="col-md-1 col-3 text-center mobile-hidden">';
@@ -122,16 +139,16 @@ echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative">';
+// echo '<section class="hero position-relative">';
 // $globalPlaceholderImg = get_field('global_placeholder_image','options');
-if(is_page()){
-if(has_post_thumbnail()){
-    the_post_thumbnail('full', array(
-        'class' => 'w-100 h-100 bg-img position-absolute'
-    ));
-} 
+// if(is_page()){
+// if(has_post_thumbnail()){
+//     the_post_thumbnail('full', array(
+//         'class' => 'w-100 h-100 bg-img position-absolute'
+//     ));
+// } 
 
-}
+// }
 
 
 // if(is_front_page()) {
@@ -178,5 +195,5 @@ if(has_post_thumbnail()){
 // echo '</div>';
 // }
 
-echo '</section>';
+// echo '</section>';
 ?>

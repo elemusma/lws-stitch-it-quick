@@ -13,7 +13,7 @@ echo '<section id="" class="content-area" style="padding:50px 0px;">';
             echo '<header class="page-header">';
                 // do_action('woocommerce_before_main_content');
 
-                // echo 'hello';
+                echo '<p>hello</p>';
                 echo '<h1 class="">';
                 woocommerce_page_title();
                 echo '</h1>';
