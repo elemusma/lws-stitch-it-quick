@@ -20,7 +20,7 @@ echo codeBody();
 
 // $role_slug = 'client_gates_enterprises'; // Replace with the role slug you want to check
 
-echo '<div class="blank-space"></div>';
+echo '<div class="blank-space" style=""></div>';
 if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;margin-top:32px;">';
 } else {

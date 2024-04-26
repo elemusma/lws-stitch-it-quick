@@ -757,6 +757,22 @@ function save_custom_product_field($product_id) {
 }
 add_action('woocommerce_process_product_meta', 'save_custom_product_field');
 
+add_action('cs_framework_options', 'custom_cs_framework_options');
+function custom_cs_framework_options($options){
+    $options = array(); // Initialize the options array
+
+    // Add your Codestar option fields here
+    $options[] = array(
+        'id'      => 'opt-text',
+        'type'    => 'text',
+        'title'   => 'Text',
+        'default' => 'Hello world.'
+    );
+
+    return $options; // Return the modified options array
+}
+
+
 // // Add Custom Tab
 // function custom_product_tab($tabs) {
 //     // Add a new tab with a custom title and content callback

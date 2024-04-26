@@ -18,15 +18,20 @@ searchIcon.addEventListener('click', function () {
 window.addEventListener("scroll", parallaxEffect);
 
 function parallaxEffect() {
-    blankSpace.style.height = (((header.offsetHeight) - 1) + "px");
     header.classList.add('position-fixed');
     header.classList.remove('position-relative');
 
     if (scrollY < 299) {
         logoMain.style.width = "75px"
+        blankSpace.style.height = (((header.offsetHeight)) + "px");
     } else if (scrollY > 300) {
         logoMain.style.width = "50px"
+        blankSpace.style.height = (((header.offsetHeight)) + "px");
     }
+
+    // setTimeout(function() {
+        blankSpace.style.height = (((header.offsetHeight)) + "px");
+    // }, 2000); 
 }
 
 // closes menu on menu item clicked, for anchor links
