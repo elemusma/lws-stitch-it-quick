@@ -53,6 +53,15 @@ ul.menu>li>a {
     cursor:pointer;
 }
 
+a svg,
+a .cls-1.search {
+    transition:all .25s ease-in-out;
+}
+a:hover svg,
+a:hover .cls-1.search {
+    fill:var(--accent-secondary) !important;
+}
+
 ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
 .current_page_parent>a,
 #menu-main-menu>.current_page_item>a,

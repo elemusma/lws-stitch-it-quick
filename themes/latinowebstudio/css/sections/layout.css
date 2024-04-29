@@ -16,6 +16,11 @@ body {
     display: block !important;
 }
 
+/* Displayed on all devices */
+.d-inline-block {
+    display: inline-block !important;
+}
+
 /* Hidden on small devices and larger */
 @media only screen and (min-width: 576px) {
     .d-sm-none {
@@ -1174,4 +1179,9 @@ body {
 .list-unstyled {
     list-style: none;
     padding: 0;
+}
+
+/* margin */
+.m-0 {
+    margin: 0;
 }
