@@ -327,7 +327,8 @@ if ( ! class_exists( 'YITH_WAPO_Admin' ) ) {
                 wp_enqueue_script( 'yith_wapo_admin' );
 
 				$admin_localize = array(
-					'i18n' => array(
+                    'addons_nonce' => wp_create_nonce( 'addons-nonce' ),
+					'i18n'         => array(
 						// translators: Conditional logic - empty selected add-on.
 						'selectOption' => __( 'Select an add-on', 'yith-woocommerce-product-add-ons' ),
                         // translators: Label printed when selecting "Discount the main product price".
@@ -416,7 +417,10 @@ if ( ! class_exists( 'YITH_WAPO_Admin' ) ) {
 		 * @return void
 		 */
 		public function sortable_blocks() {
-			global $wpdb;
+
+            check_ajax_referer( 'addons-nonce', 'security' );
+
+            global $wpdb;
 
             $item_id    = floatval( $_POST['item_id'] ) ?? '';
 			$moved_item = isset( $_POST['moved_item'] ) ? floatval( $_POST['moved_item'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Missing
@@ -458,34 +462,51 @@ if ( ! class_exists( 'YITH_WAPO_Admin' ) ) {
 		 * @return void
 		 */
 		public function sortable_addons() {
+
 			global $wpdb;
-			$moved_item = isset( $_POST['moved_item'] ) ? floatval( $_POST['moved_item'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			$prev_item  = isset( $_POST['prev_item'] ) ? floatval( $_POST['prev_item'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Missing
-			$next_item  = isset( $_POST['next_item'] ) ? floatval( $_POST['next_item'] ) : 1; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
-            $priority = 0;
+            $table = $wpdb->prefix . 'yith_wapo_addons';
 
-            // $prev_item || $next_item to zero means that they doesn't exists or has already priority zero.
-            if ( 0 == $prev_item && $next_item > 0 ) {
-                $priority = max( $next_item - 1, 0 ); // Get the value if higher than zero. If not, get zero.
-            } elseif ( 0 == $next_item && $prev_item > 0 ) {
-                $priority = $prev_item + 1;
-            } elseif ( $prev_item > 0 && $next_item > 0 ) {
-                $gap      = $next_item - $prev_item;
-                $med      = floatval( $gap / 2 );
-                $med      = min( $med, 1 ); // Get the value if below 1. If not, get 1.
+            $sorting_id  = absint( $_POST['id'] );
+            $previd      = absint( isset( $_POST['previd'] ) ? $_POST['previd'] : 0 );
+            $nextid      = absint( isset( $_POST['nextid'] ) ? $_POST['nextid'] : 0 );
+            $block_id    = absint( isset( $_POST['blockid'] ) ? $_POST['blockid'] : 0 );
 
-                $priority = $prev_item + $med;
+            $addon_orders = wp_list_pluck( $wpdb->get_results( "SELECT ID, priority FROM {$wpdb->prefix}yith_wapo_addons WHERE block_id = {$block_id} ORDER BY priority ASC, id ASC" ), 'priority', 'ID' );
+
+            $index = 0;
+
+            foreach ( $addon_orders as $id => $menu_order ) {
+                $id = absint( $id );
+
+                if ( $sorting_id === $id ) {
+                    continue;
+                }
+
+                if ( $nextid === $id ) {
+                    $index ++;
+                }
+                $index ++;
+
+                $addon_orders[ $id ] = $index;
+
+                $wpdb->update( $table, array( 'priority' => $index ), array( 'ID' => $id ) );
             }
 
-			// Update db table.
-			$table = $wpdb->prefix . 'yith_wapo_addons';
-			$data  = array( 'priority' => $priority );
-			$wpdb->update( $table, $data, array( 'id' => $moved_item ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+            if ( isset( $addon_orders[ $previd ] ) ) {
+                $addon_orders[ $sorting_id ] = $addon_orders[ $previd ] + 1;
+            } elseif ( isset( $menu_orders[ $nextid ] ) ) {
+                $addon_orders[ $sorting_id ] = $addon_orders[ $nextid ] - 1;
+            } else {
+                $addon_orders[ $sorting_id ] = 0;
+            }
 
-			echo esc_attr( $moved_item . '-' . $priority );
+            $wpdb->update( $table, array( 'priority' => $addon_orders[ $sorting_id ] ), array( 'ID' => $sorting_id ) );
 
-			wp_die();
+            wp_send_json_success(
+                array( 'success' => true )
+            );
+
 		}
 
 		/**

@@ -134,11 +134,12 @@ if ( 'color' === $option_color_type && '' === $color_b ) {
 				<?php
 				yith_plugin_fw_get_field(
 					array(
-						'id'    => 'option-image-' . $x,
-						'class' => 'option-image',
-						'name'  => 'options[image][]',
-						'type'  => 'media',
-						'value' => $addon->get_option( 'image', $x, '', false ),
+						'id'       => 'option-image-' . $x,
+						'class'    => 'option-image',
+						'name'     => 'options[image][]',
+						'type'     => 'media',
+						'value'    => $addon->get_option( 'image', $x, '', false ),
+                        'store_as' => 'id'
 					),
 					true
 				);

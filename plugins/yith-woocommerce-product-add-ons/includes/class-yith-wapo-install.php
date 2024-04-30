@@ -38,6 +38,9 @@ if ( ! class_exists( 'YITH_WAPO_Install' ) ) {
 			'4.0.0' => array(
 				'yith_wapo_update_400_migrate_db',
 			),
+            '4.12.0' => array(
+                'yith_wapo_update_412_update_image_option',
+            ),
 		);
 
 		/**
@@ -321,7 +324,7 @@ if ( ! class_exists( 'YITH_WAPO_Install' ) ) {
 									'yith_wapo_run_update_callback',
 									array(
 										'update_callback' => $update_callback,
-										'args' => $args,
+										'args'            => $args,
 									),
 									'yith-wapo-db-updates'
 								);
@@ -374,6 +377,12 @@ if ( ! class_exists( 'YITH_WAPO_Install' ) ) {
 					$current_offset = isset( $args['offset'] ) ? $args['offset'] : 0;
 					$args['offset'] = $current_offset + $offset_sum;
 				}
+
+                if ( 'yith_wapo_update_412_update_image_option' === $callback ) {
+                    $offset_sum     = apply_filters( 'yith_wapo_update_412_offset', 40 );
+                    $current_offset = isset( $args['offset'] ) ? $args['offset'] : 0;
+                    $args['offset'] = $current_offset + $offset_sum;
+                }
 
 				WC()->queue()->add(
 					'yith_wapo_run_update_callback',

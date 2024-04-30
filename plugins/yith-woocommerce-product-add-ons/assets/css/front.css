@@ -70,9 +70,9 @@ form.cart:has(#yith-wapo-container .yith-wapo-block),
   margin: 0px 5px 5px 0px;
 }
 .yith-wapo-block .yith-wapo-addon .yith-wapo-option label, .yith-wapo-block .yith-wapo-addon .yith-wapo-option div.label {
+  word-break: normal;
   margin: 0;
   cursor: pointer;
-  word-break: normal;
 }
 .yith-wapo-block .yith-wapo-addon .yith-wapo-option small del {
   opacity: 0.5;
@@ -417,6 +417,7 @@ form.cart:has(#yith-wapo-container .yith-wapo-block),
 /* PRODUCT */
 .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-product .yith-wapo-option .product-image {
   margin-right: 10px;
+  max-width: 100px;
 }
 .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-product .yith-wapo-option .product-image img{
   display: block;
@@ -612,7 +613,8 @@ form.cart:has(#yith-wapo-container .yith-wapo-block),
   vertical-align: bottom;
 }
 .theme-yith-proteo.single-product div.product form.cart .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-number .yith-wapo-option .input-number.quantity input,
-.theme-yith-proteo.single-product div.product form.cart .yith-wapo-addon-type-product .quantity input.wapo-product-qty {
+.theme-yith-proteo.single-product div.product form.cart .yith-wapo-addon-type-product .quantity input.wapo-product-qty,
+.theme-yith-proteo .single-product div.product form.cart .yith-wapo-addon-type-product .quantity input.wapo-product-qty {
   height: 45px;
   width: 70px;
   font-size: 1rem;
@@ -713,6 +715,7 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
   font-size: 13px;
   font-weight: normal;
   cursor: pointer;
+  overflow: auto;
 }
 .yith-wapo-ajax-uploader .link {
   color: var(--yith-wapo-uploads-file-colors-border);
@@ -795,6 +798,12 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
 .yith-wapo-loader.ui-progressbar.ui-corner-all.ui-widget.ui-widget-content .ui-progressbar-value {
   background-color: var(--yith-wapo-uploads-file-colors-border);
 }
+
+/** ERROR */
+.yith-wapo-option small.yith-wapo-error {
+  word-break: break-word;
+}
+
 /** CUSTOM FORM STYLE - start */
 /* COLOR */
 .yith-wapo-container.yith-wapo-form-style-custom .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-color .yith-wapo-option div.label:hover span.color, .yith-wapo-container.yith-wapo-form-style-custom .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-color .yith-wapo-option.selected div.label span.color {
@@ -957,6 +966,17 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
   height: 100%;
 }
 
+.yith-wapo-addon-type-text input.length-error {
+  border-color: #ff0000;
+}
+
+/** IMAGES - START */
+.yith-wapo-addon:not(.yith-wapo-addon-type-label) .yith-wapo-option .image img{
+  max-width: 100%;
+  max-height: 200px;
+}
+/** IMAGES - END */
+
 /** MEDIA QUERY - START */
 @media only screen and (max-width: 768px) {
   .yith-wapo-addon-type-colorpicker .yith-wapo-option .wp-picker-container button.wp-color-result {
@@ -975,6 +995,8 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
     border: 1px solid #03bfac;
   }
 }
+
+
 /** MEDIA QUERY - END */
 
 .yith-wapo-addon-type-text input.length-error {

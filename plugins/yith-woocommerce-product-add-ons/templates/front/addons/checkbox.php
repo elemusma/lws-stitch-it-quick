@@ -57,8 +57,8 @@ $checked  = $addon->get_option( 'default', $x, 'no', false ) === 'yes';
 			<!-- ABOVE / LEFT IMAGE -->
 			<?php
 			if ( 'above' === $addon_options_images_position || 'left' === $addon_options_images_position ) {
-				//TODO: use wc_get_template() function.
-				include YITH_WAPO_DIR . '/templates/front/option-image.php'; }
+                $addon->print_option_image( compact( 'addon', 'x', 'option_image', 'addon_image_position' ) );
+            }
 			?>
 
             <div class="checkbox-button-container">
@@ -108,9 +108,8 @@ $checked  = $addon->get_option( 'default', $x, 'no', false ) === 'yes';
 			<!-- UNDER / RIGHT IMAGE -->
 			<?php
 			if ( 'under' === $addon_options_images_position || 'right' === $addon_options_images_position ) {
-				//TODO: use wc_get_template() function.
-				include YITH_WAPO_DIR . '/templates/front/option-image.php';
-			}
+                $addon->print_option_image( compact( 'addon', 'x', 'option_image', 'addon_image_position' ) );
+            }
 			?>
 
 		</div>

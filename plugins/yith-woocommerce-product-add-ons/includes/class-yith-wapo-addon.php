@@ -216,7 +216,7 @@ if ( ! class_exists( 'YITH_WAPO_Addon' ) ) {
                 ),
                 'addon_image_replacement'            => array(
                     'id'        => 'image_replacement',
-                    'default'   => 'no',
+                    'default'   => 'options',
                     'translate' => false
                 ),
                 'addon_options_images_position'      => array(
@@ -453,6 +453,15 @@ if ( ! class_exists( 'YITH_WAPO_Addon' ) ) {
                 $formatted_settings[$setting_id] = $this->get_setting( $addon_id, $default, $translate );
             }
 
+            if ( wp_is_mobile() ) {
+                if ( isset( $formatted_settings['options_width'] ) ) {
+                    $formatted_settings['options_width'] = 100;
+                }
+                if ( isset( $formatted_settings['select_width'] ) ) {
+                    $formatted_settings['select_width'] = 100;
+                }
+            }
+
             return apply_filters( 'yith_wapo_get_formatted_settings', $formatted_settings );
         }
 
@@ -654,12 +663,13 @@ if ( ! class_exists( 'YITH_WAPO_Addon' ) ) {
             $image_replacement = '';
             $addon_image_replacement = $addon->get_setting( 'image_replacement', 'no', false );
             $addon_image             = $addon->get_setting( 'image', '', false );
+            $show_image              = $addon->get_option( 'show_image', $x, 'no', false );
             $option_image            = $addon->get_option( 'image', $x, '', false );
 
             if ( 'addon' === $addon_image_replacement ) {
                 $image_replacement = $addon_image;
             } elseif ( ! empty( $option_image ) && 'options' === $addon_image_replacement ) {
-                $image_replacement = $option_image;
+                $image_replacement = wp_get_attachment_image_url( $option_image, 'full' );
             }
 
             $image_replacement = is_ssl() ? str_replace( 'http://', 'https://', $image_replacement ) : $image_replacement;
@@ -800,6 +810,25 @@ if ( ! class_exists( 'YITH_WAPO_Addon' ) ) {
             ';
 
             return $grid;
+        }
+
+        /** Print the option image
+         *
+         * @param array $args The options array.
+         *
+         */
+        public function print_option_image( $args ) {
+            wc_get_template(
+                '/front/option-image.php',
+                 $args,
+                '',
+                YITH_WAPO_DIR . '/templates'
+            );
+        }
+
+
+        public function get_product_addon_name( $product_id ) {
+            return '';
         }
 
     }

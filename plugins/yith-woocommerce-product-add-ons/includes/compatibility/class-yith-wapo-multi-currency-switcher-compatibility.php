@@ -99,6 +99,8 @@ if ( ! class_exists( 'YITH_WAPO_WCMCS_Compatibility' ) ) {
                     if ( '' !== $prices['regular'] ) {
                         $converted_price = ( '' === $prices['sale_from'] || ( $time > $prices['sale_from'] && $time < $prices['sale_to'] ) ) && '' !== $prices['sale'] && $prices['sale'] < $prices['regular'] ? $prices['sale'] : $prices['regular'];
                         $price = is_null( $converted_price ) ? yith_wcmcs_convert_price( $price ) : $converted_price;
+                    } else {
+                        $price = yith_wcmcs_convert_price( $price );
                     }
                 } else {
                     if ( function_exists( 'yith_wcmcs_convert_price' ) ) {

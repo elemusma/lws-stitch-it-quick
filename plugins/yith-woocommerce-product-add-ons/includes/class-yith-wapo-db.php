@@ -272,108 +272,109 @@ if ( ! class_exists( 'YITH_WAPO_DB' ) ) {
             $blocks_table       = $wpdb->prefix . YITH_WAPO()->db::YITH_WAPO_BLOCKS;
             $associations_table = $wpdb->prefix . YITH_WAPO()->db::YITH_WAPO_BLOCKS_ASSOCIATIONS;
 
-            $query = $wpdb->prepare( "
-            SELECT blocks.id
-            FROM $blocks_table as blocks
-            WHERE
-                (
-                    visibility IN $visible
-                )
-                AND
-                {$query_search}
-                (
-                    id IN (
-                            SELECT id FROM $blocks_table
-                            WHERE vendor_id IN $vendor_ids
-                        )
-                )
-                AND
-                (
+            $query = $wpdb->prepare(
+                "
+                SELECT blocks.id
+                FROM $blocks_table as blocks
+                WHERE
+                    (
+                        visibility IN $visible
+                    )
+                    AND
+                    {$query_search}
                     (
                         id IN (
-                            SELECT id FROM $blocks_table
-                            WHERE product_association = %s
-                        )
-                        OR
-                        id IN (
-                            SELECT DISTINCT(id) FROM $blocks_table as i1
-                            JOIN $associations_table as a1 on a1.rule_id = i1.id
-                            WHERE product_association = %s 
-                                AND ( type = %s AND object = '%d' ) OR ( type = %s AND object IN $product_cats )
-                        )
+                                SELECT id FROM $blocks_table
+                                WHERE vendor_id IN $vendor_ids
+                            )
                     )
-                    AND 
+                    AND
                     (
-                        id IN (
-                            SELECT id FROM $blocks_table
-                            WHERE user_association IN ( %s, '$logged_in_association' )
+                        (
+                            id IN (
+                                SELECT id FROM $blocks_table
+                                WHERE product_association = %s
+                            )
+                            OR
+                            id IN (
+                                SELECT DISTINCT(id) FROM $blocks_table as i1
+                                JOIN $associations_table as a1 on a1.rule_id = i1.id
+                                WHERE product_association = %s 
+                                    AND ( type = %s AND object = %d ) OR ( type = %s AND object IN $product_cats )
+                            )
                         )
-                            OR 
-                        id IN (
-                            SELECT DISTINCT(id) FROM $blocks_table as i2
-                            JOIN $associations_table as a2 on a2.rule_id = i2.id
-                            WHERE user_association = %s
-                                AND ( type = %s AND object IN $user_roles )
+                        AND 
+                        (
+                            id IN (
+                                SELECT id FROM $blocks_table
+                                WHERE user_association IN ( %s, '$logged_in_association' )
+                            )
+                                OR 
+                            id IN (
+                                SELECT DISTINCT(id) FROM $blocks_table as i2
+                                JOIN $associations_table as a2 on a2.rule_id = i2.id
+                                WHERE user_association = %s
+                                    AND ( type = %s AND object IN $user_roles )
+                            )
+                                OR 
+                            id IN (
+                                SELECT DISTINCT(id) FROM $blocks_table as i3
+                                JOIN $associations_table as a3 on a3.rule_id = i3.id
+                                WHERE user_association = %s
+                                    AND ( type = %s AND object IN $membership_plans )
+                            )
                         )
-                            OR 
-                        id IN (
-                            SELECT DISTINCT(id) FROM $blocks_table as i3
-                            JOIN $associations_table as a3 on a3.rule_id = i3.id
-                            WHERE user_association = %s
-                                AND ( type = %s AND object IN $membership_plans )
+                    )
+                    AND
+                    ( 
+                        id NOT IN (
+                            SELECT DISTINCT(rule_id)
+                            FROM $blocks_table as i4
+                            JOIN $associations_table as a4 on a4.rule_id = i4.id
+                            WHERE exclude_products = %d AND type = %s AND object = %d
+                        )
+                        AND 
+                        id NOT IN (
+                            SELECT DISTINCT(rule_id)
+                            FROM $blocks_table as i5
+                            JOIN $associations_table as a5 on a5.rule_id = i5.id
+                            WHERE exclude_products = %d AND type = %s AND object IN $product_cats
+                        )
+                        AND 
+                        id NOT IN (
+                            SELECT DISTINCT(rule_id)
+                            FROM $blocks_table as i6
+                            JOIN $associations_table as a6 on a6.rule_id = i6.id
+                            WHERE exclude_users = %d AND type = %s AND object IN $user_roles
                         )
                     )
-                )
-                AND
-                ( 
-                    id NOT IN (
-                        SELECT DISTINCT(rule_id)
-                        FROM $blocks_table as i4
-                        JOIN $associations_table as a4 on a4.rule_id = i4.id
-                        WHERE exclude_products = %d AND type = %s AND object = '%d'
-                    )
-                    AND 
-                    id NOT IN (
-                        SELECT DISTINCT(rule_id)
-                        FROM $blocks_table as i5
-                        JOIN $associations_table as a5 on a5.rule_id = i5.id
-                        WHERE exclude_products = %d AND type = %s AND object IN $product_cats
-                    )
-                    AND 
-                    id NOT IN (
-                        SELECT DISTINCT(rule_id)
-                        FROM $blocks_table as i6
-                        JOIN $associations_table as a6 on a6.rule_id = i6.id
-                        WHERE exclude_users = %d AND type = %s AND object IN $user_roles
-                    )
-                )
-            ORDER BY $order_by
-            {$query_limit}
-            {$query_offset}
+                ORDER BY $order_by
+                {$query_limit}
+                {$query_offset}
             ",
                 array(
-                    'all',
-                    'products',
-                    'product',
-                    $product_id,
-                    'category',
-                    'all',
-                    'user_roles',
-                    'user_role',
-                    'membership',
-                    'membership',
-                    1,
-                    'excluded_product',
-                    $product_id,
-                    1,
-                    'excluded_category',
-                    1,
-                    'excluded_user_role'
+                    'all',               // product_association = %s
+                    'products',          // product_association = %s
+                    'product',           // type = %s
+                    $product_id,         // object = %d
+                    'category',          // type = %s
+                    'all',               // user_association IN ( %s, '$logged_in_association' )
+                    'user_roles',        // user_association = %s
+                    'user_role',         // AND ( type = %s
+                    'membership',        // WHERE user_association = %s
+                    'membership',        // AND ( type = %s
+                    1,                   // WHERE exclude_products = %d
+                    'excluded_product',  // AND type = %s
+                    $product_id,         // AND object = %d
+                    1,                   // WHERE exclude_products = %d
+                    'excluded_category', // AND type = %s
+                    1,                   // WHERE exclude_users = %d
+                    'excluded_user_role' // AND type = %s
 
                 )
             );
 
-            $blocks = $wpdb->get_col( $query );
+            $blocks = $wpdb->get_col( $query ); //phpcs:ignore
 
 			return apply_filters( 'yith_wapo_get_blocks_by_product', $blocks, $product, $variation, $visible );
 		}

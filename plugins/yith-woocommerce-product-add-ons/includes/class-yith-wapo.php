@@ -14,64 +14,65 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
 	/**
 	 * YITH_WAPO Class
 	 */
-	class YITH_WAPO {
+	class YITH_WAPO
+    {
 
-		/**
-		 * Single instance of the class
-		 *
-		 * @var YITH_WAPO
-		 */
-		public static $instance;
+        /**
+         * Single instance of the class
+         *
+         * @var YITH_WAPO
+         */
+        public static $instance;
 
-		/**
-		 * Admin object
-		 *
-		 * @var YITH_WAPO_Admin
-		 */
-		public $admin;
+        /**
+         * Admin object
+         *
+         * @var YITH_WAPO_Admin
+         */
+        public $admin;
 
-		/**
-		 * Front object
-		 *
-		 * @var YITH_WAPO_Front
-		 */
-		public $front;
+        /**
+         * Front object
+         *
+         * @var YITH_WAPO_Front
+         */
+        public $front;
 
-		/**
-		 * Cart object
-		 *
-		 * @var YITH_WAPO_Cart
-		 */
-		public $cart;
+        /**
+         * Cart object
+         *
+         * @var YITH_WAPO_Cart
+         */
+        public $cart;
 
-		/**
-		 * DB object
-		 *
-		 * @var YITH_WAPO_DB
-		 */
-		public $db;
-		/**
-		 * WPML object
-		 *
-		 * @var YITH_WAPO_WPML
-		 */
-		public $wpml;
+        /**
+         * DB object
+         *
+         * @var YITH_WAPO_DB
+         */
+        public $db;
+        /**
+         * WPML object
+         *
+         * @var YITH_WAPO_WPML
+         */
+        public $wpml;
 
-		/**
-		 * Check if YITH Multi Vendor is installed
-		 *
-		 * @var boolean
-		 * @since 1.0.0
-		 */
-		public static $is_vendor_installed;
+        /**
+         * Check if YITH Multi Vendor is installed
+         *
+         * @var boolean
+         * @since 1.0.0
+         */
+        public static $is_vendor_installed;
 
-		/**
-		 * Check if WPML is installed
-		 *
-		 * @var boolean
-		 * @since 1.0.0
-		 */
-		public static $is_wpml_installed;
+        /**
+         * Check if WPML is installed
+         *
+         * @var boolean
+         * @since 1.0.0
+         */
+        public static $is_wpml_installed;
 
         /**
          * Plugin version
@@ -80,152 +81,158 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
          */
         public $version = YITH_WAPO_VERSION;
 
-		/**
-		 * Returns single instance of the class
-		 *
-		 * @return YITH_WAPO|YITH_WAPO_Premium
-		 */
-		public static function get_instance() {
-			$self = __CLASS__ . ( class_exists( __CLASS__ . '_Premium' ) ? '_Premium' : '' );
+        /**
+         * Returns single instance of the class
+         *
+         * @return YITH_WAPO|YITH_WAPO_Premium
+         */
+        public static function get_instance()
+        {
+            $self = __CLASS__ . (class_exists(__CLASS__ . '_Premium') ? '_Premium' : '');
 
-			return ! is_null( $self::$instance ) ? $self::$instance : $self::$instance = new $self();
-		}
+            return !is_null($self::$instance) ? $self::$instance : $self::$instance = new $self();
+        }
 
-		/**
-		 * Constructor
-		 */
-		public function __construct() {
+        /**
+         * Constructor
+         */
+        public function __construct()
+        {
 
-			global $sitepress;
-			self::$is_wpml_installed   = ! empty( $sitepress );
-			self::$is_vendor_installed = function_exists( 'YITH_Vendors' );
+            global $sitepress;
+            self::$is_wpml_installed = !empty($sitepress);
+            self::$is_vendor_installed = function_exists('YITH_Vendors');
 
-			if ( self::$is_wpml_installed ) {
-				$this->wpml = YITH_WAPO_WPML::get_instance();
-			}
+            if (self::$is_wpml_installed) {
+                $this->wpml = YITH_WAPO_WPML::get_instance();
+            }
 
-			// Load Plugin Framework.
-			add_action( 'plugins_loaded', array( $this, 'plugin_fw_loader' ), 15 );
+            // Load Plugin Framework.
+            add_action('plugins_loaded', array($this, 'plugin_fw_loader'), 15);
 
-            add_action( 'admin_init', array( $this, 'manage_actions' ) );
+            add_action('admin_init', array($this, 'manage_actions'));
 
-			// Admin.
-			if ( is_admin() && ( ! isset( $_REQUEST['action'] ) || ( isset( $_REQUEST['action'] ) && 'yith_load_product_quick_view' !== $_REQUEST['action'] ) ) ) {
-				$this->admin = YITH_WAPO_Admin();
-			}
+            // Admin.
+            if (is_admin() && (!isset($_REQUEST['action']) || (isset($_REQUEST['action']) && 'yith_load_product_quick_view' !== $_REQUEST['action']))) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $this->admin = YITH_WAPO_Admin();
+            }
 
-			// Front.
-			$is_ajax_request = defined( 'DOING_AJAX' ) && DOING_AJAX;
-            
-			if ( ! is_admin() || $is_ajax_request ) {
-				$this->front = YITH_WAPO_Front();
-				$this->cart  = YITH_WAPO_Cart();
-			}
+            // Front.
+            $is_ajax_request = defined('DOING_AJAX') && DOING_AJAX;
 
-			// Common
-			$this->db = YITH_WAPO_DB();
+            if (!is_admin() || $is_ajax_request) {
+                $this->front = YITH_WAPO_Front();
+                $this->cart = YITH_WAPO_Cart();
+            }
+
+            // Common
+            $this->db = YITH_WAPO_DB();
 
             // HPOS Compatibility
-            add_action( 'before_woocommerce_init', array( $this, 'declare_wc_features_support' ) );
+            add_action('before_woocommerce_init', array($this, 'declare_wc_features_support'));
 
             // YITH_WAPO_Compatibility.
             yith_wapo_compatibility();
 
-            // Add-ons on email.
-            add_filter( 'woocommerce_order_item_get_formatted_meta_data', array( $this, 'add_addons_data_in_order_items' ), 10, 2 );
+            // Format add-ons meta_data.
+            add_filter('woocommerce_order_item_get_formatted_meta_data', array($this, 'add_addons_data_in_order_items'), 10, 2);
 
-            //add_filter('woocommerce_rest_prepare_shop_order_object', array($this, 'filter_addons_metas'), 100, 3);
+            add_filter('woocommerce_rest_prepare_shop_order_object', array($this, 'filter_addons_metas'), 100, 3);
 
         }
 
-		/**
-		 * Load Plugin Framework
-		 */
-		public function plugin_fw_loader() {
-			if ( ! defined( 'YIT_CORE_PLUGIN' ) ) {
-				global $plugin_fw_data;
-				if ( ! empty( $plugin_fw_data ) ) {
-					$plugin_fw_file = array_shift( $plugin_fw_data );
-					require_once $plugin_fw_file;
-				}
-			}
-		}
+        /**
+         * Load Plugin Framework
+         */
+        public function plugin_fw_loader()
+        {
+            if (!defined('YIT_CORE_PLUGIN')) {
+                global $plugin_fw_data;
+                if (!empty($plugin_fw_data)) {
+                    $plugin_fw_file = array_shift($plugin_fw_data);
+                    require_once $plugin_fw_file;
+                }
+            }
+        }
 
-        public function manage_actions() {
+        public function manage_actions()
+        {
             // Actions.
-            $nonce  = ! function_exists( 'wp_verify_nonce' ) || isset( $_REQUEST['nonce'] )
-                && ( wp_verify_nonce( sanitize_key( $_REQUEST['nonce'] ), 'wapo_action' ) || wp_verify_nonce( sanitize_key( $_REQUEST['nonce'] ), 'wapo_admin' ) );
-            $action = sanitize_key( $_REQUEST['wapo_action'] ?? '' );
+            $nonce = !function_exists('wp_verify_nonce') || isset($_REQUEST['nonce'])
+                && (wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'wapo_action') || wp_verify_nonce(sanitize_key($_REQUEST['nonce']), 'wapo_admin'));
+            $action = sanitize_key($_REQUEST['wapo_action'] ?? '');
 
-            $save_block_button = isset( $_REQUEST['save-block-button'] ) ? 1 : 0;
+            $save_block_button = isset($_REQUEST['save-block-button']) ? 1 : 0;
 
-            if ( $action && $nonce ) {
-                $block_id = sanitize_key( $_REQUEST['block_id'] ?? '' );
-                $addon_id = sanitize_key( $_REQUEST['addon_id'] ?? '' );
-                if ( 'save-block' === $action && $save_block_button ) {
-                    $this->save_block( $_REQUEST );
-                } elseif ( 'duplicate-block' === $action ) {
-                    $this->duplicate_block( $block_id );
-                } elseif ( 'remove-block' === $action ) {
-                    $this->remove_block( $block_id );
-                } elseif ( 'save-addon' === $action ) {
-                    $this->save_addon( $_REQUEST );
-                } elseif ( 'duplicate-addon' === $action ) {
-                    $this->duplicate_addon( $block_id, $addon_id );
-                } elseif ( 'remove-addon' === $action ) {
-                    $this->remove_addon( $block_id, $addon_id );
-                } elseif ( 'db-check' === $action ) {
+            if ($action && $nonce) {
+                $block_id = sanitize_key($_REQUEST['block_id'] ?? '');
+                $addon_id = sanitize_key($_REQUEST['addon_id'] ?? '');
+                if ('save-block' === $action && $save_block_button) {
+                    $this->save_block($_REQUEST);
+                } elseif ('duplicate-block' === $action) {
+                    $this->duplicate_block($block_id);
+                } elseif ('remove-block' === $action) {
+                    $this->remove_block($block_id);
+                } elseif ('save-addon' === $action) {
+                    $this->save_addon($_REQUEST);
+                } elseif ('duplicate-addon' === $action) {
+                    $this->duplicate_addon($block_id, $addon_id);
+                } elseif ('remove-addon' === $action) {
+                    $this->remove_addon($block_id, $addon_id);
+                } elseif ('db-check' === $action) {
                     $this->db_check();
-                } elseif ( 'control_debug_options' === $action ) {
+                } elseif ('control_debug_options' === $action) {
                     $this->control_debug_options();
                 }
             }
         }
 
-		/**
-		 * Get HTML types
-		 *
-		 * @return array
-		 * @since 2.0.0
-		 */
-		public function get_html_types() {
-			$html_types = array(
-				array(
-					'slug' => 'html_heading',
+        /**
+         * Get HTML types
+         *
+         * @return array
+         * @since 2.0.0
+         */
+        public function get_html_types()
+        {
+            $html_types = array(
+                array(
+                    'slug' => 'html_heading',
                     // translators: [ADMIN] Add-on name
-					'name' => __( 'Heading', 'yith-woocommerce-product-add-ons' ),
-				),
-				array(
-					'slug' => 'html_text',
+                    'name' => __('Heading', 'yith-woocommerce-product-add-ons'),
+                ),
+                array(
+                    'slug' => 'html_text',
                     // translators: [ADMIN] Add-on name
-                    'name' => __( 'Text', 'yith-woocommerce-product-add-ons' ),
-				),
-				array(
-					'slug' => 'html_separator',
+                    'name' => __('Text', 'yith-woocommerce-product-add-ons'),
+                ),
+                array(
+                    'slug' => 'html_separator',
                     // translators: [ADMIN] Add-on name
-                    'name' => __( 'Separator', 'yith-woocommerce-product-add-ons' ),
-				),
-			);
-			return $html_types;
-		}
+                    'name' => __('Separator', 'yith-woocommerce-product-add-ons'),
+                ),
+            );
+            return $html_types;
+        }
 
-		/**
-		 * Get addon types
-		 *
-		 * @return array
-		 * @since 2.0.0
-		 */
-		public function get_addon_types() {
-			$addon_types = array(
-				'checkbox' => array(
-					'slug'  => 'checkbox',
+        /**
+         * Get addon types
+         *
+         * @return array
+         * @since 2.0.0
+         */
+        public function get_addon_types()
+        {
+            $addon_types = array(
+                'checkbox' => array(
+                    'slug' => 'checkbox',
                     // translators: [ADMIN] Add-on name
-                    'name'  => __( 'Checkbox', 'yith-woocommerce-product-add-ons' ),
+                    'name' => __('Checkbox', 'yith-woocommerce-product-add-ons'),
                     // translators: [ADMIN] Add-on name (option)
-                    'label' => __( 'Checkbox', 'yith-woocommerce-product-add-ons' ),
-				),
-				'radio' => array(
-					'slug'  => 'radio',
+                    'label' => __('Checkbox', 'yith-woocommerce-product-add-ons'),
+                ),
+                'radio' => array(
+                    'slug' => 'radio',
                     // translators: [ADMIN] Add-on name
                     'name'  => __( 'Radio', 'yith-woocommerce-product-add-ons' ),
                     // translators: [ADMIN] Add-on name (option)
@@ -334,7 +341,8 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
          * @return string
          * @since 4.0.0
          */
-        public function get_addon_label_by_slug( $slug ) {
+        public function get_addon_label_by_slug($slug)
+        {
 
             if ( empty( $slug ) ) {
                 return '';
@@ -358,13 +366,14 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
          * @return string
          * @since 4.0.0
          */
-        public function get_addon_name_by_slug( $slug ) {
+        public function get_addon_name_by_slug($slug)
+        {
 
             if ( empty( $slug ) ) {
                 return '';
             }
 
-            $name       = '';
+            $name = '';
             $addon_types = $this->get_addon_types();
 
             if ( isset( $addon_types[$slug] ) && isset( $addon_types[$slug]['name'] ) ) {
@@ -1259,7 +1268,7 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
 			$addons_data = $order_item->get_meta('_ywapo_meta_data');
 
 			$exists_public_meta_data = null;
-
+            $latest_meta_id = 0;
 			foreach ( $formatted_meta as $meta_id => $meta ) {
 
 				if ( str_starts_with( $meta->key, 'ywapo-addon' ) ) {
@@ -1360,7 +1369,7 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
          * @return WP_REST_Response
          */
 
-        /*public function filter_addons_metas($response, $order, $request)
+        public function filter_addons_metas($response, $order, $request)
         {
             $data = $response->get_data();
             $line_items = $data['line_items'] ?? '';
@@ -1391,7 +1400,7 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
 
             return $response;
 
-	    }*/
+	    }
 
     }
 }

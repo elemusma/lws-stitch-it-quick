@@ -13,7 +13,7 @@ defined( 'YITH_WAPO' ) || exit; // Exit if accessed directly.
 
 $show_in                 = $block->get_rule( 'show_in' );
 
-$show_show_in_products   = ( 'categories' !== $show_in && 'all' !== $show_in && '' !== $show_in ) || isset( $_REQUEST['block_rule_show_in'] ) && 'products' === $_REQUEST['block_rule_show_in'];
+$show_show_in_products   = ( 'categories' !== $show_in && 'all' !== $show_in && '' !== $show_in ) || isset( $_REQUEST['block_rule_show_in'] ) && 'products' === $_REQUEST['block_rule_show_in']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 $show_show_in_categories = 'categories' === $show_in;
 
 $show_exclude_products            = 'all' === $show_in || 'products' === $show_in || 'categories' === $show_in;
@@ -36,8 +36,8 @@ $show_exclude_products_categories = $block->get_rule( 'exclude_products' ) === '
 
                 if ( ! empty( $block->get_rule( 'show_in' ) ) ) {
                     $block_rule_show_in = $block->get_rule( 'show_in' );
-                } elseif ( isset( $_REQUEST['block_rule_show_in'] ) && ! empty( $_REQUEST['block_rule_show_in'] ) ) {
-                    $block_rule_show_in = $_REQUEST['block_rule_show_in'];
+                } elseif ( isset( $_REQUEST['block_rule_show_in'] ) && ! empty( $_REQUEST['block_rule_show_in'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    $block_rule_show_in = $_REQUEST['block_rule_show_in']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 }
 
 
@@ -76,11 +76,11 @@ $show_exclude_products_categories = $block->get_rule( 'exclude_products' ) === '
 			<?php
             $show_in_products = $block->get_rule( 'show_in_products' );
 
-            if ( empty( $show_in_products ) && isset( $_REQUEST['block_rule_show_in_products'] ) ) {
-                $show_in_products = is_string( $_REQUEST['block_rule_show_in_products'] ) ?
-                    preg_match('~[0-9]+~', $_REQUEST['block_rule_show_in_products']) ? // Check if the string has numbers
-                    explode(',', stripslashes( str_replace( array( '[', ']', '"', "\'" ), '', $_REQUEST['block_rule_show_in_products'] ) ) ) : '' // Input hidden is loaded as string since using wp_json_encode() function.
-                        : $_REQUEST['block_rule_show_in_products'];
+            if ( empty( $show_in_products ) && isset( $_REQUEST['block_rule_show_in_products'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $show_in_products = is_string( $_REQUEST['block_rule_show_in_products'] ) ? // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    preg_match('~[0-9]+~', $_REQUEST['block_rule_show_in_products']) ? // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    explode(',', stripslashes( str_replace( array( '[', ']', '"', "\'" ), '', $_REQUEST['block_rule_show_in_products'] ) ) ) : '' // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                        : $_REQUEST['block_rule_show_in_products']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             }
 				yith_plugin_fw_get_field(
 					array(
@@ -114,11 +114,11 @@ $show_exclude_products_categories = $block->get_rule( 'exclude_products' ) === '
 			<?php
             $show_in_categories = $block->get_rule( 'show_in_categories' );
 
-            if ( empty( $show_in_categories ) && isset( $_REQUEST['block_rule_show_in_categories'] ) ) {
-                $show_in_categories = is_string( $_REQUEST['block_rule_show_in_categories'] ) ?
-                    preg_match('~[0-9]+~', $_REQUEST['block_rule_show_in_categories']) ? // Check if the string has numbers
-                        explode(',', stripslashes( str_replace( array( '[', ']', '"', "\'" ), '', $_REQUEST['block_rule_show_in_categories'] ) ) ) : '' // Input hidden is loaded as string since using wp_json_encode() function.
-                    : $_REQUEST['block_rule_show_in_categories'];
+            if ( empty( $show_in_categories ) && isset( $_REQUEST['block_rule_show_in_categories'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                $show_in_categories = is_string( $_REQUEST['block_rule_show_in_categories'] ) ? // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    preg_match('~[0-9]+~', $_REQUEST['block_rule_show_in_categories']) ? // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                        explode(',', stripslashes( str_replace( array( '[', ']', '"', "\'" ), '', $_REQUEST['block_rule_show_in_categories'] ) ) ) : '' // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                    : $_REQUEST['block_rule_show_in_categories']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             }
 				yith_plugin_fw_get_field(
 					array(

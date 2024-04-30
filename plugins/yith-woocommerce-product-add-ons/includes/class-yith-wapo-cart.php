@@ -26,10 +26,11 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 		/**
 		 * Returns single instance of the class
 		 *
-		 * @return YITH_WAPO_Instance
+		 * @return YITH_WAPO_Cart | YITH_WAPO_Cart_Premium
 		 */
 		public static function get_instance() {
-			return ! is_null( self::$instance ) ? self::$instance : self::$instance = new self();
+            $self = __CLASS__ . ( class_exists( __CLASS__ . '_Premium' ) ? '_Premium' : '' );
+            return ! is_null( $self::$instance ) ? $self::$instance : $self::$instance = new $self();
 		}
 
 		/**
@@ -45,6 +46,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 			}
 
 			add_filter( 'woocommerce_add_to_cart_validation', array( $this, 'add_to_cart_addons_validation' ), 50, 3 );
+            add_filter( 'woocommerce_update_cart_validation', array( $this, 'update_addons_validation_on_cart' ), 50, 4 );
 
 			// Add options to cart item.
 			add_filter( 'woocommerce_add_cart_item_data', array( $this, 'add_cart_item_data' ), 25, 2 );
@@ -90,6 +92,10 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 				3
 			);
 
+            //Reduce and Refund addons type product
+            add_action( 'woocommerce_reduce_order_stock', array( $this, 'reduce_addons_type_product_stock' ) );
+
+
             // Integration for WooCommerce Product Bundles.
 			//add_filter( 'woocommerce_order_formatted_line_subtotal', array( $this, 'order_item_subtotal' ), 10, 3 );
 
@@ -122,6 +128,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 		 * @return false|mixed
 		 */
 		public function add_to_cart_addons_validation( $passed, $product_id, $quantity ) {
+
 			if ( $passed ) {
 				try {
 					$post_data = $_POST;
@@ -161,6 +168,15 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 
 											throw new Exception( $message );
 										}
+										if ( ! $this->is_enough_stock_in_cart( $product_id, $quantity ) ){
+											/* translators: 1: product name 2: quantity in stock */
+											$message = sprintf( _x( 'It is not possible to add the selected quantity of &quot;%1$s&quot; to the cart because there are not enough items in stock. The available items have already been added to the cart.', '[FRONT] When add-on type Product is added to cart with more amount than allowed', 'yith-woocommerce-product-add-ons' ), $product->get_name() );
+
+											$message = apply_filters( 'yith_wapo_cart_addon_product_not_enough_stock_in_cart_message', $message, $product );
+
+											throw new Exception( $message );
+
+										}
 										if ( $product->managing_stock() ) {
 
 											$products_qty_in_cart = $this->get_cart_item_quantities();
@@ -198,6 +214,103 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 			return $passed;
 
 		}
+        /**
+         * update cart validation for addons
+         *
+         * @param bool $passed Passed.
+         * @param string  $cart_item_key Product ID.
+         * @param array $values
+         * @param int $quantity
+         *
+         * @return bool|mixed
+         */
+        function update_addons_validation_on_cart( $passed, $cart_item_key, $values, $quantity ) {
+            if ( $passed ) {
+                try {
+                    $post_data = $_POST;
+                    $addons    = ! empty( $values['yith_wapo_options'] ) ? $values['yith_wapo_options'] : array();
+
+                    if ( is_array( $addons ) && ! empty( $addons ) ) {
+                        foreach ( $addons as $index => $option ) {
+                            foreach ( $option as $addon_option => $value ) {
+
+                                $values = YITH_WAPO::get_instance()->split_addon_and_option_ids( $addon_option, $value );
+
+                                $addon_id  = $values['addon_id'];
+                                $option_id = $values['option_id'];
+
+                                $info = yith_wapo_get_option_info( $addon_id, $option_id, false );
+
+                                if ( 'product' === $info['addon_type'] ) {
+                                    $product_id = $info['product_id'];
+                                    $product    = wc_get_product( $product_id );
+                                    $quantity   = $post_data['yith_wapo_product_qty'][ $addon_option ] ?? $quantity;
+
+                                    if ( $product ) {
+                                        if ( ! $product->is_in_stock() ) {
+                                            /* translators: %s: product name */
+                                            $message = sprintf( _x( 'You cannot add &quot;%s&quot; to the cart because the product is out of stock.', '[FRONT] Error message when an add-on type Product is out of stock', 'yith-woocommerce-product-add-ons' ), $product->get_name() );
+
+                                            $message = apply_filters( 'yith_wapo_cart_addon_product_out_of_stock_message', $message, $product );
+                                            throw new Exception( $message );
+                                        }
+                                        if ( ! $product->has_enough_stock( $quantity ) ) {
+                                            $stock_quantity = $product->get_stock_quantity();
+
+                                            /* translators: 1: product name 2: quantity in stock */
+                                            $message = sprintf( _x( 'You cannot add that amount of &quot;%1$s&quot; to the cart because there is not enough stock (%2$s remaining).', '[FRONT] When add-on type Product is added to cart with more amount than allowed', 'yith-woocommerce-product-add-ons' ), $product->get_name(), wc_format_stock_quantity_for_display( $stock_quantity, $product ) );
+
+                                            $message = apply_filters( 'yith_wapo_cart_addon_product_not_enough_stock_message', $message, $product, $stock_quantity );
+
+                                            throw new Exception( $message );
+                                        }
+                                        if ( ! $this->is_enough_stock_in_cart( $product_id, $quantity, false ) ){
+                                            /* translators: 1: product name 2: quantity in stock */
+                                            $message = sprintf( _x( 'It is not possible to add the selected quantity of &quot;%1$s&quot; to the cart because there are not enough items in stock. The available items have already been added to the cart.', '[FRONT] When add-on type Product is added to cart with more amount than allowed', 'yith-woocommerce-product-add-ons' ), $product->get_name() );
+
+                                            $message = apply_filters( 'yith_wapo_cart_addon_product_not_enough_stock_in_cart_message', $message, $product );
+
+                                            throw new Exception( $message );
+
+                                        }
+                                        if ( $product->managing_stock() ) {
+
+                                            $products_qty_in_cart = $this->get_cart_item_quantities();
+
+                                            if ( isset( $products_qty_in_cart[ $addon_option ] ) && ! $product->has_enough_stock( $products_qty_in_cart[ $addon_option ] + $quantity ) ) {
+                                                $stock_quantity         = $product->get_stock_quantity();
+                                                $stock_quantity_in_cart = $products_qty_in_cart[ $addon_option ];
+
+                                                $message = sprintf(
+                                                    '<a href="%s" class="button wc-forward">%s</a> %s',
+                                                    wc_get_cart_url(),
+                                                    _x( 'View cart', '[FRONT] Redirect to cart page', 'yith-woocommerce-product-add-ons' ),
+                                                    /* translators: 1: quantity in stock 2: current quantity */
+                                                    sprintf( _x( 'You cannot add that amount to the cart &mdash; we have %1$s in stock and you already have %2$s in your cart.', '[FRONT] If sum of already add-ons type Products added to cart and the current stock selected are higher than expected', 'yith-woocommerce-product-add-ons' ), wc_format_stock_quantity_for_display( $stock_quantity, $product ), wc_format_stock_quantity_for_display( $stock_quantity_in_cart, $product ) )
+                                                );
+
+                                                $message = apply_filters( 'yith_wapo_cart_addon_product_not_enough_stock_already_in_cart_message', $message, $product, $stock_quantity, $stock_quantity_in_cart );
+
+                                                throw new Exception( $message );
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } catch ( Exception $e ) {
+                    if ( $e->getMessage() ) {
+                        wc_add_notice( $e->getMessage(), 'error' );
+                    }
+                    $passed = false;
+                }
+
+
+            }
+
+            return $passed;
+        }
 
 		/**
 		 * Filter cart item from session.
@@ -274,9 +387,9 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 
 			if ( isset( $post_data['yith_wapo_product_qty'] ) && is_array( $post_data['yith_wapo_product_qty'] ) ) {
 				foreach ( $post_data['yith_wapo_product_qty'] as $key => $value ) {
-					if ( isset( $data[ $key ] ) ) {
-						$cart_item_data['yith_wapo_qty_options'][ $key ] = $value;
-					}
+                    if ( $key && $value ) {
+                        $cart_item_data['yith_wapo_qty_options'][ $key ] = $value;
+                    }
 				}
 			}
 
@@ -543,7 +656,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
                                 $value = $value[0];
                             }
 
-                            if ( apply_filters( 'yith_wapo_option_on_cart', false, $option ) ) {
+                            if ( apply_filters( 'yith_wapo_option_on_cart', false, $option, $value ) ) {
                                 continue;
                             }
 
@@ -648,10 +761,12 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
             }
 
             $info                 = yith_wapo_get_option_info( $addon_id, $option_id );
+
+            $hide_options_prices  = wc_string_to_bool( $info['hide_options_prices'] ) ?? '';
             $hide_products_prices = wc_string_to_bool( $info['hide_products_prices'] ) ?? '';
 
             if ( ! $hide_products_prices ) {
-                $display = $value . ( '' !== $price && floatval( 0 ) !== floatval( $price ) ? ' (' . $sign . wc_price( $price ) . ')' : '' );
+                $display = $value . ( '' !== $price && floatval( 0 ) !== floatval( $price ) ? ' (' . wp_strip_all_tags( $sign . wc_price( $price ) ) . ')' : '' );
             } else {
                 $display = $value;
             }
@@ -688,7 +803,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
                                 $value = $value[0];
                             }
 
-                            if ( apply_filters( 'yith_wapo_option_on_order', false, $option ) ) {
+                            if ( apply_filters( 'yith_wapo_option_on_order', false, $option, $value ) ) {
                                 continue;
                             }
 
@@ -1242,6 +1357,12 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 		public function get_addon_value_on_cart( $addon_id, $option_id, $key, $original_value, $cart_item, $grouped_in_cart = false ) {
 
             $info              = yith_wapo_get_option_info( $addon_id, $option_id );
+
+            $addon = $info['addon'] ?? '';
+            /**
+             * @var YITH_WAPO_Addon $addon
+             */
+
             $addon_title       = $info['addon_label'] ?? '';
             $title_in_cart     = $info['title_in_cart'] ?? '';
             $title_in_cart_opt = $info['title_in_cart_opt'] ?? '';
@@ -1274,10 +1395,14 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 				$option_product_id   = isset( $option_product_info[1] ) ? $option_product_info[1] : '';
 				$option_product_qty  = isset( $cart_item['yith_wapo_qty_options'][ $key ] ) ? $cart_item['yith_wapo_qty_options'][ $key ] : 1;
 
-				$option_product      = wc_get_product( $option_product_id );
+                $option_product      = wc_get_product( $option_product_id );
+
 				if ( $option_product instanceof WC_Product ) {
+
+                    $product_name = $addon->get_product_addon_name( $option_product_id );
+
                     $value = apply_filters( 'yith_wapo_product_name_in_cart',
-                        $option_product_qty . ' x ' . $option_product->get_name(), $option_product, $option_product_qty, $cart_item );
+                        $option_product_qty . ' x ' . $product_name, $option_product, $option_product_qty, $cart_item );
 				}
             } elseif ( in_array( $addon_type, array( 'text', 'textarea', 'number', 'date', 'colorpicker' ) ) ) {
 				if ( ! $grouped_in_cart && ! $is_empty_title ) {
@@ -1341,6 +1466,87 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
             }
 
 			return $addon_title;
+		}
+
+        /**
+         * Manage the reduce on the product type addons when order is completed
+         *
+         * @param WC_Order $order Order.
+         * @return void
+         */
+        public function reduce_addons_type_product_stock( $order ) {
+            if ( $order && $order instanceof WC_Order ) {
+                $items = $order->get_items();
+                foreach ( $items as $item_id => $item ) {
+                    $meta_data = wc_get_order_item_meta( $item_id, '_ywapo_meta_data', true );
+                    if ( $meta_data && is_array( $meta_data ) ) {
+                        foreach ( $meta_data as $index => $option ) {
+                            foreach ( $option as $key => $value ) {
+                                if ( $key && '' !== $value ) {
+                                    if ( is_array( $value ) && isset( $value[0] ) ) {
+                                        $value = $value[0];
+                                    }
+                                    if ( is_string( $value ) ) {
+                                        $value   = stripslashes( $value );
+                                        $explode = explode( '-', $value );
+
+                                        if ( isset( $explode[0] ) && 'product' === $explode[0] ) {
+                                            $quantity_data = wc_get_order_item_meta( $item_id, '_ywapo_product_addon_qty', true );
+                                            $product_id    = $explode[1];
+                                            $quantity      = $quantity_data[ $key ];
+                                            $stock         = wc_update_product_stock( $product_id, $quantity, 'decrease' );
+                                            // translators: [ADMIN] Message added to order notes when add-on type Product has stock
+                                            $order->add_order_note( __( 'Stock levels reduced for addons type product:', 'yith-woocommerce-product-add-ons' ) . ' ' . $product_id );
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+		public function is_enough_stock_in_cart( $product_id, $quantity, $inc_previous_quantity = true ) {
+			$items = WC()->cart->get_cart();
+
+            foreach( $items as $item => $values ) {
+				$addons   = $values['yith_wapo_options'] ?? array();
+				$cart_qty = $values['quantity'] ?? 0;
+
+
+				$total_quantity = $inc_previous_quantity ? $quantity + $cart_qty : $quantity;
+
+				foreach( $addons as $addon_id => $addon ) {
+					foreach( $addon as $key => $value ) {
+
+						if ( is_array( $value ) && isset( $value[0] ) ) {
+							$value = $value[0];
+						}
+
+						$values = YITH_WAPO::get_instance()->split_addon_and_option_ids( $key, $value );
+
+						$addon_id  = $values['addon_id'];
+						$option_id = $values['option_id'];
+
+						$info = yith_wapo_get_option_info( $addon_id, $option_id, false );
+						if ( 'product' !== $info['addon_type'] ) {
+							continue;
+						}
+
+						$_product_id = $info['product_id'];
+						$_product    = wc_get_product( $_product_id );
+
+						if ( ! $_product->has_enough_stock( $total_quantity ) ) {
+							return false;
+						}
+
+					}
+
+				}
+
+			}
+
+            return true;
 		}
 	}
 }

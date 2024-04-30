@@ -9,20 +9,25 @@
  * @var YITH_WAPO_Addon $addon
  * @var int $x
  * @var string $option_image
- * @var string $hide_option_images
- * @var string $addon_options_images_position
+ * @var string $addon_image_position
+ * @var string $images_height_style
  */
 
 defined( 'YITH_WAPO' ) || exit; // Exit if accessed directly.
 
-$attachment_id    = attachment_url_to_postid( $option_image );
+$attachment_id = wp_get_attachment_image( $option_image );
+if ( is_numeric( $option_image ) ) {
+    $image_url     = wp_get_attachment_image_url( $option_image, 'full' );
+} else {
+    $image_url     = $option_image;
+}
+
 $option_image_alt = empty( $attachment_id ) ? '' : get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
 
 if ( ! empty( $addon_image_position ) ) : ?>
-<label class="image-container" for="yith-wapo-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>">
+<div class="image-container" for="yith-wapo-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>">
 	<div class="image">
-		<img src="<?php echo esc_attr( $option_image ); ?>" style="<?php echo $images_height_style ?? '' ?>" alt="<?php echo esc_attr( $option_image_alt ); ?>">
+		<img src="<?php echo esc_attr( $image_url ); ?>" style="<?php echo $images_height_style ?? '' ?>" alt="<?php echo esc_attr( $option_image_alt ); ?>">
 	</div>
-</label>
-
+</div>
 <?php endif; ?>

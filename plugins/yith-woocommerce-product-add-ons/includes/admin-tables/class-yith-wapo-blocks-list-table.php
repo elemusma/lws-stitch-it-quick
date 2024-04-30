@@ -281,10 +281,11 @@ if ( ! class_exists( 'YITH_WAPO_Blocks_List_Table' ) ) {
             $this->_column_headers = array( $columns, $hidden, $sortable );
 
             $current_page = $this->get_pagenum();
-            $status_type  = isset( $_GET['status_type'] ) ? sanitize_text_field( wp_unslash( $_GET['status_type'] ) ) : 'all';
+
+            $status_type  = isset( $_GET['status_type'] ) ? sanitize_text_field( wp_unslash( $_GET['status_type'] ) ) : 'all'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $visibility   = 'disabled' === $status_type ? 'no' : ( 'enabled' === $status_type ? 'yes' : false );
 
-            $product   = isset( $_GET['yith_wapo_blocks_list_table_product'] ) ? sanitize_text_field( wp_unslash( $_GET['yith_wapo_blocks_list_table_product'] ) ) : '';
+            $product   = isset( $_GET['yith_wapo_blocks_list_table_product'] ) ? sanitize_text_field( wp_unslash( $_GET['yith_wapo_blocks_list_table_product'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
             $_product  = wc_get_product( $product );
             $variable  = null;
             if ( $_product instanceof WC_Product_Variation ) {
@@ -393,7 +394,7 @@ if ( ! class_exists( 'YITH_WAPO_Blocks_List_Table' ) ) {
          * Return true if the list is filtered, to show the "clear filters" button.
          */
         protected function is_the_list_filtered() {
-            return ( ! empty( $_GET['status_type'] ) && 'all' !== $_GET['status_type'] ) || ! empty( $_GET['yith_wapo_blocks_list_table_product'] );
+            return ( ! empty( $_GET['status_type'] ) && 'all' !== $_GET['status_type'] ) || ! empty( $_GET['yith_wapo_blocks_list_table_product'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         }
 
         /**
@@ -454,7 +455,7 @@ if ( ! class_exists( 'YITH_WAPO_Blocks_List_Table' ) ) {
             );
 
             $status_type      = isset( $_REQUEST['status_type'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['status_type'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-            $product_selected = isset( $_GET['yith_wapo_blocks_list_table_product'] ) ? sanitize_text_field( wp_unslash( $_GET['yith_wapo_blocks_list_table_product'] ) ) : '';
+            $product_selected = isset( $_GET['yith_wapo_blocks_list_table_product'] ) ? sanitize_text_field( wp_unslash( $_GET['yith_wapo_blocks_list_table_product'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
             echo '<div class="alignleft actions">';
 

@@ -64,10 +64,12 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 			// Ajax live print.
 			add_action( 'wp_ajax_live_print_blocks', array( $this, 'live_print_blocks' ) );
 			add_action( 'wp_ajax_nopriv_live_print_blocks', array( $this, 'live_print_blocks' ) );
-			// Ajax upload file.
+
+            // Ajax upload file.
 			add_action( 'wp_ajax_yith_wapo_upload_file', array( $this, 'ajax_upload_file' ) );
 			add_action( 'wp_ajax_nopriv_yith_wapo_upload_file', array( $this, 'ajax_upload_file' ) );
-			// Ajax update product price.
+
+            // Ajax update product price.
 			add_action( 'wp_ajax_update_totals_with_suffix', array( $this, 'update_totals_with_suffix' ) );
 			add_action( 'wp_ajax_nopriv_update_totals_with_suffix', array( $this, 'update_totals_with_suffix' ) );
 
@@ -93,6 +95,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 		public function enqueue_scripts() {
 
 			if ( apply_filters( 'yith_wapo_enqueue_front_scripts', true ) ) {
+
+                global $post;
 
 				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
@@ -171,6 +175,10 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 					'replace_product_price_class'    => $this->get_product_price_class(),
 					'hide_button_required'           => get_option( 'yith_wapo_hide_button_if_required', 'no' ),
 					'messages'                       => array(
+                        // translators: [FRONT] Message error when the value of the add-on type Number is below minimum accepted.
+                        'lessThanMin'         => __( 'The value is less than the minimum. The minimum value is:', 'yith-woocommerce-product-add-ons' ),
+                        // translators: [FRONT] Message error when total of add-ons type numbers does not exceeds the minimum set in the configuration
+                        'moreThanMax'         => __( 'The value is greater than the maximum. The maximum value is:', 'yith-woocommerce-product-add-ons' ),
 						// translators: [FRONT] Message error when total of add-ons type numbers does not exceeds the minimum set in the configuration
 						'minErrorMessage'         => __( 'The sum of the numbers is below the minimum. The minimum value is:', 'yith-woocommerce-product-add-ons' ),
 						// translators: [FRONT] Message error when total of add-ons type numbers exceeds the maximum set in the configuration
@@ -184,17 +192,23 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
                         // translators: [FRONT] Message giving the error when the file upload is not a supported extension
                         'noSupportedExtension'    => __( 'Error - not supported extension!', 'yith-woocommerce-product-add-ons' ),
                         // translators: [FRONT] Message giving the error when the file has a hight size
-                        'maxFileSize'    => __( 'Error - file size for %s - max %d MB allowed!', 'yith-woocommerce-product-add-ons' ),
+                        'maxFileSize'             => __( 'Error - file size for %s - max %d MB allowed!', 'yith-woocommerce-product-add-ons' ),
 
                     ),
-					'productQuantitySelector'        => apply_filters(
+					'productQuantitySelector'          => apply_filters(
 						'yith_wapo_product_quantity_selector',
 						'form.cart .quantity input.qty:not(.wapo-product-qty)'
 					),
-					'enableGetDefaultVariationPrice' => apply_filters( 'yith_wapo_get_default_variation_price_calculation', true ),
-					'currentLanguage'                => '',
-					'conditionalDisplayEffect'       => apply_filters( 'yith_wapo_conditional_display_effect', 'fade' ),
-					'preventAjaxCallOnUnchangedTotals'	 => apply_filters( 'yith_wapo_prevent_ajax_call_on_unchanged_totals', true )
+					'enableGetDefaultVariationPrice'   => apply_filters( 'yith_wapo_get_default_variation_price_calculation', true ),
+					'currentLanguage'                  => '',
+					'conditionalDisplayEffect'         => apply_filters( 'yith_wapo_conditional_display_effect', 'fade' ),
+					'preventAjaxCallOnUnchangedTotals' => apply_filters( 'yith_wapo_prevent_ajax_call_on_unchanged_totals', true ),
+                    'wc_blocks'                        => array(
+                        'has_cart_block' => has_block( 'woocommerce/cart' )
+                    ),
+                    'loader'                           => apply_filters( 'yith_wapo_loader_gif', YITH_WAPO_ASSETS_URL . '/img/loader.gif' ),
+                    'isMobile'                         => wp_is_mobile(),
+
 
 				);
 
@@ -202,6 +216,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 
 				wp_localize_script( 'yith_wapo_front', 'yith_wapo', $front_localize );
 				wp_enqueue_script( 'yith_wapo_front' );
+
+
 			}
 
 		}
@@ -294,14 +310,16 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 		 * @return mixed
 		 */
 		function modify_upload_images_dir( $dir ) {
-			$action = isset( $_POST['action'] ) ? $_POST['action'] : '';
 
-			if ( 'yith_wapo_upload_file' === $action ) {
-				$folder_name = get_option( 'yith_wapo_uploads_folder', 'yith_advanced_product_options' );
+            if ( isset( $_REQUEST['action'] ) && 'yith_wapo_upload_file' === $_REQUEST['action'] ) {
 
-				$dir['path'] = YITH_WAPO_DOCUMENT_SAVE_DIR . '/' . $folder_name;
-				$dir['url']  = YITH_WAPO_DOCUMENT_SAVE_URL . '/' . $folder_name;
-			}
+                check_admin_referer( 'addons-nonce', 'security' );
+
+                $folder_name = get_option( 'yith_wapo_uploads_folder', 'yith_advanced_product_options' );
+
+                $dir['path'] = YITH_WAPO_DOCUMENT_SAVE_DIR . '/' . $folder_name;
+                $dir['url']  = YITH_WAPO_DOCUMENT_SAVE_URL . '/' . $folder_name;
+            }
 
 			return $dir;
 
@@ -402,11 +420,13 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 			add_filter( 'woocommerce_variation_prices_regular_price', array( $this, 'custom_variable_price' ), 99, 3 );
 
 			global $woocommerce, $product, $variation;
+
 			$woocommerce  = WC();
 			$product_id   = 0;
 			$variation_id = 0;
 			$variation    = false;
 			$addons       = $_POST['addons'] ?? array(); // phpcs:ignore
+
 			foreach ( $addons as $key => $input ) {
 				if ( 'yith_wapo_product_id' === $input['name'] ) {
 					$product_id = $input['value'];
@@ -421,8 +441,23 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 
 			$product = wc_get_product( $product_id );
 
+            ob_start();
 			$this->print_blocks();
-			wp_die();
+            $html = ob_get_clean();
+
+            // Format the add-ons structure from serialized array.
+            $formatted_addons = yith_wapo_format_addons( $addons );
+            $addons           = array_merge( $formatted_addons['yith_wapo_options']['addons'] ?? array(), $formatted_addons['yith_wapo_options']['individual'] ?? array() );
+            $quantities       = $formatted_addons['yith_wapo_qty_options'] ?? array();
+
+            wp_send_json(
+                array(
+                    'html'       => $html,
+                    'addons'     => $addons,
+                    'quantities' => $quantities ?? array()
+                )
+            );
+
 		}
 
 		/**
@@ -456,7 +491,7 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 
 			global $product, $variation;
 
-			$currency = $_POST['currency'] ?? false;
+			$currency = $_POST['currency'] ?? false; // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 			if ( $product ) {
 
@@ -491,6 +526,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
                 echo '<input type="hidden" id="yith_wapo_product_id" name="yith_wapo_product_id" value="' . esc_attr( $product->get_id() ) . '">';
                 echo '<input type="hidden" id="yith_wapo_product_img" name="yith_wapo_product_img" value="">';
                 echo '<input type="hidden" id="yith_wapo_is_single" name="yith_wapo_is_single" value="1">';
+
+                wp_nonce_field( 'yith-wapo-nonce' );
 
                 /**
                  * Action before printing all the add-ons

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Products Add-ons\n"
 "Report-Msgid-Bugs-To: YITH <plugins@yithemes.com>\n"
-"POT-Creation-Date: 2024-03-26 09:20:35+00:00\n"
+"POT-Creation-Date: 2024-04-25 11:09:21+00:00\n"
 "PO-Revision-Date: 2021-07-21 17:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -65,49 +65,49 @@ msgid "All categories"
 msgstr "Catégories"
 
 #. translators: When a user search in the blocks table and no blocks are found.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:389
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:390
 msgid "No blocks found"
 msgstr ""
 
 #. translators: Button visible after filtering the blocks in the blocks list.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:420
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:421
 msgid "Reset filters"
 msgstr ""
 
 #. translators: Status filter in the block list.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:448
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:449
 msgid "All status"
 msgstr ""
 
 #. translators: Status filter in the block list.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:450
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:451
 msgid "Enabled"
 msgstr ""
 
 #. translators: Status filter in the block list.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:452
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:453
 #, fuzzy
 msgid "Disabled"
 msgstr "Désactiver les groupes"
 
 #. translators: Filter button in the block list.
-#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:488
+#: includes/admin-tables/class-yith-wapo-blocks-list-table.php:489
 msgid "Filter"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/class-yith-wapo-addon.php:716
+#: includes/class-yith-wapo-addon.php:726
 msgid "Selection type"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/class-yith-wapo-addon.php:733
+#: includes/class-yith-wapo-addon.php:743
 #, fuzzy
 msgid "Force user to select an option"
 msgstr "Choisir une option"
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/class-yith-wapo-addon.php:744
+#: includes/class-yith-wapo-addon.php:754
 msgid ""
 "Enable to force the user to select an option of the select to proceed with "
 "the purchase."
@@ -238,60 +238,66 @@ msgstr ""
 
 #. translators: Conditional logic - empty selected add-on.
 #. translators: String displayed in the conditional logic selector.
-#: includes/class-yith-wapo-admin.php:332
+#: includes/class-yith-wapo-admin.php:333
 #: views/addon-editor/addon-conditional-logic.php:28
-#: views/addon-editor/addon-conditional-logic.php:280
+#: views/addon-editor/addon-conditional-logic.php:283
 #, fuzzy
 msgid "Select an add-on"
 msgstr "Aucune sélection"
 
 #. translators: Label printed when selecting "Discount the main product price".
-#: includes/class-yith-wapo-admin.php:334
+#: includes/class-yith-wapo-admin.php:335
 msgid "Discount"
 msgstr ""
 
 #. translators: Label printed when selecting other option than "Discount the
 #. main product price".
 #. translators: general add-on option.
-#: includes/class-yith-wapo-admin.php:336
-#: views/addon-editor/option-common-fields.php:207
+#: includes/class-yith-wapo-admin.php:337
+#: views/addon-editor/option-common-fields.php:208
 msgid "Option cost"
 msgstr ""
 
 #. translators: String printed when user try to save the block and the block
 #. name is empty.
-#: includes/class-yith-wapo-admin.php:338
+#: includes/class-yith-wapo-admin.php:339
 #, fuzzy
 msgid "Block name is required"
 msgstr "Toutes les options sont requises"
 
 #. translators: [ADMIN] Options tab.
-#: includes/class-yith-wapo-admin.php:546
+#: includes/class-yith-wapo-admin.php:567
 msgid "Options Blocks"
 msgstr ""
 
 #. translators: [ADMIN] Options tab.
-#: includes/class-yith-wapo-admin.php:555
+#: includes/class-yith-wapo-admin.php:576
 msgid "General Settings"
 msgstr ""
 
 #. translators: [ADMIN] Options tab.
-#: includes/class-yith-wapo-admin.php:563
+#: includes/class-yith-wapo-admin.php:584
 msgid "Style"
 msgstr ""
 
-#: includes/class-yith-wapo-admin.php:567
+#: includes/class-yith-wapo-admin.php:588
 msgid "Configure style options to customize the add-ons you create."
 msgstr ""
 
 #. translators: [FRONT] Label shown on cart for add-on type Upload
-#: includes/class-yith-wapo-cart.php:1296
+#: includes/class-yith-wapo-cart.php:1421
 msgid "Attached file"
 msgstr "Pièce jointe"
 
+#. translators: [ADMIN] Message added to order notes when add-on type Product
+#. has stock
+#: includes/class-yith-wapo-cart.php:1499
+msgid "Stock levels reduced for addons type product:"
+msgstr ""
+
 #. translators: Label printed in the add-on type Date, when activating the
 #. timepicker.
-#: includes/class-yith-wapo-front.php:147
+#: includes/class-yith-wapo-front.php:151
 msgid "Set time"
 msgstr ""
 
@@ -299,7 +305,7 @@ msgstr ""
 #. timepicker.
 #. translators: Add-on editor panel.
 #. translators: [ADMIN] Edit block page > Save button
-#: includes/class-yith-wapo-front.php:149
+#: includes/class-yith-wapo-front.php:153
 #: views/addon-editor/addon-editor.php:384
 #: views/block-editor/block-editor.php:305
 msgid "Save"
@@ -308,232 +314,244 @@ msgstr ""
 #. translators: Label printed if minimum value is 1.
 #. translators: [FRONT] Message giving the error after checking minimum and
 #. maximum quantity when adding to cart
-#: includes/class-yith-wapo-front.php:151
-#: includes/class-yith-wapo-front.php:179
+#: includes/class-yith-wapo-front.php:155
+#: includes/class-yith-wapo-front.php:187
 #, fuzzy
 msgid "Please, select an option"
 msgstr "Sélectionner les options"
 
 #. translators: Label printed if minimum value is more than 1. %d is the number
 #. of options.
-#: includes/class-yith-wapo-front.php:153
+#: includes/class-yith-wapo-front.php:157
 msgid "Please, select at least %d options"
 msgstr ""
 
 #. translators: Label printed for exact selection value. %d is the number of
 #. options.
-#: includes/class-yith-wapo-front.php:155
+#: includes/class-yith-wapo-front.php:159
 #, fuzzy
 msgid "Please, select %d options"
 msgstr "Sélectionner les options"
 
 #. translators: [FRONT] Error when the user select more than allowed options (
 #. min/max feature ).
-#: includes/class-yith-wapo-front.php:157
+#: includes/class-yith-wapo-front.php:161
 msgid "More options than allowed have been selected"
+msgstr ""
+
+#. translators: [FRONT] Message error when the value of the add-on type Number
+#. is below minimum accepted.
+#: includes/class-yith-wapo-front.php:179
+msgid "The value is less than the minimum. The minimum value is:"
 msgstr ""
 
 #. translators: [FRONT] Message error when total of add-ons type numbers does
 #. not exceeds the minimum set in the configuration
-#: includes/class-yith-wapo-front.php:175
+#: includes/class-yith-wapo-front.php:181
+msgid "The value is greater than the maximum. The maximum value is:"
+msgstr ""
+
+#. translators: [FRONT] Message error when total of add-ons type numbers does
+#. not exceeds the minimum set in the configuration
+#: includes/class-yith-wapo-front.php:183
 msgid "The sum of the numbers is below the minimum. The minimum value is:"
 msgstr ""
 
 #. translators: [FRONT] Message error when total of add-ons type numbers
 #. exceeds the maximum set in the configuration
-#: includes/class-yith-wapo-front.php:177
+#: includes/class-yith-wapo-front.php:185
 msgid "The sum of the numbers exceeded the maximum. The maximum value is:"
 msgstr ""
 
 #. translators: [FRONT] [FRONT] Text to show when an option is required
-#: includes/class-yith-wapo-front.php:181
+#: includes/class-yith-wapo-front.php:189
 msgid "This option is required."
 msgstr ""
 
 #. translators: [FRONT] Text to show for maximum files allowed on add-on type
 #. Upload
-#: includes/class-yith-wapo-front.php:183
+#: includes/class-yith-wapo-front.php:191
 msgid ""
 "Maximum uploaded files allowed. The maximum number of files allowed is: "
 msgstr ""
 
 #. translators: [FRONT] Message giving the error when the file upload is not a
 #. supported extension
-#: includes/class-yith-wapo-front.php:185
+#: includes/class-yith-wapo-front.php:193
 msgid "Error - not supported extension!"
 msgstr ""
 
 #. translators: [FRONT] Message giving the error when the file has a hight size
-#: includes/class-yith-wapo-front.php:187
+#: includes/class-yith-wapo-front.php:195
 msgid "Error - file size for %s - max %d MB allowed!"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:573
+#: includes/class-yith-wapo-front.php:610
 msgid "This is not a product page!"
 msgstr "Ce n'est pas une page produit!"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:196 views/addons/html_heading.php:19
+#: includes/class-yith-wapo.php:202 views/addons/html_heading.php:19
 msgid "Heading"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:201 views/addons/html_text.php:19
+#: includes/class-yith-wapo.php:207 views/addons/html_text.php:19
 msgid "Text"
 msgstr "Texte"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:206 views/addons/html_separator.php:19
+#: includes/class-yith-wapo.php:212 views/addons/html_separator.php:19
 msgid "Separator"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:223 includes/class-yith-wapo.php:225
+#: includes/class-yith-wapo.php:230 includes/class-yith-wapo.php:232
 msgid "Checkbox"
 msgstr "Case à cocher"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:230
+#: includes/class-yith-wapo.php:237
 msgid "Radio"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:232
+#: includes/class-yith-wapo.php:239
 #, fuzzy
 msgid "Radio button"
 msgstr "Bouton radio"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:237
+#: includes/class-yith-wapo.php:244
 msgid "Input text"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:239
+#: includes/class-yith-wapo.php:246
 msgid "Input field"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:244 includes/class-yith-wapo.php:246
+#: includes/class-yith-wapo.php:251 includes/class-yith-wapo.php:253
 msgid "Textarea"
 msgstr "Champs de texte"
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:251 includes/class-yith-wapo.php:253
+#: includes/class-yith-wapo.php:258 includes/class-yith-wapo.php:260
 msgid "Color swatch"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:258 includes/class-yith-wapo.php:260
+#: includes/class-yith-wapo.php:265 includes/class-yith-wapo.php:267
 msgid "Number"
 msgstr "Nombre"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:265
+#: includes/class-yith-wapo.php:272
 msgid "Select"
 msgstr "Liste déroulante"
 
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:267
+#: includes/class-yith-wapo.php:274
 #, fuzzy
 msgid "Select item"
 msgstr "Sélectionner les termes"
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:272 includes/class-yith-wapo.php:274
+#: includes/class-yith-wapo.php:279 includes/class-yith-wapo.php:281
 msgid "Label or image"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:279 includes/class-yith-wapo.php:281
+#: includes/class-yith-wapo.php:286 includes/class-yith-wapo.php:288
 msgid "Product"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:286 includes/class-yith-wapo.php:288
+#: includes/class-yith-wapo.php:293 includes/class-yith-wapo.php:295
 msgid "Date"
 msgstr "Date"
 
 #. translators: [ADMIN] Add-on name
-#: includes/class-yith-wapo.php:293
+#: includes/class-yith-wapo.php:300
 msgid "File upload"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:295
+#: includes/class-yith-wapo.php:302
 msgid "File uploader"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:300 includes/class-yith-wapo.php:302
+#: includes/class-yith-wapo.php:307 includes/class-yith-wapo.php:309
 #, fuzzy
 msgid "Color picker"
 msgstr "Sélectionner une couleur"
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:307 includes/class-yith-wapo.php:309
+#: includes/class-yith-wapo.php:314 includes/class-yith-wapo.php:316
 msgid "HTML Heading"
 msgstr ""
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:314 includes/class-yith-wapo.php:316
+#: includes/class-yith-wapo.php:321 includes/class-yith-wapo.php:323
 #, fuzzy
 msgid "HTML Text"
 msgstr "Texte"
 
 #. translators: [ADMIN] Add-on name
 #. translators: [ADMIN] Add-on name (option)
-#: includes/class-yith-wapo.php:321 includes/class-yith-wapo.php:323
+#: includes/class-yith-wapo.php:328 includes/class-yith-wapo.php:330
 msgid "HTML Separator"
 msgstr ""
 
 #. translators: Populate options tab of the add-on configuration
-#: includes/yith-wapo-functions.php:422
+#: includes/yith-wapo-functions.php:425
 msgid "Populate options"
 msgstr ""
 
 #. translators: Options configuration tab of the add-on configuration
-#: includes/yith-wapo-functions.php:428
+#: includes/yith-wapo-functions.php:431
 msgid "Options configuration"
 msgstr ""
 
 #. translators: Conditional logic tab of the add-on configuration
-#: includes/yith-wapo-functions.php:434
+#: includes/yith-wapo-functions.php:437
 msgid "Conditional logic"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:644
+#: includes/yith-wapo-functions.php:647
 msgid "Single - Users can fill ONE of the available fields"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:646
+#: includes/yith-wapo-functions.php:649
 msgid "Multiple - Users can fill MULTIPLE fields"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:648
+#: includes/yith-wapo-functions.php:651
 msgid "Choose if users can fill one or multiple fields."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:650
+#: includes/yith-wapo-functions.php:653
 msgid "Set the first fields selected as free"
 msgstr ""
 
 #. translators: %1$s and %2$s are line breaks.
-#: includes/yith-wapo-functions.php:653
+#: includes/yith-wapo-functions.php:656
 msgid ""
 "Enable to set a specific number of fields as free. %1$s For example, the "
 "first three \"pizza toppings\" are free, included in the product price. %2$s "
@@ -541,47 +559,47 @@ msgid ""
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:658
+#: includes/yith-wapo-functions.php:661
 msgid "Users can fill for free"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:660
+#: includes/yith-wapo-functions.php:663
 msgid "Set how many fields users can fill for free."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:662
+#: includes/yith-wapo-functions.php:665
 msgid "Force user to fill fields of this block"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:664
+#: includes/yith-wapo-functions.php:667
 msgid "Enable to force users to fill fields to proceed with the purchase."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:666
+#: includes/yith-wapo-functions.php:669
 msgid "To proceed with the purchase, users have to fill"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:668
+#: includes/yith-wapo-functions.php:671
 msgid ""
 "Set how many fields need to be filled in order to add a product to cart."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:670
+#: includes/yith-wapo-functions.php:673
 msgid "Users can fill a max of"
 msgstr ""
 
 #. translators: %s is a line break. [ADMIN] Add-on editor > Options
 #. configuration option (description)
-#: includes/yith-wapo-functions.php:673
+#: includes/yith-wapo-functions.php:676
 msgid ""
 "Optional: set the max number of fields fillable by users in this block. %s "
 "Leave empty if users can fill all fields without any limits."
@@ -589,32 +607,32 @@ msgstr ""
 
 #. translators: [ADMIN] text description on several "Options configuration"
 #. options, depending on add-on type
-#: includes/yith-wapo-functions.php:678
+#: includes/yith-wapo-functions.php:681
 msgid "fields"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:682
+#: includes/yith-wapo-functions.php:685
 msgid "Single - Users can select ONE of the available options"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:684
+#: includes/yith-wapo-functions.php:687
 msgid "Multiple - Users can select MULTIPLE options"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:686
+#: includes/yith-wapo-functions.php:689
 msgid "Choose if users can select one or multiple options."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:688
+#: includes/yith-wapo-functions.php:691
 msgid "Set the first options selected as free"
 msgstr ""
 
 #. translators: %1$s and %2$s are line breaks.
-#: includes/yith-wapo-functions.php:691
+#: includes/yith-wapo-functions.php:694
 msgid ""
 "Enable to set a specific number of options as free. %1$s For example, the "
 "first three \"pizza toppings\" are free, included in the product price. %2$s "
@@ -622,72 +640,72 @@ msgid ""
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:696
+#: includes/yith-wapo-functions.php:699
 msgid "Users can select for free"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:698
+#: includes/yith-wapo-functions.php:701
 msgid "Set how many options users can select for free."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:700
+#: includes/yith-wapo-functions.php:703
 msgid "Force user to select options of this block"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:702
+#: includes/yith-wapo-functions.php:705
 msgid "Enable to force users to select options to proceed with the purchase."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:704
+#: includes/yith-wapo-functions.php:707
 msgid "To proceed with the purchase, users have to select"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:706
+#: includes/yith-wapo-functions.php:709
 msgid ""
 "Set how many options need to be selected in order to add a product to cart."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:708
+#: includes/yith-wapo-functions.php:711
 msgid "Users can select a max of"
 msgstr ""
 
 #. translators: %s is a line break. [ADMIN] Add-on editor > Options
 #. configuration option (description)
-#: includes/yith-wapo-functions.php:711
+#: includes/yith-wapo-functions.php:714
 msgid ""
 "Optional: set the max number of options selectable by users in this block. "
 "%s Leave empty if users can select all options without any limits."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:715
+#: includes/yith-wapo-functions.php:718
 msgid "Set a min/max value among all options"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
 #. (description)
-#: includes/yith-wapo-functions.php:717
+#: includes/yith-wapo-functions.php:720
 msgid ""
 "Enable to force users to enter values that are within a specific range when "
 "all options are added together."
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:719
+#: includes/yith-wapo-functions.php:722
 msgid "Sum of options between"
 msgstr ""
 
 #. translators: [ADMIN] Part of text on block editor, depending on add-on type
-#: includes/yith-wapo-functions.php:722
+#: includes/yith-wapo-functions.php:725
 msgid "options"
 msgstr "options"
 
@@ -1063,15 +1081,15 @@ msgstr ""
 msgid "Select an option"
 msgstr ""
 
-#: templates/front/addons/text.php:125
+#: templates/front/addons/text.php:124
 msgid "You need to enter between %1$d and %2$d characters."
 msgstr ""
 
-#: templates/front/addons/text.php:127
+#: templates/front/addons/text.php:126
 msgid "You need to enter at least %1$d characters."
 msgstr ""
 
-#: templates/front/addons/text.php:129
+#: templates/front/addons/text.php:128
 msgid "You need to enter less than %1$d characters."
 msgstr ""
 
@@ -1090,98 +1108,98 @@ msgstr ""
 msgid "Order total"
 msgstr ""
 
-#: templates/front/block.php:79
+#: templates/front/block.php:80
 #, fuzzy
 msgid "No title"
 msgstr "Titre"
 
 #. translators: When the add-on has no title on the conditional logic selector.
-#: views/addon-editor/addon-conditional-logic.php:55
+#: views/addon-editor/addon-conditional-logic.php:56
 msgid "Empty title"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:134
+#: views/addon-editor/addon-conditional-logic.php:137
 msgid "Set conditions to show or hide this set of options"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:148
+#: views/addon-editor/addon-conditional-logic.php:151
 msgid "Enable to set rules to hide or show the options."
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:157
+#: views/addon-editor/addon-conditional-logic.php:160
 #, fuzzy
 msgid "Show/hide on specific variations"
 msgstr "Montrer les descriptions des produits complémentaires"
 
-#: views/addon-editor/addon-conditional-logic.php:171
+#: views/addon-editor/addon-conditional-logic.php:174
 msgid ""
 "Enable if you want to set rules to hide or show the options in specific "
 "product variations."
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:179
+#: views/addon-editor/addon-conditional-logic.php:182
 msgid "Display rules"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:192
+#: views/addon-editor/addon-conditional-logic.php:195
 msgid "Show"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:193
+#: views/addon-editor/addon-conditional-logic.php:196
 msgid "Hide"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:201
+#: views/addon-editor/addon-conditional-logic.php:204
 #, fuzzy
 msgid "in"
 msgstr "Minimum"
 
-#: views/addon-editor/addon-conditional-logic.php:215
+#: views/addon-editor/addon-conditional-logic.php:218
 msgid "Search for a variation..."
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:240
+#: views/addon-editor/addon-conditional-logic.php:243
 #, fuzzy
 msgid "Set conditions"
 msgstr "Sélectionner les options"
 
-#: views/addon-editor/addon-conditional-logic.php:245
+#: views/addon-editor/addon-conditional-logic.php:248
 msgid "only if"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:255
+#: views/addon-editor/addon-conditional-logic.php:258
 msgid "All of these rules"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:256
+#: views/addon-editor/addon-conditional-logic.php:259
 msgid "Any of these rules"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:262
+#: views/addon-editor/addon-conditional-logic.php:265
 msgid "match"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:287
+#: views/addon-editor/addon-conditional-logic.php:290
 msgid "is"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:301
+#: views/addon-editor/addon-conditional-logic.php:304
 msgid "Selected"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:302
+#: views/addon-editor/addon-conditional-logic.php:305
 msgid "Not selected"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:303
+#: views/addon-editor/addon-conditional-logic.php:306
 msgid "Empty"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:304
+#: views/addon-editor/addon-conditional-logic.php:307
 msgid "Not empty"
 msgstr ""
 
-#: views/addon-editor/addon-conditional-logic.php:313
+#: views/addon-editor/addon-conditional-logic.php:316
 msgid "Add rule"
 msgstr ""
 
@@ -1265,61 +1283,61 @@ msgid "Image"
 msgstr "Image"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:167
+#: views/addon-editor/option-common-fields.php:168
 msgid "Price"
 msgstr "Prix"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:175
+#: views/addon-editor/option-common-fields.php:176
 msgid "Product price doesn't change - set option as free"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:177
+#: views/addon-editor/option-common-fields.php:178
 msgid "Product price increase - set option price"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:179
+#: views/addon-editor/option-common-fields.php:180
 msgid "Product price decrease - set discount"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:214
+#: views/addon-editor/option-common-fields.php:215
 msgid "regular"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:220
+#: views/addon-editor/option-common-fields.php:221
 msgid "discount"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:229
+#: views/addon-editor/option-common-fields.php:230
 msgid "sale"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:238
+#: views/addon-editor/option-common-fields.php:239
 msgid "Fixed amount"
 msgstr "Fixer un montant"
 
-#: views/addon-editor/option-common-fields.php:239
+#: views/addon-editor/option-common-fields.php:240
 msgid "Percentage"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:243
+#: views/addon-editor/option-common-fields.php:244
 msgid "Price multiplied by string length"
 msgstr "Prix ​​multiplié par la longueur de la chaîne"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:272
+#: views/addon-editor/option-common-fields.php:273
 msgid "Required"
 msgstr "Requis"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:291
+#: views/addon-editor/option-common-fields.php:292
 msgid "Enable to make this option mandatory for users."
 msgstr ""
 
@@ -1613,7 +1631,7 @@ msgid "Yes, delete"
 msgstr ""
 
 #. translators: %s: product name
-#: includes/class-yith-wapo-cart.php:149
+#: includes/class-yith-wapo-cart.php:156 includes/class-yith-wapo-cart.php:252
 msgctxt "[FRONT] Error message when an add-on type Product is out of stock"
 msgid ""
 "You cannot add &quot;%s&quot; to the cart because the product is out of "
@@ -1621,7 +1639,7 @@ msgid ""
 msgstr ""
 
 #. translators: 1: product name 2: quantity in stock
-#: includes/class-yith-wapo-cart.php:158
+#: includes/class-yith-wapo-cart.php:165 includes/class-yith-wapo-cart.php:261
 msgctxt ""
 "[FRONT] When add-on type Product is added to cart with more amount than "
 "allowed"
@@ -1630,14 +1648,25 @@ msgid ""
 "not enough stock (%2$s remaining)."
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:175
+#. translators: 1: product name 2: quantity in stock
+#: includes/class-yith-wapo-cart.php:173 includes/class-yith-wapo-cart.php:269
+msgctxt ""
+"[FRONT] When add-on type Product is added to cart with more amount than "
+"allowed"
+msgid ""
+"It is not possible to add the selected quantity of &quot;%1$s&quot; to the "
+"cart because there are not enough items in stock. The available items have "
+"already been added to the cart."
+msgstr ""
+
+#: includes/class-yith-wapo-cart.php:191 includes/class-yith-wapo-cart.php:287
 #, fuzzy
 msgctxt "[FRONT] Redirect to cart page"
 msgid "View cart"
 msgstr "Voir le panier"
 
 #. translators: 1: quantity in stock 2: current quantity
-#: includes/class-yith-wapo-cart.php:177
+#: includes/class-yith-wapo-cart.php:193 includes/class-yith-wapo-cart.php:289
 msgctxt ""
 "[FRONT] If sum of already add-ons type Products added to cart and the "
 "current stock selected are higher than expected"
@@ -1646,50 +1675,50 @@ msgid ""
 "already have %2$s in your cart."
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:514
+#: includes/class-yith-wapo-cart.php:627
 #, fuzzy
 msgctxt "[FRONT] Label shown on YITH Bundle products when is added to cart."
 msgid "Base price"
 msgstr "Prix de base"
 
-#: includes/class-yith-wapo-cart.php:622 includes/class-yith-wapo-cart.php:771
-#: includes/yith-wapo-functions.php:139 includes/yith-wapo-functions.php:141
+#: includes/class-yith-wapo-cart.php:735 includes/class-yith-wapo-cart.php:886
+#: includes/yith-wapo-functions.php:142 includes/yith-wapo-functions.php:144
 #, fuzzy
 msgctxt "[FRONT] Show it in the cart page if the add-on has not a label set"
 msgid "Option"
 msgstr "Options"
 
-#: includes/class-yith-wapo-cart.php:842
+#: includes/class-yith-wapo-cart.php:957
 #, fuzzy
 msgctxt "[FRONT] Default label on archive pages if the product has add-ons"
 msgid "Select options"
 msgstr "Sélectionner les options"
 
-#: includes/class-yith-wapo-front.php:158
+#: includes/class-yith-wapo-front.php:162
 msgctxt "[FRONT] Percentage done when uploading a file on an add-on type File."
 msgid "done"
 msgstr ""
 
-#: includes/class-yith-wapo.php:1008
+#: includes/class-yith-wapo.php:1017
 msgctxt "[ADMIN] String added to the add-on title when is duplicated"
 msgid "Copy"
 msgstr ""
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:640
+#: includes/yith-wapo-functions.php:643
 #, fuzzy
 msgctxt "Add-on editor panel > Add a new + add-on name (fem)"
 msgid "Add a new"
 msgstr "Ajouter un nouveau"
 
 #. translators: [ADMIN] Add-on editor > Options configuration option
-#: includes/yith-wapo-functions.php:724
+#: includes/yith-wapo-functions.php:727
 #, fuzzy
 msgctxt "Add-on editor panel > Add a new + add-on name (masc)"
 msgid "Add a new"
 msgstr "Ajouter un nouveau"
 
-#: init.php:115
+#: init.php:116
 #, fuzzy
 msgctxt "[ADMIN] Message when WC is not activated on the site"
 msgid ""
@@ -1728,7 +1757,7 @@ msgstr "Toutes les options sont requises"
 
 #. translators: String in the Conditional logic section (select, not select,
 #. empty, not empty).
-#: views/addon-editor/addon-conditional-logic.php:297
+#: views/addon-editor/addon-conditional-logic.php:300
 #, fuzzy
 msgctxt "[ADMIN] Translate in second person, not infinitive"
 msgid "Select an option"

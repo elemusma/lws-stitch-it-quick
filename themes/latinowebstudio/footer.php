@@ -124,19 +124,31 @@ echo '</div>';
 echo '</div>';
 // end of mobile nav menu
 
-echo '</footer>';
+// search menu modal
+echo '<div id="searchMenu" class="modal" style="background:rgba(0,0,0,.8);">';
+//   <!-- Modal content -->
+echo '<div class="modal-content" style="background:transparent;border:none;">';
+echo '<span class="close" id="navMenuClose">&times;</span>';
 
-echo '<div class="modal-content search-icon position-fixed w-100 h-100" style="opacity:0;z-index:20;">';
-echo '<div class="bg-overlay" style="background: rgba(0, 0, 0, 0.8);"></div>';
-echo '<div class="bg-content text-md-center text-left" style="background:transparent;padding: 150px 25px 50px;">';
-echo '<div class="bg-content-inner">';
-echo '<div class="close text-white" id="" style="background:transparent;font-size:2rem;right:55px;">X</div>';
-                
 echo get_search_form();
 
+
 echo '</div>';
 echo '</div>';
-echo '</div>';
+
+echo '</footer>';
+
+// echo '<div class="modal-content search-icon position-fixed w-100 h-100" style="opacity:0;z-index:20;">';
+// echo '<div class="bg-overlay" style="background: rgba(0, 0, 0, 0.8);"></div>';
+// echo '<div class="bg-content text-md-center text-left" style="background:transparent;padding: 150px 25px 50px;">';
+// echo '<div class="bg-content-inner">';
+// echo '<div class="close text-white" id="" style="background:transparent;font-size:2rem;right:55px;">X</div>';
+                
+// echo get_search_form();
+
+// echo '</div>';
+// echo '</div>';
+// echo '</div>';
 
 echo codeFooter();
 // if(get_field('footer', 'options')) { the_field('footer', 'options'); }

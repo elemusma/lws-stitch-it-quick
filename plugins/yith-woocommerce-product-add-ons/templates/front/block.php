@@ -37,6 +37,7 @@ global $product;
 		if ( yith_wapo_is_addon_type_available( $addon->type ) ) :
 
 			$settings = $addon->get_formatted_settings();
+
 			extract($settings );
 
             $toggle_addon   = $show_as_toggle !== 'no' ? 'wapo-toggle' : '';

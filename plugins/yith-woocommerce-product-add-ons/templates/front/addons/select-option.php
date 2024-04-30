@@ -28,10 +28,21 @@ $hide_options_prices = apply_filters( 'yith_wapo_hide_option_prices', $hide_opti
 $hide_options_prices = wc_string_to_bool( $hide_options_prices );
 
 $image_replacement = '';
+$image_url = '';
 if ( 'addon' === $addon_image_replacement ) {
 	$image_replacement = $addon_image;
 } elseif ( ! empty( $option_image ) && 'options' === $addon_image_replacement ) {
 	$image_replacement = $option_image;
+
+    $attachment_id = wp_get_attachment_image( $option_image );
+    if ( is_numeric( $option_image ) ) {
+        $image_replacement     = wp_get_attachment_image_url( $option_image, 'full' );
+    } else {
+        $image_replacement     = $option_image;
+    }
+
+    $image_url = $image_replacement;
+
 }
 
 $image_replacement = is_ssl() ? str_replace( 'http://', 'https://', $image_replacement ) : $image_replacement;
@@ -65,7 +76,7 @@ $option_disabled = apply_filters( 'yith_wapo_select_option_disabled', false, $ad
 	    data-first-free-enabled="<?php echo esc_attr( $first_options_selected ); ?>"
 	    data-first-free-options="<?php echo esc_attr( $first_free_options ); ?>"
 	    data-addon-id="<?php echo esc_attr( $addon->id ); ?>"
-	    data-image="<?php echo esc_attr( $option_image ); ?>"
+	    data-image="<?php echo esc_attr( $image_url ); ?>"
 	    data-replace-image="<?php echo esc_attr( $image_replacement ); ?>"
 	    data-description="<?php echo wp_kses_post( $option_description ); ?>"
         <?php echo $option_disabled ? 'disabled' : ''; ?>

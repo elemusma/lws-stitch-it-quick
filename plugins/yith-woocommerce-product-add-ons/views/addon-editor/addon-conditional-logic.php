@@ -39,6 +39,7 @@ $total_conditional_addons = count( $conditional_addons );
 if ( $total_conditional_addons > 0 ) {
 
     foreach ( $conditional_addons as $key => $conditional_addon ) {
+
         /**
          * @var YITH_WAPO_Addon $conditional_addon
          */
@@ -55,6 +56,10 @@ if ( $total_conditional_addons > 0 ) {
             $addon_title = ! empty( $conditional_addon->get_title() ) ? $conditional_addon->get_title() : __( 'Empty title', 'yith-woocommerce-product-add-ons' );
             if ( apply_filters( 'yith_wapo_show_id_in_conditional_addon_title', false ) ) {
                 $addon_title = '#' . $conditional_addon->get_id() . ' - ' . $addon_title;
+            }
+
+            if ( apply_filters( 'yith_wapo_add_parent_addon_conditional_logic', false ) ) {
+                $conditional_array[$current_addon_id]['options'][ $conditional_addon->id ] = ' - ' . $addon_title;
             }
 
             $conditional_array[$current_addon_id]['label'] = htmlentities( $addon_title );
@@ -74,8 +79,6 @@ if ( $total_conditional_addons > 0 ) {
         }
     }
 }
-
-
 
 /** Include specific variations to the select2 of the conditional logic */
 
@@ -263,7 +266,7 @@ $selected_products = array_unique( $selected_products );
             </div>
         </div>
 
-        <div id="conditional-rules" data-addon-options="<?php echo esc_attr( json_encode( $conditional_array ) ); ?>">
+        <div id="conditional-rules" data-addon-options="<?php echo esc_attr( wp_json_encode( $conditional_array ) ); ?>">
             <?php
             $conditional_rules_count = count( $conditional_rule_addon );
             for ( $y = 0; $y < $conditional_rules_count; $y++ ) :

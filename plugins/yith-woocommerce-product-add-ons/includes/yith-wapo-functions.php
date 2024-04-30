@@ -76,6 +76,8 @@ if ( ! function_exists( 'yith_wapo_get_option_info' ) ) {
                 )
             );
 
+            $info['addon'] = $addon;
+
 			// Option.
 			$info['color']             = $addon->get_option( 'color', $option_id );
             $info['color_b']           = $addon->get_option( 'color_b', $option_id, '', false );
@@ -102,6 +104,7 @@ if ( ! function_exists( 'yith_wapo_get_option_info' ) ) {
 			// Addon advanced.
 			$info['addon_first_options_selected'] = $addon->get_setting( 'first_options_selected' );
 			$info['addon_first_free_options']     = $addon->get_setting( 'first_free_options' );
+            $info['hide_options_prices']          = $addon->get_setting( 'hide_options_prices', 'no', false );
             $info['hide_products_prices']         = $addon->get_setting( 'hide_products_prices', 'no', false );
 
 		}
@@ -756,10 +759,10 @@ if ( ! function_exists( 'yith_wapo_create_time_range' ) ) {
         $times = array();
 
         while ( $startTime + $diff <= $endTime ) {
-            $times[] = date( $returnTimeFormat, $startTime );
+            $times[] = gmdate( $returnTimeFormat, $startTime );
             $startTime += $diff;
         }
-        $times[] = date( $returnTimeFormat, $startTime );
+        $times[] = gmdate( $returnTimeFormat, $startTime );
 
         return $times;
     }
@@ -786,6 +789,12 @@ if ( ! function_exists( 'yith_wapo_array_insert_after' ) ) {
 }
 
 if ( ! function_exists( 'yith_wapo_instance_class' ) ) {
+    /**
+     * Get instance of class.
+     * @param string $class
+     * @param array $args
+     * @return mixed
+     */
     function yith_wapo_instance_class( $class, $args = array() ) {
         $class_name = $class . ( class_exists( $class . '_Premium' ) ? '_Premium' : '' );
 
@@ -794,6 +803,12 @@ if ( ! function_exists( 'yith_wapo_instance_class' ) ) {
 }
 
 if ( ! function_exists( 'yith_wapo_get_parent_terms' ) ) {
+    /**
+     * Get parent terms by ID
+     * @param int $term_id The term id.
+     * @param string $taxonomy The taxonomy name. Default: 'product_cat'
+     * @return array
+     */
     function yith_wapo_get_parent_terms( $term_id, $taxonomy = 'product_cat' ) {
         $terms = array();
 
@@ -804,5 +819,183 @@ if ( ! function_exists( 'yith_wapo_get_parent_terms' ) ) {
         }
 
         return $terms;
+    }
+}
+
+if ( ! function_exists( 'yith_wapo_format_addons' ) ) {
+    /**
+     * Create a new array with the add-ons formatted.
+     *
+     * @param array $addons
+     * @return array
+     */
+    function yith_wapo_format_addons( $addons ) {
+
+        $new_addons = array(
+            'yith_wapo_options' => array(
+                'addons' => array(),
+                'individual' => array()
+            ),
+            'yith_wapo_qty_options' => array(
+
+            )
+        );
+
+        $individual_array = array(); // array which contain ID(addonid-optionid) of individual add-ons.
+
+        foreach ( $addons as $addon_id => $addon ) {
+
+            $separator = 'yith_wapo_sell_individually';
+            $name  = $addon['name'] ?? '';
+            $value = $addon['value'] ?? '';
+
+            if ( str_starts_with( $name, $separator ) ) {
+                $id = substr( $name, strlen( $separator ) );
+                $id = str_replace(array( '[', ']' ), '', $id );
+
+                if ( $id ) {
+                    $individual_array[] = $id;
+                }
+            }
+        }
+
+        foreach ( $addons as $addon_id => $addon ) {
+
+            $separator     = 'yith_wapo[]';
+            $qty_separator = 'yith_wapo_product_qty';
+
+            $name  = $addon['name'] ?? '';
+            $value = $addon['value'] ?? '';
+
+            if ( str_starts_with( $name, $separator ) && ! strlen( $value ) == 0 ) {
+                $id = substr( $name, strlen( $separator ) );
+                $id = str_replace( array( '[', ']' ), '', $id );
+
+                if ( ! in_array( $id, $individual_array ) ) {
+                    array_push(  $new_addons['yith_wapo_options']['addons'], array( $id => $value ) );
+                } else {
+                    array_push(  $new_addons['yith_wapo_options']['individual'], array( $id => $value ) );
+                }
+            }
+            if ( str_starts_with( $name, $qty_separator ) ) {
+                $id = substr( $name, strlen( $qty_separator ) );
+                $id = str_replace( array( '[', ']' ), '', $id );
+                $new_addons['yith_wapo_qty_options'][$id] = $value;
+            }
+        }
+
+        return $new_addons;
+    }
+}
+
+if ( ! function_exists( 'yith_wapo_get_attributes_selected' ) ) {
+    /**
+     * Get variation attributes selected from the serialized array of the form cart.
+     * @param array $serialized The serialized form.
+     * @param WC_Product_Variation $variation The variation selected.
+     * @return array
+     */
+    function yith_wapo_get_attributes_selected( $serialized, $variation = null ) {
+        $new_attrs = array();
+
+        $attributes = $variation->get_variation_attributes();
+        foreach ( $attributes as $attribute_name => $attribute_val ) {
+            foreach ( $serialized as $serialize_item ) {
+                $serialize_item_name = $serialize_item['name'] ?? '';
+                $serialize_item_val  = $serialize_item['value'] ?? '';
+                if ( $serialize_item_name === $attribute_name ) {
+                    $new_attrs[$serialize_item_name] = $serialize_item_val;
+                }
+            }
+        }
+
+        return $new_attrs;
+    }
+}
+
+if ( ! function_exists( 'yith_wapo_get_value_from_serialized_form' ) ) {
+    /**
+     * Get a value from the serialized array of the form cart.
+     * @param string $name The key to search.
+     * @param array $serialized The serialized form.
+     * @return mixed|string
+     */
+    function yith_wapo_get_value_from_serialized_form( $name, $serialized ) {
+        $value = '';
+
+        foreach ( $serialized as $serialize_item ) {
+            $serialize_item_name  = $serialize_item['name'] ?? '';
+            $serialize_item_value = $serialize_item['value'] ?? '';
+            if ( $serialize_item_name === $name && $serialize_item_value ) {
+                $value = $serialize_item_value;
+            }
+        }
+
+        return $value;
+    }
+}
+
+if ( ! function_exists( 'yith_wapo_get_addons_by_cart_item' ) ) {
+    /**
+     * Get the add-ons by cart item
+     * @param string $cart_item_key The cart item key.
+     * @param boolean $include_individual Boolean to indicate if individual add-ons should be included.
+     * @return array
+     */
+    function yith_wapo_get_addons_by_cart_item( $cart_item_key, $include_individual = false ) {
+        $addons            = array();
+        $individual_addons = array();
+
+        if ( $cart_item_key ) {
+            $cart_item  = WC()->cart->get_cart_item( $cart_item_key );
+            $addons_arr = $cart_item['yith_wapo_options'] ?? array();
+
+            foreach ( $addons_arr as $current_addon ) {
+                foreach( $current_addon as $id => $value ) {
+                    $addons[] = array( $id => $value );
+                }
+            }
+
+            if ( $include_individual ) {
+                $individual_addons = yith_wapo_get_individually_addons( $cart_item_key );
+            }
+
+            $addons = array_merge( $addons, $individual_addons );
+
+        }
+
+        return $addons;
+
+    }
+}
+
+if ( ! function_exists( 'yith_wapo_get_individually_addons' ) ) {
+    /**
+     * Get the individual add-ons of the cart item.
+     * @param string $cart_item_key The cart item key.
+     * @return array
+     */
+    function yith_wapo_get_individually_addons( $cart_item_key ) {
+        $indiv_addons = array();
+
+        if ( $cart_item_key ) {
+            $cart_items = WC()->cart->get_cart();
+            foreach ( $cart_items as $cart_item ) {
+                if ( isset( $cart_item['yith_wapo_individual_addons'] ) &&
+                    $cart_item_key === ( $cart_item['yith_wapo_addons_parent_key'] ?? '' ) ) {
+
+                    $addons_arr = $cart_item['yith_wapo_options'] ?? array();
+
+                    foreach ( $addons_arr as $current_addon ) {
+                        foreach( $current_addon as $id => $value ) {
+                            $indiv_addons[] = array( $id => $value );
+                        }
+                    }
+                }
+            }
+        }
+
+        return $indiv_addons;
+
     }
 }

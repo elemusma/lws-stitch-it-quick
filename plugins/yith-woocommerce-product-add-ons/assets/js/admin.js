@@ -904,7 +904,147 @@
               return false;
             }
           }
-    }
+    },
+    enableDisableBlocks = function() {
+      var blockID = $(this).closest( '.block-element' ).attr( 'data-id' );
+      var blockVisibility = 0;
+      var nonceInput = $( this ).closest( '#yith_wapo_panel_blocks' ).find( '#yith-wapo-nonce-blocks' );
+
+      if ( $(this).is(':checked') ) {
+        blockVisibility = 1;
+      }
+
+      // Ajax method
+      var data = {
+        'action'		: 'enable_disable_block',
+        'block_id'		: blockID,
+        'block_vis'		: blockVisibility,
+        'nonce_data'    : nonceInput.data( 'nonce' ),
+      };
+      $.post( ajaxurl, data, function(response) {
+        console.log( '[YITH.LOG] - Block visibility updated' );
+      });
+    },
+
+    enableDisableAddons = function() {
+      var addonID         = $(this).closest( '.addon-element' ).attr( 'data-id' );
+      var addonVisibility = 0;
+      var nonceInput = $( this ).closest( '#yith-wapo-panel-block' ).find( '#yith-wapo-nonce-addons' );
+
+      if ( $( this ).is( ':checked' ) ) {
+        addonVisibility = 1;
+      }
+
+      // Ajax method
+      var data = {
+        'action'		: 'enable_disable_addon',
+        'addon_id'		: addonID,
+        'addon_vis'		: addonVisibility,
+        'nonce_data'    : nonceInput.data( 'nonce' ),
+      };
+      $.post( ajaxurl, data, function(response) {
+        console.log( '[YITH.LOG] - Addon visibility updated' );
+      });
+    },
+
+    sortableMethods = function () {
+      /*
+       *
+       *	SORTABLE BLOCKS IN OPTIONS BLOCKS TABLE
+       *
+       *
+       * * * * * * * * * * * * * * * * * * * */
+
+      $('#yith-wapo-blocks-table .blockslists tbody').sortable({
+        containment: '#yith_wapo_panel_blocks .yith-plugin-fw-panel-custom-tab-container',
+        helper: fixWidthHelper,
+        revert: true,
+        axis: 'y',
+        delay: 300,
+        update: function (event, ui) {
+          var itemID = $(ui.item).data('id'),
+              movedItem = $(ui.item).attr('data-priority'),
+              prevItem = parseFloat($(ui.item).prev().attr('data-priority')),
+              nextItem = parseFloat($(ui.item).next().attr('data-priority'));
+
+          var data = {
+            'action': 'sortable_blocks',
+            'item_id': itemID,
+            'moved_item': movedItem,
+            'prev_item': prevItem,
+            'next_item': nextItem,
+            'security': yith_wapo.addons_nonce
+          };
+
+          $.post(ajaxurl, data, function (response) {
+            var data = response.data;
+            var itemID = data.itemID,
+                itemPR = parseFloat(data.itemPriority);
+            var blockSelected = $('#yith-wapo-blocks-table .blockslists tbody #block-' + itemID);
+
+            blockSelected.attr('data-priority', itemPR);
+            blockSelected.find('td.priority').html(Math.round(itemPR));
+
+            console.log('[YITH.LOG] - Block ID ' + itemID + ' updated with priority ' + itemPR);
+          });
+        }
+      });
+
+      /*
+      *
+      *	SORTABLE ADD-ONS IN ADD-ON OPTIONS MODAL
+      *
+      *
+      * * * * * * * * * * * * * * * * * * * */
+
+      $('#sortable-addons').sortable({
+        containment: '#block-addons-container',
+        revert: true,
+        axis: 'y',
+        update: function (event, ui) {
+          var id = ui.item.data('id');
+          var prevItem = ui.item.prev().data('id');
+          var nextItem = ui.item.next().data('id');
+          var blockID = ui.item.closest('#yith-wapo-panel-block').data('block-id');
+
+          // Ajax method
+          var data = {
+            'action': 'sortable_addons',
+            'id': id,
+            'previd': prevItem,
+            'nextid': nextItem,
+            'blockid': blockID,
+            'security': yith_wapo.addons_nonce
+          };
+
+          $.post(ajaxurl, data, function (response) {
+
+            if ( response['success'] ) {
+              console.log('[YITH.LOG] - Add-on priorities has been updated');
+            }
+
+          });
+        }
+      });
+    },
+        removeAddonOption = function(e) {
+          e.preventDefault();
+
+          $( this ).closest( '.option' ).remove();
+
+          let radiosChecked = $( '#addon_options' ).find( '.selected-by-default-chbx.checkbox:checked' ).length,
+              firstRadio =      $( '#addon_options' ).find( '.selected-by-default-chbx.checkbox' ).first();
+
+          if ( $( '#addon-editor-type' ).hasClass( 'addon-editor-type-radio' ) ) {
+
+            if ( radiosChecked < 1 ) {
+              firstRadio.prop( 'checked', true );
+            }
+          }
+
+          adjustAddonsIndex();
+
+        }
 
     /** Add-ons tabs change */
     $( document ).on( 'click', '#yith-wapo-addon-overlay #addon-tabs a', checkAdminTabs );
@@ -985,6 +1125,22 @@
     $( document ).on( 'change', '#addon-selection-type', selectedbyDefaultConditions );
     $( document ).on( 'click', '#addon_options .selected-by-default input[type="checkbox"]', selectedbyDefaultChecks );
 
+    /**
+     * Enable/Disable blocks
+     */
+    $( document ).on( 'change', '#yith-wapo-blocks-table .blockslists tbody .active .yith-plugin-fw-onoff-container input', enableDisableBlocks );
+
+    /** Enable/Disable add-ons */
+    $( document ).on( 'change', '#sortable-addons .addon-onoff input', enableDisableAddons );
+
+    /**
+     * Delete add-on option
+     */
+    $( document ).on( 'click', '#addon-container .yith-plugin-fw__action-button--delete-action', removeAddonOption );
+
+    /** Sortable */
+    sortableMethods();
+
     /** Add block button*/
     moveAddBlockButton();
 
@@ -1007,142 +1163,11 @@
   /** Init Admin JS */
   initAdmin();
 
-
-	/*
-	 *
-	 *	enable/disable
-	 *	blocks
-	 *
-	 * * * * * * * * * * * * * * * * * * * */
-
-	$('#yith-wapo-blocks-table .blockslists tbody').on( 'change', '.active .yith-plugin-fw-onoff-container input', function() {
-
-		var blockID = $(this).closest( '.block-element' ).attr( 'data-id' );
-		var blockVisibility = 0;
-        var nonceInput = $( this ).closest( '#yith_wapo_panel_blocks' ).find( '#yith-wapo-nonce-blocks' );
-
-        if ( $(this).is(':checked') ) {
-          blockVisibility = 1;
-        }
-
-		// Ajax method
-		var data = {
-			'action'		: 'enable_disable_block',
-			'block_id'		: blockID,
-			'block_vis'		: blockVisibility,
-            'nonce_data'    : nonceInput.data( 'nonce' ),
-		};
-		$.post( ajaxurl, data, function(response) {
-			console.log( '[YITH.LOG] - Block visibility updated' );
-		});
-
-	});
-
-	/*
-	 *
-	 *	enable/disable
-	 *	addons
-	 *
-	 * * * * * * * * * * * * * * * * * * * */
-
-	$( '#sortable-addons' ).on( 'change', '.addon-onoff input', function() {
-
-		var addonID         = $(this).closest( '.addon-element' ).attr( 'data-id' );
-		var addonVisibility = 0;
-        var nonceInput = $( this ).closest( '#yith-wapo-panel-block' ).find( '#yith-wapo-nonce-addons' );
-
-        if ( $( this ).is( ':checked' ) ) {
-          addonVisibility = 1;
-        }
-
-		// Ajax method
-		var data = {
-			'action'		: 'enable_disable_addon',
-			'addon_id'		: addonID,
-			'addon_vis'		: addonVisibility,
-            'nonce_data'    : nonceInput.data( 'nonce' ),
-		};
-		$.post( ajaxurl, data, function(response) {
-			console.log( '[YITH.LOG] - Addon visibility updated' );
-		});
-
-	});
-
-	/*
-	 *
-	 *	SORTABLE BLOCKS IN OPTIONS BLOCKS TABLE
-	 *
-	 *
-	 * * * * * * * * * * * * * * * * * * * */
-
-	$( '#yith-wapo-blocks-table .blockslists tbody' ).sortable( {
-        containment: '#yith_wapo_panel_blocks .yith-plugin-fw-panel-custom-tab-container',
-		helper: fixWidthHelper,
-		revert: true,
-		axis: 'y',
-        delay: 300,
-		update: function ( event, ui ) {
-          var itemID = $( ui.item ).data('id'),
-              movedItem = $( ui.item ).attr('data-priority'),
-              prevItem  = parseFloat( $( ui.item ).prev().attr('data-priority') ),
-              nextItem  = parseFloat( $( ui.item ).next().attr('data-priority') );
-
-			var data = {
-				'action'		: 'sortable_blocks',
-                'item_id'       : itemID,
-				'moved_item'	: movedItem,
-				'prev_item'		: prevItem,
-				'next_item'		: nextItem,
-			};
-
-          $.post( ajaxurl, data, function(response) {
-                    var data = response.data;
-                    var itemID = data.itemID,
-                    itemPR = parseFloat( data.itemPriority );
-                    var blockSelected = $( '#yith-wapo-blocks-table .blockslists tbody #block-' + itemID );
-
-                    blockSelected.attr( 'data-priority', itemPR );
-                    blockSelected.find( 'td.priority' ).html( Math.round( itemPR ) );
-
-                    console.log( 'Block ID ' + itemID + ' updated with this priority ' + itemPR );
-          } );
-		}
-	} );
-
-  /*
-  *
-  *	SORTABLE ADD-ONS IN ADD-ON OPTIONS MODAL
-  *
-  *
-  * * * * * * * * * * * * * * * * * * * */
-
-	$( '#sortable-addons' ).sortable( {
-    containment: '#block-addons-container',
-		revert: true,
-		axis: 'y',
-		update: function ( event, ui ) {
-			var movedItem = ui.item.data('id');
-			var prevItem  = parseFloat( ui.item.prev().data('priority') );
-			var nextItem  = parseFloat( ui.item.next().data('priority') );
-			// Ajax method
-			var data = {
-				'action'		: 'sortable_addons',
-				'moved_item'	: movedItem,
-				'prev_item'		: prevItem,
-				'next_item'		: nextItem,
-			};
-			$.post( ajaxurl, data, function(response) {
-				var res = response.split('-');
-				var itemID = res[0];
-				var itemPR = parseFloat( res[1] );
-				$( '#sortable-addons #addon-' + itemID ).attr( 'data-priority', itemPR );
-			} );
-		}
-	});
-
 	$( 'ul, li, tbody, tr, td' ).disableSelection();
 	function fixWidthHelper( e, ui ) {
-		ui.children().each(function() { $(this).width( $(this).width() ); });
+		ui.children().each( function() {
+          $(this).width( $(this).width() );
+        } );
 		return ui;
 	}
 
@@ -1221,44 +1246,4 @@
 
   });
 
-	/*
-	 *
-	 *	remove option
-	 *
-	 * * * * * * * * * * * * * * * * * * * */
-
-	$( document ).on( 'click', '#addon-container .yith-plugin-fw__action-button--delete-action', function( ev ) {
-      ev.preventDefault();
-
-    let clickedRadio = $( this );
-    $( this ).closest( '.option' ).remove();
-
-
-    let radiosChecked = $( '#addon_options' ).find( '.selected-by-default-chbx.checkbox:checked' ).length,
-      firstRadio =      $( '#addon_options' ).find( '.selected-by-default-chbx.checkbox' ).first();
-
-    if ( $( '#addon-editor-type' ).hasClass( 'addon-editor-type-radio' ) ) {
-
-      if ( radiosChecked < 1 ) {
-        firstRadio.prop( 'checked', true );
-      }
-    }
-
-    adjustAddonsIndex();
-	});
-
-
-	$('#tab-options-list').on( 'click', '.option .title', function() {
-		$(this).parent().find('.color-show-as select').change();
-	});
-	$('#tab-options-list').find('.color-show-as select').change();
-
-	/*
-	 *
-	 *	Conditional logic
-	 *
-	 * * * * * * * * * * * * * * * * * * * */
-	$( document ).on( 'select2:open', function ( e ) {
-		$( '.select2-results' ).closest( '.select2-container' ).addClass( 'yith-addons-select2-container' );
-	} );
 } )( jQuery );

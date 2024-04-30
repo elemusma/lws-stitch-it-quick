@@ -49,8 +49,8 @@ $nonce = wp_create_nonce( 'wapo_action' );
 
                         if ( ! empty( $block->get_name() ) ) {
                             $block_name = $block->get_name();
-                        } elseif ( isset( $_REQUEST['block_name'] ) && ! empty( $_REQUEST['block_name'] ) ) {
-                            $block_name = $_REQUEST['block_name'];
+                        } elseif ( isset( $_REQUEST['block_name'] ) && ! empty( $_REQUEST['block_name'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                            $block_name = $_REQUEST['block_name']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                         }
 
                         $block_name_field = array(
@@ -82,8 +82,8 @@ $nonce = wp_create_nonce( 'wapo_action' );
 
                         if ( ! empty( $block->get_priority() ) ) {
                             $block_priority = $block->get_priority();
-                        } elseif ( isset( $_REQUEST['block_priority'] ) && ! empty( $_REQUEST['block_priority'] ) ) {
-                            $block_priority = $_REQUEST['block_priority'];
+                        } elseif ( isset( $_REQUEST['block_priority'] ) && ! empty( $_REQUEST['block_priority'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+                            $block_priority = $_REQUEST['block_priority']; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                         }
 
                         $block_priority_field = apply_filters( 'yith_wapo_block_priority_field_args', array(

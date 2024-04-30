@@ -2,7 +2,7 @@
 <section class="body" style="padding:100px 0px;">
     <div class="container">
         <div class="row">
-        <div class="col-lg-9 pr-lg-5">
+        <div class="col-lg-12 pr-lg-5">
 <?php
 echo '<div class="row pb-5 align-items-center">';
 $s=get_search_query();
@@ -18,7 +18,7 @@ if ( $the_query->have_posts() ) {
         while ( $the_query->have_posts() ) {
            $the_query->the_post();
 
-               echo '<div class="col-md-6">';
+               echo '<div class="col-lg-4 col-md-6">';
                echo '<div class="row pb-5 align-items-center">';
                echo '<div class="col-md-6 col-5">';
                the_post_thumbnail('large',array('class'=>'w-100 h-auto img-hover','style'=>'mix-blend-mode:darken;'));
@@ -46,7 +46,7 @@ if ( $the_query->have_posts() ) {
         
     echo '</div>';
     echo '</div>';
-    echo get_template_part('partials/sidebar');
+    // echo get_template_part('partials/sidebar');
 
 echo '</div>';
     echo '</div>';

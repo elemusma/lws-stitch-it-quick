@@ -1,10 +1,10 @@
 === YITH WooCommerce Product Add-Ons ===
 
 Contributors: yithemes
-Tags: woocommerce, woocommerce product add-ons, woocommerce product add ons, woocommerce advanced product option, product add ons, product add-ons, option, radio, checkbox, text, woocommerce product addons
+Tags: woocommerce product addons, WooCommerce product fields, woocommerce product options, woocommerce custom fields, product add-ons for woocommerce
 Requires at least: 6.3
 Tested up to: 6.5
-Stable tag: 4.8.0
+Stable tag: 4.9.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -13,85 +13,71 @@ Increase average order value by letting your customers purchase additional optio
 
 == Description ==
 
-YITH Product Add-ons & Extra options is a powerful tool that you can use to create and sell advanced products or services by adding custom options in your product pages. And with **our new redesign** we’ve added a lot of new exciting features!
+YITH Product Add-ons & Extra Options is a versatile and complete tool for the creation and sale of advanced products or services and the addition of custom options to your product pages.
 
-You can now create **unlimited blocks of options**, show them on all products, or just specific products or categories, and choose from different types of add-ons: radio elements, select dropdown, input textboxes, checkboxes, etc. You can either **set a cost for each option, make it free**, or even **discount the product price** if the option is selected. 
+You can create **endless blocks of options** to display in all products or only in specific products or categories, and choose from different types of product add-ons: radios, drop-down menus, text boxes, checkboxes, etc. Set **a price for each option, offer it for free** or **discount the product** price when the option is selected.
 
-This plugin is an easy solution to **sell customizable products** (for example, if you sell t-shirts or jewels, you can add a radio button to let users choose whether to customize  it or not, and then show an input field where they can type in the text for print or engraving) **or products that need advanced options** (for example, you sell a product box and let your users select the number of products to add: you can charge them an additional cost for extra products and let them select a shipping option from a list of available carriers). 
+This product add-ons plugin is a simple solution for **selling customizable** products (e.g., if you sell t-shirts or jewelry, you can insert a radio button to let the user choose whether or not to customize the product and if they choose "Yes" show a text box to enter the text to be printed or engraved) or **products with advanced add-ons** (e.g., if you sell a box of products, you can let the user choose the number of products to include, charge extra for additional products, and have the user choose the shipping service from a list of available couriers).
 
-The options selected and the information submitted by the customers will be included in the order details.
+The options selected and information submitted by customers will be included in the order details.
 
 == YITH WOOCOMMERCE PRODUCT ADD-ON & EXTRA OPTIONS FEATURES ==
 
 = FREE VERSION =
 
-See it in action here:
-[Check the Live Demo of the Free Version >](https://plugins.yithemes.com/yith-woocommerce-product-add-ons-free/)
+See the plugin in action:
+[Try the free version's live demo >](https://plugins.yithemes.com/yith-woocommerce-product-add-ons-free/)
 
 * Create unlimited blocks of options
-* Add unlimited options inside each block
-* Show the block in all products/just specific products/specific product categories
-* Add HTML elements in the options block: Heading, Text, and Separator (simple border; double, dotted or dashed border; empty space) 
-* Add radio type options
-* Add input text options (with “limit input characters” support)
-* Add select type options
-* Add checkbox type options (square or rounded style)
-* Set specific conditions to show or hide a block of options (e.g. show the option B only if the user sets “yes” in option A)
-* Set specific conditions to show the additional options only on specific product variations (e.g. show the options only if the product variation “color black” is selected)
-* Set the option as required or not
-* Set the option as selected by default or not
-* Choose where to display the options on the product page (before or after the “Add to cart” button)
-* Enter an optional title for each block of options and choose which heading to use (h1, h2, h3, etc.)
-* Enter a label and a description for each option
-* Show an optional tooltip for each option
-* Set if the option is free (product price doesn’t change when the option is selected)
-* Set if the option has a fixed or % cost that will increase the product price
-* Set if the option discounts the product price 
-* Set the options block background and padding
-* Use the theme forms style or the custom plugin style 
-* Customize the colors for borders, texts, and accent color 
-* Set the tooltip colors and position (top or bottom)
+* Display the block of addons in all products or only in specific products or categories
+* Add HTML elements to the options block: title, text, and delimiters (single, double, dotted or dashed border, space, etc.)
+* Add “Radio button” type options
+* Add “Text input” options (optional: set a minimum and maximum number of characters the user can enter)
+* Add “Select” type options
+* Add “Checkbox” type options
+* Set conditions to show or hide a block of product addons (e.g., show option B only when the user selects "Yes" in option A)
+* Set conditions to show add-on options only in certain variations (e.g., show options only when black color variation is selected)
+* Choose whether to set the option as mandatory
+* Choose whether to show the option as selected by default
+* Choose where to show the addons on the Product Page (before or after the "Add to Cart" button)
+* Enter an optional title for each option block and choose which format to use (h1, h2, h3, etc.)
+* Enter a name and a description for each option
+* Display an optional tooltip for each option and customize its colors and position
+* Choose whether to offer the option for free (product price does not change when selected)
+* Choose whether the option has a fixed or percentage cost that increases the product price, or whether to offer a discount on the product price when the option is selected
+* Set a background and padding for the option block, and customize the border, text, and highlight colors.
  
-= NEED MORE? CHECK THE PREMIUM VERSION FEATURES! =
+= WANT MORE? DISCOVER WHAT THE PREMIUM VERSION HAS TO OFFER! =
 
-See it in action here:
-[Check the Live Demo of the Premium Version >](https://plugins.yithemes.com/yith-woocommerce-product-add-ons/)
+See the plugin in action:
+[Visit the Premium version's live demo >](https://plugins.yithemes.com/yith-woocommerce-product-add-ons/)
 
-* Hide the options from specific products
-* Show the options to all users/only logged-in users/only specific user roles NEW
-* Add “textarea” options (with “limit input characters” support)
-* Add “color swatches” (with color selector and image support) NEW
-* Add “number/quantity” options
-* Add “label or image” type options
-* Add “calendar date picker” type options (with advanced settings to set a default date, a start and end year, etc.)
-* Add “file upload” type options with drag and drop support NEW
-* Add “product” options to show linked products on the main product page NEW
-* Upload an image to clarify what the option is about
-* Choose whether to replace the main product image when the option is selected
-* Choose the image position (above or under the label, on the left or right) NEW
-* Choose whether to show or not the options set in a toggle collapse section
-* Hide the option price
-* Hide the option label and description
-* Set how many options to show in each row NEW
-* Enable the grid layout to adjust the options in a grid based on the page width  NEW
-* Set whether to multiply the product price by the length of the text inserted by the user (only for Text and Textarea type add-ons)
-* Set whether to multiply the product price by the quantity the user selects for a certain option (only for “number” type add-ons)
-* Set the first “X” selected options as FREE (e.g. the first 3 pizza toppings are free and included in the pizza price, but from the 4th topping the user will be charged an extra cost)
-* Replace or not the default product price with the updated price when the user selects some paid options
-* Show or not an options price total box on the product page
-* Settings for the “upload file” option: text to show, enable the “upload” button or the textual link, set the file formats and the max file size allowed
-* Set the checkbox style (square or rounded) NEW
-* Set the color swatches size and style (square or rounded) NEW
-* Set the image position for the “label/image” options NEW
-* Force label images to the same height NEW
-* Set the default position for the option label and description
-* Choose whether to show the options in a toggle collapse section or not
-* For each block of options, set whether the user can select only ONE of the options available or if can select MULTIPLE options
-* For each block of options choose whether the user has to select a minimum, maximum or an exact number of options to be able to proceed to the checkout
-* Hide the “Add to cart" buttons until the required options have a selection
-* Show or not the selected options in the cart
-* Show the image replacement in the cart
-* Hide the selected options in the emails related to the order
+* Hide options from specific products
+* Show add-ons to all users/only logged in users/only certain user roles
+* Add "Text area" type options (you can also set a minimum and maximum number of characters the user can enter)
+* Add "Color picker" options (set a color swatch or image)
+* Add "Number" type options
+* Add "Label or image" type options
+* Add "Date" type options (with advanced options to also set a default date, start and end year, etc.)
+* Add "File upload" type options with drag and drop support. Set supported file formats and maximum allowed size
+* Add "Product" type options to display related products for upsell promotion
+* Upload an image to represent the option and choose whether to use it to replace the main product image (on the product page and in the shopping cart)
+* Choose the location of the image (above or below the label, right or left)
+* Choose whether or not to display the set of product addons in a section that can be opened and closed (toggle)
+* Hide the name, description and price of the options
+* Choose how many options you want to show for each row, and enable the grid layout to adjust the arrangement of the options based on the width of the page
+* Choose whether or not to multiply the product price by the length of the text entered by the user (available only for the "Text" and "Text Area" types)
+* Choose whether the product price should be multiplied by the quantity of the option selected by the user (available for “Quantity” type only)
+* Offer the first X selected options for free (e.g. if someone buys a pizza, the first three toppings are free, the fourth is charged)
+* Choose whether to replace the product price with the updated price including options, and whether to display a price summary box on the product page
+* Choose the style for checkboxes and color swatches (round or square)
+* Set image position for “Label or image” type options
+* Set the default position for name and description
+* For each block, choose how many options the user can select and whether to set a number (exact, minimum, or maximum) of options to select before paying
+* Hide the "Add to Cart" button until the user selects the required options
+* Show or hide selected addons in the cart
+* Allow the user to change the selected options in the cart from a modal window **NEW**
+* Show or hide selected product addons in order emails
 
 == Installation ==
 Important: First of all, you have to download and activate WooCommerce plugin, which is mandatory for YITH WooCommerce Product Add-Ons to be working.
@@ -129,6 +115,28 @@ You must enable the dependency on the option you are interested in by inserting 
 11. Product page with different options (5/5)
 
 == Changelog ==
+
+= 4.9.2 – Released on 30 April 2024 =
+
+* Fix: image not appearing when selecting an option on add-on type Selector
+* Fix: incorrect total calculation
+
+= 4.9.1 – Released on 25 April 2024 =
+
+* Fix: store image option as id
+* Fix: filter add-ons meta for order
+
+= 4.9.0 – Released on 23 April 2024 =
+
+* New: support for WooCommerce 8.8
+* Update: YITH plugin framework
+* Fix: sortable add-ons and priority
+* Fix: integration with Multi Currency when the custom price is enabled but the currency is not set
+* Fix: check required fields to hide add to cart button
+* Dev: added background process to convert URL of images to image id in the add-on option
+* Dev: refactoring code using wc_get_template to display images of the options
+* Dev: refactoring JS code
+* Dev: CSS changes
 
 = 4.8.0 – Released on 26 March 2024 =
 

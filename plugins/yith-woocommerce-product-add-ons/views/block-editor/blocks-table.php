@@ -20,7 +20,7 @@ $list_table->prepare_items();
 $blocks_num = $list_table->items;
 
 $count_blocks = count( $blocks_num );
-$search_query = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : '';
+$search_query = isset( $_GET['s'] ) ? sanitize_text_field( wp_unslash( $_GET['s'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 $nonce  = wp_create_nonce( 'wapo_action' );
 

@@ -26,7 +26,8 @@ do_action( 'yith_wapo_before_main_container' );
 
 <!-- #yith-wapo-container -->
 <div id="yith-wapo-container" class="yith-wapo-container yith-wapo-form-style-<?php echo esc_html( $style_form_style ) ?>" data-product-price="<?php echo esc_attr( $product_price ); ?>" data-product-id="<?php echo esc_attr( $product->get_id() )  ?>">
-	<?php $instance->print_blocks(); ?>
+	<?php $instance->print_blocks();
+    ?>
 </div>
 
 <?php

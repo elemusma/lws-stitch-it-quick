@@ -501,3 +501,75 @@ if ( ! function_exists( 'yith_wapo_update_400_migrate_db' ) ) {
 	}
 
 }
+
+if ( ! function_exists( 'yith_wapo_update_412_update_image_option' ) ) {
+
+    function yith_wapo_update_412_update_image_option( $args ) {
+        global $wpdb;
+
+        $limit = apply_filters( 'yith_wapo_update_image_option_limit', 40 );
+        $offset = 0;
+
+        if ( isset( $args['offset'] ) ) {
+            $offset = $args['offset'];
+        }
+
+        $query  = "SELECT id,options FROM {$wpdb->prefix}yith_wapo_addons LIMIT {$limit} OFFSET {$offset}";
+        $addons = $wpdb->get_results( $query ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+
+        if ( empty( $addons ) ) {
+            // Stop the execution, since there are no more groups to update.
+            return false;
+        }
+
+        foreach ( $addons as $addon_index => $addon ) {
+
+            $addon_id = $addon->id;
+
+            $options = maybe_unserialize($addon->options);
+
+            if ( isset( $options['image'] ) ) {
+                $images = $options['image'];
+                foreach ( $images as $image_id => $image_url ) {
+                    if ( empty( $image_url ) || is_numeric( $image_url ) ) {
+                        continue;
+                    }
+
+                    $main_url = $image_url;
+
+                    $dir = wp_get_upload_dir();
+
+                    $baseurl = $dir['baseurl'] ?? '';
+                    $baseurl_origin = $baseurl;
+
+                    if ( $baseurl ) {
+                        if ( strpos( $baseurl, 'staging.' ) !== false ) {
+                            $baseurl_origin = str_replace( 'staging.', '', $baseurl );
+                        }
+                    }
+
+                    if ( str_starts_with( $image_url, $baseurl_origin ) ) {
+                        $image_url = substr( $image_url, strlen( $baseurl_origin . '/' ) );
+                    }
+
+                    $new_id = attachment_url_to_postid( $image_url );
+
+                    $options['image'][$image_id] = is_numeric( $new_id ) && $new_id > 0 ? $new_id : $main_url;
+
+                }
+            }
+
+            $options = maybe_serialize( $options );
+
+            $sql = "UPDATE {$wpdb->prefix}yith_wapo_addons SET last_update= CURRENT_TIMESTAMP, options = '$options' WHERE id='$addon_id'";
+            $wpdb->query( $sql ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.NotPrepared
+
+
+        }
+
+        // Next execution!.
+        return true;
+
+    }
+
+}
