@@ -154,18 +154,6 @@ hr.text-white {
   display: none !important;
 }
 
-@media screen and (max-width: 1199px) {
-  .mobile-hidden {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .desktop-hidden {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .bg-attachment {
     background-attachment: unset !important;
