@@ -91,6 +91,39 @@ echo '<div class="text-center bg-light" style="padding:15px;">';
         echo '<small class=""><a href="https://latinowebstudio.com/" target="_blank" rel="noopener noreferrer" title="Web Design, Web Development & SEO done by Latino Web Studio in Denver, CO" style="" class="">Web Design, Web Development & SEO in Denver, CO</a> done by Latino Web Studio</small>';
     echo '</div>';
 echo '</div>';
+
+// <!-- The first Modal -->
+echo '<div id="mobileMenu" class="modal mobile-menu">';
+//   <!-- Modal content -->
+echo '<div class="modal-content-menu modal-content" style="background:var(--accent-primary);padding-top:50px;">';
+echo '<span class="close" id="navMenuClose">&times;</span>';
+
+// echo do_shortcode('[spacer style="height:25px;"]');
+
+echo '<div style="width:100%;max-width:105px;">';
+echo '<a href="' . home_url() . '" title="Discovery Engineering">';
+// echo wp_get_attachment_image(logoImg()['id'],'full','',[
+//     'class'=>'w-100 h-auto',
+// ]);
+echo logoSVG();
+echo '</a>';
+echo '</div>';
+
+wp_nav_menu(array(
+'menu' => 'primary',
+'menu_class'=>'menu list-unstyled mb-0'
+)); 
+
+wp_nav_menu(array(
+    'menu' => 'Shopping',
+    'menu_class'=>'menu list-unstyled mb-0 d-flex m-0'
+));
+
+
+echo '</div>';
+echo '</div>';
+// end of mobile nav menu
+
 echo '</footer>';
 
 echo '<div class="modal-content search-icon position-fixed w-100 h-100" style="opacity:0;z-index:20;">';

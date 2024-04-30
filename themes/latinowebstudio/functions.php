@@ -41,8 +41,14 @@ wp_enqueue_style('font-poppins', get_theme_file_uri('/font-poppins/font-poppins.
 
 }
 add_action('wp_enqueue_scripts', 'stitch_it_quick_stylesheets');
+
+
+
+
 // for footer
 function stitch_it_quick_stylesheets_footer() {
+
+wp_enqueue_style('nav-mobile', get_theme_file_uri('/css/sections/nav-mobile.css'));
 // wp_enqueue_style('style-footer', get_theme_file_uri('/css/style-footer.css'));
 // owl carousel
 // wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
