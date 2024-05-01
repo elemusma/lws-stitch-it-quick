@@ -1,0 +1,75 @@
+# Copyright (C) 2023 Sortable Dashboard To-Do List
+# This file is distributed under the same license as the Ignore Plugin Update package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sortable Dashboard To-Do List\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-09 07:10+0000\n"
+"PO-Revision-Date: 2024-01-09 07:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.6; wp-6.4.2"
+
+#. Description of the plugin
+msgid "Adds a to-do list to the WordPress dashboard."
+msgstr "Fügt eine To-Do Liste im WordPress Dashboard hinzu."
+
+msgid "To-Do List"
+msgstr "To-Do Liste"
+
+msgid "Add New To-Do Item"
+msgstr "Neue To-Do Liste hinzufügen"
+
+msgid "Edit To-Do Item"
+msgstr "To-Do Liste bearbeiten"
+
+msgid "Title (required)"
+msgstr "Titel (erforderlich)"
+
+msgid "Description (optional)"
+msgstr "Beschreibung (optional)"
+
+msgid "No additional content was provided."
+msgstr "Es wurde kein zusätzlicher Inhalt bereitgestellt."
+
+msgid "Delete To-Do Item"
+msgstr "To-Do Liste löschen"
+
+msgid "Save Edits"
+msgstr "Änderungen speichern"
+
+msgid ""
+"This item will be permanently deleted and cannot be recovered. Are you sure?"
+msgstr ""
+"Diese Liste wird endgültig gelöscht und kann nicht wiederhergestellt werden. "
+"Sind Sie sicher?"
+
+msgid "Added %s"
+msgstr "Hinzugefügt am %s"
+
+msgid "Last edit %s"
+msgstr "Zuletzt geändert am %s"
+
+msgid "Recently added"
+msgstr "Neulich hinzugefügt"
+
+msgid "Recently edited"
+msgstr "Neulich geändert"
+
+msgid "Show list on website (%s only)"
+msgstr "Liste auf Website anzeigen (nur %s)"
+
+msgid "Show on website (%s only)"
+msgstr "Auf Website anzeigen (nur %s)"
+
+msgid "Show list"
+msgstr "Liste anzeigen"
+
+msgid "Collapse list"
+msgstr "Liste verkleinern"

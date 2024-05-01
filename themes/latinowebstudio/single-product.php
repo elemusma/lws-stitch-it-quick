@@ -54,12 +54,12 @@ if($categoryName == 'Gates' ) {
         if ( have_posts() ) : while ( have_posts() ) : the_post();
         // Output main content
         the_content();
-        endwhile; else:
+    endwhile; else:
         echo '<p>Sorry, no posts matched your criteria.</p>';
-        endif;
-    } else {
-        echo 'need to log into Gatess';
-    }
+    endif;
+} else {
+    echo 'need to log into Gatess';
+}
 } else {
     if ( have_posts() ) : while ( have_posts() ) : the_post();
     // Output main content

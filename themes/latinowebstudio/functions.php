@@ -1,5 +1,12 @@
 <?php
 
+// Declare WooCommerce Support
+// add_theme_support( 'woocommerce' );
+
+// add_theme_support( 'wc-product-gallery-lightbox' );
+// add_theme_support( 'wc-product-gallery-zoom' );
+// add_theme_support( 'wc-product-gallery-slider' );
+
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
 
@@ -601,14 +608,18 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
 
 // Add WooCommerce support only on cart and checkout pages
 
-function enable_woocommerce_support() {
-    if (is_cart() || is_checkout()) {
-        // add_theme_support('wc-product-gallery-zoom');
-        // add_theme_support('wc-product-gallery-lightbox');
-        // add_theme_support('wc-product-gallery-slider');
-    }
-}
+
+
+// function enable_woocommerce_support() {
+//     // if (is_cart() || is_checkout()) {
+//         add_theme_support('wc-product-gallery-zoom');
+//         add_theme_support('wc-product-gallery-lightbox');
+//         add_theme_support('wc-product-gallery-slider');
+//     // }
+// }
 // add_action('after_setup_theme', 'enable_woocommerce_support',10);
+
+// add_theme_support('woocommerce');
 
 
 
@@ -730,8 +741,6 @@ function custom_search_form($form) {
 
 // // removes sidebar
 // remove_action('woocommerce_sidebar','woocommerce_get_sidebar');
-
-// add_theme_support('woocommerce');
 
 // Step 1: Add Custom Field to Product General Tab
 function custom_product_field() {

@@ -1,0 +1,217 @@
+.sdtdl-dialog-content, .sdtdl-front,#sdtdl-list .dashicons-sort {
+    display: none;
+}
+
+.sdtdl-front.sdtdl-open{
+    display: block;
+}
+
+.sdtdl-collapsed{
+    height: 60px;
+    width: 60px;
+    color: #fff;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 50%;
+    cursor: pointer;
+    left: 10px;
+    bottom: 10px;
+    background: #2196F3;
+}
+
+.sdtdl-collapsed.sdtdl-open{
+    display: none;
+}
+
+.sdtdl-collapsed .dashicons-editor-ul{
+    font-size: 40px;
+    height: 40px;
+    width: 40px;
+}
+
+.sdtdl-counter{
+    position: absolute;
+    background: red;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    width: 18px;
+    top: -5px;
+    right: 0;
+}
+
+.sdtdl-item-title {
+    font-weight: bold;
+}
+
+.sdtdl-dialog {
+    padding: 3px;
+}
+
+.sdtdl-dialog .ui-dialog-buttonset button {
+    color: white;
+    background: #2196F3;
+    border-radius: 5px;
+    text-align: center;
+    border: 0;
+    box-shadow: none;
+}
+
+.sdtdl-dialog .ui-dialog-buttonset button:hover {
+    color: white;
+    background: #2196F3;
+    box-shadow: 0 0 10px 0 rgba(33 150 243/0.52);
+}
+
+.sdtdl-added {
+    font-style: italic
+}
+
+textarea.sdtdl-content-text {
+    display: block;
+    width: 100%;
+}
+
+.sdtdl-content-text {
+    white-space: pre-line;
+}
+
+#new-sdtdl-title.error::placeholder, #edit-sdtdl-title.error::placeholder {
+    color: #e65054;
+    opacity: 1
+}
+
+.sdtdl-front {
+    position:fixed;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    background-color: #fff;
+    z-index: 100;
+    width:300px;
+    left:10px;
+    bottom:10px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.sdtdl-front ul {
+    padding: 0 10px;
+}
+
+.sdtdl-front h3{
+    font-size: 20px;
+    line-height: 30px;
+    font-family: inherit;
+    background-color: #2196F3;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    padding: 10px;
+    color:#fff;
+    margin-top: 0;
+}
+
+.sdtdl-front h3 .dashicons-arrow-down-alt2{
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.sdtdl-front h3:before{
+    content: "\f203";
+    font-family: dashicons;
+    margin-right: 10px;
+}
+
+#sdtdl-list {
+    visibility: hidden;
+}
+
+#sdtdl-list li {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 13px;
+    margin-bottom: 11px;
+    margin-left: 0;
+    border: 1px solid #ccc;
+    justify-content: space-between;
+}
+
+.sdtdl-dialog .ui-dialog-titlebar {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: rgba(33 150 243/0.52);
+    border: 1px solid #2196F3;
+    position: relative;
+}
+
+.sdtdl-dialog .ui-dialog-titlebar-close {
+    background: white;
+    position: absolute;
+    right: 0.3em;
+    top: 50%;
+    width: 20px;
+    margin: -10px 0 0 0;
+    padding: 1px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid #2196F3;
+}
+
+.sdtdl-dialog .ui-dialog-titlebar-close:hover, .sdtdl-dialog .ui-dialog-titlebar-close:focus {
+    background: transparent;
+    color: #000;
+}
+
+.sdtdl-dialog .ui-dialog-titlebar-close:active {
+    background: #2196F3;
+    color: #000;
+}
+
+.sdtdl-dialog .ui-dialog-titlebar-close:before {
+    position: absolute;
+    margin-top: -10px;
+    margin-left: -18px;
+}
+
+.sdtdl-dialog .ui-icon-closethick {
+    width: 16px;
+    height: 16px;
+}
+
+.sdtdl-dates {
+    margin-top: 20px;
+    font-size: 10px;
+    font-style: italic;
+    line-height: 20px;
+}
+
+.sdtdl-date-added, .sdtdl-date-edited{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sdtdl-dates .dashicons {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    margin-right: 3px;
+}
+
+.sdtdl-view-item .sdtdl-content-text li{
+    margin-left:16px;
+}
+.sdtdl-view-item .sdtdl-content-text ul,.sdtdl-view-item .sdtdl-content-text ol{
+    white-space: normal;
+    margin: 10px 0;
+}
