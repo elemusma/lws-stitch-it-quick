@@ -1,11 +1,11 @@
 <?php
 
 // Declare WooCommerce Support
-// add_theme_support( 'woocommerce' );
+add_theme_support( 'woocommerce' );
 
-// add_theme_support( 'wc-product-gallery-lightbox' );
-// add_theme_support( 'wc-product-gallery-zoom' );
-// add_theme_support( 'wc-product-gallery-slider' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-slider' );
 
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
@@ -328,27 +328,6 @@ add_shortcode( 'type_writer', 'type_writer_shortcode' );
 
 
 
-function txt_type_shortcode( $atts ) {
-    // Extract shortcode attributes
-    $atts = shortcode_atts( array(
-        'wait' => '1000',
-        'words' => '["Developer","Designer","Creator"]'
-    ), $atts );
-
-    // Sanitize attribute values
-    $wait = intval( $atts['wait'] );
-    $words = json_decode( $atts['words'] );
-
-    // Output HTML
-    ob_start();
-    ?>
-    <span class="txt-type" data-wait="<?php echo esc_attr( $wait ); ?>" data-words='<?php echo esc_attr( json_encode( $words ) ); ?>'></span>
-    <?php
-    return ob_get_clean();
-}
-add_shortcode( 'txt_type', 'txt_type_shortcode' );
-
-
 function custom_modify_block_output($block_content, $block) {
 // Check if it's the core/paragraph, core/image, or core/columns block
 if (in_array($block['blockName'], array('core/image', 'core/columns', 'core/quote'))) {
@@ -360,21 +339,6 @@ return $block_content;
 
 add_filter('render_block', 'custom_modify_block_output', 10, 2);
 
-// function custom_modify_block_output($block_content, $block) {
-//     global $post;
-
-//     // Check if it's the core/paragraph, core/image, or core/columns block
-//     if (
-//         in_array($block['blockName'], array('core/paragraph', 'core/image', 'core/columns'))
-//         && !has_block('core/quote', $post)
-//     ) {
-//         // Modify the block content as needed
-//         $block_content = '<section class=""><div class="container"><div class="row"><div class="col-12">' . $block_content . '</div></div></div></section>';
-//     }
-//     return $block_content;
-// }
-
-// add_filter('render_block', 'custom_modify_block_output', 10, 2);
 
 // Add a custom user role with default capabilities of the Customer role
 function add_custom_roles() {
@@ -413,6 +377,22 @@ function currentUserGates() {
 	$role_slug = 'client_gates_enterprises';
 	return $role_slug;
 }
+
+// Assigns admin with Gates User Role
+$user_id = 1; // Replace 123 with the actual user ID
+$user = get_user_by('ID', $user_id);
+
+if ($user) {
+    $user->add_role('client_gates_enterprises'); // Assign the role to the user
+}
+
+// $user = get_user_by('login', 'info@latinowebstudio.com'); // Replace 'username' with the username of the user
+// if ($user) {
+//     $user_id = $user->ID;
+//     echo "User ID: " . $user_id;
+// } else {
+//     echo "User not found.";
+// }
 
 
 // Control core classes for avoid errors
@@ -625,28 +605,103 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
 
 // WOOCOMMERCE CONTENT WITH NO SIDEBAR
 
-add_action('woocommerce_single_product_summary','add_title', 5);
+// add_action('woocommerce_single_product_summary','add_title', 5);
 
-function add_title() {
-	echo '<h1 style="" class="h4">' . get_the_title() . '</h1>';
+// function add_title() {
+// 	echo '<h1 style="" class="h4">' . get_the_title() . '</h1>';
+// }
+
+// remove_filter( 'the_title', 'wptexturize' );
+
+// add_filter( 'the_title', 'modify_product_title_html', 10, 2 );
+// add_filter( 'the_title', 'modify_product_title_html', 1, 2 );
+
+// function modify_product_title_html( $title, $id ) {
+//     // Check if it's a single product page
+//     if ( is_singular( 'product' ) && in_the_loop() && is_main_query() ) {
+//         // Modify the product title HTML
+//         // $title = '<h1 class="custom-product-title">' . $title . '</h1>';
+//     }
+    
+//     // echo 'hello';
+//     return $title;
+// }
+
+
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+
+add_action('woocommerce_single_product_summary', 'custom_page_title', 5);
+
+function custom_page_title() {
+    echo '<h1 class="h5">' . get_the_title() . '</h1>';
 }
 
-add_action('loop_start', 'add_container_class', 10);
-add_action('loop_end', 'close_container_class', 10);
+
+
+add_action('woocommerce_before_main_content','add_container_class',9);
+add_action('woocommerce_after_main_content','close_container_class',9);
+// add_action('loop_start', 'add_container_class', 10);
+// add_action('loop_end', 'close_container_class', 10);
 // add_action('woocommerce_before_shop_loop', 'add_container_class', 10);
 // add_action('woocommerce_after_shop_loop', 'close_container_class', 10);
 
 function add_container_class(){
 	wp_enqueue_style('woocommerce-css', get_theme_file_uri('/css/sections/woocommerce.css'));
-if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
+// if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
 	// echo 'hello';
-	echo '<section style="padding:50px 0px;margin-top: 2rem ">';
+	echo '<section style="padding:50px 0px;">';
 	echo '<div class="container">';
 	echo '<div class="row justify-content-center">';
+
+    // echo '<p>do action product thumbnails below</p>';
+    // do_action( 'woocommerce_product_thumbnails' );
+
+    // remove_action('woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20);
+    remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20); // Removes the main product image
+
+
+    // echo '<hr>';
+    // echo '<p>for each loop of product thumbnails below</p>';
+
+    add_action('woocommerce_before_single_product_summary', 'addCustomProductGallery', 20); // Removes the main product image
+
+    function addCustomProductGallery() {
+    wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
+    wp_enqueue_style('owl.theme.default', get_theme_file_uri('/owl-carousel/owl.theme.default.min.css'));
+
+        global $product;
+
+        $attachment_ids = $product->get_gallery_image_ids();
+        
+        if ( $attachment_ids && $product->get_image_id() ) {
+            echo '<div style="float:left;width:48%;">';
+            echo '<div style="" class="product-gallery-carousel owl-carousel owl-theme">';
+            foreach ( $attachment_ids as $attachment_id ) {
+                echo '<div>';
+                // Get the URL of the full-sized image
+                $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
+                if ( $image_src ) {
+                    // Output the full-sized image HTML
+                    echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
+                }
+                echo '</div>';
+            }
+            echo '</div>';
+            echo '</div>';
+        }
+
+        // owl carousel
+    wp_enqueue_script('jquery-min', get_theme_file_uri('/owl-carousel/jquery.min.js'));
+    wp_enqueue_script('owl-carousel', get_theme_file_uri('/owl-carousel/owl.carousel.min.js'));
+    wp_enqueue_script('owl-carousel-custom', get_theme_file_uri('/owl-carousel/owl-carousels.js'));
+    }
+    
+
+
 	echo '<div class="col-md-12">';
 
 	// if(is_page()) {
-		echo '<h1>' . get_the_title() . '</h1>';
+		// echo '<h1>' . get_the_title() . '</h1>';
 	// }
 
 	// if(is_product_category()){
@@ -655,17 +710,17 @@ if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category
 	// 	echo '</h1>';
 	// 	do_action('woocommerce_taxonomy_archive_description');
 	// }
-}
+// }
 }
 
 
 function close_container_class(){
-if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
+// if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
 	echo '</section>';
-}
+// }
 }
 
 // add_action('woocommerce_before_single_product','custom_woocommerce_styles',10);
@@ -740,7 +795,7 @@ function custom_search_form($form) {
 // }
 
 // // removes sidebar
-// remove_action('woocommerce_sidebar','woocommerce_get_sidebar');
+remove_action('woocommerce_sidebar','woocommerce_get_sidebar');
 
 // Step 1: Add Custom Field to Product General Tab
 function custom_product_field() {
