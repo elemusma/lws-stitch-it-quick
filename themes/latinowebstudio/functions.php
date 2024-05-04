@@ -86,7 +86,7 @@ wp_enqueue_style('aos-css', get_theme_file_uri('/aos/aos.css'));
 wp_enqueue_script('nav-js', get_theme_file_uri('/js/nav.js'));
 wp_enqueue_script('popup-js', get_theme_file_uri('/js/popup.js'));
 
-if(is_single()){
+if (is_single() && !is_product()) {
 	wp_enqueue_script('blog-js', get_theme_file_uri('/js/blog.js'));
 	}
 }
@@ -663,9 +663,106 @@ function add_container_class(){
     // echo '<hr>';
     // echo '<p>for each loop of product thumbnails below</p>';
 
-    add_action('woocommerce_before_single_product_summary', 'addCustomProductGallery', 20); // Removes the main product image
+    add_action('woocommerce_before_single_product_summary', 'addCustomProductGallerySlick', 20);
 
-    function addCustomProductGallery() {
+    function addCustomProductGallerySlick() {
+        // wp_enqueue_script('cdn-jquery-min', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js');
+        // wp_enqueue_script('slick-min-js', '//rawgit.com/kenwheeler/slick/master/slick/slick.min.js');
+
+        
+
+        echo '<link rel="stylesheet" href="https://rawgit.com/kenwheeler/slick/master/slick/slick.css">';
+        echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css">';
+        echo '<script src="https://cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js"></script>';
+
+        
+        echo '<link rel="stylesheet" href="/wp-content/themes/latinowebstudio/slick-carousel/slick.css">';
+        // wp_enqueue_style('cdn-slick', get_theme_file_uri('/slick-carousel/slick.css'));
+        // wp_enqueue_style('cdn-slick', '//rawgit.com/kenwheeler/slick/master/slick/slick.css');
+        // wp_enqueue_style('cdn-evil-icons', '//cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css');
+
+
+        // wp_enqueue_script('cdn-evil-icons', '//cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js');
+    
+            global $product;
+    
+            $attachment_ids = $product->get_gallery_image_ids();
+
+            $imageURLs = [];
+            if ( $attachment_ids && $product->get_image_id() ) {
+                foreach ( $attachment_ids as $attachment_id ) {
+                    // $imageURLs[] = $attachment_id;
+                    // Get the URL of the full-sized image
+                    $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
+                    // if ( $image_src ) {
+                    $imageURLs[] = '<img src="' . $image_src[0] . '" />';
+                    // Output the full-sized image HTML
+                    // echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
+                    // }
+                }
+            }
+
+            print_r($imageURLs);
+
+            echo '<br>';
+            echo 'for loop below';
+            echo '<br>';
+
+            echo '<div class="layout">';
+            echo '<ul class="slider">';
+            for ($i = 0; $i < count($imageURLs); $i++) {
+                echo '<li>';
+                // echo wp_get_attachment_image($imageURLs[$i],'full','',array(
+                //     'class'=>'w-100 h-auto',
+                //     'style'=>''
+                // ));
+                // echo '<img src="" />';
+                echo $imageURLs[$i]; // You can change '<br>' to whatever HTML you need for formatting
+                echo '</li>';
+            }
+            echo '</ul>';
+            echo '</div>';
+
+            
+            if ( $attachment_ids && $product->get_image_id() ) {
+                echo '<div style="float:left;width:48%;">';
+                echo '<div class="layout">';
+                echo '<ul class="slider">';
+                // echo get_the_post_thumbnail('full','',array(
+                //     'class'=>'w-100 h-auto'
+                // ));
+                foreach ( $attachment_ids as $attachment_id ) {
+                    echo $attachment_id;
+                    echo '<li>';
+                    // Get the URL of the full-sized image
+                    $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
+                    echo $image_src[0];
+                    if ( $image_src ) {
+                    echo wp_get_attachment_image($attachment_id,'full','',array(
+                        'class'=>'w-100 h-auto skip-lazy',
+                        'style'=>'',
+                    ));
+                        // Output the full-sized image HTML
+                        // echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
+                        // echo '<img src="https://unsplash.it/600/300/?image=42" alt="" />';
+                    }
+                    echo '</li>';
+                }
+                echo '</ul>';
+                echo '</div>';
+                echo '</div>';
+            }
+
+        echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>';
+        echo '<script src="https://rawgit.com/kenwheeler/slick/master/slick/slick.min.js"></script>';
+    echo '<script src="/wp-content/themes/latinowebstudio/slick-carousel/slick.js"></script>';
+        // wp_enqueue_script('slick-js', get_theme_file_uri('/slick-carousel/slick.js'));
+    
+        }
+
+    // add_action('woocommerce_before_single_product_summary', 'addCustomProductGalleryOwl', 20);
+
+    function addCustomProductGalleryOwl() {
     wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
     wp_enqueue_style('owl.theme.default', get_theme_file_uri('/owl-carousel/owl.theme.default.min.css'));
 
@@ -676,6 +773,9 @@ function add_container_class(){
         if ( $attachment_ids && $product->get_image_id() ) {
             echo '<div style="float:left;width:48%;">';
             echo '<div style="" class="product-gallery-carousel owl-carousel owl-theme">';
+            echo get_the_post_thumbnail('full','',array(
+                'class'=>'w-100 h-auto'
+            ));
             foreach ( $attachment_ids as $attachment_id ) {
                 echo '<div>';
                 // Get the URL of the full-sized image
