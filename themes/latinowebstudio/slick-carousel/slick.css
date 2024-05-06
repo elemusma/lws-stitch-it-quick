@@ -6,7 +6,7 @@ ul.slick-dots {
 }
   
   .layout {
-    width: 600px;
+    width: 100%;
     margin: 10px auto;
     position: relative;
   }
@@ -47,16 +47,30 @@ ul.slick-dots {
     opacity: 1;
   }
   
-  .slick-prev {
+  .slick-prev, .slick-next {
     position: absolute;
     z-index: 99;
-    top: 120px;
-    left: -50px;
+    top: 200px;
+    left: 25px;
   }
   
   .slick-next {
-    position: absolute;
-    z-index: 99;
-    top: 120px;
-    right: -50px;
+    left:unset;
+    right: 25px;
   }
+
+  ul.slider {
+    padding: 0;
+}
+
+@media only screen and (max-width:767px) {
+  ul.slick-dots {
+    display: none !important;
+  }
+  .slick-slider-products {
+    padding-bottom: 25px;
+  }
+  .slick-prev, .slick-next {
+    top: 150px;
+  }
+}

@@ -26,6 +26,17 @@ input[type="checkbox"] {
 h3.wapo-addon-title.toggle-closed {
     font-size: 20px;
 }
+/* 
+.single_variation_wrap {
+    transition:all .25s ease-in-out;
+} */
+/* .single_variation_wrap.not-active {
+    opacity:0!important;
+} */
+/* .single_variation_wrap.active {
+    opacity:1!important;
+} */
+
 /* tr.ppom-option-price-list.ppom-option-total-price {
     display: none;
 }
@@ -93,7 +104,9 @@ a.wp-block-button__link.add_to_cart_button:hover {
 }
 
 /* start of shop page */
-.woocommerce .woocommerce-ordering select,.woocommerce div.product form.cart .variations select,select#wc-block-components-sort-select__select-0 {
+.woocommerce .woocommerce-ordering select,.woocommerce div.product form.cart .variations select,
+select#wc-block-components-sort-select__select-0,
+select.yith-wapo-option-value {
     background: #e8e6ed;
     padding: 10px;
     color: #515151;

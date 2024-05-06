@@ -60,16 +60,13 @@ wp_enqueue_style('nav-mobile', get_theme_file_uri('/css/sections/nav-mobile.css'
 // owl carousel
 // wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
 // wp_enqueue_style('owl.theme.default', get_theme_file_uri('/owl-carousel/owl.theme.default.min.css'));
-// wp_enqueue_style('lightbox-css', get_theme_file_uri('/lightbox/lightbox.min.css'));
+
 // wp_enqueue_script('font-awesome', '//use.fontawesome.com/fff80caa08.js');
 
 // owl carousel
 // wp_enqueue_script('jquery-min', get_theme_file_uri('/owl-carousel/jquery.min.js'));
 // wp_enqueue_script('owl-carousel', get_theme_file_uri('/owl-carousel/owl.carousel.min.js'));
 // wp_enqueue_script('owl-carousel-custom', get_theme_file_uri('/owl-carousel/owl-carousels.js'));
-// wp_enqueue_script('lightbox-min-js', get_theme_file_uri('/lightbox/lightbox.min.js'));
-// wp_enqueue_script('lightbox-js', get_theme_file_uri('/lightbox/lightbox.js'));
-// aos
 wp_enqueue_script('aos-js', get_theme_file_uri('/aos/aos.js'));
 wp_enqueue_script('aos-custom-js', get_theme_file_uri('/aos/aos-custom.js'));
 wp_enqueue_style('aos-css', get_theme_file_uri('/aos/aos.css'));
@@ -677,6 +674,8 @@ function add_container_class(){
 
         
         echo '<link rel="stylesheet" href="/wp-content/themes/latinowebstudio/slick-carousel/slick.css">';
+        wp_enqueue_style('lightbox-css', get_theme_file_uri('/lightbox/lightbox.min.css'));
+
         // wp_enqueue_style('cdn-slick', get_theme_file_uri('/slick-carousel/slick.css'));
         // wp_enqueue_style('cdn-slick', '//rawgit.com/kenwheeler/slick/master/slick/slick.css');
         // wp_enqueue_style('cdn-evil-icons', '//cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css');
@@ -689,62 +688,23 @@ function add_container_class(){
             $attachment_ids = $product->get_gallery_image_ids();
 
             $imageURLs = [];
-            if ( $attachment_ids && $product->get_image_id() ) {
-                foreach ( $attachment_ids as $attachment_id ) {
-                    // $imageURLs[] = $attachment_id;
-                    // Get the URL of the full-sized image
-                    $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
-                    // if ( $image_src ) {
-                    $imageURLs[] = '<img src="' . $image_src[0] . '" />';
-                    // Output the full-sized image HTML
-                    // echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
-                    // }
-                }
-            }
-
-            print_r($imageURLs);
-
-            echo '<br>';
-            echo 'for loop below';
-            echo '<br>';
-
-            echo '<div class="layout">';
-            echo '<ul class="slider">';
-            for ($i = 0; $i < count($imageURLs); $i++) {
-                echo '<li>';
-                // echo wp_get_attachment_image($imageURLs[$i],'full','',array(
-                //     'class'=>'w-100 h-auto',
-                //     'style'=>''
-                // ));
-                // echo '<img src="" />';
-                echo $imageURLs[$i]; // You can change '<br>' to whatever HTML you need for formatting
-                echo '</li>';
-            }
-            echo '</ul>';
-            echo '</div>';
-
             
             if ( $attachment_ids && $product->get_image_id() ) {
-                echo '<div style="float:left;width:48%;">';
+                echo '<div class="slick-slider-products" style="float:left;width:48%;">';
                 echo '<div class="layout">';
                 echo '<ul class="slider">';
-                // echo get_the_post_thumbnail('full','',array(
-                //     'class'=>'w-100 h-auto'
-                // ));
                 foreach ( $attachment_ids as $attachment_id ) {
-                    echo $attachment_id;
+                    // echo $attachment_id;
                     echo '<li>';
                     // Get the URL of the full-sized image
                     $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
-                    echo $image_src[0];
                     if ( $image_src ) {
+                    echo '<a href="' . wp_get_attachment_image_url($attachment_id, 'full') . '" data-lightbox="image-set">';
                     echo wp_get_attachment_image($attachment_id,'full','',array(
                         'class'=>'w-100 h-auto skip-lazy',
-                        'style'=>'',
+                        'style'=>'object-fit:contain;max-height:350px;',
                     ));
-                        // Output the full-sized image HTML
-                        // echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
-                        // echo '<img src="https://unsplash.it/600/300/?image=42" alt="" />';
+                    echo '</a>';
                     }
                     echo '</li>';
                 }
@@ -756,61 +716,52 @@ function add_container_class(){
         echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>';
         echo '<script src="https://rawgit.com/kenwheeler/slick/master/slick/slick.min.js"></script>';
     echo '<script src="/wp-content/themes/latinowebstudio/slick-carousel/slick.js"></script>';
+    wp_enqueue_script('lightbox-min-js', get_theme_file_uri('/lightbox/lightbox.min.js'));
+wp_enqueue_script('lightbox-js', get_theme_file_uri('/lightbox/lightbox.js'));
+wp_enqueue_script('products-js', get_theme_file_uri('/js/products.js'));
         // wp_enqueue_script('slick-js', get_theme_file_uri('/slick-carousel/slick.js'));
     
         }
 
     // add_action('woocommerce_before_single_product_summary', 'addCustomProductGalleryOwl', 20);
 
-    function addCustomProductGalleryOwl() {
-    wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
-    wp_enqueue_style('owl.theme.default', get_theme_file_uri('/owl-carousel/owl.theme.default.min.css'));
+    // function addCustomProductGalleryOwl() {
+    // wp_enqueue_style('owl.carousel.min', get_theme_file_uri('/owl-carousel/owl.carousel.min.css'));
+    // wp_enqueue_style('owl.theme.default', get_theme_file_uri('/owl-carousel/owl.theme.default.min.css'));
 
-        global $product;
+    //     global $product;
 
-        $attachment_ids = $product->get_gallery_image_ids();
+    //     $attachment_ids = $product->get_gallery_image_ids();
         
-        if ( $attachment_ids && $product->get_image_id() ) {
-            echo '<div style="float:left;width:48%;">';
-            echo '<div style="" class="product-gallery-carousel owl-carousel owl-theme">';
-            echo get_the_post_thumbnail('full','',array(
-                'class'=>'w-100 h-auto'
-            ));
-            foreach ( $attachment_ids as $attachment_id ) {
-                echo '<div>';
-                // Get the URL of the full-sized image
-                $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
-                if ( $image_src ) {
-                    // Output the full-sized image HTML
-                    echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
-                }
-                echo '</div>';
-            }
-            echo '</div>';
-            echo '</div>';
-        }
+    //     if ( $attachment_ids && $product->get_image_id() ) {
+    //         echo '<div style="float:left;width:48%;">';
+    //         echo '<div style="" class="product-gallery-carousel owl-carousel owl-theme">';
+    //         // echo get_the_post_thumbnail('full','',array(
+    //         //     'class'=>'w-100 h-auto'
+    //         // ));
+    //         foreach ( $attachment_ids as $attachment_id ) {
+    //             echo '<div>';
+    //             // Get the URL of the full-sized image
+    //             $image_src = wp_get_attachment_image_src( $attachment_id, 'full' ); // 'full' retrieves the full-sized image
+    //             if ( $image_src ) {
+    //                 // Output the full-sized image HTML
+    //                 echo '<img src="' . esc_url( $image_src[0] ) . '" alt="" />';
+    //             }
+    //             echo '</div>';
+    //         }
+    //         echo '</div>';
+    //         echo '</div>';
+    //     }
 
-        // owl carousel
-    wp_enqueue_script('jquery-min', get_theme_file_uri('/owl-carousel/jquery.min.js'));
-    wp_enqueue_script('owl-carousel', get_theme_file_uri('/owl-carousel/owl.carousel.min.js'));
-    wp_enqueue_script('owl-carousel-custom', get_theme_file_uri('/owl-carousel/owl-carousels.js'));
-    }
+    //     // owl carousel
+    // wp_enqueue_script('jquery-min', get_theme_file_uri('/owl-carousel/jquery.min.js'));
+    // wp_enqueue_script('owl-carousel', get_theme_file_uri('/owl-carousel/owl.carousel.min.js'));
+    // wp_enqueue_script('owl-carousel-custom', get_theme_file_uri('/owl-carousel/owl-carousels.js'));
+    // }
     
 
 
 	echo '<div class="col-md-12">';
-
-	// if(is_page()) {
-		// echo '<h1>' . get_the_title() . '</h1>';
-	// }
-
-	// if(is_product_category()){
-	// 	echo '<h1 class="">';
-	// 	woocommerce_page_title();
-	// 	echo '</h1>';
-	// 	do_action('woocommerce_taxonomy_archive_description');
-	// }
-// }
 }
 
 
