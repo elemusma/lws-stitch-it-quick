@@ -63,7 +63,7 @@ ul.slick-dots {
     padding: 0;
 }
 
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:991px) {
   ul.slick-dots {
     display: none !important;
   }

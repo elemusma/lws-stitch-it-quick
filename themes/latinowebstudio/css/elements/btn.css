@@ -1,4 +1,5 @@
-.btn-main, .btn-main a {
+.btn-main, .btn-main a,
+span.wc-block-components-button__text {
     background: var(--accent-secondary);
     padding: 15px 35px;
     transition: all .25s ease-in-out;
@@ -13,12 +14,13 @@
     margin: 10px;
 }
 
-.btn-main:hover {
+.btn-main:hover, 
+span.wc-block-components-button__text:hover
+{
     background: var(--accent-secondary-hover);
     border-color:var(--accent-secondary-hover);
     text-decoration: none;
 }
-
 .btn-main.outline {
     border: 1px solid var(--accent-secondary);
     color:var(--accent-secondary) !important;
@@ -48,4 +50,14 @@
 .btn-main.outline.white:hover {
     background: white;
     color:black;
+}
+
+/* woocommerce */
+span.wc-block-components-button__text {
+    width: 100%;
+    margin: 0;
+}
+button.components-button.wc-block-components-button.wp-element-button.wc-block-components-checkout-place-order-button.contained {
+    border: none!important;
+    background: none!important;
 }

@@ -350,7 +350,7 @@ function save({
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     className: `position-relative ${attributes.section_class}`,
-    style: `padding:150px 0;${attributes.section_style}`,
+    style: `padding:50px 0;${attributes.section_style}`,
     id: attributes.section_id
   }, attributes.section_image && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: attributes.section_image,
