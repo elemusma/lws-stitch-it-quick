@@ -10,14 +10,15 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://woo.com/document/template-structure/
+ * @see https://woocommerce.com/document/template-structure/
  * @package WooCommerce\Templates
- * @version 3.4.0
+ * @version 8.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -27,23 +28,15 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 
-?>
-<header class="woocommerce-products-header">
-	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-		<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>
-	<?php endif; ?>
+/**
+ * Hook: woocommerce_shop_loop_header.
+ *
+ * @since 8.6.0
+ *
+ * @hooked woocommerce_product_taxonomy_archive_header - 10
+ */
+do_action( 'woocommerce_shop_loop_header' );
 
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action( 'woocommerce_archive_description' );
-	?>
-</header>
-<?php
 if ( woocommerce_product_loop() ) {
 
 	/**
@@ -53,12 +46,13 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_result_count - 20
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
+	echo '<p>hello</p>';
 	do_action( 'woocommerce_before_shop_loop' );
 
 	woocommerce_product_loop_start();
-
 	if ( wc_get_loop_prop( 'total' ) ) {
 		while ( have_posts() ) {
+			
 			the_post();
 
 			/**
@@ -69,8 +63,8 @@ if ( woocommerce_product_loop() ) {
 			wc_get_template_part( 'content', 'product' );
 		}
 	}
-
 	woocommerce_product_loop_end();
+	echo '<p>hello end</p>';
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.

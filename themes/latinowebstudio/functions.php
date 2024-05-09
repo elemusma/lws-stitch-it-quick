@@ -765,7 +765,20 @@ echo '<br>';
     echo '<div class="col-md-12">';
 
     if($categoryName == 'Gates') {
-        remove_action('woocommerce_shop_loop');
+    
+
+        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_shop_loop' );
+        // remove_action( 'woocommerce_before_shop_loop','woocommerce_product_loop_start' );
+
+        // remove_action( 'woocommerce_before_shop_loop','woocommerce_product_loop_start',10);
+        // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+        // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+        // remove_action( 'woocommerce_before_main_content', array( __CLASS__, 'output_content_wrapper' ) );
+		// remove_action( 'woocommerce_after_main_content', array( __CLASS__, 'output_content_wrapper_end' ) );
+        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
+        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_product_loop_start', 10 );
+        // print_r($GLOBALS['wp_filter']);
+        // remove_action('woocommerce_shop_loop');
         // remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
         // remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
     }
