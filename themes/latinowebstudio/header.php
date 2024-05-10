@@ -24,7 +24,7 @@ echo '<div class="blank-space" style=""></div>';
 // if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
 // echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;margin-top:32px;">';
 // } else {
-echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;">';
+echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:100;">';
 // echo '</header>';
 // }
 

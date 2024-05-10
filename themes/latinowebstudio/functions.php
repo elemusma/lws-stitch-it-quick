@@ -723,6 +723,7 @@ function woocommerce_main_pages_end() {
     }
 }
 
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
 add_action('woocommerce_before_main_content','add_container_class',9);
 add_action('woocommerce_after_main_content','close_container_class',9);
@@ -733,28 +734,7 @@ add_action('woocommerce_after_main_content','close_container_class',9);
 
 function add_container_class(){
 
-    // Get the product categories
-$categories = get_the_terms(get_the_ID(), 'product_cat');
-$categoryName = "";
-$categoryURL = "";
 
-if ($categories && !is_wp_error($categories)) {
-    // Get the first category
-    $main_category = reset($categories);
-
-    // Get the main category name
-    $main_category_name = $main_category->name;
-
-    // Get the main category URL
-    $categoryURL = get_term_link($main_category);
-
-    // Display the main category name with link
-    // echo '<div class="main-category"><a href="' . esc_url($categoryURL) . '">' . $main_category_name . '</a></div>';
-    $categoryName = $main_category_name;
-}
-
-echo $categoryName;
-echo '<br>';
 
 	wp_enqueue_style('woocommerce-css', get_theme_file_uri('/css/sections/woocommerce.css'));
 // if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
@@ -764,7 +744,7 @@ echo '<br>';
 	echo '<div class="row justify-content-center">';
     echo '<div class="col-md-12">';
 
-    if($categoryName == 'Gates') {
+    // if($categoryName == 'Gates') {
     
 
         // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_shop_loop' );
@@ -781,7 +761,7 @@ echo '<br>';
         // remove_action('woocommerce_shop_loop');
         // remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
         // remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
-    }
+    // }
 
 
 }

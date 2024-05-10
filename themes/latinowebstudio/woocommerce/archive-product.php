@@ -19,6 +19,26 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 
+// Get the product categories
+$categories = get_the_terms(get_the_ID(), 'product_cat');
+$categoryName = "";
+$categoryURL = "";
+
+if ($categories && !is_wp_error($categories)) {
+    // Get the first category
+    $main_category = reset($categories);
+
+    // Get the main category name
+    $main_category_name = $main_category->name;
+
+    // Get the main category URL
+    $categoryURL = get_term_link($main_category);
+
+    // Display the main category name with link
+    // echo '<div class="main-category"><a href="' . esc_url($categoryURL) . '">' . $main_category_name . '</a></div>';
+    $categoryName = $main_category_name;
+}
+
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -26,6 +46,9 @@ get_header( 'shop' );
  * @hooked woocommerce_breadcrumb - 20
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
+
+if($categoryName == 'Gates' ) {
+	if(currentUser() && in_array( currentUserGates(), currentUser()->roles )) {
 do_action( 'woocommerce_before_main_content' );
 
 /**
@@ -46,7 +69,6 @@ if ( woocommerce_product_loop() ) {
 	 * @hooked woocommerce_result_count - 20
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
-	echo '<p>hello</p>';
 	do_action( 'woocommerce_before_shop_loop' );
 
 	woocommerce_product_loop_start();
@@ -64,7 +86,6 @@ if ( woocommerce_product_loop() ) {
 		}
 	}
 	woocommerce_product_loop_end();
-	echo '<p>hello end</p>';
 
 	/**
 	 * Hook: woocommerce_after_shop_loop.
@@ -87,6 +108,72 @@ if ( woocommerce_product_loop() ) {
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );
+
+} else {
+	echo get_template_part('partials/dealer-portal-login');
+}
+} else {
+	do_action( 'woocommerce_before_main_content' );
+
+	/**
+	 * Hook: woocommerce_shop_loop_header.
+	 *
+	 * @since 8.6.0
+	 *
+	 * @hooked woocommerce_product_taxonomy_archive_header - 10
+	 */
+	do_action( 'woocommerce_shop_loop_header' );
+	
+	if ( woocommerce_product_loop() ) {
+	
+		/**
+		 * Hook: woocommerce_before_shop_loop.
+		 *
+		 * @hooked woocommerce_output_all_notices - 10
+		 * @hooked woocommerce_result_count - 20
+		 * @hooked woocommerce_catalog_ordering - 30
+		 */
+		do_action( 'woocommerce_before_shop_loop' );
+	
+		woocommerce_product_loop_start();
+		if ( wc_get_loop_prop( 'total' ) ) {
+			while ( have_posts() ) {
+				
+				the_post();
+	
+				/**
+				 * Hook: woocommerce_shop_loop.
+				 */
+				do_action( 'woocommerce_shop_loop' );
+	
+				wc_get_template_part( 'content', 'product' );
+			}
+		}
+		woocommerce_product_loop_end();
+	
+		/**
+		 * Hook: woocommerce_after_shop_loop.
+		 *
+		 * @hooked woocommerce_pagination - 10
+		 */
+		do_action( 'woocommerce_after_shop_loop' );
+	} else {
+		/**
+		 * Hook: woocommerce_no_products_found.
+		 *
+		 * @hooked wc_no_products_found - 10
+		 */
+		do_action( 'woocommerce_no_products_found' );
+	}
+	
+	/**
+	 * Hook: woocommerce_after_main_content.
+	 *
+	 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
+	 */
+	do_action( 'woocommerce_after_main_content' );
+}
+
 
 /**
  * Hook: woocommerce_sidebar.

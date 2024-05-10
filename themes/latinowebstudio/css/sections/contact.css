@@ -33,6 +33,10 @@ input#input_2_8 {
   margin-bottom: -90px !important;
 } */
 
+input[type="checkbox"] {
+  width: auto;
+}
+
 input,
 textarea {
   box-shadow: inset 1px 1px 8px #eaeaea !important;
