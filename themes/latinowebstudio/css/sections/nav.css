@@ -61,7 +61,12 @@ a:hover svg,
 a:hover .cls-1.search {
     fill:var(--accent-secondary) !important;
 }
-
+#logoMain .cls-3 {
+    transition:all .25s ease-in-out;
+}
+#logoMain:hover .cls-3 {
+    fill: var(--accent-secondary);
+}
 ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
 .current_page_parent>a,
 #menu-main-menu>.current_page_item>a,
@@ -70,15 +75,6 @@ ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
 #menu-main-menu .current_page_ancestor .current_page_item>a {
     text-decoration: none;
     color:var(--accent-secondary);
-}
-
-.free-gift a {
-    font-weight: 400 !important;
-}
-
-.nav .shopping-cart.menu svg {
-    fill: white;
-    height: 15px;
 }
 
 @media screen and (min-width:1200px) {

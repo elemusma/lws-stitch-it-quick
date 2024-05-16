@@ -47,7 +47,7 @@ if ($categories && !is_wp_error($categories)) {
 		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
 		 * @hooked woocommerce_breadcrumb - 20
 		 */
-		if($categoryName == 'Gates' ) {
+		if($categoryName == 'Gates' ) { // shows Gates product to Gates customers
 			if(currentUser() && in_array( currentUserGates(), currentUser()->roles )) {
 		do_action( 'woocommerce_before_main_content' );
 
@@ -64,10 +64,10 @@ if ($categories && !is_wp_error($categories)) {
 		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
 		 */
 		do_action( 'woocommerce_after_main_content' );
-	} else {
-		echo 'need to log into Gatess';
+	} else { // if Gates product and not logged in as Gates
+		echo get_template_part('partials/dealer-portal-login');
 	}
-	} else {
+	} else { // shows products for the public
 		do_action( 'woocommerce_before_main_content' );
 
 	while ( have_posts() ) :

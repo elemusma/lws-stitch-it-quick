@@ -47,7 +47,7 @@ if ($categories && !is_wp_error($categories)) {
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 
-if($categoryName == 'Gates' ) {
+if($categoryName == 'Gates' ) { // shows Gates product to Gates customers
 	if(currentUser() && in_array( currentUserGates(), currentUser()->roles )) {
 do_action( 'woocommerce_before_main_content' );
 
@@ -109,10 +109,10 @@ if ( woocommerce_product_loop() ) {
  */
 do_action( 'woocommerce_after_main_content' );
 
-} else {
+} else { // if Gates product and not logged in as Gates
 	echo get_template_part('partials/dealer-portal-login');
 }
-} else {
+} else { // shows products for the public
 	do_action( 'woocommerce_before_main_content' );
 
 	/**

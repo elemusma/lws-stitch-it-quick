@@ -20,6 +20,13 @@ if ($categories && !is_wp_error($categories)) {
     $categoryName = $main_category_name;
 }
 
+if(is_product()) {
+    $main_title = get_the_title();
+} else {
+    $main_title = single_cat_title('', false);
+
+}
+
 echo '<section class="body" style="padding:50px 0px;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
@@ -27,7 +34,7 @@ echo '<div class="row justify-content-center">';
 echo '<div class="col-12 order-1">';
 
 echo '<h1>Login to continue</h1>';
-echo '<p>To view the following products, you need to be logged in as a ' . $categoryName . ' customer.</p>';
+echo '<p>To view the ' . $main_title . ', you need to be logged in as a ' . $categoryName . ' customer.</p>';
 
 echo do_shortcode('[woocommerce_my_account]');
 // echo '<a href="/my-account/">Login here</a>';
