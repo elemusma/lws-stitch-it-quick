@@ -93,7 +93,7 @@ echo '<div class="text-center bg-light" style="padding:15px;">';
 echo '</div>';
 
 // <!-- The first Modal -->
-echo '<div id="mobileMenu" class="modal mobile-menu">';
+echo '<div id="mobileMenu" class="modal mobile-menu" style="z-index:100;">';
 //   <!-- Modal content -->
 echo '<div class="modal-content-menu modal-content" style="background:var(--accent-primary);padding-top:50px;">';
 echo '<span class="close" id="navMenuClose">&times;</span>';
@@ -109,13 +109,12 @@ echo logoSVG();
 echo '</a>';
 echo '</div>';
 
-wp_nav_menu(array(
-'menu' => 'primary',
-'menu_class'=>'menu list-unstyled mb-0'
-)); 
+echo '<div class="spacer" style="height:50px;"></div>';
+
+echo get_template_part('partials/dealer-menu');
 
 wp_nav_menu(array(
-    'menu' => 'Shopping',
+    'menu' => 'Shopping Cart AJAX',
     'menu_class'=>'menu list-unstyled mb-0 d-flex m-0'
 ));
 

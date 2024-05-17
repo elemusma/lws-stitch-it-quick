@@ -3,7 +3,7 @@
  * Plugin Name: YITH WooCommerce Product Add-ons & Extra Options
  * Plugin URI: https://yithemes.com/themes/plugins/yith-woocommerce-product-add-ons/
  * Description: <code><strong>YITH WooCommerce Product Add-ons & Extra Options</strong></code> is the plugin that allows you to create new options for WooCommerce products. <a href="https://yithemes.com/" target="_blank">Get more plugins for your e-commerce shop on <strong>YITH</strong></a>
- * Version: 4.9.2
+ * Version: 4.9.3
  * Requires PHP: 7.4
  * Author: YITH
  * Author URI: https://yithemes.com/

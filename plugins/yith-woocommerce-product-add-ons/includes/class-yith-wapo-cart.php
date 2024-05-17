@@ -1405,6 +1405,15 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
                         $option_product_qty . ' x ' . $product_name, $option_product, $option_product_qty, $cart_item );
 				}
             } elseif ( in_array( $addon_type, array( 'text', 'textarea', 'number', 'date', 'colorpicker' ) ) ) {
+                //Sanitize data.
+                switch ( $addon_type ) {
+                    case 'text':
+                        $original_value = sanitize_text_field( $original_value );
+                        break;
+                    case 'textarea':
+                        $original_value = sanitize_textarea_field( $original_value );
+                        break;
+                }
 				if ( ! $grouped_in_cart && ! $is_empty_title ) {
 					$label = ! empty( $label ) ? $label . ': ' : '';
 					$value = $label . $original_value;

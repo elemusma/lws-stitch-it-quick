@@ -18,19 +18,26 @@ searchIcon.addEventListener('click', function () {
 window.addEventListener("scroll", parallaxEffect);
 
 function parallaxEffect() {
-    header.classList.add('position-fixed');
-    header.classList.remove('position-relative');
+    // header.classList.add('position-fixed');
+    // header.classList.remove('position-relative');
 
     if (scrollY < 299) {
         logoMain.style.width = "75px"
         blankSpace.style.height = (((header.offsetHeight)) + "px");
+        header.classList.add('position-relative');
+		header.classList.remove('position-fixed');
+		header.classList.remove('scroll');
+        blankSpace.style.height = "0px";
     } else if (scrollY > 300) {
         logoMain.style.width = "50px"
+        blankSpace.style.height = (((header.offsetHeight)) + "px");
+        header.classList.add('position-fixed');
+    	header.classList.remove('position-relative');
+        header.classList.add('scroll');
         blankSpace.style.height = (((header.offsetHeight)) + "px");
     }
 
     // setTimeout(function() {
-        blankSpace.style.height = (((header.offsetHeight)) + "px");
     // }, 2000); 
 }
 

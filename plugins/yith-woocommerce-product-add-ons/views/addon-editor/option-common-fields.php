@@ -111,13 +111,6 @@ if ( 'color' === $option_color_type && '' === $color_b ) {
                 // translators: general add-on option.
                 echo esc_html__( 'Enable to upload an image for this option.', 'yith-woocommerce-product-add-ons' );
                 ?>
-                <br />
-                <?php
-                // translators: general add-on option.
-                echo sprintf( esc_html__( 'You can use this image to %1$s replace the default product image %2$s (enabling the option in the "Display & Style" tab).', 'yith-woocommerce-product-add-ons' ),
-                    '<b>',
-                    '</b>',
-                ); ?>
             </span>
 		</div>
 		<!-- End option field -->

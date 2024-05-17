@@ -150,8 +150,17 @@ hr.text-white {
   float: left;
 }
 
-.grecaptcha-badge {
+/* .grecaptcha-badge {
   display: none !important;
+} */
+
+@media only screen and (max-width:768px) {
+  section.position-relative.padding-section-mobile {
+    padding-top: 0px !important;
+  }
+  section.position-relative.padding-section-mobile [class*='col-'] {
+    padding-top: 25px;
+  }
 }
 
 @media screen and (max-width: 1024px) {

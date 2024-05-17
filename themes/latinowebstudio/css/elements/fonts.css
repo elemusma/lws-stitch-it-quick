@@ -128,6 +128,12 @@ strong,b {
   left: -30px;
 }
 
+@media only screen and (max-width:768px) {
+  .arrows li {
+    text-shadow:none;
+  }
+}
+
 @media only screen and (max-width:991px) {
   .text-right .arrows li {
     padding-right: 30px;
@@ -169,6 +175,33 @@ blockquote {
   }
   .lead,h6,.h6{
     font-size:1.25rem;
+  }
+}
+
+@media only screen and (min-width:992px) {
+  .text-lg-white {
+    color: white;
+  }
+  .text-lg-shadow {
+    text-shadow:var(--text-shadow);
+  }
+}
+
+@media only screen and (min-width:768px) {
+  .text-md-white {
+    color: white;
+  }
+  .text-md-shadow {
+    text-shadow:var(--text-shadow);
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .text-sm-white {
+    color: white;
+  }
+  .text-sm-shadow {
+    text-shadow:var(--text-shadow);
   }
 }
 

@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: YITH WooCommerce Product Add-ons & Extra Options 4.9.2\n"
+"Project-Id-Version: YITH WooCommerce Product Add-ons & Extra Options 4.9.3\n"
 "Report-Msgid-Bugs-To: YITH <plugins@yithemes.com>\n"
-"POT-Creation-Date: 2024-04-30 09:11:41+00:00\n"
+"POT-Creation-Date: 2024-05-07 08:12:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -252,7 +252,7 @@ msgid "Discount"
 msgstr ""
 
 #: includes/class-yith-wapo-admin.php:337
-#: views/addon-editor/option-common-fields.php:208
+#: views/addon-editor/option-common-fields.php:201
 #. translators: Label printed when selecting other option than "Discount the
 #. main product price".
 #. translators: general add-on option.
@@ -284,12 +284,12 @@ msgstr ""
 msgid "Configure style options to customize the add-ons you create."
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:1421
+#: includes/class-yith-wapo-cart.php:1430
 #. translators: [FRONT] Label shown on cart for add-on type Upload
 msgid "Attached file"
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:1499
+#: includes/class-yith-wapo-cart.php:1508
 #. translators: [ADMIN] Message added to order notes when add-on type Product
 #. has stock
 msgid "Stock levels reduced for addons type product:"
@@ -1253,73 +1253,66 @@ msgstr ""
 msgid "Enable to upload an image for this option."
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:117
-#. translators: general add-on option.
-msgid ""
-"You can use this image to %1$s replace the default product image %2$s "
-"(enabling the option in the \"Display & Style\" tab)."
-msgstr ""
-
-#: views/addon-editor/option-common-fields.php:130
+#: views/addon-editor/option-common-fields.php:123
 #. translators: general add-on option.
 msgid "Image"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:168
+#: views/addon-editor/option-common-fields.php:161
 #. translators: general add-on option.
 msgid "Price"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:176
+#: views/addon-editor/option-common-fields.php:169
 #. translators: general add-on option.
 msgid "Product price doesn't change - set option as free"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:178
+#: views/addon-editor/option-common-fields.php:171
 #. translators: general add-on option.
 msgid "Product price increase - set option price"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:180
+#: views/addon-editor/option-common-fields.php:173
 #. translators: general add-on option.
 msgid "Product price decrease - set discount"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:215
+#: views/addon-editor/option-common-fields.php:208
 #. translators: general add-on option.
 msgid "regular"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:221
+#: views/addon-editor/option-common-fields.php:214
 #. translators: general add-on option.
 msgid "discount"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:230
+#: views/addon-editor/option-common-fields.php:223
 #. translators: general add-on option.
 msgid "sale"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:239
+#: views/addon-editor/option-common-fields.php:232
 #. translators: general add-on option.
 msgid "Fixed amount"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:240
+#: views/addon-editor/option-common-fields.php:233
 msgid "Percentage"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:244
+#: views/addon-editor/option-common-fields.php:237
 #. translators: general add-on option.
 msgid "Price multiplied by string length"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:273
+#: views/addon-editor/option-common-fields.php:266
 #. translators: general add-on option.
 msgid "Required"
 msgstr ""
 
-#: views/addon-editor/option-common-fields.php:292
+#: views/addon-editor/option-common-fields.php:285
 #. translators: general add-on option.
 msgid "Enable to make this option mandatory for users."
 msgstr ""

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Products Add-ons\n"
 "Report-Msgid-Bugs-To: YITH <plugins@yithemes.com>\n"
-"POT-Creation-Date: 2024-04-25 11:09:21+00:00\n"
+"POT-Creation-Date: 2024-05-06 11:42:57+00:00\n"
 "PO-Revision-Date: 2021-07-09 12:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -261,7 +261,7 @@ msgstr ""
 #. main product price".
 #. translators: general add-on option.
 #: includes/class-yith-wapo-admin.php:337
-#: views/addon-editor/option-common-fields.php:208
+#: views/addon-editor/option-common-fields.php:201
 msgid "Option cost"
 msgstr "Optie kosten"
 
@@ -292,13 +292,13 @@ msgid "Configure style options to customize the add-ons you create."
 msgstr ""
 
 #. translators: [FRONT] Label shown on cart for add-on type Upload
-#: includes/class-yith-wapo-cart.php:1421
+#: includes/class-yith-wapo-cart.php:1430
 msgid "Attached file"
 msgstr "Bijgevoegd bestand"
 
 #. translators: [ADMIN] Message added to order notes when add-on type Product
 #. has stock
-#: includes/class-yith-wapo-cart.php:1499
+#: includes/class-yith-wapo-cart.php:1508
 msgid "Stock levels reduced for addons type product:"
 msgstr ""
 
@@ -1343,78 +1343,68 @@ msgid "Enable to upload an image for this option."
 msgstr "Inschakelen voor het uploaden van een afbeelding voor deze optie."
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:117
-#, fuzzy
-msgid ""
-"You can use this image to %1$s replace the default product image %2$s "
-"(enabling the option in the \"Display & Style\" tab)."
-msgstr ""
-"Je kunt deze afbeelding gebruiken om <b>de standaard productafbeelding te "
-"vervangen</b> (de optie inschakelen in de weergave instellingen tab)."
-
-#. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:130
+#: views/addon-editor/option-common-fields.php:123
 msgid "Image"
 msgstr "Afbeelding"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:168
+#: views/addon-editor/option-common-fields.php:161
 msgid "Price"
 msgstr "Prijs"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:176
+#: views/addon-editor/option-common-fields.php:169
 msgid "Product price doesn't change - set option as free"
 msgstr "Productprijs wijzigt niet - optie instellen als gratis"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:178
+#: views/addon-editor/option-common-fields.php:171
 #, fuzzy
 msgid "Product price increase - set option price"
 msgstr "Productprijs wijzigt niet - optie instellen als gratis"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:180
+#: views/addon-editor/option-common-fields.php:173
 #, fuzzy
 msgid "Product price decrease - set discount"
 msgstr "Productprijs wijzigt niet - optie instellen als gratis"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:215
+#: views/addon-editor/option-common-fields.php:208
 msgid "regular"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:221
+#: views/addon-editor/option-common-fields.php:214
 msgid "discount"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:230
+#: views/addon-editor/option-common-fields.php:223
 msgid "sale"
 msgstr ""
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:239
+#: views/addon-editor/option-common-fields.php:232
 msgid "Fixed amount"
 msgstr "Vast bedrag"
 
-#: views/addon-editor/option-common-fields.php:240
+#: views/addon-editor/option-common-fields.php:233
 msgid "Percentage"
 msgstr "Percentage"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:244
+#: views/addon-editor/option-common-fields.php:237
 msgid "Price multiplied by string length"
 msgstr "Prijs vermenigvuldigd met string lengte"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:273
+#: views/addon-editor/option-common-fields.php:266
 msgid "Required"
 msgstr "Verplicht"
 
 #. translators: general add-on option.
-#: views/addon-editor/option-common-fields.php:292
+#: views/addon-editor/option-common-fields.php:285
 #, fuzzy
 msgid "Enable to make this option mandatory for users."
 msgstr "Inschakelen om de opties te verbergen in de bestelling e-mail."
@@ -1909,6 +1899,14 @@ msgstr "Optie"
 msgctxt "several options on Add-on title. Ex: Date (2 options)"
 msgid "options"
 msgstr "Opties"
+
+#, fuzzy
+#~ msgid ""
+#~ "You can use this image to %1$s replace the default product image %2$s "
+#~ "(enabling the option in the \"Display & Style\" tab)."
+#~ msgstr ""
+#~ "Je kunt deze afbeelding gebruiken om <b>de standaard productafbeelding te "
+#~ "vervangen</b> (de optie inschakelen in de weergave instellingen tab)."
 
 #, fuzzy
 #~ msgid "Blocks List"

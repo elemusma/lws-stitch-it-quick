@@ -723,7 +723,7 @@ function woocommerce_main_pages_end() {
     }
 }
 
-remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+// remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 
 add_action('woocommerce_before_main_content','add_container_class',9);
 add_action('woocommerce_after_main_content','close_container_class',9);

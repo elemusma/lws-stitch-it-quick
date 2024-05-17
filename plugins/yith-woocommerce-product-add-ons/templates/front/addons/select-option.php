@@ -31,7 +31,7 @@ $image_replacement = '';
 $image_url = '';
 if ( 'addon' === $addon_image_replacement ) {
 	$image_replacement = $addon_image;
-} elseif ( ! empty( $option_image ) && 'options' === $addon_image_replacement ) {
+} elseif ( ! empty( $option_image ) ) {
 	$image_replacement = $option_image;
 
     $attachment_id = wp_get_attachment_image( $option_image );
@@ -77,7 +77,6 @@ $option_disabled = apply_filters( 'yith_wapo_select_option_disabled', false, $ad
 	    data-first-free-options="<?php echo esc_attr( $first_free_options ); ?>"
 	    data-addon-id="<?php echo esc_attr( $addon->id ); ?>"
 	    data-image="<?php echo esc_attr( $image_url ); ?>"
-	    data-replace-image="<?php echo esc_attr( $image_replacement ); ?>"
 	    data-description="<?php echo wp_kses_post( $option_description ); ?>"
         <?php echo $option_disabled ? 'disabled' : ''; ?>
 >

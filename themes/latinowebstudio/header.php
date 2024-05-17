@@ -31,35 +31,22 @@ echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;
 echo '<div class="nav">';
 echo '<div class="container">';
 
-echo '<div class="row align-items-center">';
+echo '<div class="row">';
 
 echo '<div class="col-lg-1 col-md-4 col-3 text-center">';
 
 echo '<div class="d-md-none" style="height:10px;"></div>';
 
 echo '<a href="' . home_url() . '">';
-echo '<div style="width:75px;transition:all 2s ease-in-out;" id="logoMain">';
+echo '<div style="width:75px;" id="logoMain">';
 echo logoSVG();
 echo '</div>';
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-lg-11 col-6 text-center mobile-hidden d-flex align-items-center justify-content-end">';
+echo '<div class="col-lg-11 col-6 text-center mobile-hidden d-flex justify-content-end">';
 
-if ( currentUser() && in_array( currentUserGates(), currentUser()->roles ) ) {
-    // The current user has the specified role
-    wp_nav_menu(array(
-        'menu' => 'Gates Menu',
-        'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end m-0'
-    ));
-} else {
-    // The current user does not have the specified role
-    wp_nav_menu(array(
-        'menu' => 'primary',
-        'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end m-0'
-    ));
-}
-
+echo get_template_part('partials/dealer-menu');
 
 echo '<div class="position-relative text-right d-inline-block d-flex align-items-center justify-content-end" style="padding-left:10px;" id="">';
 
@@ -68,7 +55,7 @@ echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.11 117.1" class="
 echo '</a>';
 
 wp_nav_menu(array(
-    'menu' => 'Shopping',
+    'menu' => 'Shopping Cart AJAX',
     'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end m-0'
 ));
 
@@ -76,7 +63,7 @@ echo '</div>';
 
 echo '</div>';
 
-echo '<div class="col-lg-3 col-md-8 col-9 desktop-hidden order-3">';
+echo '<div class="col-lg-3 col-md-8 col-9 desktop-hidden order-3 d-flex align-items-center justify-content-end">';
 
 echo '<div class="d-flex justify-content-end align-items-center">';
 echo '<a class="position-relative openModalBtn nav-toggle text-center" style="padding:0px 35px;width:45px;" id="search-icon" data-modal-id="searchMenu" title="search menu toggle">';

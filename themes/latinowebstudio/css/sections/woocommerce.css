@@ -26,6 +26,9 @@ input[type="checkbox"] {
 h3.wapo-addon-title.toggle-closed {
     font-size: 20px;
 }
+.options-container .options {
+    grid-template-columns: repeat(2, minmax(0, 50%)) !important;
+}
 /* 
 .single_variation_wrap {
     transition:all .25s ease-in-out;

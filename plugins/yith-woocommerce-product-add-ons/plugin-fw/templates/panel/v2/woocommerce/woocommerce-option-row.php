@@ -15,7 +15,6 @@ $default_field   = array(
 	'desc'  => '',
 );
 $field           = wp_parse_args( $field, $default_field );
-
 $extra_row_class = $field['extra_row_class'] ?? '';
 
 $display_row    = ! in_array( $field['type'], array( 'hidden', 'html', 'sep', 'simple-text', 'title', 'list-table' ), true );

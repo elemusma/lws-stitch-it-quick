@@ -7,6 +7,22 @@ to {
 }
 }
 
+@keyframes navSmoothTransition {
+0% {
+    top:-100%;
+}
+/* 10%{
+    top:-90%;
+} */
+100% {
+    top:0%;
+}
+}
+
+header.position-fixed.scroll{
+	animation: navSmoothTransition .5s linear;
+}
+
 .txt-logo {
 animation: rotate-infinite 35s linear infinite; /* Adjust the duration as needed */
 transform-origin:center;
@@ -45,8 +61,13 @@ ul.menu>li.menu-item-has-children {
     }
 }
 
+@media only screen and (min-width:1199px){
 ul.menu>li>a {
     padding: 0px 9px;
+}
+}
+
+ul.menu>li>a {
     color: white;
     text-decoration:none;
     transition:all .25s ease-in-out;
@@ -185,6 +206,7 @@ ul.menu>li.current-menu-item>a,ul.menu>li>a:hover,
         overflow: hidden;
         transition: all .5s ease-in-out;
         min-width: 100%;
+        top: 100%;
     }
 }
 
