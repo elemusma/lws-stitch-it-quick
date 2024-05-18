@@ -461,6 +461,13 @@ CSF::createSection( $prefix, array(
         'title' => 'Description about the company',
       ),
 	  
+	  // A textarea field
+      array(
+        'id'    => 'company-message',
+        'type'  => 'textarea',
+        'title' => 'Promotions going on in shop.',
+      ),
+	  
 
 	)
 ) );
@@ -636,15 +643,9 @@ function custom_page_title() {
 
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20); // Removes the main product image
 
-
-// echo '<hr>';
-// echo '<p>for each loop of product thumbnails below</p>';
-
 add_action('woocommerce_before_single_product_summary', 'addCustomProductGallerySlick', 20);
 
 function addCustomProductGallerySlick() {
-    // wp_enqueue_script('cdn-jquery-min', '//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js');
-    // wp_enqueue_script('slick-min-js', '//rawgit.com/kenwheeler/slick/master/slick/slick.min.js');
 
     
 
@@ -655,13 +656,6 @@ function addCustomProductGallerySlick() {
     
     echo '<link rel="stylesheet" href="/wp-content/themes/latinowebstudio/slick-carousel/slick.css">';
     wp_enqueue_style('lightbox-css', get_theme_file_uri('/lightbox/lightbox.min.css'));
-
-    // wp_enqueue_style('cdn-slick', get_theme_file_uri('/slick-carousel/slick.css'));
-    // wp_enqueue_style('cdn-slick', '//rawgit.com/kenwheeler/slick/master/slick/slick.css');
-    // wp_enqueue_style('cdn-evil-icons', '//cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.css');
-
-
-    // wp_enqueue_script('cdn-evil-icons', '//cdn.jsdelivr.net/evil-icons/1.9.0/evil-icons.min.js');
 
         global $product;
 
@@ -703,9 +697,6 @@ wp_enqueue_script('products-js', get_theme_file_uri('/js/products.js'));
 
 }
 
-// add_action('loop_start', 'woocommerce_main_pages_start', 1);
-// add_action('loop_end', 'woocommerce_main_pages_end', 1);
-
 function woocommerce_main_pages_start() {
     if (is_page(8) || is_page(7) || is_page(9) || is_page(10) ) {
         echo '<section style="padding:50px 0px;">';
@@ -723,14 +714,8 @@ function woocommerce_main_pages_end() {
     }
 }
 
-// remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-
 add_action('woocommerce_before_main_content','add_container_class',9);
 add_action('woocommerce_after_main_content','close_container_class',9);
-// add_action('loop_start', 'add_container_class', 10);
-// add_action('loop_end', 'close_container_class', 10);
-// add_action('woocommerce_before_shop_loop', 'add_container_class', 10);
-// add_action('woocommerce_after_shop_loop', 'close_container_class', 10);
 
 function add_container_class(){
 
@@ -743,25 +728,6 @@ function add_container_class(){
 	echo '<div class="container">';
 	echo '<div class="row justify-content-center">';
     echo '<div class="col-md-12">';
-
-    // if($categoryName == 'Gates') {
-    
-
-        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_shop_loop' );
-        // remove_action( 'woocommerce_before_shop_loop','woocommerce_product_loop_start' );
-
-        // remove_action( 'woocommerce_before_shop_loop','woocommerce_product_loop_start',10);
-        // remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
-        // remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
-        // remove_action( 'woocommerce_before_main_content', array( __CLASS__, 'output_content_wrapper' ) );
-		// remove_action( 'woocommerce_after_main_content', array( __CLASS__, 'output_content_wrapper_end' ) );
-        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
-        // remove_action( 'woocommerce_before_shop_loop', 'woocommerce_product_loop_start', 10 );
-        // print_r($GLOBALS['wp_filter']);
-        // remove_action('woocommerce_shop_loop');
-        // remove_action('woocommerce_before_shop_loop','woocommerce_result_count',20);
-        // remove_action('woocommerce_before_shop_loop','woocommerce_catalog_ordering',30);
-    // }
 
 
 }
@@ -901,23 +867,3 @@ function custom_search_filter($query) {
     }
 }
 add_action('pre_get_posts','custom_search_filter');
-
-
-// // Add Custom Tab
-// function custom_product_tab($tabs) {
-//     // Add a new tab with a custom title and content callback
-//     $tabs['custom_tab'] = array(
-//         'title'     => __('Custom Tab', 'woocommerce'),
-//         'priority'  => 50,
-//         'callback'  => 'custom_tab_content'
-//     );
-//     return $tabs;
-// }
-// add_filter('woocommerce_product_tabs', 'custom_product_tab');
-
-// // Content for Custom Tab
-// function custom_tab_content() {
-//     // Output content for your custom tab
-//     echo '<h2>Custom Tab Content</h2>';
-//     echo '<p>This is where you can display additional information about your product.</p>';
-// }

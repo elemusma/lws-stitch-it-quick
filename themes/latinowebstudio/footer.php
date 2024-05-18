@@ -3,41 +3,22 @@
 echo '<footer>';
 echo '<section class="bg-accent" style="padding-top:50px;padding-bottom:25px;">';
 echo '<div class="container">';
-// echo '<div class="row justify-content-center">';
-
-// echo '<div class="col-lg-6 text-white" style="padding-bottom:50px;">';
-
-// echo '</div>';
-// echo '</div>';
-
 echo '<div class="row">';
 
-echo '<div class="col-lg-6 col-md-6 text-white">';
+echo '<div class="col-lg-3 col-md-6 text-white">';
 echo '<a href="' . home_url() . '">';
 echo '<div style="width:125px;">';
 echo logoSVG();
 echo '</div>';
 echo '</a>';
 
+echo '</div>';
+
+echo '<div class="col-lg-3 col-md-6 text-white">';
+
 echo '<p class="">' . companyAbout() . '</p>';
 
 echo '</div>';
-// echo '<div class="col-lg-2 col-md-4 col-6 text-white">';
-// echo '<strong>Shop</strong>';
-// echo '<p>';
-
-// wp_nav_menu(array(
-//     'menu' => 'Product Categories',
-//     'menu_class'=>'menu list-unstyled text-white text-uppercase mt-0'
-// ));
-
-// echo '</div>';
-
-// echo '<div class="col-lg-3 text-white">';
-// echo '<strong>About</strong>';
-// echo '<p class="">' . companyAbout() . '</p>';
-
-// echo '</div>';
 
 echo '<div class="col-lg-3 col-md-4 col-6 text-white">';
 echo '<strong>Navigation</strong>';
@@ -49,7 +30,7 @@ wp_nav_menu(array(
 echo '</p>';
 echo '</div>';
 
-echo '<div class="col-lg-2 col-md-4 col-6 text-white">';
+echo '<div class="col-lg-3 col-md-4 col-6 text-white">';
 echo '<strong>Account</strong>';
 echo '<p>';
 

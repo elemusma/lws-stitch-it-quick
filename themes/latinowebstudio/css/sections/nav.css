@@ -19,6 +19,18 @@ to {
 }
 }
 
+#menu-secondary-nav-top li a {
+    font-size: 12px;
+    color: black;
+    padding: 0 5px;
+}
+#menu-secondary-nav-top li:hover a {
+    color: var(--accent-secondary);
+}
+#menu-secondary-nav-top li {
+    padding: 0;
+}
+
 header.position-fixed.scroll{
 	animation: navSmoothTransition .5s linear;
 }
