@@ -38,7 +38,7 @@ echo '</div>';
 echo '</div>';
 
 echo '<div class="blank-space" style=""></div>';
-echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:100;">';
+echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:100;padding-top:7.5px;">';
 // echo '</header>';
 // }
 

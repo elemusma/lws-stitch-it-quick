@@ -20,6 +20,11 @@ wp_enqueue_style('img', get_theme_file_uri('/css/elements/img.css'));
 
 // if(is_front_page()){
 wp_enqueue_style('home', get_theme_file_uri('/css/sections/home.css'));
+
+if(is_page(8)){
+    wp_enqueue_style('cart-css', get_theme_file_uri('/css/sections/cart.css'));
+}
+
 // }
 if(is_page_template('templates/about.php')){
 wp_enqueue_style('about-custom', get_theme_file_uri('/css/sections/about.css'));
@@ -589,6 +594,25 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
   }
   add_action( 'admin_head', 'fix_svg' );
 
+
+
+  add_action('pre_get_posts', 'exclude_category_from_shop_page');
+
+  function exclude_category_from_shop_page($query) {
+      if (is_shop() && $query->is_main_query() && !is_admin()) {
+          // Replace 'exclude-category-slug' with the slug of the category you want to exclude
+          $tax_query = (array) $query->get('tax_query');
+          $tax_query[] = array(
+              'taxonomy' => 'product_cat',
+              'field' => 'slug',
+              'terms' => array('gates'), // Change this to your category slug
+              'operator' => 'NOT IN'
+          );
+  
+          $query->set('tax_query', $tax_query);
+      }
+  }
+  
 
 // Add WooCommerce support only on cart and checkout pages
 

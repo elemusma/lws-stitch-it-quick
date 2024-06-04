@@ -20,11 +20,12 @@ if ($categories && !is_wp_error($categories)) {
     $categoryName = $main_category_name;
 }
 
-if(is_product()) {
+if(is_product() || is_page()) {
     $main_title = get_the_title();
+// } elseif (is_page()) {
+//     $main_title = get_the_title();
 } else {
     $main_title = single_cat_title('', false);
-
 }
 
 echo '<section class="body" style="padding:50px 0px;">';

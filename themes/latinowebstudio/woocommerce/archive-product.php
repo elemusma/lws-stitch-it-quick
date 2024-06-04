@@ -39,6 +39,11 @@ if ($categories && !is_wp_error($categories)) {
     $categoryName = $main_category_name;
 }
 
+// if(is_shop()) {
+// 	echo $categoryName;
+// }
+
+echo '<!-- here\'s the archive-product.php, the category for some reason on shop page is Gates -->';
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -47,7 +52,7 @@ if ($categories && !is_wp_error($categories)) {
  * @hooked WC_Structured_Data::generate_website_data() - 30
  */
 
-if($categoryName == 'Gates' ) { // shows Gates product to Gates customers
+if($categoryName == 'Gates' && !is_shop() ) { // shows Gates product to Gates customers
 	if(currentUser() && in_array( currentUserGates(), currentUser()->roles )) {
 do_action( 'woocommerce_before_main_content' );
 
