@@ -27,7 +27,7 @@
     }
 }
 
-@media only screen and (max-width:991px) {
+@media only screen and (max-width:767px) {
     .woocommerce-cart-form__cart-item.cart_item td.product-thumbnail {
         display: inline-block !important;
         border-top:none;

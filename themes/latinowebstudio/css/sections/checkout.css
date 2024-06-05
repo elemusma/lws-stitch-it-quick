@@ -1,0 +1,24 @@
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2
+{
+    width: 100% !important;
+    float: none !important;
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+input[type="radio"] {
+    width: auto;
+    display: inline-block;
+}
+
+.payment_box.payment_method_first_data_clover_credit_card {
+    display: block !important;
+    flex: 0 0 100%;
+}
+
+label[for="payment_method_first_data_clover_credit_card"] {
+    width: 90%;
+    display: inline-block;
+    flex: 0 0 100%;
+}

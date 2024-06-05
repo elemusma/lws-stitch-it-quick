@@ -7,6 +7,9 @@ add_theme_support( 'wc-product-gallery-lightbox' );
 add_theme_support( 'wc-product-gallery-zoom' );
 add_theme_support( 'wc-product-gallery-slider' );
 
+include_once('woocommerce/mods.php');
+include_once('woocommerce/mods-checkout.php');
+
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
 
