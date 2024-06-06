@@ -21,12 +21,12 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS;
+namespace Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
-use Atreus\WooCommerce\First_Data\Payeezy\API\Response;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
+use Kestrel\WooCommerce\First_Data\Payeezy\API\Response;
 
 /**
  * Payeezy Payment.JS API Authorize Session response.

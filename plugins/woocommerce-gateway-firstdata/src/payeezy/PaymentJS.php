@@ -21,11 +21,11 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Payeezy;
+namespace Kestrel\WooCommerce\First_Data\Payeezy;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * PaymentJS form handler.
@@ -287,7 +287,8 @@ class PaymentJS extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 
 		// enqueue our own form handler script & form stylesheet
 		wp_enqueue_style( $payment_js_form_handler, $this->get_gateway()->get_plugin()->get_plugin_url() . '/assets/css/frontend/' . $payment_js_form_handler . '.min.css', [], \WC_First_Data::VERSION );
-		wp_enqueue_script( $payment_js_form_handler, $this->get_gateway()->get_plugin()->get_plugin_url() . '/assets/js/frontend/' . $payment_js_form_handler . '.min.js', [ 'jquery', $payment_js, 'sv-wc-payment-gateway-payment-form-v5_11_12' ], \WC_First_Data::VERSION, true );
+		wp_enqueue_script( $payment_js_form_handler, $this->get_gateway()->get_plugin()->get_plugin_url() . '/assets/js/frontend/' . $payment_js_form_handler . '.min.js', [ 'jquery', $payment_js, 'sv-wc-payment-gateway-payment-form-v5_12_4' ], \WC_First_Data::VERSION, true );
+
 		wp_localize_script( $payment_js_form_handler, $payment_js_form_handler_params, [
 			'ajax_url'                               => admin_url( 'admin-ajax.php' ),
 			'debug_mode'                             => ! $this->get_gateway()->debug_off(),

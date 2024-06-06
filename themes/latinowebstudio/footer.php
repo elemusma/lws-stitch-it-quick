@@ -12,6 +12,10 @@ echo logoSVG();
 echo '</div>';
 echo '</a>';
 
+echo '<div style="padding-top:25px;">';
+echo get_template_part('partials/si');
+echo '</div>';
+
 echo '</div>';
 
 echo '<div class="col-lg-3 col-md-6 text-white">';

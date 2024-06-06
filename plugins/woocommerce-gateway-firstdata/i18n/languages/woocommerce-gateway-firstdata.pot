@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Clover for WooCommerce 5.1.3\n"
+"Project-Id-Version: Clover for WooCommerce 5.2.0\n"
 "Report-Msgid-Bugs-To: https://woocommerce.com/my-account/marketplace-ticket-form/\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-03-27T20:36:35+00:00\n"
+"POT-Creation-Date: 2024-06-03T21:25:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: woocommerce-gateway-firstdata\n"
 
 #. Plugin Name of the plugin
@@ -34,151 +34,157 @@ msgstr ""
 msgid "https://kestrelwp.com"
 msgstr ""
 
-#: class-wc-first-data.php:482
+#: class-wc-first-data.php:526
 msgid "Use Global Gateway"
 msgstr ""
 
-#: class-wc-first-data.php:486
+#: class-wc-first-data.php:530
 msgid "Use Payeezy Gateway"
 msgstr ""
 
-#: class-wc-first-data.php:490
+#: class-wc-first-data.php:534
 msgid "Use Payeezy JS"
 msgstr ""
 
-#: class-wc-first-data.php:494
+#: class-wc-first-data.php:538
 msgid "Use Clover"
 msgstr ""
 
-#: class-wc-first-data.php:516
+#: class-wc-first-data.php:560
 msgid "This will enable the Payeezy JS gateway. You don't need to switch to this if you're using Payeezy Global Gateway e4."
 msgstr ""
 
-#: class-wc-first-data.php:609
+#: class-wc-first-data.php:653
 msgid "First Data Global Gateway is now active."
 msgstr ""
 
-#: class-wc-first-data.php:612
+#: class-wc-first-data.php:656
 msgid "First Data Payeezy Gateway is now active."
 msgstr ""
 
-#: class-wc-first-data.php:615
+#: class-wc-first-data.php:659
 msgid "First Data Payeezy is now active."
 msgstr ""
 
-#: class-wc-first-data.php:618
+#: class-wc-first-data.php:662
 msgid "Clover by First Data is now active."
 msgstr ""
 
-#: class-wc-first-data.php:684
+#: class-wc-first-data.php:728
 msgid "Heads up! First Data Payeezy now requires processing payments through Payment.JS. Please %1$sread the updated documentation%2$s and %3$sconfigure Payment.JS%4$s."
 msgstr ""
 
-#: class-wc-first-data.php:774
+#: class-wc-first-data.php:818
 msgid "Clover by First Data"
 msgstr ""
 
-#: class-wc-first-data.php:776
+#: class-wc-first-data.php:820
 msgid "WooCommerce First Data"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:78
+#: src/Clover/Gateway/Credit_Card.php:85
 msgid "Clover Credit Card"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:79
+#: src/Clover/Gateway/Credit_Card.php:86
 msgid "Allow customers to securely pay using their credit cards with Clover."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:97
+#: src/Clover/Gateway/Credit_Card.php:104
 msgctxt "software environment"
 msgid "Production"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:98
+#: src/Clover/Gateway/Credit_Card.php:105
 msgctxt "software environment"
 msgid "Sandbox"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:138
+#: src/Clover/Gateway/Credit_Card.php:167
 msgid "Merchant ID"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:139
+#: src/Clover/Gateway/Credit_Card.php:168
 msgid "Your merchant ID, provided by Clover."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:144
+#: src/Clover/Gateway/Credit_Card.php:173
 msgid "Sandbox Merchant ID"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:145
+#: src/Clover/Gateway/Credit_Card.php:174
 msgid "Your sandbox merchant ID, provided by Clover."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:150
+#: src/Clover/Gateway/Credit_Card.php:179
 msgid "Public Token"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:151
+#: src/Clover/Gateway/Credit_Card.php:180
 msgid "Your Ecommerce API public token from the Clover control panel."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:156
+#: src/Clover/Gateway/Credit_Card.php:185
 msgid "Sandbox Public Token"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:157
+#: src/Clover/Gateway/Credit_Card.php:186
 msgid "Your Ecommerce API public token from the Clover sandbox control panel."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:162
+#: src/Clover/Gateway/Credit_Card.php:191
 msgid "Private Token"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:163
+#: src/Clover/Gateway/Credit_Card.php:192
 msgid "Your Ecommerce API private token from the Clover control panel."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:168
+#: src/Clover/Gateway/Credit_Card.php:197
 msgid "Sandbox Private Token"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:169
+#: src/Clover/Gateway/Credit_Card.php:198
 msgid "Your Ecommerce API private token from the sandbox Clover control panel."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:174
+#: src/Clover/Gateway/Credit_Card.php:203
 msgid "Address Verification Service (AVS)"
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:175
+#: src/Clover/Gateway/Credit_Card.php:204
 msgid "Show the Street Address payment field."
 msgstr ""
 
-#: src/Clover/Gateway/Credit_Card.php:178
+#: src/Clover/Gateway/Credit_Card.php:207
 msgid "To enable AVS Fraud checks you must enable the Address Verification System Fraud Prevention Tool in your Clover merchant account."
 msgstr ""
 
-#: src/Clover/Gateway/Payment_Form.php:79
+#: src/Clover/Gateway/Payment_Form.php:81
 msgid "Test card numbers:"
 msgstr ""
 
-#: src/Clover/Gateway/Payment_Form.php:82
+#: src/Clover/Gateway/Payment_Form.php:84
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/payment-method-description.js:40
 msgid "Approved"
 msgstr ""
 
-#: src/Clover/Gateway/Payment_Form.php:83
+#: src/Clover/Gateway/Payment_Form.php:85
 msgid "Declined (CSC)"
 msgstr ""
 
-#: src/Clover/Gateway/Payment_Form.php:155
+#: src/Clover/Gateway/Payment_Form.php:168
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card-fields.js:98
 msgid "Street Address"
 msgstr ""
 
-#: src/Clover/Gateway/Payment_Form.php:174
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:193
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:337
+#: src/Clover/Gateway/Payment_Form.php:187
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:194
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:338
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card-fields.js:106
 msgid "Postal Code"
 msgstr ""
 
@@ -212,8 +218,8 @@ msgid "The full system path to your .PEM file from First Data. For security reas
 msgstr ""
 
 #: src/global-gateway/class-wc-gateway-first-data-global-gateway.php:386
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:295
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:323
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:296
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:322
 msgid "Production"
 msgstr ""
 
@@ -231,71 +237,71 @@ msgstr ""
 msgid "Pay securely using your credit card."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:85
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:86
 msgid "Gateway ID"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:88
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:89
 msgid "Your unique Gateway ID, note this is not the same as your account user name."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:92
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:93
 msgid "Gateway Password"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:95
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:96
 msgid "Your private gateway password, note this is not the same as your account user password."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:99
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:100
 msgid "Key id"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:102
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:103
 msgid "Your terminal API Access Key id."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:106
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:107
 msgid "HMAC Key"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:109
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:110
 msgid "Your terminal API secret HMAC key."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:114
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:115
 msgid "Demo Gateway ID"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:117
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:118
 msgid "Your demo unique Gateway ID, note this is not the same as your account user name and will be in the format of Axxxxx-xx."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:121
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:122
 msgid "Demo Gateway Password"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:124
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:125
 msgid "Your demo private gateway password, note this is not the same as your account user password."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:128
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:129
 msgid "Demo Key id"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:131
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:132
 msgid "Your demo terminal API Access Key id."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:135
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:136
 msgid "Demo HMAC Key"
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:138
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:139
 msgid "Your demo terminal API secret HMAC key."
 msgstr ""
 
-#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:295
+#: src/payeezy-gateway/abstract-wc-gateway-first-data-payeezy-gateway.php:296
 msgid "Demo"
 msgstr ""
 
@@ -303,274 +309,274 @@ msgstr ""
 msgid "Required TransArmor token not received. Please double-check your Payeezy Gateway configuration."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:83
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:84
 msgid "Payeezy Gateway Credit Card"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:84
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:85
 msgid "Allow customers to securely pay using their credit card via Payeezy Gateway."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <strong> tag, %2$s - </strong> tag
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:145
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:146
 msgid "Note that you %1$smust first%2$s enable TransArmor Multi-Pay token processing in your account by contacting your merchant services provider for your token and configuring your account with it."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:152
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:296
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:153
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:297
 msgid "Soft Descriptor Settings"
-msgstr ""
-
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:157
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:301
-msgid "Soft Descriptors"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:158
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:302
-msgid "Enable soft descriptors"
+msgid "Soft Descriptors"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:165
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:309
-msgid "DBA Name"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:159
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:303
+msgid "Enable soft descriptors"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:166
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:310
-msgid "Business name."
+msgid "DBA Name"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:172
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:316
-msgid "Street"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:167
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:311
+msgid "Business name."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:173
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:317
-msgid "Business address."
+msgid "Street"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:179
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:323
-msgid "City"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:174
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:318
+msgid "Business address."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:180
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:324
-msgid "Business city."
+msgid "City"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:186
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:330
-msgid "Region"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:181
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:325
+msgid "Business city."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:187
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:331
+msgid "Region"
+msgstr ""
+
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:188
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:332
 msgid "Business region."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:194
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:338
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:195
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:339
 msgid "Business postal/zip code."
-msgstr ""
-
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:200
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:344
-msgid "Country Code"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:201
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:345
-msgid "Business country."
+msgid "Country Code"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:207
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:351
-msgid "MID"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:202
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:346
+msgid "Business country."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:208
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:352
-msgid "Merchant ID."
+msgid "MID"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:214
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:358
-msgid "MCC"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:209
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:353
+msgid "Merchant ID."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:215
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:359
-msgid "Your Merchant Category Code."
+msgid "MCC"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:221
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:365
-msgid "Merchant Contact Info"
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:216
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:360
+msgid "Your Merchant Category Code."
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:222
 #: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:366
+msgid "Merchant Contact Info"
+msgstr ""
+
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:223
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:367
 msgid "Merchant contact information."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:245
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:246
 msgid "Partial Redemption"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:246
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:247
 msgid "Enable Partial Redemption"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:248
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:249
 msgid "A partial redemption will be returned if only a portion of the requested funds are available. For example, if a transaction is submitted for $100, but only $80 is available on the customer's card, the $80 will be authorized or captured when this property is set to true. This property can be used for all types of pre-authorization and purchase transactions."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:543
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:919
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:544
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:920
 msgid "TransArmor Token"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:570
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:938
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-credit-card.php:571
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:939
 msgid "TransArmor token can only include letters and/or numbers."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:49
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:50
 msgid "Payeezy Gateway TeleCheck"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:50
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:51
 msgid "Allow customers to securely pay using their checking or savings account via Payeezy Gateway."
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:90
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:88
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:91
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:89
 msgid "Check Number"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:104
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:102
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:105
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:103
 msgid "Check Type"
-msgstr ""
-
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:111
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:109
-msgctxt "check type"
-msgid "Personal"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:112
 #: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:110
 msgctxt "check type"
+msgid "Personal"
+msgstr ""
+
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:113
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:111
+msgctxt "check type"
 msgid "Corporate"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:122
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:120
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:123
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:121
 msgid "ID Type"
-msgstr ""
-
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:129
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:127
-msgctxt "Identification type"
-msgid "Driver's License"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:130
 #: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:128
 msgctxt "Identification type"
-msgid "Social Security"
+msgid "Driver's License"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:131
 #: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:129
 msgctxt "Identification type"
-msgid "Tax ID"
+msgid "Social Security"
 msgstr ""
 
 #: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:132
 #: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:130
 msgctxt "Identification type"
+msgid "Tax ID"
+msgstr ""
+
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:133
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:131
+msgctxt "Identification type"
 msgid "Military ID"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:140
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:138
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:141
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:139
 msgid "ID Number"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:225
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:223
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:226
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:224
 msgid "Check Number is missing"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:232
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:230
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:233
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:231
 msgid "ID number is missing"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:237
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:235
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:238
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:236
 msgid "ID number is invalid"
 msgstr ""
 
-#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:256
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:254
+#: src/payeezy-gateway/class-wc-gateway-first-data-payeezy-gateway-echeck.php:257
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:255
 msgid "TeleCheck"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:83
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:82
 msgid "API Key"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:86
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:85
 msgid "Your app API Key."
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:90
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:89
 msgid "API Secret"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:93
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:92
 msgid "Your app API Secret Key"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:97
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:96
 msgid "Merchant Token"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:100
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:99
 msgid "Your merchant token."
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:105
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:104
 msgid "Sandbox API Key"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:108
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:107
 msgid "Your sandbox app API Key."
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:112
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:111
 msgid "Sandbox API Secret"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:115
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:114
 msgid "Your sandbox app API Secret Key"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:119
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:118
 msgid "Sandbox Merchant Token"
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:122
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:121
 msgid "Your sandbox merchant token."
 msgstr ""
 
-#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:323
+#: src/payeezy/abstract-wc-gateway-first-data-payeezy.php:322
 msgid "Sandbox"
 msgstr ""
 
@@ -631,113 +637,113 @@ msgstr ""
 msgid "Authorization error: %s"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:108
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:109
 msgid "Payeezy Credit Card"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:109
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:110
 msgid "Allow customers to securely pay using their credit card via Payeezy."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:229
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:230
 msgid "Required Transarmor Entitlement"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:230
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:231
 msgid "I certify that I have enabled Transarmor entitlement on my Payeezy account by contacting my merchant account representative."
 msgstr ""
 
 #. translators: Placeholders: %1$s - <strong> tag, %2$s - </strong> tag
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:235
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:236
 msgid "Note that you %1$smust enable%2$s the Transarmor entitlement on your Payeezy account by contacting your merchant account representative. This will additionally allow customers to securely save their payment details for future checkout."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:243
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:244
 msgid "Transarmor Token"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:246
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:247
 msgid "Your Transarmor token."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:250
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:251
 msgid "Sandbox Transarmor Token"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:253
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:254
 msgid "Your sandbox Transarmor token."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:259
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:260
 msgid "Payment.JS Secret"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:262
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:263
 msgid "Your Payment.JS Secret"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:266
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:267
 msgid "Sandbox Payment.JS Secret"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:269
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:270
 msgid "Your sandbox Payment.JS Secret"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:274
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:275
 msgid "Webhook URL"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:376
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:377
 msgid "Payeezy.js settings"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:377
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:378
 msgid "This is a legacy integration and will soon be retired. Please configure Payment.JS above."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:381
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:382
 msgid "JS Security Key"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:384
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:385
 msgid "Your JS security key."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:388
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:389
 msgid "Sandbox JS Security Key"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:391
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:392
 msgid "Your sandbox JS security key."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:527
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:528
 msgid "Place order"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:705
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:706
 msgid "Provided card type is invalid."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:712
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:713
 msgid "Provided card last four is invalid."
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:719
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:720
 msgid "Provided card token is invalid."
 msgstr ""
 
 #. translators: Placeholders: %s - tokenization request error message
-#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:1237
+#: src/payeezy/class-wc-gateway-first-data-payeezy-credit-card.php:1238
 msgid "Could not process tokenization request. %s"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:49
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:50
 msgid "Payeezy TeleCheck"
 msgstr ""
 
-#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:50
+#: src/payeezy/class-wc-gateway-first-data-payeezy-echeck.php:51
 msgid "Allow customers to securely pay using their checking or savings account via Payeezy."
 msgstr ""
 
@@ -745,14 +751,47 @@ msgstr ""
 msgid "Cardholder full name"
 msgstr ""
 
-#: src/payeezy/PaymentJS.php:299
+#: src/payeezy/PaymentJS.php:300
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card.js:52
 msgid "An error occurred, please try again or try an alternate form of payment."
 msgstr ""
 
-#: src/payeezy/PaymentJS.php:300
+#: src/payeezy/PaymentJS.php:301
 msgid "One or more payments fields may be invalid or incomplete. Please review your payment information or try an alternate form of payment."
 msgstr ""
 
-#: src/payeezy/PaymentJS.php:301
+#: src/payeezy/PaymentJS.php:302
 msgid "Could not proceed with payment. Please try again or try an alternate form of payment."
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/payment-method-description.js:27
+msgctxt "Credit card test numbers"
+msgid "Use the following %scard numbers%s with card security code %s123%s."
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/payment-method-description.js:42
+msgid "Declined"
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card-fields.js:69
+msgid "Card Number"
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card-fields.js:83
+msgid "Expiration"
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card-fields.js:90
+msgid "CVV"
+msgstr ""
+
+#: assets/js/blocks/wc-first-data-clover-credit-card-checkout-block.js:1
+#: client/blocks/components/credit-card.js:29
+msgid "An error occurred while loading the payment form."
 msgstr ""

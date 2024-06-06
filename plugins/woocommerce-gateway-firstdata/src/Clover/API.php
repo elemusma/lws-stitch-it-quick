@@ -21,9 +21,9 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Clover;
+namespace Kestrel\WooCommerce\First_Data\Clover;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -378,26 +378,26 @@ class API extends Framework\SV_WC_API_Base implements Framework\SV_WC_Payment_Ga
 		switch ( $type ) {
 
 			case 'charge':
-				$request_handler  = "\Atreus\WooCommerce\First_Data\Clover\API\Request\Charge";
-				$this->set_response_handler( "\Atreus\WooCommerce\First_Data\Clover\API\Response\Charge" );
+				$request_handler  = "\Kestrel\WooCommerce\First_Data\Clover\API\Request\Charge";
+				$this->set_response_handler( "\Kestrel\WooCommerce\First_Data\Clover\API\Response\Charge" );
 				$this->request_uri = $this->get_api_request_domain( 'ecommerce' );
 				break;
 
 			case 'capture':
-				$request_handler = "\Atreus\WooCommerce\First_Data\Clover\API\Request\Capture";
-				$this->set_response_handler( "\Atreus\WooCommerce\First_Data\Clover\API\Response\Charge" );
+				$request_handler = "\Kestrel\WooCommerce\First_Data\Clover\API\Request\Capture";
+				$this->set_response_handler( "\Kestrel\WooCommerce\First_Data\Clover\API\Response\Charge" );
 				$this->request_uri = $this->get_api_request_domain( 'ecommerce' );
 				break;
 
 			case 'refund':
-				$request_handler = "\Atreus\WooCommerce\First_Data\Clover\API\Request\Refund";
-				$this->set_response_handler( "\Atreus\WooCommerce\First_Data\Clover\API\Response\Refund" );
+				$request_handler = "\Kestrel\WooCommerce\First_Data\Clover\API\Request\Refund";
+				$this->set_response_handler( "\Kestrel\WooCommerce\First_Data\Clover\API\Response\Refund" );
 				$this->request_uri = $this->get_api_request_domain( 'ecommerce' );
 				break;
 
 			case 'customer':
-				$request_handler = "\Atreus\WooCommerce\First_Data\Clover\API\Request\Customer";
-				$this->set_response_handler( "\Atreus\WooCommerce\First_Data\Clover\API\Response\Customer" );
+				$request_handler = "\Kestrel\WooCommerce\First_Data\Clover\API\Request\Customer";
+				$this->set_response_handler( "\Kestrel\WooCommerce\First_Data\Clover\API\Response\Customer" );
 				$this->request_uri = $this->get_api_request_domain( 'ecommerce' );
 				break;
 

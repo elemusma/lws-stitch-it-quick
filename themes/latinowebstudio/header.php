@@ -23,10 +23,16 @@ echo codeBody();
 // if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
     // echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:10;margin-top:32px;">';
     // } else {
+echo '<section class="secondary-nav">';
 echo '<div class="container">';
 
 echo '<div class="row">';
-echo '<div class="col-12">';
+
+echo '<div class="col-md-6">';
+echo get_template_part('partials/si');
+echo '</div>';
+
+echo '<div class="col-md-6">';
 
 wp_nav_menu(array(
     'menu' => 'Secondary Nav Top',
@@ -36,6 +42,7 @@ wp_nav_menu(array(
 echo '</div>';
 echo '</div>';
 echo '</div>';
+echo '</section>';
 
 echo '<div class="blank-space" style=""></div>';
 echo '<header class="position-relative box-shadow bg-accent w-100" style="top:0;left:0;z-index:100;padding-top:7.5px;">';

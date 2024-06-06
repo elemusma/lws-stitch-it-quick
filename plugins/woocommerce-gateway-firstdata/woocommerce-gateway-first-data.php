@@ -6,7 +6,7 @@
  * Description: Accept credit cards and eChecks in WooCommerce through Clover, First Data Payeezy Gateway, Payeezy, or Global Gateway
  * Author: Kestrel
  * Author URI: https://kestrelwp.com
- * Version: 5.1.3
+ * Version: 5.2.0
  * Text Domain: woocommerce-gateway-firstdata
  * Domain Path: /i18n/languages/
  *
@@ -22,7 +22,7 @@
  *
  * Woo: 18645:eb3e32663ec0810592eaf0d097796230
  * WC requires at least: 4.4.0
- * WC tested up to: 8.7.0
+ * WC tested up to: 8.9.1
  */
 
 defined( 'ABSPATH' ) or exit;
@@ -36,16 +36,16 @@ class WC_First_Data_Loader {
 
 
 	/** minimum PHP version required by this plugin */
-	const MINIMUM_PHP_VERSION = '7.0';
+	const MINIMUM_PHP_VERSION = '7.4';
 
 	/** minimum WordPress version required by this plugin */
-	const MINIMUM_WP_VERSION = '5.2';
+	const MINIMUM_WP_VERSION = '5.6';
 
 	/** minimum WooCommerce version required by this plugin */
-	const MINIMUM_WC_VERSION = '4.4.0';
+	const MINIMUM_WC_VERSION = '6.0';
 
 	/** SkyVerge plugin framework version used by this plugin */
-	const FRAMEWORK_VERSION = '5.11.12';
+	const FRAMEWORK_VERSION = '5.12.4';
 
 	/** the plugin name, for displaying notices */
 	const PLUGIN_NAME = 'Clover for WooCommerce';

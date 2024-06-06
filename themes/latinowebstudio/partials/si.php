@@ -1,33 +1,18 @@
 <?php 
 
-if(have_rows('social_icons','options')): 
-    echo '<div class="si d-flex flex-wrap justify-content-end">';
-    while(have_rows('social_icons','options')): the_row(); 
-$svgOrImg = get_sub_field('svg_or_image');
-$socialLink = get_sub_field('link');
-$svg = get_sub_field('svg');
-$image = get_sub_field('image');
+if(socialIconsRepeater()) {
+    echo '<div class="d-flex justify-content-lg-start justify-content-center align-items-center si" style="">';
+    foreach(socialIconsRepeater() as $item) {
+        $textarea = isset($item['svg-social-logos']) ? $item['svg-social-logos'] : '';
+        $link = isset($item['opt-link-1']) ? $item['opt-link-1'] : '';
 
-$socialLink_url = $socialLink['url'];
-$socialLink_title = $socialLink['title'];
-$socialLink_target = $socialLink['target'] ? $socialLink['target'] : '_self';
-
-echo '<a href="' . $socialLink_url . '" target="' . $socialLink_target . '" style="text-decoration:none;" class="si-icon-link">';
-
-if($svgOrImg == 'SVG') {
-
-echo '<div class="svg-icon">';
-echo $svg;
-echo '</div>';
-} elseif($svgOrImg == 'Image') {
-
-echo wp_get_attachment_image($image['id'],'full','',['class'=>'img-si']);
-
+        echo '<a href="' . $link['url'] . '" title="' . $link['text'] . '" target="' . $link['target'] . '" class="d-block" style="padding:10px 10px 0px;">';
+        echo '<div class="" style="">';
+        echo $textarea;
+        echo '</div>';
+        echo '</a>';
+    }
+    echo '</div>';
 }
-echo '</a>';
 
-endwhile; 
-
-echo '</div>';
-endif; 
 ?>

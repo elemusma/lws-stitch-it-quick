@@ -18,15 +18,15 @@
  *
  * @package   SkyVerge/WooCommerce/Plugin/Classes
  * @author    SkyVerge
- * @copyright Copyright (c) 2013-2023, SkyVerge, Inc.
+ * @copyright Copyright (c) 2013-2024, SkyVerge, Inc.
  * @license   http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace SkyVerge\WooCommerce\PluginFramework\v5_11_12;
+namespace SkyVerge\WooCommerce\PluginFramework\v5_12_4;
 
 defined( 'ABSPATH' ) or exit;
 
-if ( ! class_exists( '\\SkyVerge\\WooCommerce\\PluginFramework\\v5_11_12\\SV_WC_Helper' ) ) :
+if ( ! class_exists( '\\SkyVerge\\WooCommerce\\PluginFramework\\v5_12_4\\SV_WC_Helper' ) ) :
 
 
 /**
@@ -37,6 +37,7 @@ if ( ! class_exists( '\\SkyVerge\\WooCommerce\\PluginFramework\\v5_11_12\\SV_WC_
  *
  * @since 2.2.0
  */
+#[\AllowDynamicProperties]
 class SV_WC_Helper {
 
 
@@ -708,7 +709,8 @@ class SV_WC_Helper {
 	 */
 	public static function wc_add_notice( $message, $notice_type = 'success' ) {
 
-		if ( function_exists( 'wc_add_notice' ) ) {
+		// the session sanity check is necessary as WC doesn't provide one of its own
+		if ( function_exists( 'wc_add_notice' ) && ! empty( WC()->session ) ) {
 			wc_add_notice( $message, $notice_type );
 		}
 	}

@@ -21,11 +21,11 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data;
+namespace Kestrel\WooCommerce\First_Data;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * The My Payment Methods handler class.
@@ -47,7 +47,7 @@ class My_Payment_Methods extends Framework\SV_WC_Payment_Gateway_My_Payment_Meth
 		parent::maybe_enqueue_styles_scripts();
 
 		if ( $this->has_tokens ) {
-			wp_enqueue_script( 'wc-first-data-my-payment-methods', $this->get_plugin()->get_plugin_url() . '/assets/js/frontend/wc-first-data-my-payment-methods.min.js', [ 'sv-wc-payment-gateway-my-payment-methods-v5_11_12' ], $this->get_plugin()->get_version() );
+			wp_enqueue_script( 'wc-first-data-my-payment-methods', $this->get_plugin()->get_plugin_url() . '/assets/js/frontend/wc-first-data-my-payment-methods.min.js', [ 'sv-wc-payment-gateway-my-payment-methods-v5_12_4' ], $this->get_plugin()->get_version() );
 		}
 	}
 

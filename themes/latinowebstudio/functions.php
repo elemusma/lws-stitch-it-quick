@@ -9,6 +9,7 @@ add_theme_support( 'wc-product-gallery-slider' );
 
 include_once('woocommerce/mods.php');
 include_once('woocommerce/mods-checkout.php');
+include_once('woocommerce/mods-payment-methods.php');
 
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
@@ -475,6 +476,32 @@ CSF::createSection( $prefix, array(
         'type'  => 'textarea',
         'title' => 'Promotions going on in shop.',
       ),
+
+      // repeater field
+	  array(
+		'id'     => 'opt-repeater-1',
+		'type'   => 'repeater',
+		'title'  => 'Repeater',
+		'sanitize' => false,
+		'fields' => array(
+
+		  array(
+			'id'    => 'opt-link-1',
+			'type'  => 'link',
+			'title' => 'Link',
+		  ),
+		  // Code Editor
+		array(
+			'id'    => 'svg-social-logos',
+			'type'  => 'code_editor',
+			'title' => 'SVG Social Logos',
+			'sanitize' => false,
+		),
+		  
+	  
+		),
+	  ),
+      // end of repeater field
 	  
 
 	)
@@ -484,17 +511,6 @@ CSF::createSection( $prefix, array(
 	'title'  => 'Header, Body & Footer Code',
 	'fields' => array(
 
-	//   array(
-	// 	'id'       => 'code-header-one',
-	// 	'type'     => 'code_editor',
-	// 	'title'    => 'HTML Editor',
-	// 	'sanitize' => false,
-	// 	'settings' => array(
-	// 	  'theme'  => 'mdn-like',
-	// 	  'mode'   => 'htmlmixed',
-	// 	),
-	// 	'default'  => '<h1>Hello world</h1>',
-	//   ),
 	  array(
 		'id'       => 'code-header',
 		'type'     => 'code_editor',
@@ -561,6 +577,11 @@ function companyAbout() {
     global $options;
     global_function(); // call the global function to set $options
     return $options['company-about'];
+}
+function socialIconsRepeater() {
+    global $options;
+    global_function(); // call the global function to set $options
+    return $options['opt-repeater-1'];
 }
 
 // Allow SVG

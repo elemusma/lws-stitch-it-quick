@@ -23,7 +23,8 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
+use Kestrel\WooCommerce\First_Data\Clover\Blocks\Gateway_Blocks_Handler;
 
 /**
  * The main class for the First Data Payeezy Gateway.  This class handles all the
@@ -32,11 +33,12 @@ use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
  *
  * @since 2.0.0
  */
+#[\AllowDynamicProperties]
 class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 
 	/** version number */
-	const VERSION = '5.1.3';
+	const VERSION = '5.2.0';
 
 	/** @var \WC_First_Data single instance of this plugin */
 	protected static $instance;
@@ -75,7 +77,7 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 	const PAYEEZY_ECHECK_GATEWAY_ID = 'first_data_payeezy_echeck';
 
 	/** @var string Clover credit card gateway class */
-	const CLOVER_CREDIT_CARD_CLASS_NAME = '\\Atreus\\WooCommerce\\First_Data\\Clover\\Gateway\\Credit_Card';
+	const CLOVER_CREDIT_CARD_CLASS_NAME = '\\Kestrel\\WooCommerce\\First_Data\\Clover\\Gateway\\Credit_Card';
 
 	/** @var string Clover credit card gateway ID */
 	const CLOVER_CREDIT_CARD_GATEWAY_ID = 'first_data_clover_credit_card';
@@ -96,14 +98,12 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 			self::PLUGIN_ID,
 			self::VERSION,
 			[
-				'text_domain'  => 'woocommerce-gateway-firstdata',
-				'gateways'     => $this->get_active_gateways(),
-				'supported_features' => [
-					'hpos' => true,
-				],
-				'require_ssl'  => true,
-				'supports'     => $this->get_active_gateway_features(),
-				'dependencies' => [
+				'text_domain'        => 'woocommerce-gateway-firstdata',
+				'gateways'           => $this->get_active_gateways(),
+				'supported_features' => $this->get_active_gateway_supported_features(),
+				'require_ssl'        => true,
+				'supports'           => $this->get_active_gateway_features(),
+				'dependencies'       => [
 					'php_extensions' => $this->get_active_gateway_dependencies(),
 				],
 			]
@@ -173,6 +173,7 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 				'Clover/API/Response/Customer.php',
 				'Clover/API/Response/Refund.php',
 			];
+
 		}
 
 		foreach ( $files as $file_path ) {
@@ -186,13 +187,13 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 	 *
 	 * @since 4.7.3
 	 *
-	 * @return \Atreus\WooCommerce\First_Data\My_Payment_Methods
+	 * @return \Kestrel\WooCommerce\First_Data\My_Payment_Methods
 	 */
 	protected function get_my_payment_methods_instance() {
 
 		require_once( $this->get_plugin_path() . '/src/My_Payment_Methods.php' );
 
-		return new \Atreus\WooCommerce\First_Data\My_Payment_Methods( $this );
+		return new \Kestrel\WooCommerce\First_Data\My_Payment_Methods( $this );
 	}
 
 
@@ -289,6 +290,49 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 
 	/** Gateway methods ******************************************************/
+
+
+	/**
+	 * Returns the supported features for the active gateway.
+	 *
+	 * @since 5.2.0
+	 *
+	 * @return array
+	 */
+	protected function get_active_gateway_supported_features() : array {
+
+		$supported_features = [
+			'hpos'   => true,
+			'blocks' => [
+				'cart'     => false,
+				'checkout' => false,
+			],
+		];
+
+		if ( $this->is_clover_active() ) {
+			$supported_features['blocks']['cart']     = true;
+			$supported_features['blocks']['checkout'] = true;
+		}
+
+		return $supported_features;
+	}
+
+
+	/**
+	 * Builds the blocks handler instance.
+	 *
+	 * @since 5.2.0
+	 *
+	 * @return void
+	 */
+	protected function init_blocks_handler() : void {
+
+		require_once( $this->get_framework_path() . '/Blocks/Blocks_Handler.php' );
+		require_once( $this->get_framework_path() . '/payment-gateway/Blocks/Gateway_Blocks_Handler.php' );
+		require_once( $this->get_plugin_path() . '/src/Clover/Blocks/Gateway_Blocks_Handler.php' );
+
+		$this->blocks_handler = new Gateway_Blocks_Handler( $this );
+	}
 
 
 	/**
@@ -787,7 +831,7 @@ class WC_First_Data extends Framework\SV_WC_Payment_Gateway_Plugin {
 
 		require_once( $this->get_plugin_path() . '/src/Lifecycle.php' );
 
-		$this->lifecycle_handler = new \Atreus\WooCommerce\First_Data\Lifecycle( $this );
+		$this->lifecycle_handler = new \Kestrel\WooCommerce\First_Data\Lifecycle( $this );
 	}
 
 

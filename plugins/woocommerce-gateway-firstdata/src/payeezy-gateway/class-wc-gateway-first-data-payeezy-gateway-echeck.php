@@ -23,7 +23,7 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * Payeezy Gateway eCheck Class
@@ -32,6 +32,7 @@ use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
  *
  * @since 4.0.0
  */
+#[\AllowDynamicProperties]
 class WC_Gateway_First_Data_Payeezy_Gateway_eCheck extends WC_Gateway_First_Data_Payeezy_Gateway {
 
 

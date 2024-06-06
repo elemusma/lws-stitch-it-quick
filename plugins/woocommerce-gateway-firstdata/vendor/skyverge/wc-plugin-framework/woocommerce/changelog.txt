@@ -1,5 +1,31 @@
 *** SkyVerge WooCommerce Plugin Framework Changelog ***
 
+2024.06.03 - version 5.12.4
+ * Fix - Ensure gateway scripts are compiled as regular JS rather than modules
+ * Fix - Address an issue where multiple save buttons were displayed when editing a payment method in My Account
+ * Misc - Disable clicking on other payment methods when editing a payment method in My Account
+
+2024.05.06 - version 5.12.3
+ * Fix - Ensure gateway block handler files are loaded from payment gateway framework path
+ * Misc - Improve background job database query performance
+
+2024.03.21 - version 5.12.2
+ * Tweak - Add non-gateway cart and checkout blocks supporting logic
+ * Tweak - Ensure gateway block scripts use unique handles
+
+2024.02.27 - version 5.12.1
+ * Tweak - Handle support in gateways for external checkouts while corresponding express payment methods are in use in the cart and checkout blocks
+ * Fix - Check if the session is set before trying to add a WooCommerce notice
+ * Fix - Ensure to maintain index association when handling payment gateways supported features
+ * Misc - Improve compatibility with PHP 8.2+ by allowing dynamic properties in the framework
+
+2023.12.14 - version 5.12.0
+ * Feature - Add support for WooCommerce Cart and Checkout blocks
+ * Tweak - Do not load the legacy gateway payment form assets when the Checkout block is in use
+ * Dev - Burst assets caches of framework script and styles when using any debug mode
+ * Dev - Tweak API requests logging methods (no breaking changes but classes extending those may need to account for types)
+ * Dev - Add action to allow third parties hooking in the transaction response of hosted gateways
+
 2023.11.16 - version 5.11.12
  * Misc - Update documentation links after changes in Woo.com
 

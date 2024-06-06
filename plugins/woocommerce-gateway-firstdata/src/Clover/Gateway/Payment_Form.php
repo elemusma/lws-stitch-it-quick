@@ -21,10 +21,10 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Clover\Gateway;
+namespace Kestrel\WooCommerce\First_Data\Clover\Gateway;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
-//use Atreus\WooCommerce\First_Data\Clover\Gateway\Credit_Card as Gateway;
+use Kestrel\WooCommerce\First_Data\Clover\Blocks\Gateway_Blocks_Handler;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -35,6 +35,8 @@ defined( 'ABSPATH' ) or exit;
  * which uses iframes for the payment inputs like Braintree.
  *
  * @since 5.0.0
+ *
+ * @method Credit_Card get_gateway()
  */
 class Payment_Form extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 
@@ -126,11 +128,21 @@ class Payment_Form extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 	 */
 	public function render_payment_field( $field ) {
 
-		$sanitized_input_classes = implode( ' ', array_map( 'sanitize_html_class', explode( ' ', $field['input_class'][0] ) ) );
+		if ( ! isset( $field['id'] ) ) {
+			return;
+		}
+
+		// skip the special hidden field flag that the gateway adds to indicate this checkout is operating as a shortcode
+		if ( 'hidden' === $field['type'] && 'shortcode' === $field['value'] ) {
+			return;
+		}
+
+		$sanitized_input_classes = implode( ' ', array_map( 'sanitize_html_class', (array) explode( ' ', $field['input_class'][0] ?? '' ) ) );
+
 		?>
-		<div class="form-row <?php echo implode( ' ', array_map( 'sanitize_html_class', $field['class'] ) ); ?>">
-			<label for="<?php echo esc_attr( $field['id'] ) . '-hosted'; ?>"><?php echo esc_html( $field['label'] ); if ( $field['required'] ) : ?><abbr class="required" title="required">&nbsp;*</abbr><?php endif; ?></label>
-			<div id="<?php echo esc_attr( $field['id'] ) . '-hosted'; ?>"       class="<?php echo $sanitized_input_classes; ?>" data-placeholder="<?php echo isset( $field['placeholder'] ) ? esc_attr( $field['placeholder'] ) : ''; ?>"></div>
+		<div class="form-row <?php echo isset( $field['class'] ) ? implode( ' ', array_map( 'sanitize_html_class', (array) $field['class'] ) ) : ''; ?>">
+			<label for="<?php echo esc_attr( $field['id'] ) . '-hosted'; ?>"><?php echo esc_html( $field['label'] ?? '' ); if ( $field['required'] ?? false ) : ?><abbr class="required" title="required">&nbsp;*</abbr><?php endif; ?></label>
+			<div id="<?php echo esc_attr( $field['id'] ) . '-hosted'; ?>" class="<?php echo $sanitized_input_classes; ?>" data-placeholder="<?php echo isset( $field['placeholder'] ) ? esc_attr( $field['placeholder'] ) : ''; ?>"></div>
 			<div id="<?php echo esc_attr( $field['id'] ) . '-hosted-error'; ?>" class="<?php echo esc_attr( 'wc-' . $this->get_gateway()->get_id_dasherized() . '-hosted-input-error' ); ?>"></div>
 		</div>
 		<?php
@@ -146,6 +158,7 @@ class Payment_Form extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 	 * @param array $field payment field params
 	 */
 	public function get_credit_card_fields() {
+
 		$fields = parent::get_credit_card_fields();
 
 		if ( $this->get_gateway()->avs_street_address() ) {
@@ -199,6 +212,7 @@ class Payment_Form extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 	 * @return array
 	 */
 	protected function get_js_handler_args() : array {
+
 		$args = parent::get_js_handler_args();
 
 		$args['debug']       = $this->get_gateway()->debug_log();
@@ -218,38 +232,40 @@ class Payment_Form extends Framework\SV_WC_Payment_Gateway_Payment_Form {
 	}
 
 
+	/**
+	 * Determines if it should render the payment form JavaScript in the checkout page.
+	 *
+	 * @since 5.2.0
+	 *
+	 * @return bool
+	 */
+	protected function should_render_js_on_checkout_page() : bool {
+		global $post;
+
+		$should_render = parent::should_render_js_on_checkout_page();
+
+		/** only render on the checkout page (for the add payment method page - for the add payment pay page {@see Payment_Form::maybe_render_js()}) */
+		if ( $should_render && ( ! is_checkout() || is_checkout_pay_page() ) && Framework\Blocks\Blocks_Handler::is_checkout_block_in_use() && ( $post && ! Gateway_Blocks_Handler::page_contains_checkout_shortcode( $post ) ) ) {
+			$should_render = false;
+		}
+
+		return $should_render;
+	}
+
 
 	/**
 	 * Gets the payment field styles.
 	 *
-	 * Their JS allows us to specify styles to render on each iframe field. This
-	 * sets some common base styles for each, and allows filtering to further match
-	 * other theme-specific styles.
+	 * Their JS allows us to specify styles to render on each iframe field.
+	 * This sets some common base styles for each, and allows filtering to further match other theme-specific styles.
 	 *
 	 * @since 2.0.0
 	 *
 	 * @return array
 	 */
-	protected function get_hosted_element_styles() : array {
+	public function get_hosted_element_styles() : array {
 
-		$styles = [
-			'body' => [
-				'fontSize' => '1em',
-			],
-			'input' => [
-				'fontSize' => '1em',
-			]
-		];
-
-		/**
-		 * Filters the Clover payment field styles.
-		 *
-		 * @since 5.0.0
-		 *
-		 * @param array $styles payment field styles
-		 * @param Payment_Form $form_handler payment form handler
-		 */
-		return apply_filters( 'wc_' . $this->get_gateway()->get_id() . '_payment_field_styles', $styles, $this );
+		return $this->get_gateway()->get_hosted_element_styles();
 	}
 
 

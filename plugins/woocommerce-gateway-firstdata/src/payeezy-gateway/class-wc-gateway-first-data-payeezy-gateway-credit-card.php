@@ -23,7 +23,7 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * Payeezy Gateway Credit Card Class
@@ -32,6 +32,7 @@ use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
  *
  * @since 4.0.0
  */
+#[\AllowDynamicProperties]
 class WC_Gateway_First_Data_Payeezy_Gateway_Credit_Card extends WC_Gateway_First_Data_Payeezy_Gateway {
 
 
@@ -123,7 +124,7 @@ class WC_Gateway_First_Data_Payeezy_Gateway_Credit_Card extends WC_Gateway_First
 	 */
 	public function init_capture_handler() {
 
-		$this->capture_handler = new \Atreus\WooCommerce\First_Data\Payeezy_Gateway\Capture( $this );
+		$this->capture_handler = new \Kestrel\WooCommerce\First_Data\Payeezy_Gateway\Capture( $this );
 	}
 
 

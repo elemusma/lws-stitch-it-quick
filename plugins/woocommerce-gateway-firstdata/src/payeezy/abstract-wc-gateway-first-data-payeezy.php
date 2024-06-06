@@ -23,8 +23,7 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
-use Atreus\WooCommerce\First_Data\Payeezy\API\PaymentJS;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * Payeezy Abstract Class
@@ -216,7 +215,7 @@ abstract class WC_Gateway_First_Data_Payeezy extends Framework\SV_WC_Payment_Gat
 	 *
 	 * @since 4.7.0
 	 *
-	 * @return \Atreus\WooCommerce\First_Data\Payeezy\API\PaymentJS
+	 * @return \Kestrel\WooCommerce\First_Data\Payeezy\API\PaymentJS
 	 */
 	public function get_payment_js_api() {
 
@@ -237,7 +236,7 @@ abstract class WC_Gateway_First_Data_Payeezy extends Framework\SV_WC_Payment_Gat
 		require_once( $path . '/responses/PaymentJS.php' );
 		require_once( $path . '/responses/PaymentJS/Authorize_Session.php' );
 
-		return $this->payment_js_api = new \Atreus\WooCommerce\First_Data\Payeezy\API\PaymentJS( $this );
+		return $this->payment_js_api = new \Kestrel\WooCommerce\First_Data\Payeezy\API\PaymentJS( $this );
 	}
 
 

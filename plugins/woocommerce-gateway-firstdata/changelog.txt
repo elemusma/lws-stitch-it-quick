@@ -1,5 +1,12 @@
 *** Clover for WooCommerce Changelog ***
 
+2024.06.03 - version 5.2.0
+ * Feature - Add Cart & Checkout Block support for Clover gateway
+ * Fix - Check if the session is set before trying to add a WooCommerce notice
+ * Fix - Make sure the payment form JS is only loaded on the checkout and add payment method pages
+ * Misc - Update SkyVerge Plugin Framework to 5.12.2
+ * Misc - Require PHP 7.4 or newer
+
 2024.03.27 - version 5.1.3
  * Misc - Update brand to Kestrel
  * Misc - Rename to "Clover for WooCommerce"

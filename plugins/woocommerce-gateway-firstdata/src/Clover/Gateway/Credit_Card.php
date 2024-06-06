@@ -21,10 +21,13 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Clover\Gateway;
+namespace Kestrel\WooCommerce\First_Data\Clover\Gateway;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
-use Atreus\WooCommerce\First_Data\Clover\API;
+use Kestrel\WooCommerce\First_Data\Clover\Payment_Tokens_Handler;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
+use Kestrel\WooCommerce\First_Data\Clover\API;
+use Kestrel\WooCommerce\First_Data\Clover\Blocks\Credit_Card_Checkout_Block_Integration;
+use Kestrel\WooCommerce\First_Data\Clover\Blocks\Gateway_Blocks_Handler;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -34,6 +37,7 @@ defined( 'ABSPATH' ) or exit;
  *
  * @since 5.0.0
  */
+#[\AllowDynamicProperties]
 class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 
 
@@ -60,6 +64,9 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 
 	/** @var API API handler instance */
 	protected $api;
+
+	/** @var Credit_Card_Checkout_Block_Integration|null $credit_card_checkout_block */
+	protected ?Credit_Card_Checkout_Block_Integration $credit_card_checkout_block = null;
 
 
 	/**
@@ -104,6 +111,26 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 
 
 	/**
+	 * Gets the checkout block integration instance.
+	 *
+	 * @since 5.2.0
+	 *
+	 * @return Credit_Card_Checkout_Block_Integration
+	 */
+	public function get_checkout_block_integration_instance(): ?Framework\Payment_Gateway\Blocks\Gateway_Checkout_Block_Integration {
+
+		if ( null === $this->credit_card_checkout_block ) {
+
+			require_once( $this->get_plugin()->get_plugin_path() . '/src/Clover/Blocks/Credit_Card_Checkout_Block_Integration.php' );
+
+			$this->credit_card_checkout_block = new Credit_Card_Checkout_Block_Integration( $this->get_plugin(), $this );
+		}
+
+		return $this->credit_card_checkout_block;
+	}
+
+
+	/**
 	 * Load non-minified JS if SCRIPT_DEBUG is enabled
 	 *
 	 * TODO: this should be a default part of the framework {JS: 2022-11-13}
@@ -113,10 +140,12 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 	 * @param string $url javascript URL
 	 * @return string javascript URL
 	 */
-	public function payment_form_javascript_url(string $url) : string {
-		if (defined('SCRIPT_DEBUG') && SCRIPT_DEBUG) {
-			$url = str_replace('.min', '', $url);
+	public function payment_form_javascript_url (string $url ) : string {
+
+		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
+			$url = str_replace( '.min', '', $url );
 		}
+
 		return $url;
 	}
 
@@ -233,12 +262,35 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 	 */
 	public function enqueue_gateway_assets() {
 
-		if ( $this->is_available() ) {
+		if ( $this->is_available() && ( is_checkout() && ! is_checkout_pay_page() ) || is_add_payment_method_page() ) {
 
 			parent::enqueue_gateway_assets();
 
 			wp_enqueue_script( 'clover-hosted-iframe-sdk', $this->get_hosted_iframe_sdk_url(), array(), $this->get_plugin()->get_version() );
 		}
+	}
+
+
+	/**
+	 * Determines whether the front end gateway assets should load.
+	 *
+	 * By default, we don't load the legacy frontend when the checkout block is in use.
+	 *
+	 * Override so that we can call Gateway_Blocks_Handler::page_contains_checkout_shortcode()
+	 *
+	 * @since 5.2.0
+	 * @see SV_WC_Payment_Gateway::should_enqueue_gateway_assets()
+	 *
+	 * @return bool
+	 */
+	protected function should_enqueue_gateway_assets() : bool {
+		global $post;
+
+		if ( is_checkout() && ! is_checkout_pay_page() && Framework\Blocks\Blocks_Handler::is_checkout_block_in_use() && ( $post && ! Gateway_Blocks_Handler::page_contains_checkout_shortcode( $post ) ) ) {
+			return false;
+		}
+
+		return true;
 	}
 
 
@@ -290,7 +342,7 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 
 		$order = parent::get_order( $order_id );
 
-		$order->payment->js_token  = Framework\SV_WC_Helper::get_posted_value( 'wc-' . $this->get_id_dasherized() . '-js-token' );
+		$order->payment->js_token = Framework\SV_WC_Helper::get_posted_value( 'wc-' . $this->get_id_dasherized() . '-js-token' );
 
 		$order->payment->idempotency_key = $this->get_idempotency_key( $order );
 
@@ -480,11 +532,43 @@ class Credit_Card extends Framework\SV_WC_Payment_Gateway_Direct {
 	 *
 	 * @since 5.0.0
 	 *
-	 * @return SV_WC_Payment_Gateway_Payment_Tokens_Handler
+	 * @return Payment_Tokens_Handler
 	 */
 	protected function build_payment_tokens_handler() {
 
-		return new \Atreus\WooCommerce\First_Data\Clover\Payment_Tokens_Handler( $this );
+		return new Payment_Tokens_Handler( $this );
+	}
+
+
+	/**
+	 * Gets the payment field styles.
+	 *
+	 * These are shared between the {@see Payment_Form} and the {@see Credit_Card_Checkout_Block_Integration}
+	 *
+	 * @since 5.2.0
+	 *
+	 * @return array
+	 */
+	public function get_hosted_element_styles() : array {
+
+		$styles = [
+			'body' => [
+				'fontSize' => '1em',
+			],
+			'input' => [
+				'fontSize' => '1em',
+			]
+		];
+
+		/**
+		 * Filters the Clover payment field styles.
+		 *
+		 * @since 5.0.0
+		 *
+		 * @param array $styles payment field styles
+		 * @param Payment_Form $form_handler payment form handler
+		 */
+		return apply_filters( 'wc_' . $this->get_id() . '_payment_field_styles', $styles, $this );
 	}
 
 

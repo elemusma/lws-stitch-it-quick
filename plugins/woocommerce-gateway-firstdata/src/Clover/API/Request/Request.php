@@ -21,9 +21,10 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Clover\API\Request;
+namespace Kestrel\WooCommerce\First_Data\Clover\API\Request;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
+
 
 defined( 'ABSPATH' ) or exit;
 
@@ -93,7 +94,7 @@ abstract class Request extends Framework\SV_WC_API_JSON_Request implements Frame
 	 */
 	protected function to_cents( string $amount ) : int {
 
-		return (int) (string) ( (float) preg_replace("/[^0-9.]/", '', $amount ) * 100 );
+		return (int) (string) ( (float) preg_replace( "/[^0-9.]/", '', $amount ) * 100 );
 	}
 
 

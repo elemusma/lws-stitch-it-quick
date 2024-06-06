@@ -1,0 +1,30 @@
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container label {
+	position: static;
+	margin: 0;
+}
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container label.required:after {
+    content:" *";
+    color: red;
+}
+.payment_method_first_data_clover_credit_card.wc-block-card-elements {
+	flex-wrap: wrap;
+}
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container .wc-block-gateway-input {
+	padding-right: .75em;
+}
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-number-element {
+	flex-grow: 0.5;
+}
+.payment_method_first_data_clover_credit_card .wc-card-postal-code-element {
+	flex-basis: 9em;
+}
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-number-element, .payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-street-address-element  {
+	margin-bottom: 0;
+}
+.payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-cvc-element, .payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-expiry-element  {
+	margin-left: 0px;
+}
+.is-mobile .payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-cvc-element, .is-mobile .payment_method_first_data_clover_credit_card .wc-block-gateway-container.wc-card-expiry-element {
+	margin-left: 0;
+	margin-right: 0;
+}

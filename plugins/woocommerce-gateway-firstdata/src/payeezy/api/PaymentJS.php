@@ -21,13 +21,13 @@
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-namespace Atreus\WooCommerce\First_Data\Payeezy\API;
+namespace Kestrel\WooCommerce\First_Data\Payeezy\API;
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
-use Atreus\WooCommerce\First_Data\Payeezy\API\Request\PaymentJS as Request;
-use Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS as Response;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
+use Kestrel\WooCommerce\First_Data\Payeezy\API\Request\PaymentJS as Request;
+use Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS as Response;
 
 /**
  * Payeezy Payment.JS API Class.
@@ -141,7 +141,7 @@ class PaymentJS extends Framework\SV_WC_API_Base {
 
 		if ( isset( $args['type'] ) && 'authorize_session' === $args['type'] ) {
 
-			$this->set_response_handler( \Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Authorize_Session::class );
+			$this->set_response_handler( \Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Authorize_Session::class );
 
 			return new Request\Authorize_Session();
 		}

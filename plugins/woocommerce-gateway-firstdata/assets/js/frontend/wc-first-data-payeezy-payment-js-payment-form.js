@@ -9,7 +9,7 @@ jQuery( function( $ ) {
 	 *
 	 * @type {Window.WC_First_Data_Payeezy_Payment_JS_Handler} object
 	 */
-	window.WC_First_Data_Payeezy_Payment_JS_Form_Handler = class WC_First_Data_Payeezy_Payment_JS_Form_Handler extends SV_WC_Payment_Form_Handler_v5_11_12 {
+	window.WC_First_Data_Payeezy_Payment_JS_Form_Handler = class WC_First_Data_Payeezy_Payment_JS_Form_Handler extends SV_WC_Payment_Form_Handler_v5_12_4 {
 
 
 		/**

@@ -23,7 +23,7 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * Payeezy Gateway Abstract Class
@@ -32,6 +32,7 @@ use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
  *
  * @since 4.0.0
  */
+#[\AllowDynamicProperties]
 abstract class WC_Gateway_First_Data_Payeezy_Gateway extends Framework\SV_WC_Payment_Gateway_Direct {
 
 
@@ -301,11 +302,11 @@ abstract class WC_Gateway_First_Data_Payeezy_Gateway extends Framework\SV_WC_Pay
 	 *
 	 * @since 4.7.3
 	 *
-	 * @return \Atreus\WooCommerce\First_Data\Payeezy_Gateway\Payment_Form
+	 * @return \Kestrel\WooCommerce\First_Data\Payeezy_Gateway\Payment_Form
 	 */
 	protected function init_payment_form_instance() {
 
-		return new \Atreus\WooCommerce\First_Data\Payeezy_Gateway\Payment_Form( $this );
+		return new \Kestrel\WooCommerce\First_Data\Payeezy_Gateway\Payment_Form( $this );
 	}
 
 

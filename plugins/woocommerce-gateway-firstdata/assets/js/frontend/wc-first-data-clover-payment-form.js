@@ -19,7 +19,7 @@ jQuery(function( $ ) {
 	// Handles the payment forms for Clover Custom Checkout.
 	//
 	// @since 5.0.0
-	window.WC_First_Data_Clover_Payment_Form_Handler = class WC_First_Data_Clover_Payment_Form_Handler extends SV_WC_Payment_Form_Handler_v5_11_12 {
+	window.WC_First_Data_Clover_Payment_Form_Handler = class WC_First_Data_Clover_Payment_Form_Handler extends SV_WC_Payment_Form_Handler_v5_12_4 {
 
 
 		// Constructs the form handler.

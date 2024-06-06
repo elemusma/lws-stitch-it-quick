@@ -23,7 +23,7 @@
 
 defined( 'ABSPATH' ) or exit;
 
-use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
+use SkyVerge\WooCommerce\PluginFramework\v5_12_4 as Framework;
 
 /**
  * Payeezy Credit Card Class
@@ -32,6 +32,7 @@ use SkyVerge\WooCommerce\PluginFramework\v5_11_12 as Framework;
  *
  * @since 4.0.0
  */
+#[\AllowDynamicProperties]
 class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Payeezy {
 
 
@@ -162,7 +163,7 @@ class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Pa
 	 */
 	public function init_capture_handler() {
 
-		$this->capture_handler = new \Atreus\WooCommerce\First_Data\Payeezy\Capture( $this );
+		$this->capture_handler = new \Kestrel\WooCommerce\First_Data\Payeezy\Capture( $this );
 	}
 
 
@@ -175,7 +176,7 @@ class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Pa
 	 *
 	 * @since 4.7.3
 	 *
-	 * @return \Atreus\WooCommerce\First_Data\Payeezy\PaymentJS|Framework\SV_WC_Payment_Gateway_Payment_Form
+	 * @return \Kestrel\WooCommerce\First_Data\Payeezy\PaymentJS|Framework\SV_WC_Payment_Gateway_Payment_Form
 	 */
 	public function init_payment_form_instance() {
 
@@ -183,7 +184,7 @@ class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Pa
 
 			require_once( $this->get_plugin()->get_plugin_path() . '/src/payeezy/PaymentJS.php' );
 
-			$payment_form = new \Atreus\WooCommerce\First_Data\Payeezy\PaymentJS( $this );
+			$payment_form = new \Kestrel\WooCommerce\First_Data\Payeezy\PaymentJS( $this );
 
 		} else {
 
@@ -1218,7 +1219,7 @@ class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Pa
 			}
 
 			// build the response object
-			$response = new \Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token( $request_data );
+			$response = new \Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token( $request_data );
 
 			// some processor-level error
 			if ( ! $response->transaction_approved() ) {
@@ -1379,9 +1380,9 @@ class WC_Gateway_First_Data_Payeezy_Credit_Card extends WC_Gateway_First_Data_Pa
 	 * @since 4.7.0
 	 *
 	 * @param \WC_Data $object object to store the data
-	 * @param \Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token $response Payment.JS tokenization response
+	 * @param \Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token $response Payment.JS tokenization response
 	 */
-	private function store_payment_js_tokenization_data( \WC_Data $object, \Atreus\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token $response ) {
+	private function store_payment_js_tokenization_data( \WC_Data $object, \Kestrel\WooCommerce\First_Data\Payeezy\API\Response\PaymentJS\Create_Payment_Token $response ) {
 
 		$meta_key = '_wc_' . $this->get_id() . '_payment_js_';
 
