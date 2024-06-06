@@ -1,13 +1,14 @@
 .si svg {
-    height:25px;
+    height:20px;
     width: auto;
     fill: white;
 }
 
 .secondary-nav .si svg {
-    height:10px;
+    height:15px;
     width: auto;
     fill: black;
+    transform: translate(0px, 3px);
 }
 
 .secondary-nav .si a {
