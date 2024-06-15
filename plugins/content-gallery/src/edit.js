@@ -74,9 +74,10 @@ export default function Edit( { attributes, setAttributes } ) {
 	const [ value, setValue ] = useState( '' );
 
 	const onSelectImages = ( newImages ) => {
-		// console.log( newImages );
 		setAttributes( { gallery_images: newImages } );
+		// setAttributes({gallery_images: [...gallery_images, ...newImages]})
 	};
+	console.log( gallery_images );
 
 	return (
 		<>
@@ -275,7 +276,7 @@ export default function Edit( { attributes, setAttributes } ) {
 							type="image"
 							multiple
 							gallery
-							value={ gallery_images }
+							value={ gallery_images.map(({id})=>id) }
 							render={ ( { open } ) => (
 								<button onClick={ open }>
 									Open Media Library
@@ -286,7 +287,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					<Gallery
 						gallery_images={ gallery_images }
 						gallery_columns={ gallery_columns }
-
+						setAttributes={setAttributes}
 					/>
 <InputControl
 						label="Number Columns"
@@ -353,16 +354,26 @@ export default function Edit( { attributes, setAttributes } ) {
 }
 
 // Define your Gallery component
-const Gallery = ( { gallery_images, gallery_columns } ) => {
-	// Render your gallery based on the images and columns
-	// You can use the images array to loop through and display the selected images
-	return (
-		<div className={ `gallery columns-${ gallery_columns }` }>
-			{ /* Your gallery rendering logic */ }
-			{ gallery_images &&
-				gallery_images.map( ( image ) => (
-					<img key={ image.id } src={ image.url } alt={ image.alt } />
-				) ) }
-		</div>
-	);
+const Gallery = ( { gallery_images, gallery_columns, setAttributes } ) => {
+    // Render your gallery based on the images and columns
+    // You can use the images array to loop through and display the selected images
+
+
+    const deleteImage = (id) => {
+        setAttributes( { gallery_images: gallery_images.filter( ( image ) => image.id !== id ) } );
+    }
+    return (
+        <div className={ `gallery columns-${ gallery_columns }` }>
+            { /* Your gallery rendering logic */ }
+            { gallery_images &&
+                gallery_images.map( ( image ) => (
+                    <div>
+                    <button 
+                    onClick={()=>deleteImage(image.id)}
+                    >X</button>
+                    <img key={ image.id } src={ image.url } alt={ image.alt } />
+                    </div>
+                ) ) }
+        </div>
+    );
 };

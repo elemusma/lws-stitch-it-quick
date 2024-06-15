@@ -1,0 +1,24 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+// .wp-block-create-block-content-seven-second-test {
+// 	background-color: #21759b;
+// 	color: #fff;
+// 	padding: 2px;
+// }
+
+input.gform_previous_button, input.gform_button, input.gform_next_button, input.gform_previous_button {
+    background: var(--accent-quinary);
+    color: black;
+    border: none;
+    padding: 10px;
+    /* max-width: 300px; */
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    box-shadow: none;
+}

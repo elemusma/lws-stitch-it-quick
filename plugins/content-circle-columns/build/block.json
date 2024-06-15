@@ -1,0 +1,102 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/content-circle-columns",
+  "version": "0.1.0",
+  "title": "Content Circle Columns",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "section_style": {
+      "type": "string",
+      "default": ""
+    },
+    "section_class": {
+      "type": "string",
+      "default": ""
+    },
+    "section_id": {
+      "type": "string",
+      "default": ""
+    },
+    "section_image": {
+      "type": "string",
+      "default": null
+    },
+    "section_image_class": {
+      "type": "string"
+    },
+    "section_image_style": {
+      "type": "string"
+    },
+    "section_block": {
+      "type": "string",
+      "default": ""
+    },
+    "container_style": {
+      "type": "string",
+      "default": ""
+    },
+    "container_class": {
+      "type": "string",
+      "default": "container"
+    },
+    "container_id": {
+      "type": "string",
+      "default": ""
+    },
+    "row_style": {
+      "type": "string",
+      "default": ""
+    },
+    "row_class": {
+      "type": "string",
+      "default": "row justify-content-center"
+    },
+    "row_id": {
+      "type": "string",
+      "default": ""
+    },
+    "main_col_content_class": {
+      "type": "string"
+    },
+    "main_col_content_style": {
+      "type": "string"
+    },
+    "main_col_content": {
+      "type": "string"
+    },
+    "columns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "default": [
+        {
+          "col_class": "col-lg-2 col-md-3 col-6",
+          "col_style": "",
+          "col_id": "",
+          "inner_col_class": "",
+          "inner_col_style": "",
+          "data_aos": "",
+          "data_aos_delay": "",
+          "title": "",
+          "content": "",
+          "url": "",
+          "linkTarget": "_self",
+          "linkTitle": ""
+        }
+      ]
+    }
+  },
+  "textdomain": "content-circle-columns",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}
