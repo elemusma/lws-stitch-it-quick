@@ -10,6 +10,8 @@ add_theme_support( 'wc-product-gallery-slider' );
 include_once('woocommerce/mods.php');
 include_once('woocommerce/mods-checkout.php');
 include_once('woocommerce/mods-payment-methods.php');
+// include_once('woocommerce/mods-upload-file.php');
+include_once('woocommerce/product-sync/beanies-1500kc.php');
 
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );

@@ -41,6 +41,56 @@ if ($categories && !is_wp_error($categories)) {
     // echo '<div class="main-category"><a href="' . esc_url($categoryURL) . '">' . $main_category_name . '</a></div>';
     $categoryName = $main_category_name;
 }
+
+// echo $main_category_name;
+// echo '<br>';
+// print_r($categories);
+$categoryDetails = null;
+
+foreach ($categories as $category) {
+    // Access the name property of each WP_Term Object
+    $name = $category->name;
+    // Access the term_id property of each WP_Term Object
+    $term_id = $category->term_id;
+
+    // Check if the name is not equal to "Public"
+    if ( $name !== 'Public' && $name !== 'Gates' ) {
+        // Construct the category URL based on the term_id
+        $category_url = get_term_link($term_id, 'product_cat');
+
+        // Store the first category name and URL
+        $categoryDetails = [
+            'name' => $name,
+            'url' => $category_url,
+        ];
+
+        // Break out of the loop after the first valid category is found
+        break;
+    }
+}
+
+// Now $categoryDetails contains the name and URL of the first category that is not "Public"
+// echo '<br>';
+// echo $categoryDetails['name'];
+// echo '<br>';
+// echo $categoryDetails['url'];
+// print_r($categoryDetails);
+
+echo '<section>';
+echo '<div class="container">';
+echo '<div class="row">';
+echo '<div class="col-12">';
+
+echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;">Go Back to ' . $categoryDetails['name'] . '</a>';
+
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</section>';
+
+
+
+
 		/**
 		 * woocommerce_before_main_content hook.
 		 *
@@ -84,18 +134,16 @@ if ($categories && !is_wp_error($categories)) {
 		 */
 		do_action( 'woocommerce_after_main_content' );
 	}
-	?>
 
-	<?php
+
 		/**
 		 * woocommerce_sidebar hook.
 		 *
 		 * @hooked woocommerce_get_sidebar - 10
 		 */
 		do_action( 'woocommerce_sidebar' );
-	?>
 
-<?php
+
 get_footer( 'shop' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
