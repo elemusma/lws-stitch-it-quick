@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: YITH WooCommerce Product Add-ons & Extra Options 4.9.3\n"
+"Project-Id-Version: YITH WooCommerce Product Add-ons & Extra Options 4.10.0\n"
 "Report-Msgid-Bugs-To: YITH <plugins@yithemes.com>\n"
-"POT-Creation-Date: 2024-05-07 08:12:36+00:00\n"
+"POT-Creation-Date: 2024-05-22 13:30:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -98,17 +98,17 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: includes/class-yith-wapo-addon.php:726
+#: includes/class-yith-wapo-addon.php:734
 #. translators: [ADMIN] Add-on editor > Options configuration option
 msgid "Selection type"
 msgstr ""
 
-#: includes/class-yith-wapo-addon.php:743
+#: includes/class-yith-wapo-addon.php:751
 #. translators: [ADMIN] Add-on editor > Options configuration option
 msgid "Force user to select an option"
 msgstr ""
 
-#: includes/class-yith-wapo-addon.php:754
+#: includes/class-yith-wapo-addon.php:762
 #. translators: [ADMIN] Add-on editor > Options configuration option
 msgid ""
 "Enable to force the user to select an option of the select to proceed with "
@@ -284,24 +284,24 @@ msgstr ""
 msgid "Configure style options to customize the add-ons you create."
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:1430
+#: includes/class-yith-wapo-cart.php:1433
 #. translators: [FRONT] Label shown on cart for add-on type Upload
 msgid "Attached file"
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:1508
+#: includes/class-yith-wapo-cart.php:1511
 #. translators: [ADMIN] Message added to order notes when add-on type Product
 #. has stock
 msgid "Stock levels reduced for addons type product:"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:151
+#: includes/class-yith-wapo-front.php:152
 #. translators: Label printed in the add-on type Date, when activating the
 #. timepicker.
 msgid "Set time"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:153
+#: includes/class-yith-wapo-front.php:154
 #: views/addon-editor/addon-editor.php:384
 #: views/block-editor/block-editor.php:305
 #. translators: Label printed in the add-on type Date, when activating the
@@ -311,79 +311,79 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:155
-#: includes/class-yith-wapo-front.php:187
+#: includes/class-yith-wapo-front.php:156
+#: includes/class-yith-wapo-front.php:192
 #. translators: Label printed if minimum value is 1.
 #. translators: [FRONT] Message giving the error after checking minimum and
 #. maximum quantity when adding to cart
 msgid "Please, select an option"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:157
+#: includes/class-yith-wapo-front.php:158
 #. translators: Label printed if minimum value is more than 1. %d is the number
 #. of options.
 msgid "Please, select at least %d options"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:159
+#: includes/class-yith-wapo-front.php:160
 #. translators: Label printed for exact selection value. %d is the number of
 #. options.
 msgid "Please, select %d options"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:161
+#: includes/class-yith-wapo-front.php:162
 #. translators: [FRONT] Error when the user select more than allowed options (
 #. min/max feature ).
 msgid "More options than allowed have been selected"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:179
+#: includes/class-yith-wapo-front.php:184
 #. translators: [FRONT] Message error when the value of the add-on type Number
 #. is below minimum accepted.
 msgid "The value is less than the minimum. The minimum value is:"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:181
+#: includes/class-yith-wapo-front.php:186
 #. translators: [FRONT] Message error when total of add-ons type numbers does
 #. not exceeds the minimum set in the configuration
 msgid "The value is greater than the maximum. The maximum value is:"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:183
+#: includes/class-yith-wapo-front.php:188
 #. translators: [FRONT] Message error when total of add-ons type numbers does
 #. not exceeds the minimum set in the configuration
 msgid "The sum of the numbers is below the minimum. The minimum value is:"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:185
+#: includes/class-yith-wapo-front.php:190
 #. translators: [FRONT] Message error when total of add-ons type numbers
 #. exceeds the maximum set in the configuration
 msgid "The sum of the numbers exceeded the maximum. The maximum value is:"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:189
+#: includes/class-yith-wapo-front.php:194
 #. translators: [FRONT] [FRONT] Text to show when an option is required
 msgid "This option is required."
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:191
+#: includes/class-yith-wapo-front.php:196
 #. translators: [FRONT] Text to show for maximum files allowed on add-on type
 #. Upload
 msgid "Maximum uploaded files allowed. The maximum number of files allowed is: "
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:193
+#: includes/class-yith-wapo-front.php:198
 #. translators: [FRONT] Message giving the error when the file upload is not a
 #. supported extension
 msgid "Error - not supported extension!"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:195
+#: includes/class-yith-wapo-front.php:200
 #. translators: [FRONT] Message giving the error when the file has a hight size
 msgid "Error - file size for %s - max %d MB allowed!"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:610
+#: includes/class-yith-wapo-front.php:624
 msgid "This is not a product page!"
 msgstr ""
 
@@ -1646,23 +1646,23 @@ msgid ""
 "you already have %2$s in your cart."
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:627
+#: includes/class-yith-wapo-cart.php:636
 msgctxt "[FRONT] Label shown on YITH Bundle products when is added to cart."
 msgid "Base price"
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:735 includes/class-yith-wapo-cart.php:886
+#: includes/class-yith-wapo-cart.php:744 includes/class-yith-wapo-cart.php:889
 #: includes/yith-wapo-functions.php:142 includes/yith-wapo-functions.php:144
 msgctxt "[FRONT] Show it in the cart page if the add-on has not a label set"
 msgid "Option"
 msgstr ""
 
-#: includes/class-yith-wapo-cart.php:957
+#: includes/class-yith-wapo-cart.php:960
 msgctxt "[FRONT] Default label on archive pages if the product has add-ons"
 msgid "Select options"
 msgstr ""
 
-#: includes/class-yith-wapo-front.php:162
+#: includes/class-yith-wapo-front.php:163
 msgctxt "[FRONT] Percentage done when uploading a file on an add-on type File."
 msgid "done"
 msgstr ""

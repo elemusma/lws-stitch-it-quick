@@ -421,7 +421,6 @@ form.cart:has(#yith-wapo-container .yith-wapo-block),
 }
 .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-product .yith-wapo-option .product-image img{
   display: block;
-  max-width: 100px;
 }
 .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-product .yith-wapo-option .product-container {
   position: relative;
@@ -724,9 +723,9 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
 .yith-wapo-uploaded-file .remove {
   position: relative;
   top: 2px;
-  margin-left: 20px;
   cursor: pointer;
   font-size: 14px;
+  margin-bottom: 10px;
 }
 .yith-wapo-uploaded-file-element .yith-wapo-uploaded-file-info .file-size{
   opacity: 0.7;
@@ -759,6 +758,7 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
 }
 .yith-wapo-addon.yith-wapo-addon-type-file .yith-wapo-uploaded-file-info {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .yith-wapo-addon.yith-wapo-addon-type-file .yith-wapo-uploaded-file-element {
@@ -933,6 +933,9 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
   background: var(--yith-wapo-accent-color-color) url('../img/icon-check.png') center no-repeat;
   background-size: 50%;
 }
+.yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-color .yith-wapo-option *{
+  max-width: 100%;
+}
 /* TOOLTIP */
 .yith-wapo-block .yith-wapo-addon .yith-wapo-option .tooltip span {
   background-color: var(--yith-wapo-tooltip-colors-background);
@@ -982,8 +985,15 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
   .yith-wapo-addon-type-colorpicker .yith-wapo-option .wp-picker-container button.wp-color-result {
     vertical-align: inherit;
   }
-  .yith-wapo-block .yith-wapo-addon.yith-wapo-addon-type-product .yith-wapo-option .product-image img {
-    max-width: 100%;
+
+  /* UPLOADS */
+  .yith-wapo-addon.yith-wapo-addon-type-file .yith-wapo-ajax-uploader-container .button{
+    margin-top: 10px;
+  }
+
+  /* COLORPICKER */
+  .yith-wapo-addon-type-colorpicker .yith-wapo-option .wp-picker-container {
+    min-width: auto;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -998,18 +1008,3 @@ tr.cart_item.yith-wapo-product-is-individual-addons td {
 
 
 /** MEDIA QUERY - END */
-
-.yith-wapo-addon-type-text input.length-error {
-  border-color: #ff0000;
-}
-
-/** IMAGES - START */
-.yith-wapo-addon:not(.yith-wapo-addon-type-label) .yith-wapo-option .image img{
-  max-width: 100%;
-  max-height: 200px;
-}
-/** IMAGES - END */
-
-/**
-  ELEMENTOR COMPATIBILITY
- */

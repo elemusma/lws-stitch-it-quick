@@ -1,0 +1,119 @@
+.product-sub-total-1st-tr{
+	text-align: right;
+}
+
+.product-sub-total-final,
+.product_option_selected_price{
+	text-align: right;
+  font-size: 18px;
+}
+
+.addons_main_div_for_mul_choice{
+	border: 1px solid gray;
+	border-radius: 8px;
+	padding: 10px;
+	max-width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+.addon_selected_image_border_class{
+  border: 2px solid black !important;
+}
+
+.addons_div_selection{
+	border: 1px solid #808080a6;
+  border-radius: 4px;
+  margin: 5px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  padding: 2px;
+  overflow: hidden;
+}
+
+.af_addon_images{
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0 !important;
+  margin: 0 !important;
+}
+
+.af_addon_images:hover{
+  cursor: pointer;
+}
+
+.af_addon_image_swatcher{
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0 !important;
+  margin: 0 !important;
+}
+
+.af_addon_image_swatcher:hover{
+  cursor: pointer;
+}
+
+.af_addon_color_swatcher{
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0 !important;
+  margin: 0 !important;
+}
+
+.af_addon_color_swatcher:hover{
+  cursor: pointer;
+}
+
+.prod_img_radio_button{
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0 !important;
+  margin: 0 !important;
+}
+
+.prod_img_radio_button:hover{
+  cursor: pointer;
+}
+
+#product_option_selected_name ul{
+	float: left;
+	list-style: none;
+	position: absolute;
+	margin-left: 0;
+}
+
+#product_option_selected_price ul{
+	list-style: none;
+	position: relative;
+	text-align: right;
+}
+
+.product_sub_total_final_td{
+	float: right;
+}
+
+.af_addon_field_class{
+  width: 99%;
+}
+
+/*.af_addon_field_class input[type=search],
+.af_addon_field_class input[type=search]:focus{
+  background-color: transparent;
+  outline-color: transparent;
+}*/

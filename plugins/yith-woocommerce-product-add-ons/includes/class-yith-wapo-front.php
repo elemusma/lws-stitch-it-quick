@@ -59,6 +59,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 				add_action( 'woocommerce_before_add_to_cart_button', array( $this, 'print_container' ) );
 			}
 
+            add_filter( 'woocommerce_available_variation', array( $this, 'add_default_variation_price' ), 10, 3 );
+
 			add_action( 'yith_gift_cards_template_before_add_to_cart_button', array( $this, 'print_container' ) );
 
 			// Ajax live print.
@@ -136,9 +138,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 				);
 
 				// JS.
-				wp_register_script( 'yith_wapo_front',
-                    YITH_WAPO_URL . 'assets/js/front' . $suffix . '.js',
-                    array( 'jquery', 'jquery-ui-datepicker', 'jquery-ui-progressbar', 'wc-add-to-cart-variation', 'jquery-blockui' ),
+				wp_register_script( 'yith_wapo_front', YITH_WAPO_URL . 'assets/js/front' . $suffix . '.js',
+                    $this->get_enqueue_script_dependencies(),
                     defined( 'YITH_WAPO_SCRIPT_VERSION' ) ? YITH_WAPO_SCRIPT_VERSION : YITH_WAPO_VERSION,
                     true );
 
@@ -168,9 +169,13 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 					'total_price_box_option'         => get_option( 'yith_wapo_total_price_box', 'all' ),
 					'replace_product_price'          => get_option( 'yith_wapo_replace_product_price', 'no' ),
 					'woocommerce_currency'           => esc_attr( get_woocommerce_currency() ),
+                    'currency_symbol'                => get_woocommerce_currency_symbol( get_woocommerce_currency() ),
+					'currency_position'              => get_option( 'woocommerce_currency_pos', ',' ),
 					'total_thousand_sep'             => get_option( 'woocommerce_price_thousand_sep', ',' ),
 					'decimal_sep'                    => get_option( 'woocommerce_price_decimal_sep', '.' ),
+					'number_decimals'                => absint( get_option( 'woocommerce_price_num_decimals', 2 ) ),
 					'priceSuffix'                    => wc_tax_enabled() ? get_option( 'woocommerce_price_display_suffix', '' ) : '',
+                    'includeShortcodePriceSuffix'    => wc_tax_enabled() && ( strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_including_tax}') !== false || strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_excluding_tax}') !== false ),
 					'replace_image_path'             => $this->get_product_gallery_image_path(),
 					'replace_product_price_class'    => $this->get_product_price_class(),
 					'hide_button_required'           => get_option( 'yith_wapo_hide_button_if_required', 'no' ),
@@ -302,6 +307,13 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 
 		}
 
+        public function add_default_variation_price( $args, $variable, $variation) {
+
+            $args['default_variation_price'] = $variation->get_price();
+
+            return $args;
+        }
+
 		/**
 		 * Modify the path of the uploaded files (add-on type File).
 		 *
@@ -362,13 +374,15 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 								$addon_type = $info['addon_type'];
 
 								if ( 'file' === $addon_type ) {
-									if ( is_array( $value ) ) {
-										foreach ( $value as $attachment ) {
-											$attachments[] = $attachment;
-										}
-									} else {
-										$attachments[] = $value;
-									}
+
+                                    $url = is_array( $value ) && isset( $value[0] ) && $value[0] ? $value[0] : $value;
+
+                                    $folder_name = get_option( 'yith_wapo_uploads_folder', 'yith_advanced_product_options' );
+                                    $path        = YITH_WAPO_DOCUMENT_SAVE_URL . '/' . $folder_name . '/';
+                                    $file_name   = str_replace($path, '', $url);
+
+                                    $attachments[] = YITH_WAPO_DOCUMENT_SAVE_DIR . '/' . $folder_name . '/' . $file_name;
+
 								}
 							}
 						}
@@ -623,11 +637,13 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 
             check_ajax_referer( 'addons-nonce', 'security' );
 
+            $currency = $_POST['data']['currency'] ?? get_woocommerce_currency();
+
             $values = array(
                 'price_html'           => '',
                 'options_price_suffix' => '',
-                'order_price_suffix'   => '',
-                'order_price_raw'      => '',
+                'order_price_suffix'   => wc_price( 0, array( 'currency' => $currency ) ),
+                'order_price_raw'      => 0,
                 );
 
             $currency = $_POST['data']['currency'] ?? get_woocommerce_currency();
@@ -700,6 +716,23 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 			}
 			wp_send_json( $values );
 		}
+
+        /** Get the enqueue script dependencies */
+        public function get_enqueue_script_dependencies() {
+            global $post;
+            $deps = array(
+                'jquery',
+                'jquery-ui-datepicker',
+                'jquery-ui-progressbar',
+                'wc-single-product',
+                'wc-add-to-cart-variation',
+                'jquery-blockui',
+                'selectWoo',
+                'wp-hooks'
+            );
+
+            return $deps;
+        }
 	}
 
 }

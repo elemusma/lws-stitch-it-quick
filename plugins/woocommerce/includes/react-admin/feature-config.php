@@ -23,13 +23,9 @@ if ( ! function_exists( 'wc_admin_get_feature_config' ) ) {
 			'new-product-management-experience' => false,
 			'onboarding' => true,
 			'onboarding-tasks' => true,
-			'product-variation-management' => true,
-			'product-virtual-downloadable' => true,
-			'product-external-affiliate' => true,
-			'product-grouped' => true,
-			'product-linked' => true,
-			'product-pre-publish-modal' => true,
-			'product-custom-fields' => false,
+			'pattern-toolkit-full-composability' => false,
+			'product-pre-publish-modal' => false,
+			'product-custom-fields' => true,
 			'remote-inbox-notifications' => true,
 			'remote-free-extensions' => true,
 			'payment-gateway-suggestions' => true,
@@ -43,6 +39,7 @@ if ( ! function_exists( 'wc_admin_get_feature_config' ) ) {
 			'wc-pay-welcome-page' => true,
 			'async-product-editor-category-field' => false,
 			'launch-your-store' => false,
+			'product-editor-template-system' => false,
 		);
 	}
 }

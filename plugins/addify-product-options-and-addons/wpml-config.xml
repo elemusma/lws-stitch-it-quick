@@ -1,0 +1,20 @@
+<wpml-config>
+  <custom-types>
+    <custom-type translate="1" display-as-translated="1">af_addon</custom-type>
+    <custom-type translate="1" display-as-translated="1">af_pao_options</custom-type>
+    <custom-type translate="1" display-as-translated="1">af_pao_fields</custom-type>
+  </custom-types>
+  <custom-fields>
+    <custom-field action="ignore">af_pao_prod_search</custom-field>
+    <custom-field action="ignore">af_pao_cat_search</custom-field>
+    <custom-field action="ignore">af_pao_tag_search</custom-field>
+    <custom-field action="ignore">af_addon_user_role</custom-field>
+    <custom-field action="translate">af_addon_field_title</custom-field>
+    <custom-field action="translate">af_addon_desc_textarea</custom-field>
+    <custom-field action="translate">af_addon_limit_range_checkbox</custom-field>
+    <custom-field action="translate">af_addon_min_limit_range</custom-field>
+    <custom-field action="translate">af_addon_max_limit_range</custom-field>
+    <custom-field action="translate">af_addon_field_price</custom-field>
+    <custom-field action="translate">af_addon_tooltip_textarea</custom-field>
+  </custom-fields>
+</wpml-config>

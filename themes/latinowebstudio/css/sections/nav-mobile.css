@@ -8,6 +8,97 @@ div#mobileMenu .modal-content {
 }
 
 @media screen and (max-width:1199px) {
+    ul.menu li {
+        padding: 9px 9px;
+        position: relative;
+    }
+
+    /* ul.menu > li > a {
+        color:white;
+        font-weight: 700;
+        text-decoration:none;
+    } */
+    ul.menu>li.current-menu-item>a {
+        text-decoration: underline;
+    }
+
+    .menu-main-menu-container {
+        pointer-events: none;
+    }
+
+    .activate .menu-main-menu-container {
+        pointer-events: all;
+    }
+
+    .nav ul.shopping-cart.menu {
+        background: transparent;
+        display: flex !important;
+    }
+
+    .sub-menu-parent .sub-menu-parent {
+        height: 100%;
+        position: relative;
+    }
+
+    a#navToggle {
+        cursor: pointer;
+    }
+
+    .nav-toggle div div {
+        height: 5px;
+        width: 45px;
+        margin: 4px auto;
+        margin-right: 0;
+        transition: all .75s ease-in-out;
+    }
+
+    .activate .line-1 {
+        transform: rotate(45deg) translate(6px, 18px);
+        transform-origin: right;
+    }
+
+    .activate .line-3 {
+        transform: rotate(-45deg) translate(4px, 3px);
+        transform-origin: left;
+    }
+
+    .activate .line-2 {
+        opacity: 0;
+    }
+
+    /* hides nav items */
+    div#navItems {
+        height: 100vh;
+        overflow: scroll;
+        transition: all 1s ease-in-out;
+        position: fixed;
+        top: 100%;
+        left: 0;
+        z-index: 3;
+    }
+
+    div#navMenuOverlay {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background: rgba(0, 0, 0, .5);
+        transition: all 1s ease-in-out;
+    }
+
+    #navMenuOverlay {
+        left: -100%;
+    }
+
+    #navMenuOverlay.activate {
+        left: 0;
+    }
+
+    div#navItems.activate {
+        top: 0;
+    }
+}
+
+@media screen and (max-width:1199px) {
     .mobile-menu .modal-content {
         transform: translate(-110%, 0px);
     }

@@ -6,6 +6,7 @@
  * @since   3.2.0
  */
 
+use Automattic\WooCommerce\Utilities\DiscountsUtil;
 use Automattic\WooCommerce\Utilities\NumberUtil;
 
 defined( 'ABSPATH' ) || exit;
@@ -333,7 +334,20 @@ class WC_Discounts {
 
 			$items_to_apply[] = $item_to_apply;
 		}
-		return $items_to_apply;
+
+		/**
+		 * Filters the items that a coupon should be applied to.
+		 *
+		 * This filter allows you to modify the items that a coupon will be applied to before the discount calculations take place.
+		 *
+		 * @since 8.8.0
+		 * @param array            $items_to_apply The items that the coupon will be applied to.
+		 * @param WC_Coupon        $coupon The coupon object.
+		 * @param WC_Discounts     $this The discounts instance.
+		 *
+		 * @return array The modified list of items that the coupon should be applied to.
+		 */
+		return apply_filters( 'woocommerce_coupon_get_items_to_apply', $items_to_apply, $coupon, $this );
 	}
 
 	/**
@@ -976,7 +990,7 @@ class WC_Discounts {
 			)
 		);
 
-		if ( ! WC()->cart->is_coupon_emails_allowed( $check_emails, $restrictions ) ) {
+		if ( ! DiscountsUtil::is_coupon_emails_allowed( $check_emails, $restrictions ) ) {
 			throw new Exception( $coupon->get_coupon_error( WC_Coupon::E_WC_COUPON_NOT_YOURS_REMOVED ), WC_Coupon::E_WC_COUPON_NOT_YOURS_REMOVED ); // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 		}
 

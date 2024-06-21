@@ -1,0 +1,24 @@
+2023-11-08 - version 1.0.3.3
+*update - Enhanced code optimization and strengthened security measures.
+
+2023-05-02 - version 1.0.3.1
+* Fixed - Sync product stock quantity with Tier pricing
+* Improved - code as per latest WP standards.
+
+2023-04-20 - 1.0.3
+* Improved - Code optimization and improvments
+
+2023-01-10 - 1.0.2
+* Improved - nonce validation as per latest WP standards.
+
+2022-01-19 - version 1.0.1
+Added - Filter to change the 'Pcs' label on frontend "wtp_change_tier_label" 
+Added - IMPORT/EXPORT Teir pricing.
+Added - Tooltip view.
+Added - Summary Table.
+Added - Hide price for Guest users.
+Added - Price Display Settings.
+Fixed - Variable product tier table.
+
+2021-06-17 - Version 1.0.0
+* Initial Release.

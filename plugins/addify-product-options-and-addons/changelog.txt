@@ -1,0 +1,22 @@
+*** Product Options and Addons Change log ***
+
+2024-05-23 - version 1.3.1
+* Fix - Fixed bug with export product variations.
+
+2024-01-05 - version 1.3.0
+* Feature - Add variations specific add-ons.
+* Update - Compatibility updated for latest versions of WooCommerce and WordPress.
+
+2023-06-19 - version 1.2.1
+* Fix - Fixed bug with options limit.
+
+2023-05-25 - version 1.2.0
+* Fix - Fixed invalid post type issue.
+* Update - Compatible with WooCommerce High-Performance Order Storage (HPOS).
+
+2023-04-19 - version 1.1.0
+* Update - Improved UX of fields and setting.
+* Update - Added compatibility for PHP 8.
+
+2023-01-12 - version 1.0.0
+* Other - Initial release of the plugin.

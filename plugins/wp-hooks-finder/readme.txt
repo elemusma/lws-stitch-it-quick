@@ -2,8 +2,8 @@
 Contributors: Muhammad Rehman
 Tags: wordpress hooks, filter, action, wp hooks
 Requires at least: 4.0
-Tested up to: 6.5
-Stable tag: 1.2.5
+Tested up to: 6.5.4
+Stable tag: 1.3.1
 License: GPLv2
 License URI: GPLv2
 
@@ -37,6 +37,16 @@ Just after installing WP Hooks Finder, A new menu "WP Hooks Finder" will be adde
 2. Display Actions & Filters
 
 == Changelog ==
+= 1.3.1 =
+- **FIX** - Resolved issue where some of the CSS was removed on pages
+
+= 1.3 =
+- **NEW** - New Look & Feel
+- **NEW** - More detailing in each action & fiter hooks
+- **NEW** - Highlight the active action & filter hooks
+- **FIX** - Filter hooks was not displaying properly
+- **FIX** - Hooks were overlapping
+
 = 1.2.5 =
 Compatible with WordPress v6.5+
 

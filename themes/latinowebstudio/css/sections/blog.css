@@ -75,6 +75,10 @@ span.page-numbers.current {
 
 ul.page-numbers {
   border: none !important;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
 }
 
 .woocommerce nav.woocommerce-pagination ul li {

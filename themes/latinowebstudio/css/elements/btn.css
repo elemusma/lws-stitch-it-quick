@@ -1,5 +1,7 @@
 .btn-main, .btn-main a,
-span.wc-block-components-button__text {
+span.wc-block-components-button__text,
+.yith-wapo-ajax-uploader-container span.button,
+.product.type-product a.add_to_cart_button {
     background: var(--accent-secondary);
     padding: 15px 35px;
     transition: all .25s ease-in-out;
@@ -12,6 +14,9 @@ span.wc-block-components-button__text {
     border:1px solid var(--accent-secondary);
     font-family: 'poppinssemibold';
     margin: 10px;
+}
+.yith-wapo-ajax-uploader-container span.button{
+    margin-left:0px;
 }
 
 .btn-main:hover, 

@@ -8,9 +8,6 @@
 
     $current_user = wp_get_current_user();
     $user_roles = $current_user->roles;
-    // print_r($user_roles) . ' $user_roles';
-
-    // echo '<p>User Roles: ' . implode(', ', $user_roles) . '</p>';
 
     if ( in_array( 'client_gates_enterprises', $user_roles ) ) {
         if ( have_posts() ) : while ( have_posts() ) : the_post();

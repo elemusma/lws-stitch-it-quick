@@ -21,19 +21,19 @@ function parallaxEffect() {
     // header.classList.add('position-fixed');
     // header.classList.remove('position-relative');
 
-    if (scrollY < 299) {
+    if (scrollY < 499) {
         // blankSpace.style.height = "0px";
         logoMain.style.width = "75px"
         header.classList.add('position-relative');
 		header.classList.remove('position-fixed');
-		header.classList.remove('scroll');
+		// header.classList.remove('scroll');
         // blankSpace.style.height = (((header.offsetHeight)) + "px");
-    } else if (scrollY > 300) {
+    } else if (scrollY > 500) {
         // blankSpace.style.height = (((header.offsetHeight) + 10) + "px");
         logoMain.style.width = "50px"
         header.classList.add('position-fixed');
     	header.classList.remove('position-relative');
-        header.classList.add('scroll');
+        // header.classList.add('scroll');
         // blankSpace.style.height = (((header.offsetHeight)) + "px");
     }
 

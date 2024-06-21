@@ -1,0 +1,3 @@
+"Field Priority","Field id","Add-On type",Title,"Enable tooltip",Tooltip,"Enable Description",Description,"Enable Required Field","Enable Limit Range","Minimum Limit Range","Maximum Limit Range","Enable Price Range","Price Type",Price,"File Type","Option id","Option Image","Option Color","Option Title","Option Price Type","Option Price","Option Priority"
+,93,drop_down,"Drop Down",show_tooltip,"Drop Down Drop Down Drop Down",show_description,"Drop Down Drop Down Drop Down",not_required,disabled,,,disabled,free,,,"94,95",,",","opt 2,opt 1","free,free",",",","
+,96,multi_select,"Multi Select",show_tooltip,"Multi Select Multi Select Multi Select",show_description,"Multi Select Multi Select Multi Select",not_required,disabled,,,disabled,free,,,97,,,"Multi Select 1",free,,

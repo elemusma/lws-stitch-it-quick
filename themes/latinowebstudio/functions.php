@@ -1,17 +1,15 @@
 <?php
 
-// Declare WooCommerce Support
-add_theme_support( 'woocommerce' );
-
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-slider' );
-
 include_once('woocommerce/mods.php');
 include_once('woocommerce/mods-checkout.php');
 include_once('woocommerce/mods-payment-methods.php');
+include_once('woocommerce/mods-main-content.php');
+include_once('woocommerce/mods-single-product.php');
+include_once('woocommerce/woocommerce-before-shop-loop-item.php');
 // include_once('woocommerce/mods-upload-file.php');
 include_once('woocommerce/product-sync/beanies-1500kc.php');
+include_once('woocommerce/woocommerce-price.php');
+// include_once('woocommerce/woocommerce-tiered-pricing.php');
 
 function stitch_it_quick_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
@@ -39,6 +37,7 @@ wp_enqueue_style('intro', get_theme_file_uri('/css/sections/intro.css'));
 if( is_page_template('templates/content-page.php' ) ){
 wp_enqueue_style('content-page', get_theme_file_uri('/css/sections/content-page.css'));
 }
+wp_enqueue_style('products-single-table', get_theme_file_uri('/css/sections/products-single.css'));
 if(is_single() || is_page_template('templates/blog.php') || is_archive() || is_category() || is_tag() || is_404() ) {
 wp_enqueue_style('blog', get_theme_file_uri('/css/sections/blog.css'));
 }
@@ -59,9 +58,6 @@ wp_enqueue_style('font-poppins', get_theme_file_uri('/font-poppins/font-poppins.
 
 }
 add_action('wp_enqueue_scripts', 'stitch_it_quick_stylesheets');
-
-
-
 
 // for footer
 function stitch_it_quick_stylesheets_footer() {
@@ -743,7 +739,6 @@ echo '<script src="/wp-content/themes/latinowebstudio/slick-carousel/slick.js"><
 wp_enqueue_script('lightbox-min-js', get_theme_file_uri('/lightbox/lightbox.min.js'));
 wp_enqueue_script('lightbox-js', get_theme_file_uri('/lightbox/lightbox.js'));
 wp_enqueue_script('products-js', get_theme_file_uri('/js/products.js'));
-    // wp_enqueue_script('slick-js', get_theme_file_uri('/slick-carousel/slick.js'));
 
 }
 
@@ -762,34 +757,6 @@ function woocommerce_main_pages_end() {
         echo '</div>';
         echo '</section>';
     }
-}
-
-add_action('woocommerce_before_main_content','add_container_class',9);
-add_action('woocommerce_after_main_content','close_container_class',9);
-
-function add_container_class(){
-
-
-
-	wp_enqueue_style('woocommerce-css', get_theme_file_uri('/css/sections/woocommerce.css'));
-// if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
-	// echo 'hello';
-	echo '<section style="padding:50px 0px;">';
-	echo '<div class="container">';
-	echo '<div class="row justify-content-center">';
-    echo '<div class="col-md-12">';
-
-
-}
-
-
-function close_container_class(){
-// if (is_page(8) || is_page(7) || is_page(9) || is_page(10) || is_product_category() || is_product_tag()) {
-	echo '</div>';
-	echo '</div>';
-	echo '</div>';
-	echo '</section>';
-// }
 }
 
 // add_action('woocommerce_before_single_product','custom_woocommerce_styles',10);
@@ -829,39 +796,20 @@ add_filter( 'woocommerce_get_catalog_ordering_args', 'custom_woocommerce_get_cat
 
 function custom_search_form($form) {
     $form = '<form role="search" method="get" class="search-form position-relative" style="" action="' . esc_url(home_url('/')) . '">
-                <label style="margin-top:0px;">
-                    <span class="screen-reader-text">' . __('Search for:', 'textdomain') . '</span>
-                    <input type="search" style="padding:15px;border-radius:4px;width:90%;" id="s" class="search-field" placeholder="' . esc_attr__('Search for a product here...', 'textdomain') . '" value="' . get_search_query() . '" name="s" />
-                </label>
-                <button type="submit" class="search-submit bg-accent-secondary d-flex justify-content-center align-items-center position-absolute" style="background:var(--accent-secondary);width:35px;top:5px;right:11%;border-radius:4px;">';
+    <label style="margin-top:0px;">
+        <span class="screen-reader-text">' . __('Search for:', 'textdomain') . '</span>
+        <input type="search" style="padding:15px;border-radius:4px;width:90%;" id="s" class="search-field" placeholder="' . esc_attr__('Search for a product here...', 'textdomain') . '" value="' . get_search_query() . '" name="s" />
+    </label>
+    <button type="submit" class="search-submit bg-accent-secondary d-flex justify-content-center align-items-center position-absolute" style="background:var(--accent-secondary);width:35px;top:5px;right:11%;border-radius:4px;">';
 	$form .= '<div class="" style="width:20px;">';
 	$form .= '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>';
 	$form .= '</div>';
-				
-				$form .= '</button>';
-            $form .= '</form>';
+
+    $form .= '</button>';
+    $form .= '</form>';
     return $form;
 }
 // add_filter('get_search_form', 'custom_search_form');
-
-
-// // WOOCOMMERCE CONTENT WITH CUSTOM SIDEBAR
-// add_action('woocommerce_before_main_content','add_container_class',9);
-// function add_container_class(){
-// echo '<div class="container pt-5 pb-5" style="">';
-// echo '<div class="row">';
-
-// echo get_template_part('partials/sidebar');
-
-// echo '<div class="col-md-9 order-1 order-md-2">';
-// }
-
-// add_action('woocommerce_after_main_content','close_container_class',9);
-// function close_container_class(){
-// echo '</div>';
-// echo '</div>';
-// echo '</div>';
-// }
 
 // // removes sidebar
 remove_action('woocommerce_sidebar','woocommerce_get_sidebar');
@@ -917,3 +865,9 @@ function custom_search_filter($query) {
     }
 }
 add_action('pre_get_posts','custom_search_filter');
+
+// Declare WooCommerce Support
+add_theme_support( 'woocommerce' );
+add_theme_support( 'wc-product-gallery-lightbox' );
+add_theme_support( 'wc-product-gallery-zoom' );
+add_theme_support( 'wc-product-gallery-slider' );

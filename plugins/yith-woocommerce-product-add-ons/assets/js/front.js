@@ -399,6 +399,8 @@ jQuery( document ).ready(
 			$( document ).on( 'click', wapoDOM.editProductCartLink, openEditAddonsModal );
 			$( document ).on( 'click', wapoDOM.popupClose + ',' + wapoDOM.popupOverlay, closeModal );
 			$( window ).on( "resize", centerEditModal );
+			$( '.yith-wapo-addon-type-select select' ).trigger( 'change' );
+
 
 		}
 
@@ -723,7 +725,6 @@ jQuery( document ).ready(
 							addonOpt.val( addonVal );
 							break;
 						case 'file':
-							addonOpt = $( addon ).find( '#yith-wapo-' + addonID + '-' + addonOption );
 							var option = $( '#yith-wapo-option-' + addonID + '-' + addonOption );
 
 							loadUploadedFile(
@@ -762,7 +763,7 @@ jQuery( document ).ready(
 			let isImage = addonVal.endsWith( 'jpeg' ) || addonVal.endsWith( 'jpg' ) || addonVal.endsWith( 'png' );
 
 			var fileTemplate          = wp.template( 'yith-wapo-uploaded-file-template' );
-			var uploadedFileContainer = $( '.yith-wapo-uploaded-file' );
+			var uploadedFileContainer = $( option ).find( '.yith-wapo-uploaded-file' );
 
 			var fileData = {
 				'fileIndex': index,
@@ -1330,6 +1331,7 @@ jQuery( document ).ready(
 				'totalPrice'       : parseFloat( totalPrice ),
 				'totalPriceDefault': parseFloat( totalPriceDefault )
 			};
+
 			return totals;
 		};
 
@@ -1348,25 +1350,45 @@ jQuery( document ).ready(
 			var total_ProductPrice = totalProductPrice,
 				total_OptionsPrice = totalOptionsPrice;
 
+			if ( ! yith_wapo.includeShortcodePriceSuffix ) {
+				var totalOptionsPriceFormatted = floatToWcPrice(totalOptionsPrice); // Format price.
+				var totalOrderPriceFormatted   = floatToWcPrice(totalOrderPrice); // Format price.
 
-			let savedOrderPrice = $(wapoDOM.addonsContainer).attr('data-order-price');
+				$('#wapo-total-options-price').html(totalOptionsPriceFormatted);
+				$('#wapo-total-order-price').html(totalOrderPriceFormatted);
 
-			// If previous order price is equal to the current calculated order price, it won't process the Ajax Calls.
-			if (yith_wapo.preventAjaxCallOnUnchangedTotals && parseFloat(savedOrderPrice) === parseFloat(totalOrderPrice)) {
-				$(wapoDOM.totalPriceTable).css('opacity', '1');
-				return false;
+				var response = {
+					'order_price_suffix': totalOrderPriceFormatted,
+					'order_price_raw' : parseInt( $(wapoDOM.addonsContainer).attr('data-default-product-price') ) + parseInt( totalOptionsPrice ),
+				};
+
+				$(document).trigger('wapo-after-calculate-product-price', response);
+
+
+			} else { // Do the ajax calculation only if customer has {price_including_tax} / {price_excluding_tax} in WooCommerce > Tax > Price display suffix option.
+
+				let savedOrderPrice = $(wapoDOM.addonsContainer).attr('data-order-price');
+
+				// If previous order price is equal to the current calculated order price, it won't process the Ajax Calls.
+				if (yith_wapo.preventAjaxCallOnUnchangedTotals && parseFloat(savedOrderPrice) === parseFloat(totalOrderPrice)) {
+					$(wapoDOM.totalPriceTable).css('opacity', '1');
+					return false;
+				}
+
+				var suffixData = {
+					'product_id': parseInt($(wapoDOM.addonsContainer).attr('data-product-id')),
+					'options_price': totalOptionsPrice,
+					'options_default_price': totalDefaultOptionsPrice,
+					'total_order_price': totalOrderPrice,
+					'currency': yith_wapo.woocommerce_currency
+				};
+
+
+				// Update totals and table (AJAX call).
+				calculateProductPrice(suffixData);
 			}
 
-			var suffixData = {
-				'product_id': parseInt($(wapoDOM.addonsContainer).attr('data-product-id')),
-				'options_price': totalOptionsPrice,
-				'options_default_price': totalDefaultOptionsPrice,
-				'total_order_price': totalOrderPrice,
-				'currency': yith_wapo.woocommerce_currency
-			};
 
-			// Update totals and table (AJAX call).
-			calculateProductPrice(suffixData);
 
 			$(wapoDOM.totalPriceTable).css('opacity', '1');
 
@@ -1377,14 +1399,8 @@ jQuery( document ).ready(
 				if ('yes' !== yith_wapo.replace_price_in_product_without_addons && (!$(wapoDOM.addonsContainer).length || !$(wapoDOM.addonsContainer).find('.yith-wapo-block').length)) {
 					return;
 				}
-				if (parseInt(totalOrderPrice) > 0 && 'yes' === yith_wapo.replace_product_price && !isNaN(parseFloat(totalOrderPrice)) && $(yith_wapo.replace_product_price_class).length > 0) {
-
+				if ('yes' === yith_wapo.replace_product_price && !isNaN(parseFloat(totalOrderPrice)) && $(yith_wapo.replace_product_price_class).length > 0) {
 					$(yith_wapo.replace_product_price_class).html('<span class="woocommerce-Price-amount amount"><bdi>' + totalOrderPriceHtml + '</bdi></span>');
-
-					let productPrice = $(yith_wapo.replace_product_price_class + ' bdi').text();
-					if (wcPriceToFloat(productPrice) === 0) {
-						$(yith_wapo.replace_product_price_class).find('bdi').remove();
-					}
 				}
 			},
 
@@ -1493,6 +1509,48 @@ jQuery( document ).ready(
 			}
 
 		};
+
+		floatToWcPrice						= function ( price ){
+
+			var default_args = {
+				decimal_sep: yith_wapo.decimal_sep,
+				currency_position: yith_wapo.currency_position,
+				currency_symbol: yith_wapo.currency_symbol,
+				trim_zeros: yith_wapo.total_thousand_sep,
+				num_decimals: parseInt(yith_wapo.number_decimals),
+				html: true
+			};
+
+			if (default_args.num_decimals > 0) {
+				var wc_price_length = parseInt(price).toString().length;
+				var wc_int_end_sep = parseInt(wc_price_length) + parseInt(default_args.num_decimals);
+				price = price.toString().substr(0, wc_int_end_sep + 1);
+			} else {
+				price = parseInt(price);
+			}
+
+			price = price.toString().replace('.', default_args.decimal_sep).replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1' + default_args.trim_zeros );
+
+			if (default_args.num_decimals > 0 && price.toString().indexOf(default_args.decimal_sep) == -1) { // Add 0 if there no decimals in the current price but they must have.
+				price = price + default_args.decimal_sep + '0'.repeat(default_args.num_decimals);
+			}
+
+			var formatted_price = price;
+			var formatted_symbol = default_args.html ? '<span class="woocommerce-Price-currencySymbol">' + default_args.currency_symbol + '</span>' : default_args.currency_symbol;
+			if ('left' === default_args.currency_position) {
+				formatted_price = formatted_symbol + formatted_price;
+			} else if ('right' === default_args.currency_position) {
+				formatted_price = formatted_price + formatted_symbol;
+			} else if ('left_space' === default_args.currency_position) {
+				formatted_price = formatted_symbol + ' ' + formatted_price;
+			} else if ('right_space' === default_args.currency_position) {
+				formatted_price = formatted_price + ' ' + formatted_symbol;
+			}
+			formatted_price = default_args.html ? '<span class="woocommerce-Price-amount amount">' + formatted_price + '</span>' : formatted_price;
+
+			return formatted_price;
+
+		}
 
 		wcPriceToFloat 					= function (wc_price) {
 			let price = wc_price.replace(/(?![\.\,])\D/g, '')
@@ -1829,11 +1887,12 @@ jQuery( document ).ready(
 
 				$( wapoDOM.addonImageInput ).val( '' );
 
-				$( wapoDOM.addonsContainer ).find( '.yith-wapo-option' ).each(
+				$( wapoDOM.addonsContainer ).find( '.yith-wapo-addon:not( .yith-wapo-addon-type-select) .yith-wapo-option, .yith-wapo-addon-type-select .yith-wapo-option-value' ).each(
 					function( index, element ) {
 						let option = $( element );
+						option = option.is( 'select' ) ? option.find( ':selected' ) : option;
 						// Check if one option is still selected and has a image to replace, then do not change to default image.
-						if ( option.data( 'replace-image' ) && option.hasClass( 'selected' ) ) {
+						if ( option.data( 'replace-image' ) && ( option.hasClass( 'selected' ) || option.is( 'option' ) ) ) {
 							originalImage = option.data( 'replace-image' );
 							$( wapoDOM.addonImageInput ).val( originalImage );
 						}
@@ -2141,6 +2200,7 @@ jQuery( document ).ready(
 					}
 				}
 				container.attr('data-product-price', new_product_price);
+				container.attr( 'data-default-product-price', variation.default_variation_price);
 				container.attr('data-product-id', variation.variation_id);
 
 			},
@@ -2483,6 +2543,8 @@ jQuery( document ).ready(
 						return 1;
 					}
 
+				} else if ( 'file' === addonType ) {
+					numberOfChecked = $(addon).find( '.yith-wapo-uploaded-file' ).has('.yith-wapo-uploaded-file-element').length;
 				} else {
 					// Checkbox / Radio
 					numberOfChecked = addon.find('input:checkbox:checked, input:radio:checked').length; // Sum of number of checked.
@@ -2518,7 +2580,7 @@ jQuery( document ).ready(
 						addon.find('.yith-wapo-option:not(.out-of-stock) input:checkbox').not(':checked').attr('disabled', false);
 					}
 
-					return optionsToSelect;
+					return Math.abs( optionsToSelect );
 
 				} else {
 
@@ -2637,9 +2699,9 @@ jQuery( document ).ready(
 				checkMultipliedPrice($(this));
 			},
 			checkMultipliedPrice 		= function (addon) {
-				let price = addon.data('price');
-				let sale_price = addon.data('price-sale');
-				let defaultPrice = addon.data('default-price');
+				let price = addon.attr('data-price');
+				let sale_price = addon.attr('data-price-sale');
+				let defaultPrice = addon.attr('data-default-price');
 				let priceType = addon.data('price-type');
 				let priceMethod = addon.data('price-method');
 				let default_attr = 'price';
@@ -2658,7 +2720,7 @@ jQuery( document ).ready(
 					var productPrice = parseFloat($(wapoDOM.addonsContainer).attr('data-product-price'));
 					final_price = addon_value * productPrice;
 				} else if (priceType == 'multiplied') {
-					final_price = addon_value * defaultPrice;
+					final_price = addon_value * price;
 				}
 
 				if (final_price > 0 || priceMethod == 'decrease' || (final_price < 0 && priceType === 'multiplied')) {

@@ -1363,7 +1363,7 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
          * Set display label for add-ons in REST response.
          *
          * @param WP_REST_Response $response The response object.
-         * @param WC_Product       $product  The product.
+         * @param WC_Order       $order  The order.
          * @param WP_REST_Request  $request  Request object.
          *
          * @return WP_REST_Response
@@ -1372,20 +1372,21 @@ if ( ! class_exists( 'YITH_WAPO' ) ) {
         public function filter_addons_metas($response, $order, $request)
         {
             $data = $response->get_data();
-            $line_items = $data['line_items'] ?? '';
-            $addons_data = $order->get_meta('_ywapo_meta_data');
+            $line_items  = $data['line_items'] ?? '';
 
             foreach ($line_items as $line_item_id => $line_item) {
+                $item_meta = wc_get_order_item_meta( $line_item['id'], '_ywapo_meta_data' );
+
                 foreach ($line_item['meta_data'] ?? [] as $line_key => $line_values) {
                     if (str_starts_with($line_values['key'], 'ywapo-addon')) {
                         $key_values = str_replace("ywapo-addon-", "", $line_values['key']);
-
-                        if ($addons_data) {
-                            foreach ($addons_data as $option) {
+                        if ($item_meta) {
+                            foreach ($item_meta as $option) {
                                 foreach ($option as $option_value) {
-                                    if ($option_value['option_id'] && $option_value['addon_id']) {
+                                    if ( isset( $option_value['option_id'] ) && isset( $option_value['addon_id'] )) {
                                         $addons_key = $option_value['addon_id'] . '-' . $option_value['option_id'];
                                         if ($addons_key === $key_values) {
+                                            $data['line_items'][$line_item_id]['meta_data'][$line_key]['key']         = $option_value['display_label'];
                                             $data['line_items'][$line_item_id]['meta_data'][$line_key]['display_key'] = $option_value['display_label'];
                                         }
                                     }

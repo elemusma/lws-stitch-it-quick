@@ -76,12 +76,12 @@ foreach ($categories as $category) {
 // echo $categoryDetails['url'];
 // print_r($categoryDetails);
 
-echo '<section>';
+echo '<section style="overflow:visible;">';
 echo '<div class="container">';
 echo '<div class="row">';
 echo '<div class="col-12">';
 
-echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;">Go Back to ' . $categoryDetails['name'] . '</a>';
+echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;margin-bottom:-20px;">Go Back to ' . $categoryDetails['name'] . '</a>';
 
 echo '</div>';
 echo '</div>';

@@ -446,93 +446,8 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 			$wapo_price = yit_get_prop( $cart_item['data'], 'yith_wapo_price' );
 
 			if ( ! empty( $cart_item['yith_wapo_options'] ) && ! $wapo_price ) {
-				$total_options_price      = 0;
-				$first_free_options_count = 0;
-				$sell_individually_product_id = false;
-				$product_id               = isset( $cart_item['variation_id'] ) && ! empty( $cart_item['variation_id'] ) ? $cart_item['variation_id'] : $cart_item['product_id'];
 
-				if( isset( $cart_item['yith_wapo_individual_addons'] ) && isset( $cart_item['yith_wapo_product_id'] ) && ! empty( $cart_item['yith_wapo_product_id'] ) ) { // Individually product
-					$sell_individually_product_id = $product_id;
-					$product_id                   = $cart_item['yith_wapo_product_id'];
-				}
-
-				$_product                 = wc_get_product( $product_id );
-				$_individually_product    = wc_get_product( $sell_individually_product_id );
-
-				// WooCommerce Measurement Price Calculator (compatibility).
-				if ( isset( $cart_item['pricing_item_meta_data']['_price'] ) ) {
-					$product_price = $cart_item['pricing_item_meta_data']['_price'];
-				} else {
-                    if ( apply_filters( 'yith_wapo_get_product_price_excluding_tax', true ) && ! wc_prices_include_tax() && 'incl' === get_option( 'woocommerce_tax_display_cart' ) ) {
-                        $product_price = wc_get_price_excluding_tax( $_product ); // Calculate the add-ons taxes on cart depending on real product price (without taxes).
-                    } else {
-                        $product_price = yit_get_display_price( $_product );
-                    }
-				}
-
-                $product_price = apply_filters( 'yith_wapo_product_price_on_cart', $product_price, $_product, $cart_item, false );
-
-				$addon_id_check = '';
-
-				foreach ( $cart_item['yith_wapo_options'] as $index => $option ) {
-					foreach ( $option as $key => $value ) {
-						if ( $key && '' !== $value ) {
-                            if ( is_array( $value ) && isset( $value[0] ) ) {
-                                $value = $value[0];
-                            }
-							$values = YITH_WAPO::get_instance()->split_addon_and_option_ids( $key, $value );
-
-							$addon_id  = $values['addon_id'];
-							$option_id = $values['option_id'];
-
-							if ( $addon_id !== $addon_id_check ) {
-								$first_free_options_count = 0;
-								$addon_id_check           = $addon_id;
-							}
-
-                            $info                   = yith_wapo_get_option_info( $addon_id, $option_id );
-							$addon_type             = $info['addon_type'] ?? '';
-							$first_options_selected = $info['addon_first_options_selected'] ?? '';
-							$first_options_qty      = intval( $info['addon_first_free_options'] ) ?? 0;
-							$price_method           = $info['price_method'] ?? '';
-							$sell_individually      = $info['sell_individually'] ?? '';
-
-							$is_empty_select = 'select' === $addon_type && 'default' === $option_id;
-
-							if ( $is_empty_select ) {
-								continue;
-							}
-
-                            $calculate_taxes = false;
-
-							if ( wc_string_to_bool( $sell_individually ) && ( $_individually_product instanceof WC_Product && 'zero-rate' === $_individually_product->get_tax_class() ) ) {
-                                $calculate_taxes = true;
-                            }
-
-							$addon_prices = $this->calculate_addon_prices_on_cart( $addon_id, $option_id, $key, $value, $cart_item, $product_price, $calculate_taxes );
-
-							$option_price     = 0;
-							$addon_price      = floatval( $addon_prices['price'] );
-							$addon_sale_price = floatval( $addon_prices['price_sale'] );
-
-							// First X free options check.
-							if ( 'yes' === $first_options_selected && 0 < $first_options_qty && $first_free_options_count < $first_options_qty ) {
-								$first_free_options_count ++;
-							} else {
-								if ( $addon_price !== 0 || $addon_sale_price !== 0 ) {
-									if ( $addon_sale_price ) {
-										$option_price = $addon_sale_price;
-									} else {
-										$option_price = $addon_price;
-									}
-								}
-							}
-
-                            $total_options_price += $option_price;
-
-						}
-					}
-				}
+                $total_options_price = $this->get_addons_totals_in_cart( $cart_item );
 
 				$cart_item_price  = is_numeric( $cart_item['data']->get_price() ) ? ( $cart_item['data']->get_price() ) : 0;
 				$total_item_price = apply_filters( 'yith_wapo_total_item_price', $cart_item_price + $total_options_price );
@@ -550,6 +465,100 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 
 			return $cart_item;
 		}
+
+        public function get_addons_totals_in_cart( $cart_item ) {
+
+            $addon_totals      = 0;
+
+            $first_free_options_count = 0;
+            $sell_individually_product_id = false;
+            $product_id               = isset( $cart_item['variation_id'] ) && ! empty( $cart_item['variation_id'] ) ? $cart_item['variation_id'] : $cart_item['product_id'];
+
+            if( isset( $cart_item['yith_wapo_individual_addons'] ) && isset( $cart_item['yith_wapo_product_id'] ) && ! empty( $cart_item['yith_wapo_product_id'] ) ) { // Individually product
+                $sell_individually_product_id = $product_id;
+                $product_id                   = $cart_item['yith_wapo_product_id'];
+            }
+
+            $_product                 = wc_get_product( $product_id );
+            $_individually_product    = wc_get_product( $sell_individually_product_id );
+
+            // WooCommerce Measurement Price Calculator (compatibility).
+            if ( isset( $cart_item['pricing_item_meta_data']['_price'] ) ) {
+                $product_price = $cart_item['pricing_item_meta_data']['_price'];
+            } else {
+                if ( apply_filters( 'yith_wapo_get_product_price_excluding_tax', true ) && ! wc_prices_include_tax() && 'incl' === get_option( 'woocommerce_tax_display_cart' ) ) {
+                    $product_price = wc_get_price_excluding_tax( $_product ); // Calculate the add-ons taxes on cart depending on real product price (without taxes).
+                } else {
+                    $product_price = yit_get_display_price( $_product );
+                }
+            }
+
+            $product_price = apply_filters( 'yith_wapo_product_price_on_cart', $product_price, $_product, $cart_item, false );
+
+            $addon_id_check = '';
+
+            foreach ( $cart_item['yith_wapo_options'] as $index => $option ) {
+                foreach ( $option as $key => $value ) {
+                    if ( $key && '' !== $value ) {
+                        if ( is_array( $value ) && isset( $value[0] ) ) {
+                            $value = $value[0];
+                        }
+                        $values = YITH_WAPO::get_instance()->split_addon_and_option_ids( $key, $value );
+
+                        $addon_id  = $values['addon_id'];
+                        $option_id = $values['option_id'];
+
+                        if ( $addon_id !== $addon_id_check ) {
+                            $first_free_options_count = 0;
+                            $addon_id_check           = $addon_id;
+                        }
+
+                        $info                   = yith_wapo_get_option_info( $addon_id, $option_id );
+                        $addon_type             = $info['addon_type'] ?? '';
+                        $first_options_selected = $info['addon_first_options_selected'] ?? '';
+                        $first_options_qty      = intval( $info['addon_first_free_options'] ) ?? 0;
+                        $price_method           = $info['price_method'] ?? '';
+                        $sell_individually      = $info['sell_individually'] ?? '';
+
+                        $is_empty_select = 'select' === $addon_type && 'default' === $option_id;
+
+                        if ( $is_empty_select ) {
+                            continue;
+                        }
+
+                        $calculate_taxes = false;
+
+                        if ( wc_string_to_bool( $sell_individually ) && ( $_individually_product instanceof WC_Product && 'zero-rate' === $_individually_product->get_tax_class() ) ) {
+                            $calculate_taxes = true;
+                        }
+
+                        $addon_prices = $this->calculate_addon_prices_on_cart( $addon_id, $option_id, $key, $value, $cart_item, $product_price, $calculate_taxes );
+
+                        $option_price     = 0;
+                        $addon_price      = floatval( $addon_prices['price'] );
+                        $addon_sale_price = floatval( $addon_prices['price_sale'] );
+
+                        // First X free options check.
+                        if ( 'yes' === $first_options_selected && 0 < $first_options_qty && $first_free_options_count < $first_options_qty ) {
+                            $first_free_options_count ++;
+                        } else {
+                            if ( $addon_price !== 0 || $addon_sale_price !== 0 ) {
+                                if ( $addon_sale_price ) {
+                                    $option_price = $addon_sale_price;
+                                } else {
+                                    $option_price = $addon_price;
+                                }
+                            }
+                        }
+
+                        $addon_totals += $option_price;
+
+                    }
+                }
+            }
+
+            return $addon_totals;
+        }
 
 		/**
 		 * Change the product image with the addon one (if selected).
@@ -856,12 +865,6 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 								$option_product_qty  = isset( $cart_item['yith_wapo_qty_options'][ $key ] ) ? $cart_item['yith_wapo_qty_options'][ $key ] : 1;
 								$option_product      = wc_get_product( $option_product_id );
 								if ( $option_product && $option_product instanceof WC_Product ) {
-									// Stock.
-									if ( $option_product->get_manage_stock() ) {
-										$stock_qty = $option_product->get_stock_quantity() - $option_product_qty;
-										wc_update_product_stock( $option_product, $stock_qty, 'set' );
-										wc_delete_product_transients( $option_product );
-									}
 
 									if ( isset( $cart_item['yith_wapo_qty_options'] ) ) {
 										wc_add_order_item_meta( $item_id, '_ywapo_product_addon_qty', $cart_item['yith_wapo_qty_options'] );
@@ -1428,7 +1431,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 					$file_split = explode( '/', $file_url );
 					// translators: [FRONT] Label shown on cart for add-on type Upload
 					$file_name  = apply_filters( 'yith_wapo_show_attached_file_name', true ) ? end( $file_split ) : __( 'Attached file', 'yith-woocommerce-product-add-ons' );
-					$file_link = '<a href="' . $file_url . '" target="_blank">' . $file_name . '</a>';
+					$file_link = '<a href="' . esc_url($file_url) . '" target="_blank">' . sanitize_file_name( $file_name ) . '</a>';
 					$value = $label . ': ' . $file_link;
                     if ( empty( $label ) ) {
                         $value = $file_link;

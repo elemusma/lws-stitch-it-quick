@@ -1,0 +1,738 @@
+.af-metabox-div{
+  clear: both;
+  width: 98%;
+  display: flex;
+  margin: 1%;
+}
+
+.margin_width{
+  margin: 5px;
+  width: 48%;
+}
+
+.prod_style_heading_div{
+  background: #f9f9f9;
+  border-bottom: 1px solid #ccc;
+  padding: 14px;
+  display: flex;
+}
+
+.af_addon_option_title_font_size{
+  height: 40px;
+  width: 80%;
+}
+
+.af_style_up,
+.af_style_down{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.var_style_tab_main_class{
+  padding-top: 20px;
+  background: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.style_up{
+  cursor: pointer;
+  border: transparent !important;
+  background: transparent !important;
+  vertical-align: inherit;
+  font-size: 20px !important;
+}
+
+.af_addon_title_font_size,
+.af_addon_field_border_pixels,
+.af_addon_desc_font_size,
+.af_addon_tooltip_font_size,
+.af_addon_tooltip_text{
+  height: 40px;
+  width: 10%;
+}
+
+.style_down{
+  cursor: pointer;
+  border: transparent !important;
+  background: transparent !important;
+  vertical-align: inherit;
+  font-size: 20px !important;
+}
+
+.af_addon_title_display_as_selector,
+.af_addon_heading_type_selector,
+.af_addon_title_seperator,
+.af_addon_field_title_position,
+.af_addon_option_title_font_size{
+  height: 40px;
+  width: 100%;
+  float: revert !important;
+}
+
+.af_addon_field_border_top_left_radius_div,
+.af_addon_field_border_top_right_radius_div,
+.af_addon_field_border_bottom_left_radius_div,
+.af_addon_field_border_bottom_right_radius_div,
+.af_addon_field_border_top_padding_div,
+.af_addon_field_border_bottom_padding_div,
+.af_addon_field_border_left_padding_div,
+.af_addon_field_border_right_padding_div,
+.af_addon_title_top_left_radius_div,
+.af_addon_title_top_right_radius_div,
+.af_addon_title_bottom_left_radius_div,
+.af_addon_title_bottom_right_radius_div,
+.af_addon_title_top_padding_div,
+.af_addon_title_bottom_padding_div,
+.af_addon_title_left_padding_div,
+.af_addon_title_right_padding_div{
+  width: 24%;
+  padding: 5px;
+}
+
+.af-pao-heading{
+  width: 30%;
+  margin: 1%;
+  text-align: left;
+  padding:0px 10px;
+  box-sizing: border-box;
+}
+
+.af-pao-desc{
+  width: 70%;
+  margin: 1%;
+  text-align: left;
+  padding:0px 10px;
+  box-sizing: border-box;
+}
+
+.af_addon_expand_close_btn_div{
+  width: fit-content;
+  float: right;
+}
+
+.af_addon_field_div{
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 5px;
+  background: #f9f9f9;
+}
+
+.af_addon_field_open_close_div{
+  padding: 8px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_title_heading_div{
+  text-align: left;
+  width: 50%;
+}
+
+.af_addon_title_top_left_radius,
+.af_addon_title_top_right_radius,
+.af_addon_title_bottom_left_radius,
+.af_addon_title_bottom_right_radius{
+  height: 40px;
+  width: 60px;
+  margin: 10px
+}
+
+.af_addon_top_left_text,
+.af_addon_top_right_text,
+.af_addon_bottom_left_text,
+.af_addon_bottom_right_text,
+.af_addon_top_padding_text,
+.af_addon_bottom_padding_text,
+.af_addon_left_padding_text,
+.af_addon_right_padding_text,
+.af_addon_top_text,
+.af_addon_bottom_text,
+.af_addon_left_text,
+.af_addon_right_text{
+  text-align: center;
+  margin: 0 !important;
+}
+
+.af_addon_field_border_top_left_radius,
+.af_addon_field_border_top_right_radius,
+.af_addon_field_border_bottom_left_radius,
+.af_addon_field_border_bottom_right_radius,
+.af_addon_title_top_padding,
+.af_addon_title_bottom_padding,
+.af_addon_title_left_padding,
+.af_addon_title_right_padding,
+.af_addon_field_border_top_padding,
+.af_addon_field_border_bottom_padding,
+.af_addon_field_border_left_padding,
+.af_addon_field_border_right_padding{
+  height: 40px;
+  width: 60px;
+  margin: 10px;
+  float: revert !important;
+}
+
+.af_addon_dependable_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_dependable_fields_div{
+  width: 100%;
+  display: flex;
+}
+
+.af_addon_dependable_selector_div,
+.af_addon_field_depend_selector_div,
+.af_addon_option_depend_selector_div{
+  width: 32%;
+  padding: 10px;
+}
+
+/*.af_addon_field_depend_selector_div{
+  width: 32%;
+  padding: 10px;
+}
+
+.af_addon_option_depend_selector_div{
+  width: 32%;
+  padding: 10px;
+}*/
+
+.af_addon_title_field{
+  height: 40px;
+  width: 100% !important;
+}
+
+.af_addon_desc_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_tooltip_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_req_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_field_price,
+.af_addon_upload_file_extentnion{
+  height: 40px;
+  width:30%;
+}
+
+.af_addon_option_table_div{
+  padding: 10px;
+  display: flex;
+}
+
+.af_addon_add_field_button_div{
+  padding: 2px;
+  width: 49%;
+  float: left;
+}
+
+.af_addon_import_export_div{
+  padding: 2px;
+  width: 49%;
+  float: right;
+}
+
+.af_addon_type_select{
+  height: 40px;
+  width:auto;
+}
+
+.af_addon_import_div{
+  width: 100%;
+  padding: 10px;
+  display: flex;
+}
+
+.af_addon_field_options_price{
+  height: 40px;
+  width: auto !important;
+}
+
+.af_addon_add_optn_btn_div{
+  padding: 10px;
+  display: flex;
+}
+
+.af_addon_limit_range_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_type_price_div{
+  margin-top: 10px;
+}
+
+.af_addon_price_range_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_file_extention_div{
+  padding: 10px;
+  padding-top: 0px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_upload_file_extention{
+  height: 40px;
+  width: 50%;
+}
+
+.af_addon_limit_range_checkbox{
+  margin-bottom: 10px;
+}
+
+.desc_text_area{
+  width: 100% !important;
+  height: 100px !important;
+  margin-top: 10px !important;
+}
+
+.tooltip_text_area{
+  width: 100% !important;
+  height: 100px !important;
+  margin-top: 10px !important;
+}
+
+.af_addon_type_and_title_div{
+  padding: 10px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.af_addon_title_div{
+  width: 65%;
+  padding: 5px;
+}
+
+.af_addon_type_div{
+  width: 35%;
+  padding: 5px;
+}
+
+.af_addon_field_type_selector{
+  height: 40px;
+  width: 100%;
+}
+
+.af_addon_limit_range_divs{
+  margin-top: 10px;
+}
+
+.import_file_div{
+  display: none;
+  padding: 2px;
+  margin-top: 10px;
+  width: fit-content;
+  float: right;
+  background: #f9f9f9;
+}
+
+.af_addon_done_import_button{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  float: right;
+  margin-left: 20px;
+  margin-right: 12px;
+  width: fit-content;
+}
+
+.af_addon_done_import_button:hover{
+  background-color: #2ea2cc; /* Green */
+  color: white;
+  cursor: pointer;
+}
+
+.af_addon_expand_all_btn{
+  background: transparent;
+  color: blue;
+  border: none;
+}
+
+.af_addon_expand_all_btn:hover{
+  cursor: pointer;
+}
+
+.af_addon_close_all_btn{
+  background: transparent;
+  color: blue;
+  border: none;
+}
+
+.af_addon_close_all_btn:hover{
+  cursor: pointer;
+}
+
+.af_addon_remove_btn_div{
+  text-align: right;
+  width: 50%;
+}
+
+.af_addon_remove_btn{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  width: fit-content;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.af_addon_remove_btn:hover{
+  background-color: #2ea2cc; /* Green */
+  color: white;
+  cursor: pointer;
+}
+
+.af_addon_delete_btn{
+  height: 40px;
+  width: 20%;
+  float: right;
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 5px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: top;
+}
+
+.af_addon_delete_btn:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_done_import_button:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_add_option_btn{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  width: fit-content;
+  margin: 0;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin-top: 10px;
+}
+.af_addon_add_option_btn:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_add_field_button{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  width: fit-content;
+  margin-left: 10px;
+}
+
+.af_addon_add_field_button:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_import_button{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  float: right;
+  margin-left: 20px !important;
+  margin-right: 12px !important;
+  width: fit-content;
+}
+
+.af_addon_import_button:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_export_button{
+  background: #f6f7f7;
+  color: #2271b1;
+  border-color: #2271b1;
+  border-radius: 3px;
+  border-width: 1px;
+  border-style: solid;
+  padding: 8px;
+  font-family: inherit;
+  font-weight: inherit;
+  box-sizing: border-box;
+  float: right;
+  width: fit-content;
+  margin-right: 10px;
+}
+
+.af_addon_export_button:hover{
+  background: #2ea2cc;
+  cursor: pointer;
+  color: white;
+}
+
+.af_addon_table_div{
+  width: 100%;
+  padding: 2px;
+}
+
+.af_addon_table_div table{
+  width: 100%;
+}
+
+.af_addon_table_div table td{
+  padding: 10px 5px;
+}
+
+.af_addon_table_div th{
+  text-align: left;
+  background: #eee;
+  color: black;
+  padding: 15px;
+}
+
+.af_addon_image_field,
+.af_addon_price_type_div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.af_addon_option_name_div{
+  width: 83%;
+}
+
+.af_addon_image_div{
+  position: relative;
+}
+
+.fa-image{
+  font-size: 30px !important;
+  line-height: 40px !important
+  position: relative;
+}
+
+.fa-plus{
+  font-size: 12px;
+  position: absolute;
+  top: -8px;
+  right: -10px;
+}
+
+.af_addon_option_name{
+  width: 100% !important;
+  height: 40px;
+}
+
+.af_addon_add_image_btn{
+  cursor: pointer;
+  border: transparent;
+  background: transparent;
+  position: relative;
+  padding: 0;
+}
+
+.af_addon_add_image_btn:hover,
+.remove_option_image:hover{
+  cursor: pointer;
+  color: #2ea2cc;
+}
+
+.remove_option_image{
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  z-index: 999;
+  width: 20px;
+  height: 20px;
+  color: black;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  text-align: center;
+}
+
+.fa-sort-up{
+  cursor: pointer;
+  border:  transparent;
+  background: transparent;
+  vertical-align: inherit;
+  font-size: 20px !important;
+}
+
+.fa-sort-up:hover{
+  background: transparent;
+}
+
+.fa-sort-down{
+  cursor: pointer;
+  border:  transparent;
+  background: transparent;
+  vertical-align: inherit;
+  font-size: 20px !important;
+}
+
+.fa-sort-down:hover{
+  background: transparent;
+}
+
+.af_addon_option_image {
+  width: 40px;
+  height: 100%;
+}
+
+.multiple_choice_div{
+  text-align: left;
+  width: 50%;
+}
+
+.fa-angle-up{
+  background: transparent;
+  border: transparent;
+}
+
+.fa-angle-up:hover{
+  background: transparent;
+  cursor: pointer;
+}
+
+.fa-angle-down{
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+
+.fa-angle-down:hover{
+  background: transparent;
+  cursor: pointer;
+}
+
+.af_pao_width_100{
+  width: 100%;
+}
+
+.af_pao_width_50{
+  width: 50%;
+}
+
+.af_pao_px_span{
+  padding: 5px;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.af_pao_margin_0{
+  margin: 0 !important;
+}
+
+.af_pao_width_100_height_40{
+  width: 100% !important;
+  height: 40px;
+}
+
+.af_pao_prod_search_class,
+.af_pao_cat_search_class,
+.af_pao_tag{
+  height: 40px;
+  width: 80%;
+}
+
+.af-pao-desc .select2 input[type=search],
+.af_addon_option_depend_selector_div .select2 input[type=search]{
+  border: none !important;
+  box-shadow: 0 0 0 0px white;
+}
+
+.tooltip{
+  position: relative;
+  display: inline-block;
+  border-bottom: none !important;
+  color: black !important;
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.tooltip .tooltiptext{
+  visibility: hidden;
+  width: 110px;
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  left: -104px;
+  top: -30px;
+  height: auto;
+}
+
+.tooltip:hover .tooltiptext{
+  visibility: visible;
+}

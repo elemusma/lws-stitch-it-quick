@@ -55,7 +55,7 @@ input#coupon_code {
     display: block!important;
 }
 
-button.components-button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
+button.wc-block-components-button.wp-element-button.wc-block-components-totals-coupon__button.contained {
     background: white;
     margin: 0;
     padding-left: 0;
