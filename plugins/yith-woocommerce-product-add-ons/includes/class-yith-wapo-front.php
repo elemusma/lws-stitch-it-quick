@@ -129,7 +129,12 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 					true
 				);
 
-                wp_enqueue_script(
+                // We make sure our wp-color-picker script is enqueued, not from third parties.
+                if( wp_script_is( 'wp-color-picker', 'registered' ) ) {
+                    wp_deregister_script( 'wp-color-picker' );
+                }
+
+				wp_enqueue_script(
 					'wp-color-picker',
 					admin_url( 'js/color-picker.min.js' ),
 					array( 'iris', 'wp-i18n' ),
@@ -175,7 +180,11 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
 					'decimal_sep'                    => get_option( 'woocommerce_price_decimal_sep', '.' ),
 					'number_decimals'                => absint( get_option( 'woocommerce_price_num_decimals', 2 ) ),
 					'priceSuffix'                    => wc_tax_enabled() ? get_option( 'woocommerce_price_display_suffix', '' ) : '',
-                    'includeShortcodePriceSuffix'    => wc_tax_enabled() && ( strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_including_tax}') !== false || strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_excluding_tax}') !== false ),
+                    'includeShortcodePriceSuffix'    => apply_filters( 'yith_wapo_include_shortcode_price_suffix',
+                        wc_tax_enabled() &&
+                        ( strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_including_tax}') !== false ||
+                          strpos(get_option( 'woocommerce_price_display_suffix', '' ), '{price_excluding_tax}') !== false )
+                    ),
 					'replace_image_path'             => $this->get_product_gallery_image_path(),
 					'replace_product_price_class'    => $this->get_product_price_class(),
 					'hide_button_required'           => get_option( 'yith_wapo_hide_button_if_required', 'no' ),
@@ -213,6 +222,7 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
                     ),
                     'loader'                           => apply_filters( 'yith_wapo_loader_gif', YITH_WAPO_ASSETS_URL . '/img/loader.gif' ),
                     'isMobile'                         => wp_is_mobile(),
+                    'hide_order_price_if_zero'         => apply_filters( 'yith_wapo_hide_order_price_if_zero', false ),
 
 
 				);
@@ -273,7 +283,8 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
             .yith_magnifier_zoom img, .yith_magnifier_zoom_magnifier,
             .owl-carousel .woocommerce-main-image,
             .woocommerce-product-gallery__image .wp-post-image,
-            .dt-sc-product-image-gallery-container .wp-post-image';
+            .dt-sc-product-image-gallery-container .wp-post-image,
+            elementor-widget-theme-post-featured-image'; // TODO: Elementor integration
 
             // Is using WC Blocks.
             if ( yith_plugin_fw_wc_is_using_block_template_in_single_product() ) {
@@ -646,7 +657,6 @@ if ( ! class_exists( 'YITH_WAPO_Front' ) ) {
                 'order_price_raw'      => 0,
                 );
 
-            $currency = $_POST['data']['currency'] ?? get_woocommerce_currency();
 
 			if ( isset( $_POST['data']['product_id'] ) && $_POST['data']['product_id'] ) {
 				$product_id = $_POST['data']['product_id'];

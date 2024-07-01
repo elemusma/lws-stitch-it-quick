@@ -1,0 +1,617 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Product Gallery Slider for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-20 10:48+0000\n"
+"PO-Revision-Date: 2023-03-20 11:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: fme_pgisfw"
+
+#: admin/view/add-new-rule-gs.php:199
+msgid " Numbering Font Color"
+msgstr " Nummerierung Schriftfarbe"
+
+#: admin/view/general-settings.php:184
+msgid " Numbering font color"
+msgstr " Schriftfarbe der Nummerierung"
+
+#: admin/view/thumbnail-settings.php:82
+msgid " Selected image border color"
+msgstr " Ausgewählte Bildrandfarbe"
+
+#: admin/view/general-settings.php:215 admin/view/lightbox-settings.php:176
+#: admin/view/arrows-setting.php:157 admin/view/bullets_settings.php:171
+#: admin/view/zoom-settings.php:75 admin/view/rule-settings.php:135
+#: admin/view/add-new-rule.php:74 admin/view/thumbnail-settings.php:96
+msgid " Settings Saved Successfully!"
+msgstr " Einstellungen erfolgreich gespeichert!"
+
+#: admin/view/general-settings.php:204 admin/view/add-new-rule-gs.php:215
+msgid "1000 = 1 sec"
+msgstr "1000 = 1 Sek"
+
+#: admin/view/add-new-rule.php:14
+msgid "Add New Rule"
+msgstr "Neue Regel hinzufügen"
+
+#: admin/fme_pgifw_admin.php:63
+msgid "Add New URL"
+msgstr "Neue URL hinzufügen"
+
+#: admin/view/rule-settings.php:10
+msgid "Add Rule"
+msgstr "Regel hinzufügen"
+
+#: admin/view/general-settings.php:171 admin/view/add-new-rule-gs.php:187
+msgid "Adjust aspect ratio"
+msgstr "Seitenverhältnis anpassen"
+
+#: admin/view/arrows-setting.php:14
+msgid "Arrow Settings"
+msgstr "Pfeileinstellungen"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:7
+#: admin/view/add-new-rule.php:30
+msgid "Arrows Settings"
+msgstr "Pfeileinstellungen"
+
+#: admin/view/general-settings.php:144 admin/view/add-new-rule-gs.php:163
+msgid "Auto play slider"
+msgstr "Schieberegler für die automatische Wiedergabe"
+
+#: admin/view/general-settings.php:195 admin/view/add-new-rule-gs.php:207
+msgid "Auto play timeout"
+msgstr "Timeout für automatische Wiedergabe"
+
+#: admin/view/bullets_settings.php:92
+msgid "Bellow Image"
+msgstr "Bild unten"
+
+#: admin/view/bullets_settings.php:54
+msgid "Bottom bar "
+msgstr "Bodenleiste"
+
+#: admin/view/bullets_settings.php:107
+msgid "Bottom center"
+msgstr "Unten in der Mitte"
+
+#: admin/view/bullets_settings.php:53
+msgid "Bottom counter bar "
+msgstr "Untere Thekenleiste"
+
+#: admin/view/lightbox-settings.php:107
+msgid "Bottom Left"
+msgstr "Unten links"
+
+#: admin/view/bullets_settings.php:106
+msgid "Bottom left"
+msgstr "Unten links"
+
+#: admin/view/lightbox-settings.php:108
+msgid "Bottom Right"
+msgstr "Unten rechts"
+
+#: admin/view/bullets_settings.php:108
+msgid "Bottom right"
+msgstr "Unten rechts"
+
+#: admin/view/bullets_settings.php:50
+msgid "Box"
+msgstr "Kasten"
+
+#: admin/view/bullets_settings.php:139
+msgid "Bullets background color"
+msgstr "Hintergrundfarbe der Aufzählungszeichen"
+
+#: admin/view/bullets_settings.php:152
+msgid "Bullets hover color"
+msgstr "Kugeln schweben Farbe"
+
+#: admin/view/bullets_settings.php:85
+msgid "Bullets placement"
+msgstr "Kugelplatzierung"
+
+#: admin/view/bullets_settings.php:100
+msgid "Bullets position"
+msgstr "Position der Aufzählungszeichen"
+
+#: admin/view/bullets_settings.php:16
+#: admin/view/fme-pgisfw-main-settings-page.php:6
+#: admin/view/add-new-rule.php:29
+msgid "Bullets Settings"
+msgstr "Aufzählungszeichen-Einstellungen"
+
+#: admin/view/bullets_settings.php:43
+msgid "Bullets shape"
+msgstr "Kugeln formen"
+
+#: admin/fme_pgifw_admin.php:183
+msgid "Choose"
+msgstr "Wählen"
+
+#: admin/view/arrows-setting.php:60 admin/view/bullets_settings.php:49
+msgid "Circle"
+msgstr "Kreis"
+
+#: admin/view/bullets_settings.php:52
+msgid "Counter bullets"
+msgstr "Gegenkugeln"
+
+#: admin/view/bullets_settings.php:61
+msgid "Counter bullets Font Color"
+msgstr "Counter Aufzählungszeichen Schriftfarbe"
+
+#: admin/view/thumbnail-settings.php:47
+msgid "Default : 5"
+msgstr "Standard: 5"
+
+#: admin/view/zoom-settings.php:65
+msgid "Default: 10%"
+msgstr "Standard: 10 %"
+
+#: admin/view/zoom-settings.php:43 admin/view/zoom-settings.php:53
+msgid "Default: 100"
+msgstr "Standard: 100"
+
+#: admin/view/lightbox-settings.php:148
+msgid "Default: 600"
+msgstr "Standard: 600"
+
+#: admin/view/lightbox-settings.php:110
+msgid "Default: Bottom Right"
+msgstr "Standard: Unten rechts"
+
+#: admin/view/arrows-setting.php:63
+msgid "Default: Circle"
+msgstr "Standard: Kreis"
+
+#: admin/view/add-new-rule-gs.php:170
+msgid "Default: No"
+msgstr "Standard: Nein"
+
+#: admin/view/general-settings.php:153
+msgid "Default: no"
+msgstr "Standard: nein"
+
+#: admin/view/arrows-setting.php:47
+msgid "Default: On hover"
+msgstr "Standard: Beim Schweben"
+
+#: admin/view/lightbox-settings.php:165
+msgid "Default: Slide"
+msgstr "Standard: Folie"
+
+#: admin/view/arrows-setting.php:31
+msgid "Default: Yes"
+msgstr "Standard: Ja"
+
+#: admin/fme_pgifw_admin.php:84 admin/fme_pgifw_admin.php:184
+#: admin/view/rule-settings.php:107
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/view/rule-settings.php:11
+msgid "Delete All Rules"
+msgstr "Alle Regeln löschen"
+
+#: admin/view/rule-settings.php:99
+msgid "Disabled"
+msgstr "Behinderte"
+
+#: admin/view/rule-settings.php:106
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin/view/add-new-rule.php:8
+msgid "Edit Rule"
+msgstr "Regel bearbeiten"
+
+#. Description of the plugin
+msgid ""
+"Enable attractive slider for product gallery images and add the videos in "
+"gallery."
+msgstr ""
+"Aktivieren Sie attraktive Schieberegler für Produktgaleriebilder und fügen "
+"Sie die Videos in der Galerie hinzu."
+
+#: admin/view/general-settings.php:13
+msgid "Enable gallery slider"
+msgstr "Galerie-Slider aktivieren"
+
+#: admin/view/general-settings.php:21
+msgid "Enable Gallery Slider For Your Website."
+msgstr "Aktivieren Sie den Galerie-Slider für Ihre Website."
+
+#: admin/view/general-settings.php:158 admin/view/add-new-rule-gs.php:175
+msgid "Enable numbering on gallery"
+msgstr "Aktivieren Sie die Nummerierung in der Galerie"
+
+#: admin/view/general-settings.php:166 admin/view/add-new-rule-gs.php:183
+msgid "Enable numbering on images gallery."
+msgstr "Aktivieren Sie die Nummerierung in der Bildergalerie."
+
+#: admin/view/add-new-rule-gs.php:22
+msgid "Enable rule"
+msgstr "Regel aktivieren"
+
+#: admin/view/add-new-rule-gs.php:30
+msgid "Enable rule."
+msgstr "Regel aktivieren."
+
+#: admin/view/general-settings.php:179
+msgid ""
+"Enable to automatically adjust image aspect ratio when using vertical layout."
+msgstr ""
+"Aktivieren Sie diese Option, um das Bildseitenverhältnis automatisch "
+"anzupassen, wenn Sie ein vertikales Layout verwenden."
+
+#: admin/view/add-new-rule-gs.php:195
+msgid ""
+"Enable to automatically adjust image aspect ratio when using vertical layout."
+"."
+msgstr ""
+"Aktivieren Sie diese Option, um das Bildseitenverhältnis automatisch "
+"anzupassen, wenn Sie ein vertikales Layout verwenden."
+
+#: admin/view/rule-settings.php:97
+msgid "Enabled"
+msgstr "Ermöglicht"
+
+#: admin/view/lightbox-settings.php:161
+msgid "Fade"
+msgstr "Verblassen"
+
+#: admin/view/arrows-setting.php:45
+msgid "Fixed"
+msgstr "Fest"
+
+#. Author of the plugin
+msgid "FME Addons"
+msgstr "FME-Addons"
+
+#: admin/fme_pgifw_admin.php:111
+msgid "Gallery Slider"
+msgstr "Galerie-Schieberegler"
+
+#: admin/view/general-settings.php:6
+#: admin/view/fme-pgisfw-main-settings-page.php:4
+#: admin/view/add-new-rule.php:27 admin/view/add-new-rule-gs.php:15
+msgid "General Settings"
+msgstr "Allgemeine Einstellungen"
+
+#: admin/view/thumbnail-settings.php:34
+msgid "Hide thumbnail from slider"
+msgstr "Miniaturansicht vor Schieberegler ausblenden"
+
+#: admin/view/thumbnail-settings.php:24
+msgid "Hide thumbnails"
+msgstr "Miniaturansichten ausblenden"
+
+#: admin/view/thumbnail-settings.php:60
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: admin/view/general-settings.php:92 admin/view/add-new-rule-gs.php:113
+msgid "If no product is selected it will show on all shop products."
+msgstr ""
+"Wenn kein Produkt ausgewählt ist, wird es auf allen Shop-Produkten angezeigt."
+
+#: admin/view/bullets_settings.php:91
+msgid "Inside Image"
+msgstr "Inneres Bild"
+
+#: admin/view/thumbnail-settings.php:74
+msgid "Layout 1"
+msgstr "Anordnung 1"
+
+#: admin/view/thumbnail-settings.php:75
+msgid "Layout 2"
+msgstr "Anordnung 2"
+
+#: admin/view/lightbox-settings.php:22
+msgid "Light box"
+msgstr "Leuchtkasten"
+
+#: admin/view/lightbox-settings.php:60
+msgid "Lightbox bg hover color"
+msgstr "Lightbox bg Hover-Farbe"
+
+#: admin/view/lightbox-settings.php:142
+msgid "Lightbox frame width (px)"
+msgstr "Rahmenbreite des Leuchtkastens (px)"
+
+#: admin/view/lightbox-settings.php:38
+msgid "Lightbox icon bg color"
+msgstr "Lightbox-Symbol bg Farbe"
+
+#: admin/view/lightbox-settings.php:79
+msgid "Lightbox icon color"
+msgstr "Farbe des Lightbox-Symbols"
+
+#: admin/view/lightbox-settings.php:99
+msgid "Lightbox position"
+msgstr "Position im Leuchtkasten"
+
+#: admin/view/lightbox-settings.php:15
+#: admin/view/fme-pgisfw-main-settings-page.php:8
+#: admin/view/add-new-rule.php:31
+msgid "Lightbox Settings"
+msgstr "Lightbox-Einstellungen"
+
+#: admin/view/lightbox-settings.php:154
+msgid "Lightbox slide effect"
+msgstr "Lightbox-Dia-Effekt"
+
+#: admin/view/bullets_settings.php:51
+msgid "Lines"
+msgstr "Linien"
+
+#: admin/view/arrows-setting.php:70
+msgid "Navigation button background color"
+msgstr "Hintergrundfarbe der Navigationsschaltfläche"
+
+#: admin/view/arrows-setting.php:92
+msgid "navigation button hover color"
+msgstr "Hover-Farbe der Navigationsschaltfläche"
+
+#: admin/view/arrows-setting.php:54
+msgid "Navigation button shape"
+msgstr "Form der Navigationsschaltfläche"
+
+#: admin/view/arrows-setting.php:110
+msgid "Navigation icon color"
+msgstr "Farbe des Navigationssymbols"
+
+#: admin/view/general-settings.php:151 admin/view/arrows-setting.php:29
+#: admin/view/add-new-rule-gs.php:168
+msgid "No"
+msgstr "NEIN"
+
+#: admin/view/rule-settings.php:24
+msgid "No rules are added."
+msgstr "Es werden keine Regeln hinzugefügt."
+
+#: admin/view/rule-settings.php:125
+msgid "Note:"
+msgstr "Notiz:"
+
+#: admin/view/arrows-setting.php:44
+msgid "On Hover"
+msgstr "Auf Schweben"
+
+#: admin/view/add-new-rule-gs.php:62
+msgid ""
+"Product Gallery Slider can be restricted to only selected "
+"Products/Categories."
+msgstr ""
+"Der Produktgalerie-Slider kann auf ausgewählte Produkte/Kategorien "
+"beschränkt werden."
+
+#: admin/view/general-settings.php:39
+msgid ""
+"Product gallery Slider can be restricted to only selected "
+"products/categories."
+msgstr ""
+"Der Produktgalerie-Slider kann auf ausgewählte Produkte/Kategorien "
+"beschränkt werden."
+
+#. Name of the plugin
+msgid "Product Gallery Slider for WooCommerce"
+msgstr "Produktgalerie-Slider für WooCommerce"
+
+#: admin/fme_pgifw_admin.php:45
+msgid "Product Videos"
+msgstr "Produktvideos"
+
+#: admin/view/general-settings.php:27 admin/view/add-new-rule-gs.php:52
+msgid "Product/Category restriction"
+msgstr "Produkt-/Kategoriebeschränkung"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:10
+#: admin/view/rule-settings.php:4
+msgid "Rule Based Settings"
+msgstr "Regelbasierte Einstellungen"
+
+#: admin/view/rule-settings.php:62
+msgid "Rule Category"
+msgstr "Regelkategorie"
+
+#: admin/view/rule-settings.php:59
+msgid "Rule ID"
+msgstr "Regel-ID"
+
+#: admin/view/rule-settings.php:60
+msgid "Rule Name"
+msgstr "Regelname"
+
+#: admin/view/add-new-rule-gs.php:34
+msgid "Rule name"
+msgstr "Regelname"
+
+#: admin/view/rule-settings.php:61
+msgid "Rule Priority"
+msgstr "Regelpriorität"
+
+#: admin/view/add-new-rule-gs.php:42
+msgid "Rule priority"
+msgstr "Regelpriorität"
+
+#: admin/view/rule-settings.php:63
+msgid "Rule Status"
+msgstr "Regelstatus"
+
+#: admin/view/rule-settings.php:126
+msgid "Rule with greater priority number has more priority."
+msgstr "Regel mit höherer Prioritätszahl hat höhere Priorität."
+
+#: admin/fme_pgifw_admin.php:112
+msgid "Rules"
+msgstr "Regeln"
+
+#: admin/view/rule-settings.php:104
+msgid "Save"
+msgstr "Speichern"
+
+#: admin/view/add-new-rule.php:13
+msgid "Save Rule"
+msgstr "Regel speichern"
+
+#: admin/view/general-settings.php:211 admin/view/lightbox-settings.php:172
+#: admin/view/arrows-setting.php:153 admin/view/bullets_settings.php:166
+#: admin/view/zoom-settings.php:71 admin/view/thumbnail-settings.php:92
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: admin/view/general-settings.php:35 admin/view/add-new-rule-gs.php:58
+msgid "Select Categories"
+msgstr "Kategorien auswählen"
+
+#: admin/view/general-settings.php:107 admin/view/add-new-rule-gs.php:128
+msgid "Select category"
+msgstr "Kategorie wählen"
+
+#: admin/view/lightbox-settings.php:116
+msgid "Select lightbox icon"
+msgstr "Lightbox-Symbol auswählen"
+
+#: admin/view/arrows-setting.php:126
+msgid "Select navigation icon"
+msgstr "Navigationssymbol auswählen"
+
+#: admin/view/general-settings.php:57 admin/view/add-new-rule-gs.php:80
+msgid "Select product"
+msgstr "Ausgewähltes Produkt"
+
+#: admin/view/general-settings.php:34 admin/view/add-new-rule-gs.php:57
+msgid "Select Products"
+msgstr "Wählen Sie Produkte aus"
+
+#: admin/view/bullets_settings.php:25
+msgid "Show bullets"
+msgstr "Kugeln zeigen"
+
+#: admin/view/bullets_settings.php:35
+msgid "Show Bullets For Gallery Slider"
+msgstr "Aufzählungszeichen für Galerie-Slider anzeigen"
+
+#: admin/view/bullets_settings.php:120
+msgid "Show bullets thumbnail"
+msgstr "Miniaturansicht der Aufzählungszeichen anzeigen"
+
+#: admin/view/lightbox-settings.php:30
+msgid "Show button for lightbox on image."
+msgstr "Schaltfläche für Lightbox auf Bild anzeigen."
+
+#: admin/view/arrows-setting.php:22
+msgid "Show navigation icons"
+msgstr "Navigationssymbole anzeigen"
+
+#: admin/view/arrows-setting.php:38
+msgid "Show navigation on"
+msgstr "Navigation einblenden"
+
+#: admin/view/bullets_settings.php:130
+msgid "Show thumbnail on bullets hover"
+msgstr "Vorschaubild bei Aufzählungszeichen anzeigen"
+
+#: admin/view/zoom-settings.php:32
+msgid "Show Zoombox On Image Hover"
+msgstr "Zoombox bei Bild-Hover anzeigen"
+
+#: admin/view/lightbox-settings.php:160
+msgid "Slide"
+msgstr "Gleiten"
+
+#: admin/view/arrows-setting.php:61
+msgid "Square"
+msgstr "Quadrat"
+
+#: admin/view/general-settings.php:215 admin/view/lightbox-settings.php:176
+#: admin/view/arrows-setting.php:157 admin/view/bullets_settings.php:171
+#: admin/view/zoom-settings.php:75 admin/view/rule-settings.php:135
+#: admin/view/add-new-rule.php:74 admin/view/thumbnail-settings.php:96
+msgid "Success!"
+msgstr "Erfolg!"
+
+#: admin/view/thumbnail-settings.php:68
+msgid "Thumbnail images style"
+msgstr "Miniaturbildstil"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:5
+#: admin/view/add-new-rule.php:28 admin/view/thumbnail-settings.php:15
+msgid "Thumbnail Settings"
+msgstr "Miniaturbildeinstellungen"
+
+#: admin/view/thumbnail-settings.php:54
+msgid "Thumbnail slider layout"
+msgstr "Miniaturbild-Schieberegler-Layout"
+
+#: admin/view/thumbnail-settings.php:41
+msgid "Thumbnails to show"
+msgstr "Miniaturansichten zum Anzeigen"
+
+#: admin/view/bullets_settings.php:110
+msgid "Top center"
+msgstr "Oben in der Mitte"
+
+#: admin/view/lightbox-settings.php:105 admin/view/bullets_settings.php:109
+msgid "Top Left"
+msgstr "Oben links"
+
+#: admin/view/lightbox-settings.php:106
+msgid "Top Right"
+msgstr "Oben rechts"
+
+#: admin/view/bullets_settings.php:111
+msgid "Top right"
+msgstr "Oben rechts"
+
+#: admin/view/add-new-rule.php:6
+msgid "Update Rule"
+msgstr "Regel aktualisieren"
+
+#: admin/view/thumbnail-settings.php:61
+msgid "Vertical Left"
+msgstr "Vertikal links"
+
+#: admin/view/thumbnail-settings.php:62
+msgid "Vertical Right"
+msgstr "Vertikal rechts"
+
+#: admin/view/general-settings.php:33 admin/view/add-new-rule-gs.php:56
+msgid "Visible for All Products"
+msgstr "Für alle Produkte sichtbar"
+
+#: admin/view/general-settings.php:150 admin/view/arrows-setting.php:28
+#: admin/view/add-new-rule-gs.php:167
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/view/lightbox-settings.php:162 admin/view/zoom-settings.php:23
+msgid "Zoom"
+msgstr "Zoomen"
+
+#: admin/view/zoom-settings.php:47
+msgid "Zoom box frame height (px)"
+msgstr "Rahmenhöhe der Zoombox (px)"
+
+#: admin/view/zoom-settings.php:37
+msgid "Zoom box frame width (px)"
+msgstr "Rahmenbreite des Zoomfelds (px)"
+
+#: admin/view/zoom-settings.php:59
+msgid "Zoom box radius (%)"
+msgstr "Zoombox-Radius (%)"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:9
+#: admin/view/zoom-settings.php:15 admin/view/add-new-rule.php:32
+msgid "Zoom Settings"
+msgstr "Zoom-Einstellungen"

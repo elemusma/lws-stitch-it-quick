@@ -1,0 +1,40 @@
+.fme_pgisfw_main {
+	display: none;
+}
+
+.fme_pgisfw_nav_tab {
+	cursor: pointer;
+}
+
+.fme_current_tab {
+	color: black;
+	font-weight: 700;
+}
+
+.fme_current_tab:hover {
+	color: black !important;
+	font-weight: 800 !important;
+}
+
+.fme_success_alert {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	display: none;
+}
+
+.fme_quick_success_alert {
+	color: #3c763d;
+	background-color: #dff0d8;
+	border-color: #d6e9c6;
+	padding: 15px;
+	margin-bottom: 20px;
+	margin-left: 45%;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	/*display: none;*/
+}

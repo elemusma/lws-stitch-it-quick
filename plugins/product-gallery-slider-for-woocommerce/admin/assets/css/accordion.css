@@ -1,0 +1,55 @@
+.accordion {
+  background-color: #d8d8d8;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.active, .accordion:hover {
+  background-color: #c0b9b9; 
+}
+
+.fme_pgisfw_acc_panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+.accordion_table {
+
+      /*font-family: arial, sans-serif;*/
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+.accordion_table td, .accordion_table th {
+      border: 1px solid #dddddd;
+      text-align: center;
+      padding: 8px;
+      max-width: 100px;
+  }
+
+
+.radio_option_images:hover  {
+  cursor: pointer;
+   /*webkit-filter: blur(40px); /* Chrome, Safari, Opera */
+    opacity: 0.5;
+ } 

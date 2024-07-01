@@ -76,17 +76,7 @@ foreach ($categories as $category) {
 // echo $categoryDetails['url'];
 // print_r($categoryDetails);
 
-echo '<section style="overflow:visible;">';
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-12">';
 
-echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;margin-bottom:-20px;">Go Back to ' . $categoryDetails['name'] . '</a>';
-
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</section>';
 
 
 
@@ -99,6 +89,19 @@ echo '</section>';
 		 */
 		if($categoryName == 'Gates' ) { // shows Gates product to Gates customers
 			if(currentUser() && in_array( currentUserGates(), currentUser()->roles )) {
+
+		echo '<section style="overflow:visible;">';
+		echo '<div class="container">';
+		echo '<div class="row">';
+		echo '<div class="col-12">';
+		
+		echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;margin-bottom:-20px;">Go Back to ' . $categoryDetails['name'] . '</a>';
+		
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		echo '</section>';
+
 		do_action( 'woocommerce_before_main_content' );
 
 	while ( have_posts() ) :
@@ -118,6 +121,19 @@ echo '</section>';
 		echo get_template_part('partials/dealer-portal-login');
 	}
 	} else { // shows products for the public
+
+		echo '<section style="overflow:visible;">';
+		echo '<div class="container">';
+		echo '<div class="row">';
+		echo '<div class="col-12">';
+		
+		echo '<a href="' . $categoryDetails['url'] . '" class="btn-main small" style="margin-left:0px;margin-bottom:-20px;">Go Back to ' . $categoryDetails['name'] . '</a>';
+		
+		echo '</div>';
+		echo '</div>';
+		echo '</div>';
+		echo '</section>';
+
 		do_action( 'woocommerce_before_main_content' );
 
 	while ( have_posts() ) :

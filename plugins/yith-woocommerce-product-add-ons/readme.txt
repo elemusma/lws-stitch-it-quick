@@ -4,7 +4,7 @@ Contributors: yithemes
 Tags: woocommerce product addons, WooCommerce product fields, woocommerce product options, woocommerce custom fields, product add-ons for woocommerce
 Requires at least: 6.3
 Tested up to: 6.5
-Stable tag: 4.10.0
+Stable tag: 4.11.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -115,6 +115,17 @@ You must enable the dependency on the option you are interested in by inserting 
 11. Product page with different options (5/5)
 
 == Changelog ==
+
+= 4.11.0 – Released on 25 June 2024 =
+
+* New: support for WooCommerce 9.0
+* Update: YITH plugin framework
+* Fix: add price suffix for options and total price
+* Fix: replace total price
+* Fix: selection type single or multiple for input text
+* Dev: new filter 'yith_wapo_calculate_addons_price_in_cart'
+* Dev: new filter 'hide_order_price_if_zero'
+* Dev: new filter 'yith_wapo_include_shortcode_price_suffix'
 
 = 4.10.0 – Released on 22 May 2024 =
 

@@ -44,7 +44,9 @@ $option_label  = wp_kses_post( $addon->get_option( 'label', $x ) ) . ( $required
 
 ?>
 
-<div id="yith-wapo-option-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>" class="yith-wapo-option">
+<div id="yith-wapo-option-<?php echo esc_attr( $addon->id ); ?>-<?php echo esc_attr( $x ); ?>"
+     class="yith-wapo-option selection-<?php echo esc_attr( $selection_type ); ?>"
+>
 
 	<div class="label <?php echo wp_kses_post( ! empty( $addon_image_position ) ? 'position-' . $addon_image_position : '' ); ?>">
 

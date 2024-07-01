@@ -129,7 +129,6 @@ form.cart:has(#yith-wapo-container .yith-wapo-block),
   left: 50%;
   bottom: 100%;
   transform: translateX(-50%) translateY(-5px);
-  white-space: nowrap;
   display: none;
 }
 .yith-wapo-block .yith-wapo-addon .yith-wapo-option .tooltip span:after {

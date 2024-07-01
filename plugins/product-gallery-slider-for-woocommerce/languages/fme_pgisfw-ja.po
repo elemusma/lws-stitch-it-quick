@@ -1,0 +1,606 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Product Gallery Slider for WooCommerce\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-20 10:48+0000\n"
+"PO-Revision-Date: 2023-03-20 11:29+0000\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: fme_pgisfw"
+
+#: admin/view/add-new-rule-gs.php:199
+msgid " Numbering Font Color"
+msgstr " 番号付けフォントの色"
+
+#: admin/view/general-settings.php:184
+msgid " Numbering font color"
+msgstr " 番号付けのフォントの色"
+
+#: admin/view/thumbnail-settings.php:82
+msgid " Selected image border color"
+msgstr " 選択した画像の枠の色"
+
+#: admin/view/general-settings.php:215 admin/view/lightbox-settings.php:176
+#: admin/view/arrows-setting.php:157 admin/view/bullets_settings.php:171
+#: admin/view/zoom-settings.php:75 admin/view/rule-settings.php:135
+#: admin/view/add-new-rule.php:74 admin/view/thumbnail-settings.php:96
+msgid " Settings Saved Successfully!"
+msgstr " 設定が正常に保存されました!"
+
+#: admin/view/general-settings.php:204 admin/view/add-new-rule-gs.php:215
+msgid "1000 = 1 sec"
+msgstr "1000 = 1 秒"
+
+#: admin/view/add-new-rule.php:14
+msgid "Add New Rule"
+msgstr "新しいルールを追加"
+
+#: admin/fme_pgifw_admin.php:63
+msgid "Add New URL"
+msgstr "新しい URL を追加"
+
+#: admin/view/rule-settings.php:10
+msgid "Add Rule"
+msgstr "ルールを追加"
+
+#: admin/view/general-settings.php:171 admin/view/add-new-rule-gs.php:187
+msgid "Adjust aspect ratio"
+msgstr "アスペクト比を調整する"
+
+#: admin/view/arrows-setting.php:14
+msgid "Arrow Settings"
+msgstr "矢印の設定"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:7
+#: admin/view/add-new-rule.php:30
+msgid "Arrows Settings"
+msgstr "矢印の設定"
+
+#: admin/view/general-settings.php:144 admin/view/add-new-rule-gs.php:163
+msgid "Auto play slider"
+msgstr "自動再生スライダー"
+
+#: admin/view/general-settings.php:195 admin/view/add-new-rule-gs.php:207
+msgid "Auto play timeout"
+msgstr "自動再生タイムアウト"
+
+#: admin/view/bullets_settings.php:92
+msgid "Bellow Image"
+msgstr "怒鳴る画像"
+
+#: admin/view/bullets_settings.php:54
+msgid "Bottom bar "
+msgstr "ボトムバー"
+
+#: admin/view/bullets_settings.php:107
+msgid "Bottom center"
+msgstr "下中央"
+
+#: admin/view/bullets_settings.php:53
+msgid "Bottom counter bar "
+msgstr "ボトムカウンターバー"
+
+#: admin/view/lightbox-settings.php:107
+msgid "Bottom Left"
+msgstr "左下"
+
+#: admin/view/bullets_settings.php:106
+msgid "Bottom left"
+msgstr "左下"
+
+#: admin/view/lightbox-settings.php:108
+msgid "Bottom Right"
+msgstr "右下"
+
+#: admin/view/bullets_settings.php:108
+msgid "Bottom right"
+msgstr "右下"
+
+#: admin/view/bullets_settings.php:50
+msgid "Box"
+msgstr "箱"
+
+#: admin/view/bullets_settings.php:139
+msgid "Bullets background color"
+msgstr "箇条書きの背景色"
+
+#: admin/view/bullets_settings.php:152
+msgid "Bullets hover color"
+msgstr "弾丸のホバーの色"
+
+#: admin/view/bullets_settings.php:85
+msgid "Bullets placement"
+msgstr "箇条書きの配置"
+
+#: admin/view/bullets_settings.php:100
+msgid "Bullets position"
+msgstr "弾丸の位置"
+
+#: admin/view/bullets_settings.php:16
+#: admin/view/fme-pgisfw-main-settings-page.php:6
+#: admin/view/add-new-rule.php:29
+msgid "Bullets Settings"
+msgstr "箇条書きの設定"
+
+#: admin/view/bullets_settings.php:43
+msgid "Bullets shape"
+msgstr "弾丸の形状"
+
+#: admin/fme_pgifw_admin.php:183
+msgid "Choose"
+msgstr "選ぶ"
+
+#: admin/view/arrows-setting.php:60 admin/view/bullets_settings.php:49
+msgid "Circle"
+msgstr "丸"
+
+#: admin/view/bullets_settings.php:52
+msgid "Counter bullets"
+msgstr "カウンター弾"
+
+#: admin/view/bullets_settings.php:61
+msgid "Counter bullets Font Color"
+msgstr "カウンターブレットのフォントカラー"
+
+#: admin/view/thumbnail-settings.php:47
+msgid "Default : 5"
+msgstr "デフォルト: 5"
+
+#: admin/view/zoom-settings.php:65
+msgid "Default: 10%"
+msgstr "デフォルト: 10%"
+
+#: admin/view/zoom-settings.php:43 admin/view/zoom-settings.php:53
+msgid "Default: 100"
+msgstr "デフォルト: 100"
+
+#: admin/view/lightbox-settings.php:148
+msgid "Default: 600"
+msgstr "デフォルト: 600"
+
+#: admin/view/lightbox-settings.php:110
+msgid "Default: Bottom Right"
+msgstr "デフォルト: 右下"
+
+#: admin/view/arrows-setting.php:63
+msgid "Default: Circle"
+msgstr "デフォルト: 円"
+
+#: admin/view/add-new-rule-gs.php:170
+msgid "Default: No"
+msgstr "デフォルト: いいえ"
+
+#: admin/view/general-settings.php:153
+msgid "Default: no"
+msgstr "デフォルト: いいえ"
+
+#: admin/view/arrows-setting.php:47
+msgid "Default: On hover"
+msgstr "デフォルト: ホバー時"
+
+#: admin/view/lightbox-settings.php:165
+msgid "Default: Slide"
+msgstr "デフォルト: スライド"
+
+#: admin/view/arrows-setting.php:31
+msgid "Default: Yes"
+msgstr "デフォルト: はい"
+
+#: admin/fme_pgifw_admin.php:84 admin/fme_pgifw_admin.php:184
+#: admin/view/rule-settings.php:107
+msgid "Delete"
+msgstr "消去"
+
+#: admin/view/rule-settings.php:11
+msgid "Delete All Rules"
+msgstr "すべてのルールを削除"
+
+#: admin/view/rule-settings.php:99
+msgid "Disabled"
+msgstr "無効"
+
+#: admin/view/rule-settings.php:106
+msgid "Edit"
+msgstr "編集"
+
+#: admin/view/add-new-rule.php:8
+msgid "Edit Rule"
+msgstr "ルールを編集"
+
+#. Description of the plugin
+msgid ""
+"Enable attractive slider for product gallery images and add the videos in "
+"gallery."
+msgstr "製品ギャラリー画像の魅力的なスライダーを有効にし、ギャラリーにビデオを追加します."
+
+#: admin/view/general-settings.php:13
+msgid "Enable gallery slider"
+msgstr "ギャラリー スライダーを有効にする"
+
+#: admin/view/general-settings.php:21
+msgid "Enable Gallery Slider For Your Website."
+msgstr "ウェブサイトのギャラリー スライダーを有効にします。"
+
+#: admin/view/general-settings.php:158 admin/view/add-new-rule-gs.php:175
+msgid "Enable numbering on gallery"
+msgstr "ギャラリーでナンバリングを有効にする"
+
+#: admin/view/general-settings.php:166 admin/view/add-new-rule-gs.php:183
+msgid "Enable numbering on images gallery."
+msgstr "画像ギャラリーで番号付けを有効にします。"
+
+#: admin/view/add-new-rule-gs.php:22
+msgid "Enable rule"
+msgstr "ルールを有効にする"
+
+#: admin/view/add-new-rule-gs.php:30
+msgid "Enable rule."
+msgstr "ルールを有効にします。"
+
+#: admin/view/general-settings.php:179
+msgid ""
+"Enable to automatically adjust image aspect ratio when using vertical layout."
+msgstr "垂直レイアウトを使用しているときに、画像の縦横比を自動的に調整できるようにします。"
+
+#: admin/view/add-new-rule-gs.php:195
+msgid ""
+"Enable to automatically adjust image aspect ratio when using vertical layout."
+"."
+msgstr "縦レイアウトを使用する場合、画像の縦横比を自動的に調整できるようにします。"
+
+#: admin/view/rule-settings.php:97
+msgid "Enabled"
+msgstr "有効"
+
+#: admin/view/lightbox-settings.php:161
+msgid "Fade"
+msgstr "フェード"
+
+#: admin/view/arrows-setting.php:45
+msgid "Fixed"
+msgstr "修理済み"
+
+#. Author of the plugin
+msgid "FME Addons"
+msgstr "FME アドオン"
+
+#: admin/fme_pgifw_admin.php:111
+msgid "Gallery Slider"
+msgstr "ギャラリースライダー"
+
+#: admin/view/general-settings.php:6
+#: admin/view/fme-pgisfw-main-settings-page.php:4
+#: admin/view/add-new-rule.php:27 admin/view/add-new-rule-gs.php:15
+msgid "General Settings"
+msgstr "一般設定"
+
+#: admin/view/thumbnail-settings.php:34
+msgid "Hide thumbnail from slider"
+msgstr "スライダーからサムネイルを隠す"
+
+#: admin/view/thumbnail-settings.php:24
+msgid "Hide thumbnails"
+msgstr "サムネイルを非表示"
+
+#: admin/view/thumbnail-settings.php:60
+msgid "Horizontal"
+msgstr "水平"
+
+#: admin/view/general-settings.php:92 admin/view/add-new-rule-gs.php:113
+msgid "If no product is selected it will show on all shop products."
+msgstr "商品が選択されていない場合は、すべてのショップ商品に表示されます。"
+
+#: admin/view/bullets_settings.php:91
+msgid "Inside Image"
+msgstr "内部イメージ"
+
+#: admin/view/thumbnail-settings.php:74
+msgid "Layout 1"
+msgstr "レイアウト 1"
+
+#: admin/view/thumbnail-settings.php:75
+msgid "Layout 2"
+msgstr "レイアウト 2"
+
+#: admin/view/lightbox-settings.php:22
+msgid "Light box"
+msgstr "ライトボックス"
+
+#: admin/view/lightbox-settings.php:60
+msgid "Lightbox bg hover color"
+msgstr "ライトボックスの背景ホバーの色"
+
+#: admin/view/lightbox-settings.php:142
+msgid "Lightbox frame width (px)"
+msgstr "ライトボックスのフレーム幅 (px)"
+
+#: admin/view/lightbox-settings.php:38
+msgid "Lightbox icon bg color"
+msgstr "ライトボックス アイコンの背景色"
+
+#: admin/view/lightbox-settings.php:79
+msgid "Lightbox icon color"
+msgstr "ライトボックスのアイコンの色"
+
+#: admin/view/lightbox-settings.php:99
+msgid "Lightbox position"
+msgstr "ライトボックスの位置"
+
+#: admin/view/lightbox-settings.php:15
+#: admin/view/fme-pgisfw-main-settings-page.php:8
+#: admin/view/add-new-rule.php:31
+msgid "Lightbox Settings"
+msgstr "ライトボックス設定"
+
+#: admin/view/lightbox-settings.php:154
+msgid "Lightbox slide effect"
+msgstr "ライトボックスのスライド効果"
+
+#: admin/view/bullets_settings.php:51
+msgid "Lines"
+msgstr "ライン"
+
+#: admin/view/arrows-setting.php:70
+msgid "Navigation button background color"
+msgstr "ナビゲーション ボタンの背景色"
+
+#: admin/view/arrows-setting.php:92
+msgid "navigation button hover color"
+msgstr "ナビゲーションボタンのホバーカラー"
+
+#: admin/view/arrows-setting.php:54
+msgid "Navigation button shape"
+msgstr "ナビゲーション ボタンの形状"
+
+#: admin/view/arrows-setting.php:110
+msgid "Navigation icon color"
+msgstr "ナビゲーション アイコンの色"
+
+#: admin/view/general-settings.php:151 admin/view/arrows-setting.php:29
+#: admin/view/add-new-rule-gs.php:168
+msgid "No"
+msgstr "いいえ"
+
+#: admin/view/rule-settings.php:24
+msgid "No rules are added."
+msgstr "ルールは追加されません。"
+
+#: admin/view/rule-settings.php:125
+msgid "Note:"
+msgstr "ノート："
+
+#: admin/view/arrows-setting.php:44
+msgid "On Hover"
+msgstr "ホバー時"
+
+#: admin/view/add-new-rule-gs.php:62
+msgid ""
+"Product Gallery Slider can be restricted to only selected "
+"Products/Categories."
+msgstr "製品ギャラリー スライダーは、選択した製品/カテゴリのみに制限できます。"
+
+#: admin/view/general-settings.php:39
+msgid ""
+"Product gallery Slider can be restricted to only selected "
+"products/categories."
+msgstr "製品ギャラリー スライダーは、選択した製品/カテゴリのみに制限できます。"
+
+#. Name of the plugin
+msgid "Product Gallery Slider for WooCommerce"
+msgstr "WooCommerce の製品ギャラリー スライダー"
+
+#: admin/fme_pgifw_admin.php:45
+msgid "Product Videos"
+msgstr "製品ビデオ"
+
+#: admin/view/general-settings.php:27 admin/view/add-new-rule-gs.php:52
+msgid "Product/Category restriction"
+msgstr "商品・カテゴリーの制限"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:10
+#: admin/view/rule-settings.php:4
+msgid "Rule Based Settings"
+msgstr "ルールベースの設定"
+
+#: admin/view/rule-settings.php:62
+msgid "Rule Category"
+msgstr "ルール カテゴリ"
+
+#: admin/view/rule-settings.php:59
+msgid "Rule ID"
+msgstr "ルール ID"
+
+#: admin/view/rule-settings.php:60
+msgid "Rule Name"
+msgstr "ルール名"
+
+#: admin/view/add-new-rule-gs.php:34
+msgid "Rule name"
+msgstr "ルール名"
+
+#: admin/view/rule-settings.php:61
+msgid "Rule Priority"
+msgstr "ルールの優先度"
+
+#: admin/view/add-new-rule-gs.php:42
+msgid "Rule priority"
+msgstr "ルールの優先度"
+
+#: admin/view/rule-settings.php:63
+msgid "Rule Status"
+msgstr "ルールのステータス"
+
+#: admin/view/rule-settings.php:126
+msgid "Rule with greater priority number has more priority."
+msgstr "優先度番号が大きいルールほど優先度が高くなります。"
+
+#: admin/fme_pgifw_admin.php:112
+msgid "Rules"
+msgstr "ルール"
+
+#: admin/view/rule-settings.php:104
+msgid "Save"
+msgstr "保存"
+
+#: admin/view/add-new-rule.php:13
+msgid "Save Rule"
+msgstr "ルールを保存"
+
+#: admin/view/general-settings.php:211 admin/view/lightbox-settings.php:172
+#: admin/view/arrows-setting.php:153 admin/view/bullets_settings.php:166
+#: admin/view/zoom-settings.php:71 admin/view/thumbnail-settings.php:92
+msgid "Save Settings"
+msgstr "設定を保存する"
+
+#: admin/view/general-settings.php:35 admin/view/add-new-rule-gs.php:58
+msgid "Select Categories"
+msgstr "カテゴリーを選択"
+
+#: admin/view/general-settings.php:107 admin/view/add-new-rule-gs.php:128
+msgid "Select category"
+msgstr "カテゴリを選んでください"
+
+#: admin/view/lightbox-settings.php:116
+msgid "Select lightbox icon"
+msgstr "ライトボックス アイコンを選択"
+
+#: admin/view/arrows-setting.php:126
+msgid "Select navigation icon"
+msgstr "ナビゲーション アイコンを選択"
+
+#: admin/view/general-settings.php:57 admin/view/add-new-rule-gs.php:80
+msgid "Select product"
+msgstr "製品を選択"
+
+#: admin/view/general-settings.php:34 admin/view/add-new-rule-gs.php:57
+msgid "Select Products"
+msgstr "製品を選択"
+
+#: admin/view/bullets_settings.php:25
+msgid "Show bullets"
+msgstr "箇条書きを表示"
+
+#: admin/view/bullets_settings.php:35
+msgid "Show Bullets For Gallery Slider"
+msgstr "ギャラリー スライダーの箇条書きを表示"
+
+#: admin/view/bullets_settings.php:120
+msgid "Show bullets thumbnail"
+msgstr "箇条書きのサムネイルを表示"
+
+#: admin/view/lightbox-settings.php:30
+msgid "Show button for lightbox on image."
+msgstr "画像にライトボックスのボタンを表示します。"
+
+#: admin/view/arrows-setting.php:22
+msgid "Show navigation icons"
+msgstr "ナビゲーション アイコンを表示"
+
+#: admin/view/arrows-setting.php:38
+msgid "Show navigation on"
+msgstr "ナビゲーションを表示"
+
+#: admin/view/bullets_settings.php:130
+msgid "Show thumbnail on bullets hover"
+msgstr "箇条書きの上にサムネイルを表示"
+
+#: admin/view/zoom-settings.php:32
+msgid "Show Zoombox On Image Hover"
+msgstr "画像ホバー時にズームボックスを表示"
+
+#: admin/view/lightbox-settings.php:160
+msgid "Slide"
+msgstr "滑り台"
+
+#: admin/view/arrows-setting.php:61
+msgid "Square"
+msgstr "四角"
+
+#: admin/view/general-settings.php:215 admin/view/lightbox-settings.php:176
+#: admin/view/arrows-setting.php:157 admin/view/bullets_settings.php:171
+#: admin/view/zoom-settings.php:75 admin/view/rule-settings.php:135
+#: admin/view/add-new-rule.php:74 admin/view/thumbnail-settings.php:96
+msgid "Success!"
+msgstr "成功！"
+
+#: admin/view/thumbnail-settings.php:68
+msgid "Thumbnail images style"
+msgstr "サムネイル画像のスタイル"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:5
+#: admin/view/add-new-rule.php:28 admin/view/thumbnail-settings.php:15
+msgid "Thumbnail Settings"
+msgstr "サムネイル設定"
+
+#: admin/view/thumbnail-settings.php:54
+msgid "Thumbnail slider layout"
+msgstr "サムネイル スライダーのレイアウト"
+
+#: admin/view/thumbnail-settings.php:41
+msgid "Thumbnails to show"
+msgstr "表示するサムネイル"
+
+#: admin/view/bullets_settings.php:110
+msgid "Top center"
+msgstr "トップセンター"
+
+#: admin/view/lightbox-settings.php:105 admin/view/bullets_settings.php:109
+msgid "Top Left"
+msgstr "左上"
+
+#: admin/view/lightbox-settings.php:106
+msgid "Top Right"
+msgstr "右上"
+
+#: admin/view/bullets_settings.php:111
+msgid "Top right"
+msgstr "右上"
+
+#: admin/view/add-new-rule.php:6
+msgid "Update Rule"
+msgstr "更新ルール"
+
+#: admin/view/thumbnail-settings.php:61
+msgid "Vertical Left"
+msgstr "垂直左"
+
+#: admin/view/thumbnail-settings.php:62
+msgid "Vertical Right"
+msgstr "垂直右"
+
+#: admin/view/general-settings.php:33 admin/view/add-new-rule-gs.php:56
+msgid "Visible for All Products"
+msgstr "すべての製品に表示"
+
+#: admin/view/general-settings.php:150 admin/view/arrows-setting.php:28
+#: admin/view/add-new-rule-gs.php:167
+msgid "Yes"
+msgstr "はい"
+
+#: admin/view/lightbox-settings.php:162 admin/view/zoom-settings.php:23
+msgid "Zoom"
+msgstr "ズーム"
+
+#: admin/view/zoom-settings.php:47
+msgid "Zoom box frame height (px)"
+msgstr "ズーム ボックス フレームの高さ (px)"
+
+#: admin/view/zoom-settings.php:37
+msgid "Zoom box frame width (px)"
+msgstr "ズーム ボックスの枠幅 (px)"
+
+#: admin/view/zoom-settings.php:59
+msgid "Zoom box radius (%)"
+msgstr "ズーム ボックスの半径 (%)"
+
+#: admin/view/fme-pgisfw-main-settings-page.php:9
+#: admin/view/zoom-settings.php:15 admin/view/add-new-rule.php:32
+msgid "Zoom Settings"
+msgstr "ズーム設定"

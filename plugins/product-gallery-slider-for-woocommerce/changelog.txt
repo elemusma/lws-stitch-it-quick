@@ -1,0 +1,72 @@
+** FME Addons: Product Gallery Slider for WooCommerce **
+
+2023-11-20 - version 1.1.3
+* Added support for vimeo videos
+* Fixed videos aspect ratio issue in vertical gallery view
+
+2023-09-18 - version 1.1.2
+*Minor bug fixes
+
+2023-09-05 - version 1.1.1
+*Fixed unresponsive page issue
+
+2023-07-14 - version 1.1.0
+* Made compatible with wordpress multisite
+* Added secondary slider mode options (loop/slide) in settings
+
+2023-05-09 - version 1.0.9
+* Minor bug fixes
+* Site crashing issue resolved
+
+2023-03-22 - version 1.0.8
+* Minor bug fixes and improvements
+* Fixed translation issues
+
+2023-02-27 - version 1.0.7
+* Minor bug fixes and improvements
+
+2023-02-15 - version 1.0.6
+* Minor bug fixes 
+
+2023-01-23 - version 1.0.5
+* Minor bug fixes and improvements
+* Added rule-based settings, This feature enables you to create custom templates for different products.
+
+2022-01-31 - version 1.0.4
+* Resolved minor issue
+
+2021-12-22 - version 1.0.3
+* Resolved minor issue
+
+2021-09-22 - version 1.0.2
+* Change complete backend design
+* Added separate settings for each feature 
+* Added option to enable/disable Gallery Slider
+* Added option to show bullets on Gallery
+* Added multiple design options for bullets
+	1-Bullets different shapes
+	2-Bullets placement on gallery
+	3-Bullets position on image
+	4-Show thumbail on bullets hover
+	5-Bullets background color
+	6-Bullets hover color
+* Added different settings to customize navigation arrows
+	1-Show navigation arrow on hover or fixed
+	2-Navigation arrow shape
+	3-Navigation background color
+	4-Navigation hover color
+	5-Navigation arrow color
+	6-Choose navigation icon arrow
+* Added different settings for lighbox icon
+	1-Lightbox background color
+	2-Lightbox hover color
+	3-Lightbox icon color
+	4-Lightbox icon position
+	5-Lightbox icon shapes
+* Added option to customize zoombox radius
+
+2021-04-07 - version 1.0.1
+* Resolve Compatibility issue with elementor
+
+2021-03-16 - version 1.0.0
+* Initial Release

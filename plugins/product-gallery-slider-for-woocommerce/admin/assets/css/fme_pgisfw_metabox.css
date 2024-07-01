@@ -1,0 +1,38 @@
+#fme_pgisfw_btnAdd{
+ /* padding: 4px;
+  background-color: #0073aa; 
+  border: 1px solid;
+  color: white;
+  position: inherit;
+  cursor:pointer;*/
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.fme_pdifw_allurls{
+	width: 100%;
+}
+#fme_pgifw_mb_td{
+	width:4%;
+}
+.fme_pgisfw_upload_btn {
+	padding: 8px;
+	border: 1px solid #135e96!important;
+	margin-left: 4px;
+	color: #135e96;
+	vertical-align: unset !important;
+	position: inherit;
+	border-radius: 3px;
+	cursor:pointer !important;
+}
+
+.fme_pgifw_deletebtn {
+	padding: 8px;
+	border: 1px solid #e6502e!important;
+	margin-left: 4px;
+	color: #e6502e !important;
+	position: inherit;
+	border-radius: 3px;
+	vertical-align: unset !important;
+	cursor:pointer !important;
+}

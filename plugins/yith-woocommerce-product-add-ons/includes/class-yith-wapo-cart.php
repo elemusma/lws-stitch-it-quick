@@ -445,7 +445,7 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 
 			$wapo_price = yit_get_prop( $cart_item['data'], 'yith_wapo_price' );
 
-			if ( ! empty( $cart_item['yith_wapo_options'] ) && ! $wapo_price ) {
+            if ( apply_filters( 'yith_wapo_calculate_addons_price_in_cart', false ) || ! empty( $cart_item['yith_wapo_options'] ) && ! $wapo_price ) {
 
                 $total_options_price = $this->get_addons_totals_in_cart( $cart_item );
 
@@ -827,7 +827,8 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
 							}
 
 							// Check Product price
-							$_product = wc_get_product( $cart_item['product_id'] );
+                            $_product_id = isset( $cart_item['variation_id'] ) && $cart_item['variation_id'] > 0 ? $cart_item['variation_id'] : $cart_item['product_id'];
+							$_product    = wc_get_product( $_product_id );
 							// WooCommerce Measurement Price Calculator (compatibility).
 							if ( isset( $cart_item['pricing_item_meta_data']['_price'] ) ) {
 								$product_price = $cart_item['pricing_item_meta_data']['_price'];
@@ -1411,10 +1412,10 @@ if ( ! class_exists( 'YITH_WAPO_Cart' ) ) {
                 //Sanitize data.
                 switch ( $addon_type ) {
                     case 'text':
-                        $original_value = sanitize_text_field( $original_value );
+                        $original_value = sanitize_text_field( urldecode( $original_value ) );
                         break;
                     case 'textarea':
-                        $original_value = sanitize_textarea_field( $original_value );
+                        $original_value = sanitize_textarea_field( urldecode( $original_value ) );
                         break;
                 }
 				if ( ! $grouped_in_cart && ! $is_empty_title ) {

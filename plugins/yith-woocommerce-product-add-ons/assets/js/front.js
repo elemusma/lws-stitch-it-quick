@@ -384,7 +384,16 @@ jQuery( document ).ready(
 			addonImageInput     : '#yith_wapo_product_img',
 			formCart			: 'form.cart',
 			totalPriceTable		: '#wapo-total-price-table',
-			wcProductGallery    : '.woocommerce-product-gallery'
+			wcProductGallery    : '.woocommerce-product-gallery',
+			totalsBox			: {
+				productPrice : '#wapo-total-product-price',
+				optionsPrice : '#wapo-total-options-price',
+				orderPrice	 : '#wapo-total-order-price'
+			}
+		}
+
+		var wapoArgs = {
+			numDecimals : parseInt(yith_wapo.number_decimals)
 		}
 
 		var pa_modal = $( wapoDOM.cartPopup );
@@ -778,6 +787,8 @@ jQuery( document ).ready(
 				fileTemplate( fileData )
 			);
 
+			uploadedFileContainer.closest( '.file-container' ).find( '.upload-parent' ).val(1);
+
 			uploadedFileContainer.show();
 			maybeHideUploadButton( option );
 
@@ -982,7 +993,8 @@ jQuery( document ).ready(
 							}else{
 								element.fadeIn().removeClass( 'hidden' ).find( '.yith-wapo-option:not(.out-of-stock) .yith-wapo-option-value' ).attr( 'disabled', false );
 							}
-							let selectedOption = element.find( '.yith-wapo-option.selected' );
+							let selectedOption = element.find( '.yith-wapo-option.selected:last' ); // Get last option.
+							selectedOption     = ! element.hasClass( 'yith-wapo-addon-type-select' ) ? selectedOption : element.find( '.yith-wapo-option-value option:selected' );
 							replaceImageAction( selectedOption );
 
 
@@ -993,10 +1005,12 @@ jQuery( document ).ready(
 
 							// Check the min_max after disable value.
 							checkMinMax( element );
-						} else if( yith_wapo.conditionalDisplayEffect === 'slide' ) {
+						} else if ( yith_wapo.conditionalDisplayEffect === 'slide' ) {
 							element.slideUp().addClass( 'hidden' ).find( '.yith-wapo-option-value' ).attr( 'disabled', true );
-						}else{
+							replaceImageAction( element, true );
+						} else {
 							element.hide().addClass( 'hidden' ).find( '.yith-wapo-option-value' ).attr( 'disabled', true );
+							replaceImageAction( element, true );
 						}
 
 					}
@@ -1318,6 +1332,8 @@ jQuery( document ).ready(
 									defaultTotalPrice = defaultTotalPrice * quantity;
 								}
 
+								price = parseFloat( price );
+
 								totalPrice += price;
 								totalPriceDefault += defaultTotalPrice;
 							}
@@ -1344,23 +1360,26 @@ jQuery( document ).ready(
 
 			var totalProductPrice = defaultProductPrice * quantity,
 				totalOptionsPrice = parseFloat(totalPrice),
-				totalOrderPrice = parseFloat(totalPrice + totalProductPrice);
+				totalOrderPrice   = (parseFloat(totalProductPrice) + totalOptionsPrice).toFixed( wapoArgs.numDecimals );
 
 			// Price without formatting.
 			var total_ProductPrice = totalProductPrice,
 				total_OptionsPrice = totalOptionsPrice;
 
 			if ( ! yith_wapo.includeShortcodePriceSuffix ) {
+
 				var totalOptionsPriceFormatted = floatToWcPrice(totalOptionsPrice); // Format price.
 				var totalOrderPriceFormatted   = floatToWcPrice(totalOrderPrice); // Format price.
 
-				$('#wapo-total-options-price').html(totalOptionsPriceFormatted);
-				$('#wapo-total-order-price').html(totalOrderPriceFormatted);
+				$(wapoDOM.totalsBox.optionsPrice).html(totalOptionsPriceFormatted + ' ' + yith_wapo.priceSuffix );
+				$(wapoDOM.totalsBox.orderPrice).html(totalOrderPriceFormatted + ' ' + yith_wapo.priceSuffix );
 
 				var response = {
 					'order_price_suffix': totalOrderPriceFormatted,
 					'order_price_raw' : parseInt( $(wapoDOM.addonsContainer).attr('data-default-product-price') ) + parseInt( totalOptionsPrice ),
 				};
+
+				replaceProductPrice(totalOrderPrice, totalOrderPriceFormatted);
 
 				$(document).trigger('wapo-after-calculate-product-price', response);
 
@@ -1396,9 +1415,15 @@ jQuery( document ).ready(
 		},
 
 			replaceProductPrice = function (totalOrderPrice, totalOrderPriceHtml) {
+
 				if ('yes' !== yith_wapo.replace_price_in_product_without_addons && (!$(wapoDOM.addonsContainer).length || !$(wapoDOM.addonsContainer).find('.yith-wapo-block').length)) {
 					return;
 				}
+
+				if ( yith_wapo.hide_order_price_if_zero && 0 === totalOrderPrice ) {
+					totalOrderPriceHtml = '';
+				}
+
 				if ('yes' === yith_wapo.replace_product_price && !isNaN(parseFloat(totalOrderPrice)) && $(yith_wapo.replace_product_price_class).length > 0) {
 					$(yith_wapo.replace_product_price_class).html('<span class="woocommerce-Price-amount amount"><bdi>' + totalOrderPriceHtml + '</bdi></span>');
 				}
@@ -1426,9 +1451,9 @@ jQuery( document ).ready(
 									totalOrderPriceHTML = response['order_price_suffix'],
 									totalOrderPrice = suffixData.total_order_price;
 
-								$('#wapo-total-product-price').html(totalProductPrice);
-								$('#wapo-total-options-price').html(totalOptionsPriceHTML);
-								$('#wapo-total-order-price').html(totalOrderPriceHTML);
+								$(wapoDOM.totalsBox.productPrice).html(totalProductPrice);
+								$(wapoDOM.totalsBox.optionsPrice).html(totalOptionsPriceHTML);
+								$(wapoDOM.totalsBox.orderPrice).html(totalOrderPriceHTML);
 
 								$(wapoDOM.addonsContainer).attr('data-order-price', totalOrderPrice);
 
@@ -1474,7 +1499,7 @@ jQuery( document ).ready(
 
 				var pricesCalculated = calculateAddonsPrice();
 
-				totalPrice = pricesCalculated.totalPrice;
+				totalPrice        = pricesCalculated.totalPrice;
 				totalDefaultPrice = pricesCalculated.totalPriceDefault;
 
 				// Plugin option "Total price box".
@@ -1525,15 +1550,12 @@ jQuery( document ).ready(
 				var wc_price_length = parseInt(price).toString().length;
 				var wc_int_end_sep = parseInt(wc_price_length) + parseInt(default_args.num_decimals);
 				price = price.toString().substr(0, wc_int_end_sep + 1);
+				price = parseFloat(price).toFixed(2);
 			} else {
 				price = parseInt(price);
 			}
 
 			price = price.toString().replace('.', default_args.decimal_sep).replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1' + default_args.trim_zeros );
-
-			if (default_args.num_decimals > 0 && price.toString().indexOf(default_args.decimal_sep) == -1) { // Add 0 if there no decimals in the current price but they must have.
-				price = price + default_args.decimal_sep + '0'.repeat(default_args.num_decimals);
-			}
 
 			var formatted_price = price;
 			var formatted_symbol = default_args.html ? '<span class="woocommerce-Price-currencySymbol">' + default_args.currency_symbol + '</span>' : default_args.currency_symbol;
@@ -1887,7 +1909,7 @@ jQuery( document ).ready(
 
 				$( wapoDOM.addonImageInput ).val( '' );
 
-				$( wapoDOM.addonsContainer ).find( '.yith-wapo-addon:not( .yith-wapo-addon-type-select) .yith-wapo-option, .yith-wapo-addon-type-select .yith-wapo-option-value' ).each(
+				$( wapoDOM.addonsContainer ).find( '.yith-wapo-addon:not(.yith-wapo-addon-type-select):not(.conditional_logic.hidden) .yith-wapo-option, .yith-wapo-addon-type-select:not(.conditional_logic.hidden) .yith-wapo-option-value' ).each(
 					function( index, element ) {
 						let option = $( element );
 						option = option.is( 'select' ) ? option.find( ':selected' ) : option;
@@ -1994,6 +2016,40 @@ jQuery( document ).ready(
 				replaceImageAction( checkboxOption, resetImage );
 
 			}
+
+		inputOnChange				= function() {
+
+			var input = $(this);
+			var option = input.closest( '.yith-wapo-option' );
+			var disabled = false;
+
+			// Selection type single or multiple.
+
+			if ( '' !== input.val() && option.hasClass( 'selection-single' ) ) {
+				disabled = true;
+				option.siblings().find( 'input' ).prop( 'disabled', true );
+			}
+
+			option.siblings().find( 'input' ).prop( 'disabled', disabled );
+
+		}
+
+		textareaOnChange				= function() {
+
+			var input = $(this);
+			var option = input.closest( '.yith-wapo-option' );
+			var disabled = false;
+
+			// Selection type single or multiple.
+
+			if ( '' !== input.val() && option.hasClass( 'selection-single' ) ) {
+				disabled = true;
+				option.siblings().find( 'textarea' ).prop( 'disabled', true );
+			}
+
+			option.siblings().find( 'textarea' ).prop( 'disabled', disabled );
+
+		}
 
 		labelsOnChange 				= function() {
 			let reset = false;
@@ -2962,6 +3018,10 @@ jQuery( document ).ready(
 			$( this ).closest( '.yith-wapo-option' ).find( '.yith-proteo-standard-checkbox' ).click();
 		} );
 		$( document ).on( 'change', '.yith-wapo-addon-type-label input', labelsOnChange );
+
+		/** Input text or textarea change */
+		$(document).on('change keyup', '.yith-wapo-addon-type-text input', inputOnChange);
+		$(document).on('change keyup', '.yith-wapo-addon-type-textarea textarea', textareaOnChange);
 
 		/** Color click */
 		$( document ).on('click', '.yith-wapo-addon-type-color .yith-wapo-option div.label', function() {
