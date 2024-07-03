@@ -71,7 +71,7 @@ export default function Edit({ attributes, setAttributes }) {
 							type="image"
 							multiple
 							gallery
-							value={ background_gallery_images }
+							value={ background_gallery_images.map(({id}) => id) }
 							render={ ( { open } ) => (
 								<button onClick={ open }>
 									Open Media Library
@@ -79,10 +79,13 @@ export default function Edit({ attributes, setAttributes }) {
 							) }
 						/>
 					</MediaUploadCheck>
+					<p>helloooo</p>
 					<Gallery
-						background_gallery_images={ background_gallery_images }
+						background_gallery_images={background_gallery_images}
 						gallery_columns={ 1 }
-					/>
+						setAttributes={setAttributes}
+						/>
+						<p>helloooo11</p>
 				{/* <MediaUploadCheck>
   <MediaUpload
     onSelect={(media) => setAttributes({ section_image: media.url })}
@@ -218,16 +221,25 @@ export default function Edit({ attributes, setAttributes }) {
 	);
 }
 // Define your Gallery component
-const Gallery = ( { background_gallery_images } ) => {
-	// Render your gallery based on the images and columns
-	// You can use the images array to loop through and display the selected images
-	return (
-		<div className={ `gallery columns-` }>
-			{ /* Your gallery rendering logic */ }
-			{ background_gallery_images &&
-				background_gallery_images.map( ( image ) => (
-					<img key={ image.id } src={ image.url } alt={ image.alt } />
-				) ) }
-		</div>
-	);
+const Gallery = ( { background_gallery_images, setAttributes } ) => {
+    // Render your gallery based on the images and columns
+    // You can use the images array to loop through and display the selected images
+
+	const deleteImage = (id) => {
+        setAttributes( { background_gallery_images: background_gallery_images.filter( ( image ) => image.id !== id ) } );
+    }
+    return (
+        <div className={ `gallery columns-` }>
+            { /* Your gallery rendering logic */ }
+            { background_gallery_images &&
+                background_gallery_images.map( ( image ) => (
+                    <div>
+                    <button 
+                    onClick={()=>deleteImage(image.id)}
+                    >X</button>
+                    <img key={ image.id } src={ image.url } alt={ image.alt } />
+                    </div>
+                ) ) }
+        </div>
+    );
 };

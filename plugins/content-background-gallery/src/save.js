@@ -34,7 +34,7 @@ export default function save({ attributes }) {
 	return (
 		<div {...blockProps}>
 		<section className={`position-relative ${attributes.section_class}`} style={`padding:50px 0;${attributes.section_style}`} id={attributes.section_id}>
-		<div className="background-carousel owl-carousel owl-theme position-absolute h-100" style={{top:0,left:0}}>
+		<div className="background-carousel owl-carousel owl-theme owl-loaded position-absolute h-100" style={{top:0,left:0}}>
 		{ attributes.background_gallery_images &&
 		attributes.background_gallery_images.map( ( image ) => (
 		<div

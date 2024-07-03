@@ -120,16 +120,19 @@ function Edit({
     type: "image",
     multiple: true,
     gallery: true,
-    value: background_gallery_images,
+    value: background_gallery_images.map(({
+      id
+    }) => id),
     render: ({
       open
     }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
       onClick: open
     }, "Open Media Library")
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Gallery, {
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "helloooo"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Gallery, {
     background_gallery_images: background_gallery_images,
-    gallery_columns: 1
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalInputControl, {
+    gallery_columns: 1,
+    setAttributes: setAttributes
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "helloooo11"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalInputControl, {
     label: "Background Image Class",
     value: background_gallery_images_class,
     onChange: nextValue => setAttributes({
@@ -243,17 +246,26 @@ function Edit({
 }
 // Define your Gallery component
 const Gallery = ({
-  background_gallery_images
+  background_gallery_images,
+  setAttributes
 }) => {
   // Render your gallery based on the images and columns
   // You can use the images array to loop through and display the selected images
+
+  const deleteImage = id => {
+    setAttributes({
+      background_gallery_images: background_gallery_images.filter(image => image.id !== id)
+    });
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `gallery columns-`
-  }, background_gallery_images && background_gallery_images.map(image => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+  }, background_gallery_images && background_gallery_images.map(image => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    onClick: () => deleteImage(image.id)
+  }, "X"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     key: image.id,
     src: image.url,
     alt: image.alt
-  })));
+  }))));
 };
 
 /***/ }),
@@ -371,7 +383,7 @@ function save({
     style: `padding:50px 0;${attributes.section_style}`,
     id: attributes.section_id
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "background-carousel owl-carousel owl-theme position-absolute h-100",
+    className: "background-carousel owl-carousel owl-theme owl-loaded position-absolute h-100",
     style: {
       top: 0,
       left: 0
