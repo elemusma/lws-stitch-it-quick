@@ -101,7 +101,7 @@ echo '</div>';
 
 echo '</div>';
 
-echo '<div class="col-lg-3 col-md-8 col-9 desktop-hidden order-3 d-flex align-items-center justify-content-end">';
+echo '<div class="col-lg-3 col-md-8 col-9 desktop-hidden order-3">';
 
 echo '<div class="d-flex justify-content-end align-items-center">';
 echo '<a class="position-relative openModalBtn nav-toggle text-center" style="padding:0px 9px;width:45px;" id="search-icon" data-modal-id="searchMenu" title="search menu toggle">';
@@ -113,6 +113,8 @@ wp_nav_menu(array(
     'menu_class'=>'menu list-unstyled mb-0 d-flex justify-content-end m-0'
 ));
 
+echo '</div>';
+
 
 echo '<div>';
 echo '<a id="mobileMenuToggle" class="openModalBtn nav-toggle" data-modal-id="mobileMenu" title="mobile menu nav toggle">';
@@ -122,9 +124,6 @@ echo '<div class="line-2 bg-accent-secondary"></div>';
 echo '<div class="line-3 bg-accent-secondary"></div>';
 echo '</div>';
 echo '</a>';
-echo '</div>';
-
-
 echo '</div>';
 
 // echo '<div class="text-right" style="">';

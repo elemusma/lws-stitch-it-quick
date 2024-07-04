@@ -103,6 +103,7 @@ wp_nav_menu(array(
     'menu_class'=>'menu list-unstyled mb-0 d-flex m-0'
 ));
 
+echo get_template_part('partials/si');
 
 echo '</div>';
 echo '</div>';

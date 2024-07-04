@@ -18,6 +18,14 @@ if(is_page(8)){
     wp_enqueue_style('cart-css', get_theme_file_uri('/css/sections/cart.css'));
 }
 
+if(is_page(9)){
+    wp_enqueue_style('checkout-css', get_theme_file_uri('/css/sections/checkout.css'));
+}
+
+if (is_product()) {
+	wp_enqueue_style('products-single-css', get_theme_file_uri('/css/sections/products-single.css'));
+}
+
 
 if(is_single() || is_page_template('templates/blog.php') || is_archive() || is_category() || is_tag() || is_404() ) {
 wp_enqueue_style('blog', get_theme_file_uri('/css/sections/blog.css'));
@@ -131,6 +139,7 @@ include_once('lws-includes/shortcode-spacer.php');
 // include_once('woocommerce/mods-checkout.php');
 include_once('woocommerce/mods-payment-methods.php');
 include_once('woocommerce/mods-main-content.php');
+include_once('woocommerce/wc-custom-tier-pricing-table.php');
 // include_once('woocommerce/mods-single-product.php');
 // include_once('woocommerce/woocommerce-before-shop-loop-item.php'); // this causes the zoom feature on product page to not work
 // include_once('woocommerce/mods-upload-file.php');

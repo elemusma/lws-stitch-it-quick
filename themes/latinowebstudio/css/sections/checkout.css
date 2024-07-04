@@ -26,3 +26,12 @@ label[for="payment_method_first_data_clover_credit_card"] {
 input.wc-block-components-radio-control__input {
     padding: 0px !important;
 }
+
+button.wc-block-components-checkout-place-order-button {
+    background: none;
+    border: none;
+}
+
+button.wc-block-components-checkout-place-order-button span {
+    cursor: pointer;
+}
