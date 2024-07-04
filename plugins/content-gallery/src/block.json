@@ -109,6 +109,10 @@
 		"gallery_columns": {
 			"type": "string",
 			"default": "3"
+		},
+		"gallery_images_lightbox": {
+			"type": "string",
+			"default": "gallery-lightbox"
 		}
 	},
 	"textdomain": "content-gallery",

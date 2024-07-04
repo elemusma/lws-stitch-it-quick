@@ -71,6 +71,7 @@ export default function save( { attributes } ) {
 								attributes.gallery_images.map( ( image ) => (
 							<div
 							className={ `gallery col-lg-${ attributes.gallery_columns }` }>
+								<a href={ image.url } data-lightbox={attributes.gallery_images_lightbox}>
 									<img
 										key={ image.id }
 										src={ image.url }
@@ -78,6 +79,7 @@ export default function save( { attributes } ) {
 										style={`width:100%;height:250px;object-fit:cover;${ attributes.image_style }`}
 										className={attributes.image_class}
 									/>
+									</a>
 									</div>
 								) ) }
 						

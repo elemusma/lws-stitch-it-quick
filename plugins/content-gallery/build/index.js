@@ -86,7 +86,8 @@ function Edit({
     image_class,
     image_id,
     gallery_images,
-    gallery_columns
+    gallery_columns,
+    gallery_images_lightbox
   } = attributes;
   const [value, setValue] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)('');
   const onSelectImages = newImages => {
@@ -295,6 +296,12 @@ function Edit({
     onChange: nextValue => setAttributes({
       image_id: nextValue
     })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalInputControl, {
+    label: "Image Lightbox",
+    value: gallery_images_lightbox,
+    onChange: nextValue => setAttributes({
+      gallery_images_lightbox: nextValue
+    })
   }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("section", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
@@ -476,13 +483,16 @@ function save({
     "data-aos": "fade-up"
   }, attributes.gallery_images && attributes.gallery_images.map(image => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: `gallery col-lg-${attributes.gallery_columns}`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: image.url,
+    "data-lightbox": attributes.gallery_images_lightbox
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     key: image.id,
     src: image.url,
     alt: image.alt,
     style: `width:100%;height:250px;object-fit:cover;${attributes.image_style}`,
     className: attributes.image_class
-  }))))))));
+  })))))))));
 }
 
 // // Define your Gallery component
@@ -592,7 +602,7 @@ module.exports = window["wp"]["i18n"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/content-gallery","version":"0.1.0","title":"Content Gallery","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"section_style":{"type":"string","default":""},"section_class":{"type":"string","default":""},"section_id":{"type":"string","default":""},"section_image":{"type":"string","default":null},"section_image_class":{"type":"string"},"section_image_style":{"type":"string"},"section_block":{"type":"string","default":""},"container_style":{"type":"string","default":""},"container_class":{"type":"string","default":"container"},"container_id":{"type":"string","default":""},"row_style":{"type":"string","default":""},"row_class":{"type":"string","default":"row justify-content-center"},"row_id":{"type":"string","default":""},"col_style":{"type":"string","default":""},"col_class":{"type":"string","default":"col-lg-6"},"col_id":{"type":"string","default":""},"col_image":{"type":"string","default":""},"col_image_style":{"type":"string","default":""},"col_image_class":{"type":"string","default":"col-lg-6"},"col_image_id":{"type":"string","default":""},"image_style":{"type":"string","default":""},"image_class":{"type":"string","default":""},"image_id":{"type":"string","default":""},"gallery_images":{"type":"array","default":[]},"gallery_columns":{"type":"string","default":"3"}},"textdomain":"content-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/content-gallery","version":"0.1.0","title":"Content Gallery","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"section_style":{"type":"string","default":""},"section_class":{"type":"string","default":""},"section_id":{"type":"string","default":""},"section_image":{"type":"string","default":null},"section_image_class":{"type":"string"},"section_image_style":{"type":"string"},"section_block":{"type":"string","default":""},"container_style":{"type":"string","default":""},"container_class":{"type":"string","default":"container"},"container_id":{"type":"string","default":""},"row_style":{"type":"string","default":""},"row_class":{"type":"string","default":"row justify-content-center"},"row_id":{"type":"string","default":""},"col_style":{"type":"string","default":""},"col_class":{"type":"string","default":"col-lg-6"},"col_id":{"type":"string","default":""},"col_image":{"type":"string","default":""},"col_image_style":{"type":"string","default":""},"col_image_class":{"type":"string","default":"col-lg-6"},"col_image_id":{"type":"string","default":""},"image_style":{"type":"string","default":""},"image_class":{"type":"string","default":""},"image_id":{"type":"string","default":""},"gallery_images":{"type":"array","default":[]},"gallery_columns":{"type":"string","default":"3"},"gallery_images_lightbox":{"type":"string","default":"gallery-lightbox"}},"textdomain":"content-gallery","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

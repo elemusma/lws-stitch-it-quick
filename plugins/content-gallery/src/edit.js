@@ -69,6 +69,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		image_id,
 		gallery_images,
 		gallery_columns,
+		gallery_images_lightbox
 	} = attributes;
 
 	const [ value, setValue ] = useState( '' );
@@ -315,6 +316,13 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ image_id }
 						onChange={ ( nextValue ) =>
 							setAttributes( { image_id: nextValue } )
+						}
+					/>
+					<InputControl
+						label="Image Lightbox"
+						value={ gallery_images_lightbox }
+						onChange={ ( nextValue ) =>
+							setAttributes( { gallery_images_lightbox: nextValue } )
 						}
 					/>
 				</PanelBody>

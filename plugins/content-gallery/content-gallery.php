@@ -25,6 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function content_gallery_content_gallery_block_init() {
+	wp_enqueue_style('lightbox-css', get_theme_file_uri('/lightbox/lightbox.min.css'));
 	register_block_type( __DIR__ . '/build' );
+	wp_enqueue_script('lightbox-min-js', get_theme_file_uri('/lightbox/lightbox.min.js'));
+	wp_enqueue_script('lightbox-js', get_theme_file_uri('/lightbox/lightbox.js'));
 }
 add_action( 'init', 'content_gallery_content_gallery_block_init' );
