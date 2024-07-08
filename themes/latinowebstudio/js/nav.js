@@ -9,10 +9,10 @@ let blankSpace = document.querySelector('.blank-space');
 let logoMain = document.querySelector('#logoMain');
 let logoSecondary = document.querySelector('#logo-secondary');
 
-let searchIcon = document.querySelector('.search-icon');
+let searchIcon = document.querySelector('[data-modal-id="searchMenu"]');
 
 searchIcon.addEventListener('click', function () {
-    document.querySelector('.search-icon #s').focus();
+    document.querySelector('#searchMenu #s').focus();
 });
 
 window.addEventListener("scroll", parallaxEffect);

@@ -5,6 +5,7 @@
   --light: #f9f9f9;
   --light-secondary: #e8edec;
   --text-shadow: 1px 1px 3px black;
+  --transition: all .25s ease-in-out;
 }
 
 html {

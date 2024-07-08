@@ -38,6 +38,10 @@ header.position-fixed.scroll{
 	animation: navSmoothTransition .5s linear;
 }
 
+.login-logout:hover svg {
+    fill:var(--accent-secondary) !important;
+}
+
 .txt-logo {
 animation: rotate-infinite 35s linear infinite; /* Adjust the duration as needed */
 transform-origin:center;

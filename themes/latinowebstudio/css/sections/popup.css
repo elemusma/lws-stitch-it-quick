@@ -49,11 +49,12 @@ height: 80%;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  transition: var(--transition);
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--accent-secondary);
   text-decoration: none;
   cursor: pointer;
 }
@@ -61,6 +62,10 @@ height: 80%;
 .modal.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.openModalBtn {
+  cursor: pointer;
 }
 
 /* .open-modal {

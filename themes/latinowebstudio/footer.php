@@ -86,7 +86,7 @@ echo '<span class="close" id="navMenuClose">&times;</span>';
 // echo do_shortcode('[spacer style="height:25px;"]');
 
 echo '<div style="width:100%;max-width:105px;">';
-echo '<a href="' . home_url() . '" title="Discovery Engineering">';
+echo '<a href="' . home_url() . '" title="Stitch It Quick">';
 // echo wp_get_attachment_image(logoImg()['id'],'full','',[
 //     'class'=>'w-100 h-auto',
 // ]);
@@ -112,8 +112,10 @@ echo '</div>';
 // search menu modal
 echo '<div id="searchMenu" class="modal" style="background:rgba(0,0,0,.8);">';
 //   <!-- Modal content -->
-echo '<div class="modal-content" style="background:transparent;border:none;">';
-echo '<span class="close" id="navMenuClose">&times;</span>';
+echo '<div class="modal-content text-right" style="background:transparent;border:none;box-shadow:none !important;">';
+// echo '<div class="text-right">';
+echo '<span class="close" style="float:none;" id="navMenuClose">&times;</span>';
+// echo '</div>';
 
 echo get_search_form();
 

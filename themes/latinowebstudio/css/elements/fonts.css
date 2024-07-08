@@ -1,10 +1,13 @@
 .text-white *,
 .text-white {
   color: white;
+  transition: var(--transition);
 }
 
-.text-white a:hover {
-  color: white;
+.text-white a:hover,
+a.text-white:hover
+{
+  color: var(--accent-secondary);
 }
 
 .text-accent,
