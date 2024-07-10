@@ -1,0 +1,37 @@
+2024-07-09T21:40:43+00:00 DEBUG #--- Last one year Orders for Successful Shipments ---#
+
+2024-07-09T21:40:43+00:00 DEBUG Array
+(
+)
+
+
+2024-07-09T21:54:35+00:00 DEBUG ------------------------------- PH UPS License Activation Details -------------------------------
+
+2024-07-09T21:54:35+00:00 DEBUG Array
+(
+    [api_key] => a1b6d5283b08fed0b31e214a1adab2cc5020f5b1
+    [previousLicenseKey] => 
+)
+
+
+2024-07-09T21:54:35+00:00 DEBUG Array
+(
+    [message] => 0 out of 1 activations remaining
+    [activated] => 1
+    [success] => 1
+    [data] => Array
+        (
+            [unlimited_activations] => 
+            [total_activations_purchased] => 1
+            [total_activations] => 1
+            [activations_remaining] => 0
+            [master_api_key] => f7ac9289c251b46b1c44a85075600c2a4ec971a3
+            [product_order_api_key] => a1b6d5283b08fed0b31e214a1adab2cc5020f5b1
+            [access_granted] => 1720559954
+            [access_expires] => 1752095954
+        )
+
+    [api_call_execution_time] => 0.671445 seconds
+)
+
+

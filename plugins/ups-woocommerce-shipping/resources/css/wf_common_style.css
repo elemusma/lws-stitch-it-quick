@@ -1,0 +1,531 @@
+/*Style for tooltip*/
+.xa-tooltip {
+	position: relative;
+}
+
+.xa-tooltip .xa-tooltiptext {
+	visibility: hidden;
+	width: 150px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.xa-tooltip:hover .xa-tooltiptext {
+	visibility: visible;
+}
+
+/* Menu Icon */
+#toplevel_page_ph_ups_registration .wp-menu-image img {
+    width: 18px;
+}
+
+.wf_settings_heading_tab{
+	cursor: pointer;
+}
+.wf_settings_heading_tab::after{
+	content: '\25B6';
+	
+}
+.wf_settings_heading_tab_click::after{
+	content: '\25BC' !important;
+	
+}
+
+/* Services and Box Table */
+.ups_boxes td,
+.ups_services td {
+	vertical-align: middle;
+	padding: 4px 7px;
+}
+
+.ups_boxes th,
+.ups_services th {
+	padding: 9px 7px;
+}
+
+.ups_boxes td input {
+	margin-right: 4px;
+}
+
+.ups_boxes .check-column {
+	vertical-align: middle;
+	text-align: left;
+	padding: 0 7px;
+}
+
+.ups_services th.sort {
+	width: 16px;
+	padding: 0 16px;
+}
+
+.ups_services td.sort {
+	cursor: move;
+	width: 16px;
+	padding: 0 16px;
+	cursor: move;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAHUlEQVQYV2O8f//+fwY8gJGgAny6QXKETRgEVgAAXxAVsa5Xr3QAAAAASUVORK5CYII=) no-repeat center;
+}
+
+#upsCheckAll {
+	float: left;
+	margin-top: 3px;
+}
+
+.enabled-label {
+	margin-left: 30px;
+	padding-top: 3px;
+}
+
+/* Help and Support */
+.ph_ups_important_links {
+	margin-left: 45px !important;
+	list-style-type: square !important;
+}
+
+.ph_ups_important_links li {
+	margin-bottom: 10px !important;
+}
+
+.ph_ups_submit_ticket {
+	background: #1e3368 !important;
+	border-color: #1e3368 !important;
+	color: white !important;
+}
+
+.ph_ups_submit_ticket:hover {
+	background: #15254f !important;
+	border-color: #15254f !important;
+	color: white !important;
+}
+
+.required_field {
+	border: 1px solid red !important;
+}
+
+.ph_ups_help_table {
+	margin-top: 15px !important;
+}
+.ph_ups_help_table tr td {
+	padding: 0px !important;
+}
+
+.ph_ups_ticket_number_error {
+	color: red;
+	font-size: small;
+	padding: 10px !important;
+	vertical-align: sub;
+	display: none;
+}
+
+.ph_ups_consent_error {
+	color: red;
+	font-size: small;
+	vertical-align: sub;
+	display: none;
+}
+
+/* Package and shipment details table*/
+table.wf-shipment-package-table{
+	margin: 0;
+	margin-bottom: 3px;
+	width: 100%;
+	border: 1px solid #000;
+	border-spacing: 0;
+	background-color: #f9f9f9;
+	overflow: scroll;
+}
+
+table.wf-shipment-package-table th{
+	font-size: 12px;
+	border-bottom: 1px solid;
+	text-align:left;
+	padding: 7px 0 7px 10px;
+}
+
+table.wf-shipment-package-table td{
+	background-color: #FFFFFF;
+	padding: 7px 0 7px 10px;
+}
+
+table.ph-ups-order-edit-options-table{
+	margin: 0;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-spacing: 0;
+	background-color: #f9f9f9;
+}
+
+table.ph-ups-order-edit-options-table th{
+	font-size: 12px;
+	border-bottom: 1px solid;
+	text-align:center;
+	padding: 0 0 0 2px;
+}
+
+table.ph-ups-order-edit-options-table td{
+	background-color: #FFFFFF;
+	padding: 10px;
+	border: .1px solid #ddd;
+	border-collapse: collapse;
+	width:20%;
+}
+
+.wf-action-button, .ups_generate_packages, .wf_ups_generate_packages_rates, .ups_create_shipment{
+	display: inline-block;
+	background: #eeeeee; /* Old browsers */
+	background: -moz-linear-gradient(top, #eeeeee 0%, #eeeeee 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#eeeeee)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* IE10+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+	background: linear-gradient(top, #eeeeee 0%,#eeeeee 100%); /* W3C */
+	border: 1px solid #a1a1a1;
+	padding: 0 2em !important;
+	margin: 1em 0 !important;
+	font: bold 1em/2em Arial, Helvetica;
+	text-decoration: none;
+	color: #333;
+	border-radius: 0.2em;
+	cursor: pointer;
+}
+
+.wf-add-button:before { 
+	content: "\271A";
+}
+
+/* order listing page action buttons */
+.wf-print-label{
+	position: relative;
+	text-indent: -9999px;
+	height: 2em !important;
+    padding: 0 !important;
+	width: 2em;
+}
+.wf-print-label::after{
+	/* content: "\274F"; */
+	text-indent: 0px;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+}
+
+.wf-print-label-on-order-list-image{
+	width: 16px !important;
+	margin: 4px !important;
+}
+
+
+.ph_ups_variation_class_text, .ph_ups_variation_class_select
+{
+	width: 50% !important;
+	display: block;
+}
+
+.ph_ups_other_details
+{
+	font-size: 15px !important;
+	margin: 0px 10px 10px 10px !important;
+	padding: 0px !important;
+	font-weight: bold !important;
+	cursor: pointer !important;
+}
+
+.ph_ups_var_other_details
+{
+	font-size: 15px !important;
+	padding: 5px 0px !important;
+	margin: 0px !important;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.ups_toggle_symbol, .ups_var_toggle_symbol
+{
+	float: right;
+}
+
+.ups_toggle_symbol::after,
+.ups_var_toggle_symbol::after
+{
+	content: '\25B6';
+	
+}
+
+.ups_toggle_symbol_click::after,
+.ups_var_toggle_symbol_click::after
+{
+	content: '\25BC' !important;
+	
+}
+
+.ph_ups_hide_show_var_product_fields{
+	display: none;
+}
+
+.ph-ups-doc-upload-container {
+	max-width: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 5px;
+}
+
+#ph-loading-spinner {
+    height: 3em;
+    width: 3em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -.5em;
+    margin-top: -.5em;
+    display: block;
+    content: "";
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+    background-size: cover;
+    line-height: 1;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* UPS Registration Page */
+.ph_ups_registration .notice {
+	display: none;
+}
+
+.ph_ups_registration .ph_ups_registration_header {
+	display: block;
+	text-align: center;
+}
+
+.ph_ups_registration .ph_ups_registration_header .ph_logo {
+	width: 250px;
+	height: 50px;
+}
+
+.ph_ups_registration .ph_ups_registration_consent, .phUPSAccountMigration {
+	
+	background: white;
+	text-align: center;
+	padding: 15px 20px;
+	width: 80%;
+	margin: auto;
+}
+
+.ph_ups_registration_consent .ph_ups_registration_consent_data {
+
+	border: 1px solid black !important;
+	padding: 15px !important;
+	text-align: left;
+}
+
+.ph_ups_registration_consent_data span::before {
+
+	content: ' \27A5';
+	font-size: x-large;
+	vertical-align: sub;
+	float: left;
+	margin-right: 5px !important;
+}
+
+.ph_ups_registration_consent .ph_ups_registration_agreement_check {
+
+	display: block;
+	text-align: left;
+}
+
+.ph_ups_registration_agreement_check #ph_ups_registration_agreement {
+
+	vertical-align: sub;
+}
+
+#ph_ups_registration_consent_form, #ph_ups_account_migration_form, .phReRegistration button {
+
+	padding: 7px;
+	cursor: pointer;
+	color: white;
+	background-color: #009cbf;
+}
+
+.phRegistrationSuceess, .phReRegistration {
+	
+	text-align: left;
+	background: white;
+	padding: 15px 20px;
+	width: 80%;
+	margin: auto;
+}
+
+.phRegistrationSuceess p::before {
+
+	content: ' \2714';
+	font-size: x-large;
+	vertical-align: sub;
+}
+
+.phRegistrationSuceess span::before {
+
+	content: ' \2758';
+	font-size: medium;
+}
+
+.ph-ups-reg-info {
+	padding: 1rem 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid #d8d8d8;;
+	border-radius: .5rem;
+	padding: .8rem 1rem;;
+	background-color: #fff;
+}
+
+/* Settings Banner */
+.ph_registration_banner{
+
+	margin: 5px 0px;
+	z-index: 1;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.ph_ups_box_1
+{
+	float: left;
+	width: 31%;
+	text-align: center;
+	padding: 0px 5px;
+}
+
+.ph_ups_box_1 img {
+	margin-top: 10px;
+	width: 30%;
+}
+
+.ph_ups_box_2 {
+	
+	text-align: -webkit-auto;
+	margin-bottom: 10px;
+}
+
+#ph_ups_close_banner {
+
+	float:right;
+	padding:5px 5px;
+	background:#ccc;
+	box-shadow: none;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	z-index: 1;
+}
+
+.ph_api_key_activation_steps {
+
+	list-style: disc !important;
+	margin-left: 30px;
+}
+
+/* Label Migration Banner - 5.0.0 - Start */
+.ph-ups-notice-banner {
+	background-color: #e2f0d9;
+	color: #000000;
+	padding: 15px !important;
+	padding-top: 0 !important;
+	margin-bottom: 20px !important;
+	border: 1px solid #9cdb89;
+	border-radius: 5px;
+}
+
+.ph-ups-close-notice, .ph-ups-contact-us {
+	background-color: #4caf50;
+	color: #ffffff;
+	border: none;
+	padding: 8px 10px;
+	border-radius: 3px;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-right: 2px;
+}
+
+.ph-ups-close-notice:hover, .ph-ups-contact-us:hover {
+	background-color: #388e3c;
+}
+
+.ph-ups-view-progress {
+
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.ph-ups-view-symbol::after {
+	content: ' \25BA';
+}
+
+.ph-ups-view-symbol-toggle::after {
+	content: ' \25BC';
+}
+
+.ph-ups-contact-us a {
+
+	text-decoration: none;
+	color: #ffffff;
+}
+/* Label Migration Banner - 5.0.0 - End */
+
+.ph_ups_legacy_tab{
+	cursor: pointer;
+}
+.ph_ups_legacy_tab::after{
+	content: '\25B6';
+	
+}
+.ph_ups_legacy_tab_click::after{
+	content: '\25BC' !important;
+	
+}
+
+/* API Expiration Notice */
+#ph-ups-api-key-expire-notice{
+	padding: 0px 12px;
+}
+
+.ph-ups-api-notice-logo {
+	width: 10%; 
+	float: left;
+}
+.ph-ups-api-notice-logo img{
+	width: 90%; 
+	padding: 8% 0% 8% 0%;
+}
+
+.ph-ups-api-key-notice-close-form {
+	width: 1%; 
+	float: right; 
+	text-align: right;
+}
+
+#ph-ups-api-key-expire-close-notice {
+	background: none;
+	font-size: 20px;
+	cursor: pointer; 
+	border: none;
+}
+
+#ph-ups-api-key-expire-close-notice:hover {
+	background-color:#f0f0f1;
+}
+
+.ph-ups-api-key-expire-notice-details {
+	width: 89%; 
+	float: right;
+}
