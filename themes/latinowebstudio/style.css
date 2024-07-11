@@ -8,6 +8,16 @@ Version: 1.0
 
 */
 
+:root {
+    --accent-primary: #162764;
+    --accent-secondary: #FDB717;
+    --accent-secondary-hover: #CA8E02;
+    --light: #f9f9f9;
+    --light-secondary: #e8edec;
+    --text-shadow: 1px 1px 3px black;
+    --transition: all .25s ease-in-out;
+  }
+
 @media only screen and (min-width:992px) {
 .admin-bar header.position-fixed {
     margin-top: 32px;

@@ -25,7 +25,7 @@ function mobile() {
 
 
 function product_tier_pricing_table() {
-
+echo '<div style="padding-bottom:15px;">';
 echo '<b>Bulk Discount Pricing</b>';
 echo '<div class="table-wrapper">';
 echo '<table class="fl-table">';
@@ -48,6 +48,7 @@ echo '<td>20%</td>';
 echo '</tr>';
 echo '</tbody>';
 echo '</table>';
+echo '</div>';
 echo '</div>';
 
 }

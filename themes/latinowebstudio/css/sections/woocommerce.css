@@ -55,6 +55,13 @@ tr.ppom-option-price-list.ppom-total-without-fixed th.ppom-label-item:after {
 } */
 /* end of product page */
 
+/* start of category */
+a.button.product_type_variable.add_to_cart_button:hover {
+    background: var(--accent-secondary-hover);
+    border-color:var(--accent-secondary-hover);
+}
+/* end of category */
+
 /* woocommerce shortcodes */
 a.wp-block-button__link.wp-element-button.add_to_cart_button,
 button.wp-block-button__link.wp-element-button.add_to_cart_button,
